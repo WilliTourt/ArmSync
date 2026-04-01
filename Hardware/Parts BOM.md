@@ -18,18 +18,17 @@
 
 ## 2. Gearboxes (J1-J6)
 
-Using Pufeide Electric Planetary Gearboxes
+Using PFDE (Pufeide Electric) Planetary Gearboxes
 
 | Joint | Model | Specs | Gear Ratio | Flange Type | Price (RMB) |
 |------|------|------|--------|----------|------------|
-| J1 | PRF57-L2-20-P2 | 57 Frame, 2-Stage | 20:1 | Square Flange | 121 |
-| J2 | PRF42-L2-30-P2 | 42 Frame, 2-Stage | 30:1 | Square Flange | 104 |
-| J3 | PRF42-L1-10-P2 | 42 Frame, 1-Stage | 10:1 | Round Flange | 74 |
-| J4 | PRF42-L1-10-P2 | 42 Frame, 1-Stage | 10:1 | Round Flange | 74 |
-| J5 | PRF42-L1-10-P2 or PRF42-L1-5-P2 | 42 Frame, 1-Stage | 10:1 or 5:1 | Round Flange | 74 |
-| J6 | - | - | - | - | - |
-
-> **Note:** J6 wrist roll joint does not use a gearbox (direct drive or alternative transmission)
+| J1 | PRF57-L2-20-P2 | 57 Frame 2-Stage | 20:1 | Round Flange | 121 |
+| J2 | PRF42-L2-30-P2 | 42 Frame 2-Stage | 30:1 | Square Flange | 104 |
+| J3 | PRF42-L1-10-P2 | 42 Frame 1-Stage | 10:1 | Round Flange | 74 |
+| J4 | PRF42-L1-10-P2 | 42 Frame 1-Stage | 10:1 | Round Flange | 74 |
+| J5 | - | - | - | - | - |
+| J6 | PRF42-L1-10-P2 or PRF42-L1-5-P2 | 42 Frame 1-Stage | 10:1 or 5:1 | Round Flange | 74 |
+| J7 | - | - | - | - | - |
 
 **Subtotal: 447 RMB**
 
@@ -59,7 +58,7 @@ Using Pufeide Electric Planetary Gearboxes
 | Z21 8×18×11 | 4 | 14 | 56 | J2/J3/J4/J5 |
 | Z21 14×26×17 | 1 | 13 | 13 | J1 |
 
-> **Alternative:** J2-J5 can use 2×bushings + 2×diaphragm couplings combination
+> **Alternative:** J2/J5 can use 2×bushings + 2×diaphragm couplings combination. Honestly, using couplings is less prone to shaft slippage issues.
 
 ### 4.2 Couplings
 
@@ -79,6 +78,8 @@ Using Pufeide Electric Planetary Gearboxes
 ---
 
 ## 5. Screw List
+
+Screws marked with "+" indicate the actual length can be longer than this value
 
 ### 5.1 J7 End Gripper
 
@@ -141,7 +142,7 @@ Using Pufeide Electric Planetary Gearboxes
 
 | Material | Specs | Qty | Notes |
 |------|------|------|------|
-| Aluminum Extrusion | 6060 × 600mm | 1 | Base support |
+| Aluminum Extrusion | 6060 × 650mm | 1 | Base support |
 
 ---
 
@@ -149,8 +150,8 @@ Using Pufeide Electric Planetary Gearboxes
 
 | Name | Unit Price (RMB) | Qty | Subtotal (RMB) | Notes |
 |------|------------|------|------------|------|
-| CAN Transceiver Module | 3 | Several | - | For debugging |
-| CAN Analyzer (ZDT) | 50 | 1 | 50 | Bus analysis |
+| CAN Transceiver Module | 3 | Several | - | - |
+| CAN Analyzer (ZDT) | 50 | 1 | 50 | Bus analysis and debugging |
 
 **Subtotal: 53 RMB**
 
@@ -165,15 +166,6 @@ Using Pufeide Electric Planetary Gearboxes
 | Timing Belts/Pulleys | 30 |
 | Fasteners/Drive Components | 125 |
 | Development Tools | 53 |
-| **Total** | **~1,232 RMB** |
+| **Total** | **1,232 RMB** |
 
-> **Note:** Screws, aluminum extrusion, and other standard parts pricing not included. Actual cost may vary.
-
----
-
-## Purchasing Recommendations
-
-1. **Motors:** Zhangdatou closed-loop stepper motors, CAN version for multi-axis control
-2. **Gearboxes:** Pufeide Electric planetary gearboxes, P2 precision grade
-3. **Locking Bushings:** Z21 series are standard parts, available on multiple platforms
-4. **Screws:** Recommended to purchase 1.5× the listed quantity to account for loss/damage
+> **Note:** Screws, aluminum extrusion, shipping costs and other standard parts not included. Actual cost approximately 1,400 RMB.

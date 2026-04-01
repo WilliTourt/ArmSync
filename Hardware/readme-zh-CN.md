@@ -45,7 +45,7 @@ Hardware/
 
 ### 1. 查看设计
 
-查看 [3D Files](./3D%20Files/) 目录获取完整机械设计：
+查看 [3D Files](./3D%20Files/) 目录获取完整机械设计文件：
 - **SolidWorks 2026/**: 原始可编辑源文件
 - **STEP and STL/**: 通用格式，用于查看和打印
 - **3MF for printing/**: 预配置的 Bambu Studio 项目文件
@@ -62,7 +62,7 @@ Hardware/
 
 **推荐打印参数：**
 - 材料：PLA Basic 或更好
-- 层高：0.2mm
+- 层高：0.18mm
 - 填充率：35-60%（结构件）、20%（外观件）
 - 支撑：按需添加
 
