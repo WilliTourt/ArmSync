@@ -1,0 +1,2070 @@
+Dependencies for Project 'arm_ctrl', Target 'Target_1': (DO NOT MODIFY !)
+CompilerVersion: 6160000::V6.16::ARMCLANG
+F (.\src\hal_entry.cpp)(0x69C132DA)(-xc++ -std=c++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fno-exceptions-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/hal_entry.o -MD)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdint.h)(0x602A3B7A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__config)(0x603507B6)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stddef.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__nullptr)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdbool.h)(0x602A3B6C)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\string.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cmath)(0x6950C64F)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\math.h)(0x603507D2)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x603507C8)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\type_traits)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cstddef)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\version)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\limits)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x602A3B70)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\cpp_main\cpp_main.h)(0x69C132E4)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdio.h)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdio.h)(0x6950F061)
+F (.\src\hal_warmstart.c)(0x693C41A8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/hal_warmstart.o -MD)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+F (.\src\UserCode\cpp_main\cpp_main.cpp)(0x69C6D6A6)(-xc++ -std=c++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fno-exceptions-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/cpp_main.o -MD)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\cpp_main\cpp_main.h)(0x69C132E4)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdint.h)(0x602A3B7A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__config)(0x603507B6)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stddef.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__nullptr)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdbool.h)(0x602A3B6C)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\string.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cmath)(0x6950C64F)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\math.h)(0x603507D2)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x603507C8)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\type_traits)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cstddef)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\version)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\limits)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x602A3B70)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdio.h)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdio.h)(0x6950F061)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\ICM42688\ICM42688.h)(0x69579893)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\ICM42688\ICM42688_reg.h)(0x693A433F)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\QMC5883P\qmc5883p.h)(0x69C2A072)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\ICM42688\ESKF.h)(0x69C6BD18)
+F (.\src\UserCode\cpp_main\cpp_main.h)(0x69C132E4)()
+F (.\src\UserCode\ICM42688\ESKF.c)(0x69C39EEE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/eskf.o -MD)
+I (src\UserCode\ICM42688\ESKF.h)(0x69C6BD18)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (src\UserCode\cpp_main\cpp_main.h)(0x69C132E4)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdio.h)(0x6950F061)
+F (.\src\UserCode\ICM42688\ESKF.h)(0x69C6BD18)()
+F (.\src\UserCode\ICM42688\ICM42688.cpp)(0x69C0FA12)(-xc++ -std=c++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fno-exceptions-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/icm42688.o -MD)
+I (src\UserCode\ICM42688\ICM42688.h)(0x69579893)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\cpp_main\cpp_main.h)(0x69C132E4)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdint.h)(0x602A3B7A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__config)(0x603507B6)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stddef.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__nullptr)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdbool.h)(0x602A3B6C)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\string.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cmath)(0x6950C64F)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\math.h)(0x603507D2)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x603507C8)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\type_traits)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cstddef)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\version)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\limits)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x602A3B70)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdio.h)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdio.h)(0x6950F061)
+I (E:\Renesas\projects\arm_ctrl\src\UserCode\ICM42688\ICM42688_reg.h)(0x693A433F)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cstdint)(0x602A3B78)
+F (.\src\UserCode\ICM42688\ICM42688.h)(0x69579893)()
+F (.\src\UserCode\ICM42688\ICM42688_reg.h)(0x693A433F)()
+F (.\src\UserCode\QMC5883P\qmc5883p.cpp)(0x69C10BDF)(-xc++ -std=c++14 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fno-exceptions-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/qmc5883p.o -MD)
+I (src\UserCode\QMC5883P\qmc5883p.h)(0x69C2A072)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdint.h)(0x602A3B7A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__config)(0x603507B6)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stddef.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__nullptr)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdbool.h)(0x602A3B6C)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\string.h)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cmath)(0x6950C64F)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\math.h)(0x603507D2)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x603507C8)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\type_traits)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\cstddef)(0x602A3B6E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\version)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\limits)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x602A3B70)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (src\UserCode\cpp_main\cpp_main.h)(0x69C132E4)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+I (D:\MDK5.34\ARM\ARMCLANG\include\libcxx\stdio.h)(0x602A3B74)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdio.h)(0x6950F061)
+F (.\src\UserCode\QMC5883P\qmc5883p.h)(0x69C2A072)()
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\cmsis\Device\RENESAS\Source\startup.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/startup.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\cmsis\Device\RENESAS\Source\system.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/system.o -MD)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\rt_misc.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_clocks.c)(0x69C258EC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_clocks.o -MD)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_common.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_common.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_delay.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_delay.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_group_irq.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_group_irq.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_guard.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_guard.o -MD)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_guard.h)(0x693C418E)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_io.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_io.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_ipc.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_ipc.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_irq.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_irq.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_macl.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_macl.o -MD)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_macl.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_ospi_b.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_ospi_b.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_register_protection.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_register_protection.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_sbrk.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_sbrk.o -MD)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_sdram.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_sdram.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_security.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_security.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\ra4m1\bsp_linker.c)(0x693C418E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/bsp_linker.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\r_agt\r_agt.c)(0x693C416A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/r_agt.o -MD)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\r_icu\r_icu.c)(0x693C416A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/r_icu.o -MD)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_icu_cfg.h)(0x69C13388)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\r_iic_master\r_iic_master.c)(0x693C416A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/r_iic_master.o -MD)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\r_ioport\r_ioport.c)(0x693C416A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/r_ioport.o -MD)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\r_sci_uart\r_sci_uart.c)(0x693C416A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/r_sci_uart.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+F (E:\Renesas\projects\arm_ctrl\ra\fsp\src\r_spi\r_spi.c)(0x693C416A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/r_spi.o -MD)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_spi_cfg.h)(0x69C13173)
+F (E:\Renesas\projects\arm_ctrl\ra_gen\common_data.c)(0x69C13388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/common_data.o -MD)
+I (ra_gen\common_data.h)(0x69C13388)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+F (E:\Renesas\projects\arm_ctrl\ra_gen\hal_data.c)(0x69C395DC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/hal_data.o -MD)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+F (E:\Renesas\projects\arm_ctrl\ra_gen\main.c)(0x69C12A41)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/main.o -MD)
+I (ra_gen\hal_data.h)(0x69C14800)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra_gen\common_data.h)(0x69C13388)
+I (ra\fsp\inc\instances\r_icu.h)(0x693C416A)
+I (ra\fsp\inc\api\r_external_irq_api.h)(0x693C416C)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_pin_cfg.h)(0x69C13295)
+I (ra\fsp\inc\instances\r_agt.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_agt_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_timer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_iic_master.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_iic_master_cfg.h)(0x69C13173)
+I (ra\fsp\inc\api\r_i2c_master_api.h)(0x693C416A)
+I (ra\fsp\inc\api\r_transfer_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_spi.h)(0x693C416A)
+I (ra\fsp\inc\api\r_spi_api.h)(0x693C416A)
+I (ra\fsp\inc\instances\r_sci_uart.h)(0x693C416A)
+I (ra\fsp\inc\api\r_uart_api.h)(0x693C416C)
+I (ra_cfg\fsp_cfg\r_sci_uart_cfg.h)(0x69C13173)
+F (E:\Renesas\projects\arm_ctrl\ra_gen\pin_data.c)(0x69C25828)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/pin_data.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)
+I (ra\fsp\inc\instances\r_ioport.h)(0x693C416A)
+I (ra\fsp\inc\api\r_ioport_api.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\r_ioport_cfg.h)(0x69C12A41)
+F (E:\Renesas\projects\arm_ctrl\ra_gen\vector_data.c)(0x69C14800)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char-gdwarf-4 -O0 -fno-function-sections -w -I ./src/UserCode -I ./src/UserCode/cpp_main -I ./src/UserCode/ICM42688 -I ./src/UserCode/QMC5883P @./via/rasc_armclang.via-I./RTE/_Target_1-I./ra/arm/CMSIS_6/CMSIS/Core/Include-I./ra/fsp/inc-I./ra/fsp/inc/api-I./ra/fsp/inc/instances-I./ra_cfg/fsp_cfg-I./ra_cfg/fsp_cfg/bsp-I./ra_gen-IE:/Renesas/projects/arm_ctrl-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o ./objects/vector_data.o -MD)
+I (ra\fsp\inc\api\bsp_api.h)(0x693C416A)
+I (ra\fsp\inc\api\fsp_common_api.h)(0x693C416A)
+I (D:\MDK5.34\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (ra\fsp\inc\fsp_version.h)(0x693C416A)
+I (ra_cfg\fsp_cfg\bsp\bsp_cfg.h)(0x69C258E6)
+I (ra_gen\bsp_clock_cfg.h)(0x69C144B1)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_family_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_pn_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_device_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_override.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_mcu_info.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_elc.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_feature.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\..\..\..\ra\fsp\src\bsp\mcu\ra4m1\bsp_peripheral.h)(0x693C418E)
+I (ra_cfg\fsp_cfg\bsp\bsp_mcu_ofs_cfg.h)(0x69C12A41)
+I (ra_cfg\fsp_cfg\bsp\board_cfg.h)(0x69C12A41)
+I (ra_gen\vector_data.h)(0x69C14800)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_exceptions.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\renesas.h)(0x693C416A)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h)(0x693C3FFA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\arm_acle.h)(0x603507C4)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\R7FA4M1AB.h)(0x693C418E)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\core_cm4.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h)(0x693C3FFA)
+I (ra\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x693C3FFA)
+I (ra\fsp\inc\api\..\..\src\bsp\cmsis\Device\RENESAS\Include\system.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_common.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\MDK5.34\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\MDK5.34\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (ra\fsp\inc\api\..\..\inc\api\fsp_common_api.h)(0x693C416A)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_tfu.h)(0x693C418E)
+I (D:\MDK5.34\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_sdram.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mmf.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ipc.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_ospi_b.h)(0x693C418E)
+I (E:\Renesas\projects\arm_ctrl\bsp_linker_info.h)(0x69C12A41)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_register_protection.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_io.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_group_irq.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_clocks.h)(0x69C14703)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_module_stop.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_security.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\inc\fsp_features.h)(0x693C418E)
+I (ra\fsp\inc\..\..\fsp\src\bsp\mcu\all\bsp_compiler_support.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_delay.h)(0x693C418E)
+I (ra\fsp\inc\api\..\..\src\bsp\mcu\all\bsp_mcu_api.h)(0x693C418E)

@@ -1,0 +1,5 @@
+# generated via file - do not edit
+--entry=Reset_Handler
+--no_startup
+--legacyalign
+--diag_suppress=6319,6314,3912

@@ -1,0 +1,2353 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [.\Objects\handsync_ctrller_keil.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image .\Objects\handsync_ctrller_keil.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Mar 28 14:23:54 2026
+<BR><P>
+<H3>Maximum Stack Usage =        912 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+g_timer_main_callback &rArr; eskf_update &rArr; eskf_get_euler &rArr; __hardfp_atan2f &rArr; __set_errno
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[bc]">bsp_prv_software_delay_loop</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[bc]">bsp_prv_software_delay_loop</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[4]">BusFault_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[8]">DebugMon_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[2]">HardFault_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[3]">MemManage_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[1]">NMI_Handler</a> from bsp_group_irq.o(.text.NMI_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[9]">PendSV_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[37]">R_ADC_Calibrate</a> from r_adc.o(.text.R_ADC_Calibrate) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[39]">R_ADC_CallbackSet</a> from r_adc.o(.text.R_ADC_CallbackSet) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[3a]">R_ADC_Close</a> from r_adc.o(.text.R_ADC_Close) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[3b]">R_ADC_InfoGet</a> from r_adc.o(.text.R_ADC_InfoGet) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[38]">R_ADC_OffsetSet</a> from r_adc.o(.text.R_ADC_OffsetSet) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[2f]">R_ADC_Open</a> from r_adc.o(.text.R_ADC_Open) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[35]">R_ADC_Read</a> from r_adc.o(.text.R_ADC_Read) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[36]">R_ADC_Read32</a> from r_adc.o(.text.R_ADC_Read32) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[30]">R_ADC_ScanCfg</a> from r_adc.o(.text.R_ADC_ScanCfg) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[32]">R_ADC_ScanGroupStart</a> from r_adc.o(.text.R_ADC_ScanGroupStart) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[31]">R_ADC_ScanStart</a> from r_adc.o(.text.R_ADC_ScanStart) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[33]">R_ADC_ScanStop</a> from r_adc.o(.text.R_ADC_ScanStop) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[34]">R_ADC_StatusGet</a> from r_adc.o(.text.R_ADC_StatusGet) referenced from r_adc.o(.rodata.g_adc_on_adc)
+ <LI><a href="#[6c]">R_AGT_CallbackSet</a> from r_agt.o(.text.R_AGT_CallbackSet) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[6d]">R_AGT_Close</a> from r_agt.o(.text.R_AGT_Close) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[69]">R_AGT_CompareMatchSet</a> from r_agt.o(.text.R_AGT_CompareMatchSet) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[66]">R_AGT_Disable</a> from r_agt.o(.text.R_AGT_Disable) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[68]">R_AGT_DutyCycleSet</a> from r_agt.o(.text.R_AGT_DutyCycleSet) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[65]">R_AGT_Enable</a> from r_agt.o(.text.R_AGT_Enable) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[6a]">R_AGT_InfoGet</a> from r_agt.o(.text.R_AGT_InfoGet) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[61]">R_AGT_Open</a> from r_agt.o(.text.R_AGT_Open) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[67]">R_AGT_PeriodSet</a> from r_agt.o(.text.R_AGT_PeriodSet) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[64]">R_AGT_Reset</a> from r_agt.o(.text.R_AGT_Reset) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[62]">R_AGT_Start</a> from r_agt.o(.text.R_AGT_Start) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[6b]">R_AGT_StatusGet</a> from r_agt.o(.text.R_AGT_StatusGet) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[63]">R_AGT_Stop</a> from r_agt.o(.text.R_AGT_Stop) referenced from r_agt.o(.rodata.g_timer_on_agt)
+ <LI><a href="#[79]">R_GPT_CallbackSet</a> from r_gpt.o(.text.R_GPT_CallbackSet) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[7a]">R_GPT_Close</a> from r_gpt.o(.text.R_GPT_Close) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[76]">R_GPT_CompareMatchSet</a> from r_gpt.o(.text.R_GPT_CompareMatchSet) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[73]">R_GPT_Disable</a> from r_gpt.o(.text.R_GPT_Disable) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[75]">R_GPT_DutyCycleSet</a> from r_gpt.o(.text.R_GPT_DutyCycleSet) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[72]">R_GPT_Enable</a> from r_gpt.o(.text.R_GPT_Enable) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[77]">R_GPT_InfoGet</a> from r_gpt.o(.text.R_GPT_InfoGet) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[6e]">R_GPT_Open</a> from r_gpt.o(.text.R_GPT_Open) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[74]">R_GPT_PeriodSet</a> from r_gpt.o(.text.R_GPT_PeriodSet) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[71]">R_GPT_Reset</a> from r_gpt.o(.text.R_GPT_Reset) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[6f]">R_GPT_Start</a> from r_gpt.o(.text.R_GPT_Start) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[78]">R_GPT_StatusGet</a> from r_gpt.o(.text.R_GPT_StatusGet) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[70]">R_GPT_Stop</a> from r_gpt.o(.text.R_GPT_Stop) referenced from r_gpt.o(.rodata.g_timer_on_gpt)
+ <LI><a href="#[40]">R_ICU_ExternalIrqCallbackSet</a> from r_icu.o(.text.R_ICU_ExternalIrqCallbackSet) referenced from r_icu.o(.rodata.g_external_irq_on_icu)
+ <LI><a href="#[41]">R_ICU_ExternalIrqClose</a> from r_icu.o(.text.R_ICU_ExternalIrqClose) referenced from r_icu.o(.rodata.g_external_irq_on_icu)
+ <LI><a href="#[3f]">R_ICU_ExternalIrqDisable</a> from r_icu.o(.text.R_ICU_ExternalIrqDisable) referenced from r_icu.o(.rodata.g_external_irq_on_icu)
+ <LI><a href="#[3e]">R_ICU_ExternalIrqEnable</a> from r_icu.o(.text.R_ICU_ExternalIrqEnable) referenced from r_icu.o(.rodata.g_external_irq_on_icu)
+ <LI><a href="#[3d]">R_ICU_ExternalIrqOpen</a> from r_icu.o(.text.R_ICU_ExternalIrqOpen) referenced from r_icu.o(.rodata.g_external_irq_on_icu)
+ <LI><a href="#[46]">R_IIC_MASTER_Abort</a> from r_iic_master.o(.text.R_IIC_MASTER_Abort) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[48]">R_IIC_MASTER_CallbackSet</a> from r_iic_master.o(.text.R_IIC_MASTER_CallbackSet) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[4a]">R_IIC_MASTER_Close</a> from r_iic_master.o(.text.R_IIC_MASTER_Close) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[43]">R_IIC_MASTER_Open</a> from r_iic_master.o(.text.R_IIC_MASTER_Open) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[44]">R_IIC_MASTER_Read</a> from r_iic_master.o(.text.R_IIC_MASTER_Read) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[47]">R_IIC_MASTER_SlaveAddressSet</a> from r_iic_master.o(.text.R_IIC_MASTER_SlaveAddressSet) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[49]">R_IIC_MASTER_StatusGet</a> from r_iic_master.o(.text.R_IIC_MASTER_StatusGet) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[45]">R_IIC_MASTER_Write</a> from r_iic_master.o(.text.R_IIC_MASTER_Write) referenced from r_iic_master.o(.rodata.g_i2c_master_on_iic)
+ <LI><a href="#[4c]">R_IOPORT_Close</a> from r_ioport.o(.text.R_IOPORT_Close) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[4b]">R_IOPORT_Open</a> from r_ioport.o(.text.R_IOPORT_Open) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[4e]">R_IOPORT_PinCfg</a> from r_ioport.o(.text.R_IOPORT_PinCfg) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[4f]">R_IOPORT_PinEventInputRead</a> from r_ioport.o(.text.R_IOPORT_PinEventInputRead) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[50]">R_IOPORT_PinEventOutputWrite</a> from r_ioport.o(.text.R_IOPORT_PinEventOutputWrite) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[51]">R_IOPORT_PinRead</a> from r_ioport.o(.text.R_IOPORT_PinRead) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[52]">R_IOPORT_PinWrite</a> from r_ioport.o(.text.R_IOPORT_PinWrite) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[4d]">R_IOPORT_PinsCfg</a> from r_ioport.o(.text.R_IOPORT_PinsCfg) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[53]">R_IOPORT_PortDirectionSet</a> from r_ioport.o(.text.R_IOPORT_PortDirectionSet) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[54]">R_IOPORT_PortEventInputRead</a> from r_ioport.o(.text.R_IOPORT_PortEventInputRead) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[55]">R_IOPORT_PortEventOutputWrite</a> from r_ioport.o(.text.R_IOPORT_PortEventOutputWrite) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[56]">R_IOPORT_PortRead</a> from r_ioport.o(.text.R_IOPORT_PortRead) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[57]">R_IOPORT_PortWrite</a> from r_ioport.o(.text.R_IOPORT_PortWrite) referenced from r_ioport.o(.rodata.g_ioport_on_ioport)
+ <LI><a href="#[82]">R_SCI_UART_Abort</a> from r_sci_uart.o(.text.R_SCI_UART_Abort) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[80]">R_SCI_UART_BaudSet</a> from r_sci_uart.o(.text.R_SCI_UART_BaudSet) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[83]">R_SCI_UART_CallbackSet</a> from r_sci_uart.o(.text.R_SCI_UART_CallbackSet) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[84]">R_SCI_UART_Close</a> from r_sci_uart.o(.text.R_SCI_UART_Close) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[81]">R_SCI_UART_InfoGet</a> from r_sci_uart.o(.text.R_SCI_UART_InfoGet) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[7d]">R_SCI_UART_Open</a> from r_sci_uart.o(.text.R_SCI_UART_Open) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[7e]">R_SCI_UART_Read</a> from r_sci_uart.o(.text.R_SCI_UART_Read) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[85]">R_SCI_UART_ReadStop</a> from r_sci_uart.o(.text.R_SCI_UART_ReadStop) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[87]">R_SCI_UART_ReceiveResume</a> from r_sci_uart.o(.text.R_SCI_UART_ReceiveResume) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[86]">R_SCI_UART_ReceiveSuspend</a> from r_sci_uart.o(.text.R_SCI_UART_ReceiveSuspend) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[7f]">R_SCI_UART_Write</a> from r_sci_uart.o(.text.R_SCI_UART_Write) referenced from r_sci_uart.o(.rodata.g_uart_on_sci)
+ <LI><a href="#[5d]">R_SPI_CallbackSet</a> from r_spi.o(.text.R_SPI_CallbackSet) referenced from r_spi.o(.rodata.g_spi_on_spi)
+ <LI><a href="#[5e]">R_SPI_Close</a> from r_spi.o(.text.R_SPI_Close) referenced from r_spi.o(.rodata.g_spi_on_spi)
+ <LI><a href="#[59]">R_SPI_Open</a> from r_spi.o(.text.R_SPI_Open) referenced from r_spi.o(.rodata.g_spi_on_spi)
+ <LI><a href="#[5a]">R_SPI_Read</a> from r_spi.o(.text.R_SPI_Read) referenced from r_spi.o(.rodata.g_spi_on_spi)
+ <LI><a href="#[5b]">R_SPI_Write</a> from r_spi.o(.text.R_SPI_Write) referenced from r_spi.o(.rodata.g_spi_on_spi)
+ <LI><a href="#[5c]">R_SPI_WriteRead</a> from r_spi.o(.text.R_SPI_WriteRead) referenced from r_spi.o(.rodata.g_spi_on_spi)
+ <LI><a href="#[0]">Reset_Handler</a> from startup.o(.text.Reset_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[7]">SVC_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[6]">SecureFault_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[a]">SysTick_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[5]">UsageFault_Handler</a> from startup.o(.text.Default_Handler) referenced from startup.o(.fixed_vectors)
+ <LI><a href="#[88]">_GLOBAL__sub_I_cpp_main.cpp</a> from cpp_main.o(.text._GLOBAL__sub_I_cpp_main.cpp) referenced from cpp_main.o(.init_array)
+ <LI><a href="#[24]">SMD_callback(void*)</a> from icm42688.o(.text._Z12SMD_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[27]">WOM_X_callback(void*)</a> from icm42688.o(.text._Z14WOM_X_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[26]">WOM_Y_callback(void*)</a> from icm42688.o(.text._Z14WOM_Y_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[25]">WOM_Z_callback(void*)</a> from icm42688.o(.text._Z14WOM_Z_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[1d]">PLL_RDY_callback(void*)</a> from icm42688.o(.text._Z16PLL_RDY_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[2d]">TAP_DET_callback(void*)</a> from icm42688.o(.text._Z16TAP_DET_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[1f]">DATA_RDY_callback(void*)</a> from icm42688.o(.text._Z17DATA_RDY_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[20]">FIFO_THS_callback(void*)</a> from icm42688.o(.text._Z17FIFO_THS_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[1b]">ICM42688_dataRady(void*)</a> from cpp_main.o(.text._Z17ICM42688_dataRadyPv) referenced 2 times from cpp_main.o(.text._Z17initializeSensorsv)
+ <LI><a href="#[28]">STEP_DET_callback(void*)</a> from icm42688.o(.text._Z17STEP_DET_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[2a]">TILT_DET_callback(void*)</a> from icm42688.o(.text._Z17TILT_DET_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[1c]">UI_FSYNC_callback(void*)</a> from icm42688.o(.text._Z17UI_FSYNC_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[2b]">WAKE_DET_callback(void*)</a> from icm42688.o(.text._Z17WAKE_DET_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[21]">FIFO_FULL_callback(void*)</a> from icm42688.o(.text._Z18FIFO_FULL_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[23]">I3C_ERROR_callback(void*)</a> from icm42688.o(.text._Z18I3C_ERROR_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[2c]">SLEEP_DET_callback(void*)</a> from icm42688.o(.text._Z18SLEEP_DET_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[1e]">RESET_DONE_callback(void*)</a> from icm42688.o(.text._Z19RESET_DONE_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[22]">UI_AGC_RDY_callback(void*)</a> from icm42688.o(.text._Z19UI_AGC_RDY_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[29]">STEP_CNT_OF_callback(void*)</a> from icm42688.o(.text._Z20STEP_CNT_OF_callbackPv) referenced from icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+ <LI><a href="#[1a]">QMC5883P::~QMC5883P()</a> from qmc5883p.o(.text._ZN8QMC5883PD2Ev) referenced 2 times from cpp_main.o(.text._GLOBAL__sub_I_cpp_main.cpp)
+ <LI><a href="#[c]">adc_scan_end_isr</a> from r_adc.o(.text.adc_scan_end_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[11]">agt_int_isr</a> from r_agt.o(.text.agt_int_isr) referenced 2 times from vector_data.o(.application_vectors)
+ <LI><a href="#[2e]">g_adc_callback</a> from cpp_main.o(.text.g_adc_callback) referenced from hal_data.o(.rodata.g_adc0_cfg)
+ <LI><a href="#[3c]">g_external_irq_callback</a> from cpp_main.o(.text.g_external_irq_callback) referenced from common_data.o(.rodata.g_external_irq0_cfg)
+ <LI><a href="#[3c]">g_external_irq_callback</a> from cpp_main.o(.text.g_external_irq_callback) referenced from common_data.o(.rodata.g_external_irq1_cfg)
+ <LI><a href="#[3c]">g_external_irq_callback</a> from cpp_main.o(.text.g_external_irq_callback) referenced from common_data.o(.rodata.g_external_irq9_cfg)
+ <LI><a href="#[5f]">g_systick_callback</a> from cpp_main.o(.text.g_systick_callback) referenced from hal_data.o(.rodata.g_systick_cfg)
+ <LI><a href="#[60]">g_timer_main_callback</a> from cpp_main.o(.text.g_timer_main_callback) referenced from hal_data.o(.rodata.g_timer_main_cfg)
+ <LI><a href="#[7b]">g_uart1_callback</a> from cpp_main.o(.text.g_uart1_callback) referenced from hal_data.o(.rodata.g_uart1_cfg)
+ <LI><a href="#[7c]">g_uart2_callback</a> from cpp_main.o(.text.g_uart2_callback) referenced from hal_data.o(.rodata.g_uart2_cfg)
+ <LI><a href="#[42]">i2c_callback</a> from qmc5883p.o(.text.i2c_callback) referenced from hal_data.o(.rodata.g_i2c_master1_cfg)
+ <LI><a href="#[19]">iic_master_eri_isr</a> from r_iic_master.o(.text.iic_master_eri_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[16]">iic_master_rxi_isr</a> from r_iic_master.o(.text.iic_master_rxi_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[18]">iic_master_tei_isr</a> from r_iic_master.o(.text.iic_master_tei_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[17]">iic_master_txi_isr</a> from r_iic_master.o(.text.iic_master_txi_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[b]">r_icu_isr</a> from r_icu.o(.text.r_icu_isr) referenced 4 times from vector_data.o(.application_vectors)
+ <LI><a href="#[10]">sci_uart_eri_isr</a> from r_sci_uart.o(.text.sci_uart_eri_isr) referenced 2 times from vector_data.o(.application_vectors)
+ <LI><a href="#[d]">sci_uart_rxi_isr</a> from r_sci_uart.o(.text.sci_uart_rxi_isr) referenced 2 times from vector_data.o(.application_vectors)
+ <LI><a href="#[f]">sci_uart_tei_isr</a> from r_sci_uart.o(.text.sci_uart_tei_isr) referenced 2 times from vector_data.o(.application_vectors)
+ <LI><a href="#[e]">sci_uart_txi_isr</a> from r_sci_uart.o(.text.sci_uart_txi_isr) referenced 2 times from vector_data.o(.application_vectors)
+ <LI><a href="#[58]">spi_callback</a> from icm42688.o(.text.spi_callback) referenced from hal_data.o(.rodata.g_spi1_cfg)
+ <LI><a href="#[15]">spi_eri_isr</a> from r_spi.o(.text.spi_eri_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[12]">spi_rxi_isr</a> from r_spi.o(.text.spi_rxi_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[14]">spi_tei_isr</a> from r_spi.o(.text.spi_tei_isr) referenced from vector_data.o(.application_vectors)
+ <LI><a href="#[13]">spi_txi_isr</a> from r_spi.o(.text.spi_txi_isr) referenced from vector_data.o(.application_vectors)
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[8a]"></a>_printf_f</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_f.o(.ARM.Collect$$_printf_percent$$00000003))
+<BR><BR>[Stack]<UL><LI>Max Depth = 324 + Unknown Stack Size
+<LI>Call Chain = _printf_f &rArr; _printf_fp_dec &rArr; _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec
+</UL>
+
+<P><STRONG><a name="[13a]"></a>_printf_percent</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000))
+
+<P><STRONG><a name="[13b]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
+
+<P><STRONG><a name="[c9]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[8c]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000001))
+<BR><BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
+</UL>
+
+<P><STRONG><a name="[8e]"></a>__rt_lib_init_heap_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit5.o(.ARM.Collect$$libinit$$00000008))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
+<LI>Call Chain = __rt_lib_init_heap_2 &rArr; _init_alloc &rArr; __rt_SIGRTMEM &rArr; __rt_SIGRTMEM_inner &rArr; __default_signal_display &rArr; _ttywrch
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
+</UL>
+
+<P><STRONG><a name="[13c]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+
+<P><STRONG><a name="[13d]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+
+<P><STRONG><a name="[90]"></a>__rt_lib_init_lc_common</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
+<BR><BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
+</UL>
+
+<P><STRONG><a name="[13e]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+
+<P><STRONG><a name="[13f]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+
+<P><STRONG><a name="[140]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+
+<P><STRONG><a name="[141]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+
+<P><STRONG><a name="[142]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+
+<P><STRONG><a name="[92]"></a>__rt_lib_init_lc_numeric_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000016))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
+<LI>Call Chain = __rt_lib_init_lc_numeric_2 &rArr; _get_lc_numeric &rArr; strcmp
+</UL>
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
+</UL>
+
+<P><STRONG><a name="[143]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+
+<P><STRONG><a name="[144]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+
+<P><STRONG><a name="[145]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+
+<P><STRONG><a name="[146]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+
+<P><STRONG><a name="[94]"></a>__rt_lib_init_cpp_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
+<LI>Call Chain = __rt_lib_init_cpp_2 &rArr; __cpp_initialize__aeabi_
+</UL>
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cpp_initialize__aeabi_
+</UL>
+
+<P><STRONG><a name="[147]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+
+<P><STRONG><a name="[148]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+
+<P><STRONG><a name="[149]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+
+<P><STRONG><a name="[14a]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+
+<P><STRONG><a name="[14b]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+
+<P><STRONG><a name="[14c]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+
+<P><STRONG><a name="[14d]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+
+<P><STRONG><a name="[14e]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+
+<P><STRONG><a name="[14f]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+
+<P><STRONG><a name="[e1]"></a>__aeabi_uldivmod</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, lludivv7m.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_uldivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Set(unsigned char)
+</UL>
+
+<P><STRONG><a name="[150]"></a>__rt_lib_shutdown_cpp_2</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __rt_lib_shutdown_cpp_2
+</UL>
+
+<P><STRONG><a name="[151]"></a>_ll_udiv</STRONG> (Thumb, 240 bytes, Stack size 48 bytes, lludivv7m.o(.text), UNUSED)
+
+<P><STRONG><a name="[95]"></a>__cxa_atexit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, cxa_atexit.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __cxa_atexit &rArr; __aeabi_atexit &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+</UL>
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_atexit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GLOBAL__sub_I_cpp_main.cpp
+</UL>
+
+<P><STRONG><a name="[fa]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sci_uart_rxi_isr
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::_i2cSend(unsigned char, unsigned char*, unsigned char)
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+
+<P><STRONG><a name="[97]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+</UL>
+
+<P><STRONG><a name="[152]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
+
+<P><STRONG><a name="[98]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemRuntimeInit
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
+</UL>
+
+<P><STRONG><a name="[153]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+
+<P><STRONG><a name="[154]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+
+<P><STRONG><a name="[155]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
+
+<P><STRONG><a name="[eb]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::INT(ICM42688*)
+</UL>
+
+<P><STRONG><a name="[156]"></a>__rt_memclr</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr.o(.text), UNUSED)
+
+<P><STRONG><a name="[99]"></a>_memset</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
+</UL>
+
+<P><STRONG><a name="[cc]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemRuntimeInit
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_init
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+</UL>
+
+<P><STRONG><a name="[157]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
+
+<P><STRONG><a name="[158]"></a>__rt_memclr_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
+
+<P><STRONG><a name="[9a]"></a>_memset_w</STRONG> (Thumb, 74 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
+</UL>
+
+<P><STRONG><a name="[89]"></a>__cpp_initialize__aeabi_</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, init_aeabi.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __cpp_initialize__aeabi_
+</UL>
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_cpp_2
+</UL>
+
+<P><STRONG><a name="[9b]"></a>__read_errno</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, _rserrno.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
+</UL>
+
+<P><STRONG><a name="[9d]"></a>__set_errno</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, _rserrno.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+
+<P><STRONG><a name="[a4]"></a>_printf_fp_dec_real</STRONG> (Thumb, 620 bytes, Stack size 104 bytes, _printf_fp_dec.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec
+</UL>
+
+<P><STRONG><a name="[96]"></a>__aeabi_atexit</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, aeabi_atexit.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_atexit &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ddtor_pointer_addr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_atexit
+</UL>
+
+<P><STRONG><a name="[91]"></a>__rt_locale</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_locale.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+</UL>
+
+<P><STRONG><a name="[a8]"></a>__rt_ddtor_pointer_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_ddtor_pointer_addr.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_atexit
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_finalize
+</UL>
+
+<P><STRONG><a name="[9c]"></a>__aeabi_errno_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_errno_addr.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__read_errno
+</UL>
+
+<P><STRONG><a name="[159]"></a>__errno</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr.o(.text), UNUSED)
+
+<P><STRONG><a name="[15a]"></a>__rt_errno_addr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr.o(.text), UNUSED)
+
+<P><STRONG><a name="[a7]"></a>malloc</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, h1_alloc.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+</UL>
+<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Full
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_atexit
+</UL>
+
+<P><STRONG><a name="[a3]"></a>_ll_udiv10</STRONG> (Thumb, 138 bytes, Stack size 12 bytes, lludiv10.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = _ll_udiv10
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+</UL>
+
+<P><STRONG><a name="[a6]"></a>_printf_fp_infnan</STRONG> (Thumb, 112 bytes, Stack size 24 bytes, _printf_fp_infnan.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = _printf_fp_infnan
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+</UL>
+
+<P><STRONG><a name="[9f]"></a>_btod_etento</STRONG> (Thumb, 224 bytes, Stack size 72 bytes, bigflt0.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = _btod_etento &rArr; _btod_emul &rArr; _e2e
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_ediv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+</UL>
+
+<P><STRONG><a name="[ab]"></a>__cxa_finalize</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, cxa_finalize.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ddtor_pointer_addr
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+</UL>
+
+<P><STRONG><a name="[a9]"></a>__rt_heap_descriptor</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_heap_descriptor.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
+</UL>
+
+<P><STRONG><a name="[15b]"></a>__use_no_heap</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)
+
+<P><STRONG><a name="[15c]"></a>__heap$guard</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)
+
+<P><STRONG><a name="[15d]"></a>_terminate_user_alloc</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)
+
+<P><STRONG><a name="[15e]"></a>_init_user_alloc</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)
+
+<P><STRONG><a name="[aa]"></a>__Heap_Full</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, init_alloc.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+</UL>
+
+<P><STRONG><a name="[ae]"></a>__Heap_Broken</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+</UL>
+
+<P><STRONG><a name="[8f]"></a>_init_alloc</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, init_alloc.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = _init_alloc &rArr; __rt_SIGRTMEM &rArr; __rt_SIGRTMEM_inner &rArr; __default_signal_display &rArr; _ttywrch
+</UL>
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Initialize
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_heap_2
+</UL>
+
+<P><STRONG><a name="[b0]"></a>__Heap_Initialize</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, h1_init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
+</UL>
+
+<P><STRONG><a name="[15f]"></a>__Heap_DescSize</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, h1_init.o(.text), UNUSED)
+
+<P><STRONG><a name="[ac]"></a>free</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, h1_free.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = free
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_finalize
+</UL>
+
+<P><STRONG><a name="[12b]"></a>strcmp</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, strcmpv7em.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
+</UL>
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
+</UL>
+
+<P><STRONG><a name="[ad]"></a>__Heap_ProvideMemory</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, h1_extend.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __Heap_ProvideMemory &rArr; free
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Full
+</UL>
+
+<P><STRONG><a name="[160]"></a>_maybe_terminate_alloc</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, maybetermalloc1.o(.text), UNUSED)
+
+<P><STRONG><a name="[b1]"></a>__sig_exit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, defsig_exit.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+</UL>
+
+<P><STRONG><a name="[af]"></a>__rt_SIGRTMEM</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_rtmem_outer.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __rt_SIGRTMEM &rArr; __rt_SIGRTMEM_inner &rArr; __default_signal_display &rArr; _ttywrch
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM_inner
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Broken
+</UL>
+
+<P><STRONG><a name="[b2]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
+</UL>
+
+<P><STRONG><a name="[161]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[162]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[b4]"></a>__default_signal_display</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, defsig_general.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __default_signal_display &rArr; _ttywrch
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ttywrch
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM_inner
+</UL>
+
+<P><STRONG><a name="[163]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, indicate_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[b3]"></a>__rt_SIGRTMEM_inner</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, defsig_rtmem_inner.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __rt_SIGRTMEM_inner &rArr; __default_signal_display &rArr; _ttywrch
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__default_signal_display
+</UL>
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+</UL>
+
+<P><STRONG><a name="[b5]"></a>_ttywrch</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, sys_wrch.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _ttywrch
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__default_signal_display
+</UL>
+
+<P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[8]"></a>DebugMon_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[164]"></a>Default_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler), UNUSED)
+
+<P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[3]"></a>MemManage_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[9]"></a>PendSV_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[7]"></a>SVC_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[6]"></a>SecureFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[a]"></a>SysTick_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, startup.o(.text.Default_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[1]"></a>NMI_Handler</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, bsp_group_irq.o(.text.NMI_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = NMI_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[37]"></a>R_ADC_Calibrate</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_Calibrate))
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[39]"></a>R_ADC_CallbackSet</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_CallbackSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[3a]"></a>R_ADC_Close</STRONG> (Thumb, 228 bytes, Stack size 16 bytes, r_adc.o(.text.R_ADC_Close))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = R_ADC_Close
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[3b]"></a>R_ADC_InfoGet</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, r_adc.o(.text.R_ADC_InfoGet))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_ADC_InfoGet
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[38]"></a>R_ADC_OffsetSet</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_OffsetSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[2f]"></a>R_ADC_Open</STRONG> (Thumb, 300 bytes, Stack size 40 bytes, r_adc.o(.text.R_ADC_Open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = R_ADC_Open &rArr; R_BSP_SoftwareDelay
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_adc_irq_enable
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[35]"></a>R_ADC_Read</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_Read))
+<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Read()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[36]"></a>R_ADC_Read32</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_Read32))
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[30]"></a>R_ADC_ScanCfg</STRONG> (Thumb, 408 bytes, Stack size 20 bytes, r_adc.o(.text.R_ADC_ScanCfg))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = R_ADC_ScanCfg
+</UL>
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[32]"></a>R_ADC_ScanGroupStart</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_ScanGroupStart))
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[31]"></a>R_ADC_ScanStart</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_ScanStart))
+<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Read()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[33]"></a>R_ADC_ScanStop</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_ScanStop))
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[34]"></a>R_ADC_StatusGet</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, r_adc.o(.text.R_ADC_StatusGet))
+<BR>[Address Reference Count : 1]<UL><LI> r_adc.o(.rodata.g_adc_on_adc)
+</UL>
+<P><STRONG><a name="[6c]"></a>R_AGT_CallbackSet</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_CallbackSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[6d]"></a>R_AGT_Close</STRONG> (Thumb, 124 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_Close))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[69]"></a>R_AGT_CompareMatchSet</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_CompareMatchSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[66]"></a>R_AGT_Disable</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_Disable))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[68]"></a>R_AGT_DutyCycleSet</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_DutyCycleSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[65]"></a>R_AGT_Enable</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_Enable))
+<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeTimers()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[6a]"></a>R_AGT_InfoGet</STRONG> (Thumb, 130 bytes, Stack size 16 bytes, r_agt.o(.text.R_AGT_InfoGet))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = R_AGT_InfoGet
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_agt_clock_frequency_get
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[61]"></a>R_AGT_Open</STRONG> (Thumb, 310 bytes, Stack size 16 bytes, r_agt.o(.text.R_AGT_Open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = R_AGT_Open
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeTimers()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[67]"></a>R_AGT_PeriodSet</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, r_agt.o(.text.R_AGT_PeriodSet))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_AGT_PeriodSet
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[64]"></a>R_AGT_Reset</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_Reset))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[62]"></a>R_AGT_Start</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_Start))
+<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeTimers()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[6b]"></a>R_AGT_StatusGet</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_StatusGet))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[63]"></a>R_AGT_Stop</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, r_agt.o(.text.R_AGT_Stop))
+<BR>[Address Reference Count : 1]<UL><LI> r_agt.o(.rodata.g_timer_on_agt)
+</UL>
+<P><STRONG><a name="[b9]"></a>R_BSP_Init_RTC</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, bsp_clocks.o(.text.R_BSP_Init_RTC))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = R_BSP_Init_RTC &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_RegisterProtectEnable
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_RegisterProtectDisable
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[ba]"></a>R_BSP_RegisterProtectDisable</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, bsp_register_protection.o(.text.R_BSP_RegisterProtectDisable))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_vbatt_init
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_Init_RTC
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[bb]"></a>R_BSP_RegisterProtectEnable</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, bsp_register_protection.o(.text.R_BSP_RegisterProtectEnable))
+<BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_vbatt_init
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_Init_RTC
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[b6]"></a>R_BSP_SoftwareDelay</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, bsp_delay.o(.text.R_BSP_SoftwareDelay))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_BSP_SoftwareDelay
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_prv_software_delay_loop
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_vbatt_init
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_clock_init
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_Init_RTC
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::begin()
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::begin()
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::update()
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::begin()
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_acc(ICM42688::General::ACCEL_ODR, ICM42688::General::ACCEL_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ADC_Open
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[100]"></a>R_BSP_SubClockStabilizeWaitAfterReset</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, bsp_clocks.o(.text.R_BSP_SubClockStabilizeWaitAfterReset))
+<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_clock_init
+</UL>
+
+<P><STRONG><a name="[bd]"></a>R_BSP_WarmStart</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, hal_warmstart.o(.text.R_BSP_WarmStart))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = R_BSP_WarmStart &rArr; R_IOPORT_Open &rArr; r_ioport_pins_config &rArr; bsp_vbatt_init &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IOPORT_Open
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[79]"></a>R_GPT_CallbackSet</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_CallbackSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[7a]"></a>R_GPT_Close</STRONG> (Thumb, 292 bytes, Stack size 8 bytes, r_gpt.o(.text.R_GPT_Close))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_GPT_Close
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[76]"></a>R_GPT_CompareMatchSet</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_CompareMatchSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[73]"></a>R_GPT_Disable</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_Disable))
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[75]"></a>R_GPT_DutyCycleSet</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, r_gpt.o(.text.R_GPT_DutyCycleSet))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = R_GPT_DutyCycleSet &rArr; gpt_calculate_duty_cycle
+</UL>
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpt_calculate_duty_cycle
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Set(unsigned char)
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[72]"></a>R_GPT_Enable</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, r_gpt.o(.text.R_GPT_Enable))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_GPT_Enable
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[77]"></a>R_GPT_InfoGet</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_InfoGet))
+<BR><BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Set(unsigned char)
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[6e]"></a>R_GPT_Open</STRONG> (Thumb, 1076 bytes, Stack size 40 bytes, r_gpt.o(.text.R_GPT_Open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = R_GPT_Open &rArr; gpt_calculate_duty_cycle
+</UL>
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpt_calculate_duty_cycle
+</UL>
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[74]"></a>R_GPT_PeriodSet</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_PeriodSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[71]"></a>R_GPT_Reset</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_Reset))
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[6f]"></a>R_GPT_Start</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_Start))
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[78]"></a>R_GPT_StatusGet</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_StatusGet))
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[70]"></a>R_GPT_Stop</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_gpt.o(.text.R_GPT_Stop))
+<BR>[Address Reference Count : 1]<UL><LI> r_gpt.o(.rodata.g_timer_on_gpt)
+</UL>
+<P><STRONG><a name="[40]"></a>R_ICU_ExternalIrqCallbackSet</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_icu.o(.text.R_ICU_ExternalIrqCallbackSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_icu.o(.rodata.g_external_irq_on_icu)
+</UL>
+<P><STRONG><a name="[41]"></a>R_ICU_ExternalIrqClose</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, r_icu.o(.text.R_ICU_ExternalIrqClose))
+<BR>[Address Reference Count : 1]<UL><LI> r_icu.o(.rodata.g_external_irq_on_icu)
+</UL>
+<P><STRONG><a name="[3f]"></a>R_ICU_ExternalIrqDisable</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, r_icu.o(.text.R_ICU_ExternalIrqDisable))
+<BR>[Address Reference Count : 1]<UL><LI> r_icu.o(.rodata.g_external_irq_on_icu)
+</UL>
+<P><STRONG><a name="[3e]"></a>R_ICU_ExternalIrqEnable</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, r_icu.o(.text.R_ICU_ExternalIrqEnable))
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_icu.o(.rodata.g_external_irq_on_icu)
+</UL>
+<P><STRONG><a name="[3d]"></a>R_ICU_ExternalIrqOpen</STRONG> (Thumb, 124 bytes, Stack size 20 bytes, r_icu.o(.text.R_ICU_ExternalIrqOpen))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = R_ICU_ExternalIrqOpen
+</UL>
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_icu.o(.rodata.g_external_irq_on_icu)
+</UL>
+<P><STRONG><a name="[46]"></a>R_IIC_MASTER_Abort</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, r_iic_master.o(.text.R_IIC_MASTER_Abort))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = R_IIC_MASTER_Abort &rArr; iic_master_open_hw_master
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_open_hw_master
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[48]"></a>R_IIC_MASTER_CallbackSet</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_iic_master.o(.text.R_IIC_MASTER_CallbackSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[4a]"></a>R_IIC_MASTER_Close</STRONG> (Thumb, 208 bytes, Stack size 16 bytes, r_iic_master.o(.text.R_IIC_MASTER_Close))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = R_IIC_MASTER_Close &rArr; iic_master_open_hw_master
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_open_hw_master
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[43]"></a>R_IIC_MASTER_Open</STRONG> (Thumb, 132 bytes, Stack size 8 bytes, r_iic_master.o(.text.R_IIC_MASTER_Open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = R_IIC_MASTER_Open &rArr; iic_master_open_hw_master
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_open_hw_master
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[44]"></a>R_IIC_MASTER_Read</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, r_iic_master.o(.text.R_IIC_MASTER_Read))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = R_IIC_MASTER_Read &rArr; iic_master_read_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_read_write
+</UL>
+<BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char)
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[47]"></a>R_IIC_MASTER_SlaveAddressSet</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_iic_master.o(.text.R_IIC_MASTER_SlaveAddressSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[49]"></a>R_IIC_MASTER_StatusGet</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, r_iic_master.o(.text.R_IIC_MASTER_StatusGet))
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[45]"></a>R_IIC_MASTER_Write</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, r_iic_master.o(.text.R_IIC_MASTER_Write))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = R_IIC_MASTER_Write &rArr; iic_master_read_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_read_write
+</UL>
+<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::_i2cSend(unsigned char, unsigned char*, unsigned char)
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char)
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_iic_master.o(.rodata.g_i2c_master_on_iic)
+</UL>
+<P><STRONG><a name="[4c]"></a>R_IOPORT_Close</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_Close))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[4b]"></a>R_IOPORT_Open</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, r_ioport.o(.text.R_IOPORT_Open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = R_IOPORT_Open &rArr; r_ioport_pins_config &rArr; bsp_vbatt_init &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_ioport_pins_config
+</UL>
+<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_WarmStart
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[4e]"></a>R_IOPORT_PinCfg</STRONG> (Thumb, 174 bytes, Stack size 40 bytes, r_ioport.o(.text.R_IOPORT_PinCfg))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = R_IOPORT_PinCfg &rArr; bsp_vbatt_init &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_vbatt_init
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[4f]"></a>R_IOPORT_PinEventInputRead</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PinEventInputRead))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[50]"></a>R_IOPORT_PinEventOutputWrite</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PinEventOutputWrite))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[51]"></a>R_IOPORT_PinRead</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PinRead))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[52]"></a>R_IOPORT_PinWrite</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PinWrite))
+<BR><BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[4d]"></a>R_IOPORT_PinsCfg</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, r_ioport.o(.text.R_IOPORT_PinsCfg))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = R_IOPORT_PinsCfg &rArr; r_ioport_pins_config &rArr; bsp_vbatt_init &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_ioport_pins_config
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[53]"></a>R_IOPORT_PortDirectionSet</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, r_ioport.o(.text.R_IOPORT_PortDirectionSet))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_IOPORT_PortDirectionSet
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[54]"></a>R_IOPORT_PortEventInputRead</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PortEventInputRead))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[55]"></a>R_IOPORT_PortEventOutputWrite</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PortEventOutputWrite))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[56]"></a>R_IOPORT_PortRead</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PortRead))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[57]"></a>R_IOPORT_PortWrite</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, r_ioport.o(.text.R_IOPORT_PortWrite))
+<BR>[Address Reference Count : 1]<UL><LI> r_ioport.o(.rodata.g_ioport_on_ioport)
+</UL>
+<P><STRONG><a name="[82]"></a>R_SCI_UART_Abort</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_Abort))
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[80]"></a>R_SCI_UART_BaudSet</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, r_sci_uart.o(.text.R_SCI_UART_BaudSet))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_SCI_UART_BaudSet
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[83]"></a>R_SCI_UART_CallbackSet</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_CallbackSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[84]"></a>R_SCI_UART_Close</STRONG> (Thumb, 166 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_Close))
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[81]"></a>R_SCI_UART_InfoGet</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_InfoGet))
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[7d]"></a>R_SCI_UART_Open</STRONG> (Thumb, 786 bytes, Stack size 36 bytes, r_sci_uart.o(.text.R_SCI_UART_Open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = R_SCI_UART_Open
+</UL>
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[7e]"></a>R_SCI_UART_Read</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_Read))
+<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[85]"></a>R_SCI_UART_ReadStop</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_ReadStop))
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[87]"></a>R_SCI_UART_ReceiveResume</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_ReceiveResume))
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[86]"></a>R_SCI_UART_ReceiveSuspend</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_sci_uart.o(.text.R_SCI_UART_ReceiveSuspend))
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[7f]"></a>R_SCI_UART_Write</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, r_sci_uart.o(.text.R_SCI_UART_Write))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_SCI_UART_Write
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_sci_uart.o(.rodata.g_uart_on_sci)
+</UL>
+<P><STRONG><a name="[5d]"></a>R_SPI_CallbackSet</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, r_spi.o(.text.R_SPI_CallbackSet))
+<BR>[Address Reference Count : 1]<UL><LI> r_spi.o(.rodata.g_spi_on_spi)
+</UL>
+<P><STRONG><a name="[5e]"></a>R_SPI_Close</STRONG> (Thumb, 184 bytes, Stack size 8 bytes, r_spi.o(.text.R_SPI_Close))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = R_SPI_Close
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_spi.o(.rodata.g_spi_on_spi)
+</UL>
+<P><STRONG><a name="[59]"></a>R_SPI_Open</STRONG> (Thumb, 706 bytes, Stack size 64 bytes, r_spi.o(.text.R_SPI_Open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = R_SPI_Open
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_spi.o(.rodata.g_spi_on_spi)
+</UL>
+<P><STRONG><a name="[5a]"></a>R_SPI_Read</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, r_spi.o(.text.R_SPI_Read))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = R_SPI_Read &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_spi_write_read_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_spi.o(.rodata.g_spi_on_spi)
+</UL>
+<P><STRONG><a name="[5b]"></a>R_SPI_Write</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, r_spi.o(.text.R_SPI_Write))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_spi_write_read_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_spi.o(.rodata.g_spi_on_spi)
+</UL>
+<P><STRONG><a name="[5c]"></a>R_SPI_WriteRead</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, r_spi.o(.text.R_SPI_WriteRead))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = R_SPI_WriteRead &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_spi_write_read_common
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> r_spi.o(.rodata.g_spi_on_spi)
+</UL>
+<P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, startup.o(.text.Reset_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
+<LI>Call Chain = Reset_Handler &rArr; main &rArr; hal_entry &rArr; cpp_main &rArr; initializeSensors() &rArr; ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL) &rArr; ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(.fixed_vectors)
+</UL>
+<P><STRONG><a name="[c8]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, bsp_clocks.o(.text.SystemCoreClockUpdate))
+<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[c4]"></a>SystemInit</STRONG> (Thumb, 298 bytes, Stack size 24 bytes, system.o(.text.SystemInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96 + Unknown Stack Size
+<LI>Call Chain = SystemInit &rArr; R_BSP_WarmStart &rArr; R_IOPORT_Open &rArr; r_ioport_pins_config &rArr; bsp_vbatt_init &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_irq_cfg
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_init
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_clock_init
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_RegisterProtectEnable
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_RegisterProtectDisable
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_Init_RTC
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemRuntimeInit
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_WarmStart
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
+</UL>
+
+<P><STRONG><a name="[24]"></a>SMD_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z12SMD_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[103]"></a>quat_multiply(Quaternion const*, Quaternion const*, Quaternion*)</STRONG> (Thumb, 186 bytes, Stack size 0 bytes, cpp_main.o(.text._Z13quat_multiplyPK10QuaternionS1_PS_))
+<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[d0]"></a>quat_to_euler(Quaternion const*, EulerAngle*)</STRONG> (Thumb, 256 bytes, Stack size 40 bytes, cpp_main.o(.text._Z13quat_to_eulerPK10QuaternionP10EulerAngle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = quat_to_euler(Quaternion const*, EulerAngle*) &rArr; __hardfp_atan2f &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[27]"></a>WOM_X_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z14WOM_X_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[26]"></a>WOM_Y_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z14WOM_Y_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[25]"></a>WOM_Z_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z14WOM_Z_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[1d]"></a>PLL_RDY_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z16PLL_RDY_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[2d]"></a>TAP_DET_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z16TAP_DET_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[d3]"></a>initializeTimers()</STRONG> (Thumb, 220 bytes, Stack size 8 bytes, cpp_main.o(.text._Z16initializeTimersv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = initializeTimers() &rArr; R_AGT_Open
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_AGT_Start
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_AGT_Open
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_AGT_Enable
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[1f]"></a>DATA_RDY_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z17DATA_RDY_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[20]"></a>FIFO_THS_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z17FIFO_THS_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[1b]"></a>ICM42688_dataRady(void*)</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, cpp_main.o(.text._Z17ICM42688_dataRadyPv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = ICM42688_dataRady(void*) &rArr; ICM42688::General::read_data() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::update()
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::read_data()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> cpp_main.o(.text._Z17initializeSensorsv)
+</UL>
+<P><STRONG><a name="[28]"></a>STEP_DET_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z17STEP_DET_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[2a]"></a>TILT_DET_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z17TILT_DET_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[1c]"></a>UI_FSYNC_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z17UI_FSYNC_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[2b]"></a>WAKE_DET_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z17WAKE_DET_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[d7]"></a>initializeSensors()</STRONG> (Thumb, 298 bytes, Stack size 24 bytes, cpp_main.o(.text._Z17initializeSensorsv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<LI>Call Chain = initializeSensors() &rArr; ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL) &rArr; ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::begin()
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_acc(ICM42688::General::ACCEL_ODR, ICM42688::General::ACCEL_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::begin()
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::set_int1_pin_cfg(ICM42688::INT::LEVEL, ICM42688::INT::DRIVE, ICM42688::INT::MODE)
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::register_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM, void (*)(void*), void*, ICM42688::INT::EVENT_PRIORITY)
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SPI_Open
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Open
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ICU_ExternalIrqOpen
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ICU_ExternalIrqEnable
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[21]"></a>FIFO_FULL_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z18FIFO_FULL_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[23]"></a>I3C_ERROR_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z18I3C_ERROR_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[2c]"></a>SLEEP_DET_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z18SLEEP_DET_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[1e]"></a>RESET_DONE_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z19RESET_DONE_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[22]"></a>UI_AGC_RDY_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z19UI_AGC_RDY_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[29]"></a>STEP_CNT_OF_callback(void*)</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, icm42688.o(.text._Z20STEP_CNT_OF_callbackPv))
+<BR>[Address Reference Count : 1]<UL><LI> icm42688.o(.rodata..Lswitch.table._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE)
+</UL>
+<P><STRONG><a name="[df]"></a>initializePeripherals()</STRONG> (Thumb, 366 bytes, Stack size 16 bytes, cpp_main.o(.text._Z21initializePeripheralsv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = initializePeripherals() &rArr; PWM_Set(unsigned char) &rArr; R_GPT_DutyCycleSet &rArr; gpt_calculate_duty_cycle
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Set(unsigned char)
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SCI_UART_Open
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ICU_ExternalIrqOpen
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ICU_ExternalIrqEnable
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_GPT_Start
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_GPT_Open
+<LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ADC_ScanCfg
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ADC_Open
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[e0]"></a>PWM_Set(unsigned char)</STRONG> (Thumb, 60 bytes, Stack size 32 bytes, cpp_main.o(.text._Z7PWM_Seth))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = PWM_Set(unsigned char) &rArr; R_GPT_DutyCycleSet &rArr; gpt_calculate_duty_cycle
+</UL>
+<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_GPT_InfoGet
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_GPT_DutyCycleSet
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[e2]"></a>ADC_Read()</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, cpp_main.o(.text._Z8ADC_Readv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ADC_Read()
+</UL>
+<BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ADC_ScanStart
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ADC_Read
+</UL>
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+</UL>
+
+<P><STRONG><a name="[cf]"></a>EULER::EULER(float)</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, madgwick.o(.text._ZN5EULERC2Ef))
+<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GLOBAL__sub_I_cpp_main.cpp
+</UL>
+
+<P><STRONG><a name="[165]"></a>EULER::EULER__sub_object(float)</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, madgwick.o(.text._ZN5EULERC2Ef), UNUSED)
+
+<P><STRONG><a name="[e3]"></a>ICM42688::INT::get_int_state()</STRONG> (Thumb, 224 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426883INT13get_int_stateEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ICM42688::INT::get_int_state() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::process_interrupts(ICM42688::INT::INT_NUM)
+</UL>
+
+<P><STRONG><a name="[de]"></a>ICM42688::INT::register_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM, void (*)(void*), void*, ICM42688::INT::EVENT_PRIORITY)</STRONG> (Thumb, 228 bytes, Stack size 40 bytes, icm42688.o(.text._ZN8ICM426883INT14register_eventENS0_8IntEventENS0_7INT_NUMEPFvPvES3_NS0_14EVENT_PRIORITYE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ICM42688::INT::register_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM, void (*)(void*), void*, ICM42688::INT::EVENT_PRIORITY) &rArr; ICM42688::INT::unregister_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM) &rArr; ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool) &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::unregister_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM)
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+
+<P><STRONG><a name="[e6]"></a>ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool)</STRONG> (Thumb, 512 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426883INT14set_int_sourceENS0_7INT_NUMENS0_8IntEventEb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool) &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::unregister_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM)
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::register_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM, void (*)(void*), void*, ICM42688::INT::EVENT_PRIORITY)
+</UL>
+
+<P><STRONG><a name="[dd]"></a>ICM42688::INT::set_int1_pin_cfg(ICM42688::INT::LEVEL, ICM42688::INT::DRIVE, ICM42688::INT::MODE)</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426883INT16set_int1_pin_cfgENS0_5LEVELENS0_5DRIVEENS0_4MODEE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ICM42688::INT::set_int1_pin_cfg(ICM42688::INT::LEVEL, ICM42688::INT::DRIVE, ICM42688::INT::MODE) &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+
+<P><STRONG><a name="[e5]"></a>ICM42688::INT::unregister_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM)</STRONG> (Thumb, 190 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426883INT16unregister_eventENS0_8IntEventENS0_7INT_NUME))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = ICM42688::INT::unregister_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM) &rArr; ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool) &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::register_event(ICM42688::INT::IntEvent, ICM42688::INT::INT_NUM, void (*)(void*), void*, ICM42688::INT::EVENT_PRIORITY)
+</UL>
+
+<P><STRONG><a name="[e8]"></a>ICM42688::INT::process_interrupts(ICM42688::INT::INT_NUM)</STRONG> (Thumb, 452 bytes, Stack size 96 bytes, icm42688.o(.text._ZN8ICM426883INT18process_interruptsENS0_7INT_NUME))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = ICM42688::INT::process_interrupts(ICM42688::INT::INT_NUM) &rArr; ICM42688::INT::get_int_state() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::get_int_state()
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_external_irq_callback
+</UL>
+
+<P><STRONG><a name="[e9]"></a>ICM42688::INT::begin()</STRONG> (Thumb, 164 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426883INT5beginEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ICM42688::INT::begin() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::begin()
+</UL>
+
+<P><STRONG><a name="[ea]"></a>ICM42688::INT::INT(ICM42688*)</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, icm42688.o(.text._ZN8ICM426883INTC2EPS_), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+
+<P><STRONG><a name="[fb]"></a>ICM42688::INT::INT__sub_object(ICM42688*)</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, icm42688.o(.text._ZN8ICM426883INTC2EPS_))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ICM42688::INT::INT__sub_object(ICM42688*)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::ICM42688(ICM42688::ICM42688_MountingOrientation)
+</UL>
+
+<P><STRONG><a name="[d9]"></a>ICM42688::begin()</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, icm42688.o(.text._ZN8ICM426885beginEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = ICM42688::begin() &rArr; ICM42688::General::begin() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::begin()
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::begin()
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+
+<P><STRONG><a name="[da]"></a>ICM42688::General::enable_acc(ICM42688::General::ACCEL_ODR, ICM42688::General::ACCEL_FS, ICM42688::General::FILTER_LEVEL)</STRONG> (Thumb, 830 bytes, Stack size 88 bytes, icm42688.o(.text._ZN8ICM426887General10enable_accENS0_9ACCEL_ODRENS0_8ACCEL_FSENS0_12FILTER_LEVELE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = ICM42688::General::enable_acc(ICM42688::General::ACCEL_ODR, ICM42688::General::ACCEL_FS, ICM42688::General::FILTER_LEVEL) &rArr; ICM42688::General::set_acc_filter(ICM42688::General::ACCEL_MODE, ICM42688::General::ACCEL_UIF_LN, ICM42688::General::ACCEL_UIF_LP, ICM42688::General::ACCEL_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_filter(ICM42688::General::ACCEL_MODE, ICM42688::General::ACCEL_UIF_LN, ICM42688::General::ACCEL_UIF_LP, ICM42688::General::ACCEL_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+
+<P><STRONG><a name="[db]"></a>ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL)</STRONG> (Thumb, 880 bytes, Stack size 88 bytes, icm42688.o(.text._ZN8ICM426887General11enable_gyroENS0_8GYRO_ODRENS0_7GYRO_FSENS0_12FILTER_LEVELE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL) &rArr; ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+
+<P><STRONG><a name="[ed]"></a>ICM42688::General::set_acc_filter(ICM42688::General::ACCEL_MODE, ICM42688::General::ACCEL_UIF_LN, ICM42688::General::ACCEL_UIF_LP, ICM42688::General::ACCEL_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)</STRONG> (Thumb, 438 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426887General14set_acc_filterENS0_10ACCEL_MODEENS0_12ACCEL_UIF_LNENS0_12ACCEL_UIF_LPENS0_15ACCEL_ORDER_UIFENS_15ICM42688_SWITCHES5_hth))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ICM42688::General::set_acc_filter(ICM42688::General::ACCEL_MODE, ICM42688::General::ACCEL_UIF_LN, ICM42688::General::ACCEL_UIF_LP, ICM42688::General::ACCEL_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_acc(ICM42688::General::ACCEL_ODR, ICM42688::General::ACCEL_FS, ICM42688::General::FILTER_LEVEL)
+</UL>
+
+<P><STRONG><a name="[ee]"></a>ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)</STRONG> (Thumb, 1018 bytes, Stack size 32 bytes, icm42688.o(.text._ZN8ICM426887General15set_gyro_filterENS0_11GYRO_UIF_LNENS0_14GYRO_ORDER_UIFENS_15ICM42688_SWITCHES3_tttNS0_5NF_BWES3_hth))
+<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL)
+</UL>
+
+<P><STRONG><a name="[dc]"></a>ICM42688::General::set_acc_gyro_offset(unsigned short)</STRONG> (Thumb, 1004 bytes, Stack size 64 bytes, icm42688.o(.text._ZN8ICM426887General19set_acc_gyro_offsetEt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
+<LI>Call Chain = ICM42688::General::set_acc_gyro_offset(unsigned short) &rArr; ICM42688::General::read_data() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::read_data()
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_az()
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ay()
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ax()
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+
+<P><STRONG><a name="[ec]"></a>ICM42688::General::begin()</STRONG> (Thumb, 272 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426887General5beginEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ICM42688::General::begin() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::begin()
+</UL>
+
+<P><STRONG><a name="[f0]"></a>ICM42688::General::get_ax()</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, icm42688.o(.text._ZN8ICM426887General6get_axEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ICM42688::General::get_ax() &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+</UL>
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+</UL>
+
+<P><STRONG><a name="[f1]"></a>ICM42688::General::get_ay()</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, icm42688.o(.text._ZN8ICM426887General6get_ayEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ICM42688::General::get_ay() &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+</UL>
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+</UL>
+
+<P><STRONG><a name="[f2]"></a>ICM42688::General::get_az()</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, icm42688.o(.text._ZN8ICM426887General6get_azEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ICM42688::General::get_az() &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+</UL>
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+</UL>
+
+<P><STRONG><a name="[109]"></a>ICM42688::General::get_gx()</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, icm42688.o(.text._ZN8ICM426887General6get_gxEv))
+<BR><BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+</UL>
+
+<P><STRONG><a name="[10a]"></a>ICM42688::General::get_gy()</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, icm42688.o(.text._ZN8ICM426887General6get_gyEv))
+<BR><BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+</UL>
+
+<P><STRONG><a name="[10b]"></a>ICM42688::General::get_gz()</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, icm42688.o(.text._ZN8ICM426887General6get_gzEv))
+<BR><BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+</UL>
+
+<P><STRONG><a name="[ef]"></a>ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*)</STRONG> (Thumb, 228 bytes, Stack size 16 bytes, icm42688.o(.text._ZN8ICM426887General7find_NFEtPhPt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_roundf
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)
+</UL>
+
+<P><STRONG><a name="[d6]"></a>ICM42688::General::read_data()</STRONG> (Thumb, 492 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426887General9read_dataEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ICM42688::General::read_data() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::readReg(unsigned char, unsigned char*, unsigned short)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688_dataRady(void*)
+</UL>
+
+<P><STRONG><a name="[e4]"></a>ICM42688::readReg(unsigned char, unsigned char*, unsigned short)</STRONG> (Thumb, 140 bytes, Stack size 32 bytes, icm42688.o(.text._ZN8ICM426887readRegEhPht))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SPI_Write
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SPI_Read
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IOPORT_PinWrite
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::begin()
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_filter(ICM42688::General::ACCEL_MODE, ICM42688::General::ACCEL_UIF_LN, ICM42688::General::ACCEL_UIF_LP, ICM42688::General::ACCEL_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::begin()
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool)
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::get_int_state()
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::read_data()
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_acc(ICM42688::General::ACCEL_ODR, ICM42688::General::ACCEL_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::set_int1_pin_cfg(ICM42688::INT::LEVEL, ICM42688::INT::DRIVE, ICM42688::INT::MODE)
+</UL>
+
+<P><STRONG><a name="[e7]"></a>ICM42688::writeReg(unsigned char, unsigned char*, unsigned short)</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM426888writeRegEhPht))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ICM42688::writeReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SPI_Write
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IOPORT_PinWrite
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::begin()
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_filter(ICM42688::General::ACCEL_MODE, ICM42688::General::ACCEL_UIF_LN, ICM42688::General::ACCEL_UIF_LP, ICM42688::General::ACCEL_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char)
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::begin()
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::set_int_source(ICM42688::INT::INT_NUM, ICM42688::INT::IntEvent, bool)
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::read_data()
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::set_acc_gyro_offset(unsigned short)
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::enable_acc(ICM42688::General::ACCEL_ODR, ICM42688::General::ACCEL_FS, ICM42688::General::FILTER_LEVEL)
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::set_int1_pin_cfg(ICM42688::INT::LEVEL, ICM42688::INT::DRIVE, ICM42688::INT::MODE)
+</UL>
+
+<P><STRONG><a name="[cd]"></a>ICM42688::ICM42688(ICM42688::ICM42688_MountingOrientation)</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM42688C2ENS_28ICM42688_MountingOrientationE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ICM42688::ICM42688(ICM42688::ICM42688_MountingOrientation) &rArr; ICM42688::INT::INT__sub_object(ICM42688*)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::INT__sub_object(ICM42688*)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GLOBAL__sub_I_cpp_main.cpp
+</UL>
+
+<P><STRONG><a name="[166]"></a>ICM42688::ICM42688__sub_object(ICM42688::ICM42688_MountingOrientation)</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, icm42688.o(.text._ZN8ICM42688C2ENS_28ICM42688_MountingOrientationE), UNUSED)
+
+<P><STRONG><a name="[d8]"></a>QMC5883P::begin()</STRONG> (Thumb, 166 bytes, Stack size 24 bytes, qmc5883p.o(.text._ZN8QMC5883P5beginEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = QMC5883P::begin() &rArr; QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char) &rArr; R_IIC_MASTER_Write &rArr; iic_master_read_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::_i2cSend(unsigned char, unsigned char*, unsigned char)
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+</UL>
+
+<P><STRONG><a name="[d5]"></a>QMC5883P::update()</STRONG> (Thumb, 250 bytes, Stack size 32 bytes, qmc5883p.o(.text._ZN8QMC5883P6updateEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = QMC5883P::update() &rArr; QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char) &rArr; R_IIC_MASTER_Write &rArr; iic_master_read_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char)
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688_dataRady(void*)
+</UL>
+
+<P><STRONG><a name="[fd]"></a>QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char)</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, qmc5883p.o(.text._ZN8QMC5883P8_i2cRecvEhPhh))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = QMC5883P::_i2cRecv(unsigned char, unsigned char*, unsigned char) &rArr; R_IIC_MASTER_Write &rArr; iic_master_read_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Write
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Read
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::update()
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::begin()
+</UL>
+
+<P><STRONG><a name="[fc]"></a>QMC5883P::_i2cSend(unsigned char, unsigned char*, unsigned char)</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, qmc5883p.o(.text._ZN8QMC5883P8_i2cSendEhPhh))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = QMC5883P::_i2cSend(unsigned char, unsigned char*, unsigned char) &rArr; R_IIC_MASTER_Write &rArr; iic_master_read_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Write
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::begin()
+</UL>
+
+<P><STRONG><a name="[ce]"></a>QMC5883P::QMC5883P(QMC5883P::QMC5883P_Mode, QMC5883P::QMC5883P_Spd, QMC5883P::QMC5883P_Rng)</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, qmc5883p.o(.text._ZN8QMC5883PC2ENS_13QMC5883P_ModeENS_12QMC5883P_SpdENS_12QMC5883P_RngE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = QMC5883P::QMC5883P(QMC5883P::QMC5883P_Mode, QMC5883P::QMC5883P_Spd, QMC5883P::QMC5883P_Rng)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GLOBAL__sub_I_cpp_main.cpp
+</UL>
+
+<P><STRONG><a name="[167]"></a>QMC5883P::QMC5883P__sub_object(QMC5883P::QMC5883P_Mode, QMC5883P::QMC5883P_Spd, QMC5883P::QMC5883P_Rng)</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, qmc5883p.o(.text._ZN8QMC5883PC2ENS_13QMC5883P_ModeENS_12QMC5883P_SpdENS_12QMC5883P_RngE), UNUSED)
+
+<P><STRONG><a name="[1a]"></a>QMC5883P::~QMC5883P()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, qmc5883p.o(.text._ZN8QMC5883PD2Ev))
+<BR>[Address Reference Count : 1]<UL><LI> cpp_main.o(.text._GLOBAL__sub_I_cpp_main.cpp)
+</UL>
+<P><STRONG><a name="[168]"></a>QMC5883P::~QMC5883P__sub_object()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, qmc5883p.o(.text._ZN8QMC5883PD2Ev), UNUSED)
+
+<P><STRONG><a name="[d4]"></a>__aeabi_assert</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, bsp_common.o(.text.__aeabi_assert))
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeTimers()
+</UL>
+
+<P><STRONG><a name="[c]"></a>adc_scan_end_isr</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, r_adc.o(.text.adc_scan_end_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = adc_scan_end_isr &rArr; r_adc_scan_end_common_isr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_adc_scan_end_common_isr
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[11]"></a>agt_int_isr</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, r_agt.o(.text.agt_int_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = agt_int_isr
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[c6]"></a>bsp_clock_init</STRONG> (Thumb, 306 bytes, Stack size 32 bytes, bsp_clocks.o(.text.bsp_clock_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = bsp_clock_init &rArr; R_BSP_SoftwareDelay
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_prv_software_delay_loop
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SubClockStabilizeWaitAfterReset
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_prv_operating_mode_opccr_set
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[cb]"></a>bsp_init</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, bsp_common.o(.text.bsp_init_internal))
+<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[169]"></a>bsp_init_internal</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, bsp_common.o(.text.bsp_init_internal), UNUSED)
+
+<P><STRONG><a name="[ca]"></a>bsp_irq_cfg</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, bsp_irq.o(.text.bsp_irq_cfg))
+<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[bc]"></a>bsp_prv_software_delay_loop</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, bsp_delay.o(.text.bsp_prv_software_delay_loop))
+<BR><BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_prv_software_delay_loop
+</UL>
+<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_prv_software_delay_loop
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_clock_init
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+
+<P><STRONG><a name="[101]"></a>cpp_main</STRONG> (Thumb, 1040 bytes, Stack size 8 bytes, cpp_main.o(.text.cpp_main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
+<LI>Call Chain = cpp_main &rArr; initializeSensors() &rArr; ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL) &rArr; ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_init
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Set(unsigned char)
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializePeripherals()
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeSensors()
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initializeTimers()
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quat_to_euler(Quaternion const*, EulerAngle*)
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quat_multiply(Quaternion const*, Quaternion const*, Quaternion*)
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SCI_UART_Write
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SCI_UART_Read
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IOPORT_PinWrite
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_entry
+</UL>
+
+<P><STRONG><a name="[104]"></a>eskf_get_euler</STRONG> (Thumb, 200 bytes, Stack size 72 bytes, eskf.o(.text.eskf_get_euler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = eskf_get_euler &rArr; __hardfp_atan2f &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_update
+</UL>
+
+<P><STRONG><a name="[102]"></a>eskf_init</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, eskf.o(.text.eskf_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
+<LI>Call Chain = eskf_init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+
+<P><STRONG><a name="[105]"></a>eskf_update</STRONG> (Thumb, 2192 bytes, Stack size 752 bytes, eskf.o(.text.eskf_update))
+<BR><BR>[Stack]<UL><LI>Max Depth = 864<LI>Call Chain = eskf_update &rArr; eskf_get_euler &rArr; __hardfp_atan2f &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_get_euler
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;g_timer_main_callback
+</UL>
+
+<P><STRONG><a name="[2e]"></a>g_adc_callback</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, cpp_main.o(.text.g_adc_callback))
+<BR>[Address Reference Count : 1]<UL><LI> hal_data.o(.rodata.g_adc0_cfg)
+</UL>
+<P><STRONG><a name="[3c]"></a>g_external_irq_callback</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, cpp_main.o(.text.g_external_irq_callback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = g_external_irq_callback &rArr; ICM42688::INT::process_interrupts(ICM42688::INT::INT_NUM) &rArr; ICM42688::INT::get_int_state() &rArr; ICM42688::readReg(unsigned char, unsigned char*, unsigned short) &rArr; R_SPI_Write &rArr; r_spi_write_read_common
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::INT::process_interrupts(ICM42688::INT::INT_NUM)
+</UL>
+<BR>[Address Reference Count : 3]<UL><LI> common_data.o(.rodata.g_external_irq0_cfg)
+<LI> common_data.o(.rodata.g_external_irq9_cfg)
+<LI> common_data.o(.rodata.g_external_irq1_cfg)
+</UL>
+<P><STRONG><a name="[5f]"></a>g_systick_callback</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, cpp_main.o(.text.g_systick_callback))
+<BR>[Address Reference Count : 1]<UL><LI> hal_data.o(.rodata.g_systick_cfg)
+</UL>
+<P><STRONG><a name="[60]"></a>g_timer_main_callback</STRONG> (Thumb, 272 bytes, Stack size 48 bytes, cpp_main.o(.text.g_timer_main_callback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 912<LI>Call Chain = g_timer_main_callback &rArr; eskf_update &rArr; eskf_get_euler &rArr; __hardfp_atan2f &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_update
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_gz()
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_gy()
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_gx()
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_az()
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ay()
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ax()
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Read()
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Set(unsigned char)
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> hal_data.o(.rodata.g_timer_main_cfg)
+</UL>
+<P><STRONG><a name="[7b]"></a>g_uart1_callback</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, cpp_main.o(.text.g_uart1_callback))
+<BR>[Address Reference Count : 1]<UL><LI> hal_data.o(.rodata.g_uart1_cfg)
+</UL>
+<P><STRONG><a name="[7c]"></a>g_uart2_callback</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, cpp_main.o(.text.g_uart2_callback))
+<BR>[Address Reference Count : 1]<UL><LI> hal_data.o(.rodata.g_uart2_cfg)
+</UL>
+<P><STRONG><a name="[10c]"></a>hal_entry</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, hal_entry.o(.text.hal_entry))
+<BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
+<LI>Call Chain = hal_entry &rArr; cpp_main &rArr; initializeSensors() &rArr; ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL) &rArr; ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpp_main
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[42]"></a>i2c_callback</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, qmc5883p.o(.text.i2c_callback))
+<BR>[Address Reference Count : 1]<UL><LI> hal_data.o(.rodata.g_i2c_master1_cfg)
+</UL>
+<P><STRONG><a name="[19]"></a>iic_master_eri_isr</STRONG> (Thumb, 320 bytes, Stack size 16 bytes, r_iic_master.o(.text.iic_master_eri_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = iic_master_eri_isr &rArr; iic_master_open_hw_master
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_open_hw_master
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_notify
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[16]"></a>iic_master_rxi_isr</STRONG> (Thumb, 396 bytes, Stack size 16 bytes, r_iic_master.o(.text.iic_master_rxi_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = iic_master_rxi_isr &rArr; iic_master_notify
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_notify
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[18]"></a>iic_master_tei_isr</STRONG> (Thumb, 222 bytes, Stack size 8 bytes, r_iic_master.o(.text.iic_master_tei_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = iic_master_tei_isr &rArr; iic_master_notify
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_notify
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[17]"></a>iic_master_txi_isr</STRONG> (Thumb, 278 bytes, Stack size 16 bytes, r_iic_master.o(.text.iic_master_txi_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = iic_master_txi_isr &rArr; iic_master_notify
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_notify
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[c5]"></a>main</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
+<LI>Call Chain = main &rArr; hal_entry &rArr; cpp_main &rArr; initializeSensors() &rArr; ICM42688::General::enable_gyro(ICM42688::General::GYRO_ODR, ICM42688::General::GYRO_FS, ICM42688::General::FILTER_LEVEL) &rArr; ICM42688::General::set_gyro_filter(ICM42688::General::GYRO_UIF_LN, ICM42688::General::GYRO_ORDER_UIF, ICM42688::ICM42688_SWITCH, ICM42688::ICM42688_SWITCH, unsigned short, unsigned short, unsigned short, ICM42688::General::NF_BW, ICM42688::ICM42688_SWITCH, unsigned char, unsigned short, unsigned char) &rArr; ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*) &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_entry
+</UL>
+<BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
+</UL>
+
+<P><STRONG><a name="[b]"></a>r_icu_isr</STRONG> (Thumb, 114 bytes, Stack size 24 bytes, r_icu.o(.text.r_icu_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = r_icu_isr
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[10]"></a>sci_uart_eri_isr</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, r_sci_uart.o(.text.sci_uart_eri_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = sci_uart_eri_isr &rArr; r_sci_uart_call_callback
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_sci_uart_call_callback
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[d]"></a>sci_uart_rxi_isr</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, r_sci_uart.o(.text.sci_uart_rxi_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = sci_uart_rxi_isr &rArr; r_sci_uart_call_callback
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_sci_uart_call_callback
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[f]"></a>sci_uart_tei_isr</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, r_sci_uart.o(.text.sci_uart_tei_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = sci_uart_tei_isr &rArr; r_sci_uart_call_callback
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_sci_uart_call_callback
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[e]"></a>sci_uart_txi_isr</STRONG> (Thumb, 140 bytes, Stack size 0 bytes, r_sci_uart.o(.text.sci_uart_txi_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = sci_uart_txi_isr &rArr; r_sci_uart_call_callback
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_sci_uart_call_callback
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[58]"></a>spi_callback</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, icm42688.o(.text.spi_callback))
+<BR>[Address Reference Count : 1]<UL><LI> hal_data.o(.rodata.g_spi1_cfg)
+</UL>
+<P><STRONG><a name="[15]"></a>spi_eri_isr</STRONG> (Thumb, 210 bytes, Stack size 24 bytes, r_spi.o(.text.spi_eri_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = spi_eri_isr &rArr; r_spi_call_callback
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_spi_call_callback
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[12]"></a>spi_rxi_isr</STRONG> (Thumb, 144 bytes, Stack size 0 bytes, r_spi.o(.text.spi_rxi_isr))
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[14]"></a>spi_tei_isr</STRONG> (Thumb, 212 bytes, Stack size 8 bytes, r_spi.o(.text.spi_tei_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = spi_tei_isr &rArr; r_spi_call_callback
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_spi_call_callback
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[13]"></a>spi_txi_isr</STRONG> (Thumb, 218 bytes, Stack size 0 bytes, r_spi.o(.text.spi_txi_isr))
+<BR>[Address Reference Count : 1]<UL><LI> vector_data.o(.application_vectors)
+</UL>
+<P><STRONG><a name="[a0]"></a>_btod_d2e</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, btod.o(CL$$btod_d2e))
+<BR><BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2e_norm_op1
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+</UL>
+
+<P><STRONG><a name="[111]"></a>_d2e_denorm_low</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, btod.o(CL$$btod_d2e_denorm_low))
+<BR><BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2e_norm_op1
+</UL>
+
+<P><STRONG><a name="[110]"></a>_d2e_norm_op1</STRONG> (Thumb, 96 bytes, Stack size 0 bytes, btod.o(CL$$btod_d2e_norm_op1))
+<BR><BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2e_denorm_low
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_d2e
+</UL>
+
+<P><STRONG><a name="[112]"></a>__btod_div_common</STRONG> (Thumb, 696 bytes, Stack size 24 bytes, btod.o(CL$$btod_div_common))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __btod_div_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_ediv
+</UL>
+
+<P><STRONG><a name="[113]"></a>_e2e</STRONG> (Thumb, 220 bytes, Stack size 24 bytes, btod.o(CL$$btod_e2e))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = _e2e
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_ediv
+</UL>
+
+<P><STRONG><a name="[a1]"></a>_btod_ediv</STRONG> (Thumb, 42 bytes, Stack size 28 bytes, btod.o(CL$$btod_ediv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = _btod_ediv &rArr; _e2e
+</UL>
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_div_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+</UL>
+
+<P><STRONG><a name="[a2]"></a>_btod_emul</STRONG> (Thumb, 42 bytes, Stack size 28 bytes, btod.o(CL$$btod_emul))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = _btod_emul &rArr; _e2e
+</UL>
+<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_mult_common
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+</UL>
+
+<P><STRONG><a name="[114]"></a>__btod_mult_common</STRONG> (Thumb, 580 bytes, Stack size 16 bytes, btod.o(CL$$btod_mult_common))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __btod_mult_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
+</UL>
+
+<P><STRONG><a name="[a5]"></a>__ARM_fpclassify</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fpclassify.o(i.__ARM_fpclassify))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_fpclassify
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+</UL>
+
+<P><STRONG><a name="[116]"></a>__ARM_fpclassifyf</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, fpclassifyf.o(i.__ARM_fpclassifyf))
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+
+<P><STRONG><a name="[d2]"></a>__hardfp_asinf</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, asinf.o(i.__hardfp_asinf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __hardfp_asinf &rArr; sqrtf &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_get_euler
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quat_to_euler(Quaternion const*, EulerAngle*)
+</UL>
+
+<P><STRONG><a name="[d1]"></a>__hardfp_atan2f</STRONG> (Thumb, 594 bytes, Stack size 32 bytes, atan2f.o(i.__hardfp_atan2f))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __hardfp_atan2f &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan2
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+</UL>
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_get_euler
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;quat_to_euler(Quaternion const*, EulerAngle*)
+</UL>
+
+<P><STRONG><a name="[f8]"></a>__hardfp_cos</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, cos.o(i.__hardfp_cos))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*)
+</UL>
+
+<P><STRONG><a name="[106]"></a>__hardfp_cosf</STRONG> (Thumb, 280 bytes, Stack size 8 bytes, cosf.o(i.__hardfp_cosf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = __hardfp_cosf &rArr; __mathlib_rredf2
+</UL>
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_rredf2
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+</UL>
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_update
+</UL>
+
+<P><STRONG><a name="[f9]"></a>__hardfp_roundf</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, roundf.o(i.__hardfp_roundf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __hardfp_roundf &rArr; _frnd &rArr; __fpl_fnaninf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frnd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*)
+</UL>
+
+<P><STRONG><a name="[107]"></a>__hardfp_sinf</STRONG> (Thumb, 344 bytes, Stack size 16 bytes, sinf.o(i.__hardfp_sinf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = __hardfp_sinf &rArr; __mathlib_rredf2
+</UL>
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_rredf2
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+</UL>
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_update
+</UL>
+
+<P><STRONG><a name="[108]"></a>__hardfp_sqrtf</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, sqrtf.o(i.__hardfp_sqrtf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __hardfp_sqrtf &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+</UL>
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eskf_update
+</UL>
+
+<P><STRONG><a name="[11d]"></a>__ieee754_rem_pio2</STRONG> (Thumb, 938 bytes, Stack size 120 bytes, rred.o(i.__ieee754_rem_pio2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = __ieee754_rem_pio2 &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+</UL>
+
+<P><STRONG><a name="[11f]"></a>__kernel_cos</STRONG> (Thumb, 322 bytes, Stack size 64 bytes, cos_i.o(i.__kernel_cos))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = __kernel_cos &rArr; __kernel_poly &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+</UL>
+
+<P><STRONG><a name="[128]"></a>__kernel_poly</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __kernel_poly &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+</UL>
+
+<P><STRONG><a name="[11e]"></a>__kernel_sin</STRONG> (Thumb, 280 bytes, Stack size 72 bytes, sin_i.o(i.__kernel_sin))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = __kernel_sin &rArr; __kernel_poly &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+</UL>
+
+<P><STRONG><a name="[11c]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_infnan))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __mathlib_dbl_infnan &rArr; __aeabi_dadd
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+</UL>
+
+<P><STRONG><a name="[11b]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_invalid))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_invalid &rArr; __aeabi_ddiv
+</UL>
+<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+</UL>
+
+<P><STRONG><a name="[129]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_underflow))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __mathlib_dbl_underflow &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+</UL>
+
+<P><STRONG><a name="[118]"></a>__mathlib_flt_infnan</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, funder.o(i.__mathlib_flt_infnan))
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+
+<P><STRONG><a name="[11a]"></a>__mathlib_flt_infnan2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, funder.o(i.__mathlib_flt_infnan2))
+<BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
+</UL>
+
+<P><STRONG><a name="[119]"></a>__mathlib_flt_invalid</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, funder.o(i.__mathlib_flt_invalid))
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+
+<P><STRONG><a name="[117]"></a>__mathlib_flt_underflow</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, funder.o(i.__mathlib_flt_underflow))
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+
+<P><STRONG><a name="[121]"></a>__mathlib_rredf2</STRONG> (Thumb, 316 bytes, Stack size 20 bytes, rredf.o(i.__mathlib_rredf2))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = __mathlib_rredf2
+</UL>
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
+</UL>
+
+<P><STRONG><a name="[124]"></a>fabs</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fabs.o(i.fabs))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = fabs
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+</UL>
+
+<P><STRONG><a name="[115]"></a>sqrtf</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, sqrtf.o(i.sqrtf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = sqrtf &rArr; __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+</UL>
+
+<P><STRONG><a name="[93]"></a>_get_lc_numeric</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_numeric_c.o(locale$$code))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _get_lc_numeric &rArr; strcmp
+</UL>
+<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+</UL>
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_numeric_2
+</UL>
+
+<P><STRONG><a name="[120]"></a>__aeabi_dneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic))
+<BR><BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
+</UL>
+
+<P><STRONG><a name="[16a]"></a>_dneg</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
+
+<P><STRONG><a name="[16b]"></a>__aeabi_fneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
+
+<P><STRONG><a name="[16c]"></a>_fneg</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
+
+<P><STRONG><a name="[16d]"></a>_dabs</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
+
+<P><STRONG><a name="[16e]"></a>_fabs</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
+
+<P><STRONG><a name="[f6]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*)
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_az()
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ay()
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ax()
+</UL>
+
+<P><STRONG><a name="[12c]"></a>_d2f</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+</UL>
+
+<P><STRONG><a name="[f5]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_az()
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ay()
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ax()
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+</UL>
+
+<P><STRONG><a name="[12f]"></a>_dadd</STRONG> (Thumb, 332 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
+</UL>
+
+<P><STRONG><a name="[12a]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
+</UL>
+
+<P><STRONG><a name="[132]"></a>_ddiv</STRONG> (Thumb, 556 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+</UL>
+
+<P><STRONG><a name="[125]"></a>__aeabi_d2iz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2iz
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+</UL>
+
+<P><STRONG><a name="[133]"></a>_dfix</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+</UL>
+
+<P><STRONG><a name="[126]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
+<BR><BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+</UL>
+
+<P><STRONG><a name="[16f]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
+
+<P><STRONG><a name="[f7]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
+<BR><BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*)
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+</UL>
+
+<P><STRONG><a name="[170]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
+
+<P><STRONG><a name="[f4]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::find_NF(unsigned short, unsigned char*, unsigned short*)
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_az()
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ay()
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ax()
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+</UL>
+
+<P><STRONG><a name="[134]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+</UL>
+
+<P><STRONG><a name="[12e]"></a>__fpl_dnaninf</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, dnaninf.o(x$fpl$dnaninf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
+</UL>
+
+<P><STRONG><a name="[131]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+</UL>
+
+<P><STRONG><a name="[127]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+</UL>
+
+<P><STRONG><a name="[135]"></a>_drsb</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+</UL>
+
+<P><STRONG><a name="[123]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dsub
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
+</UL>
+
+<P><STRONG><a name="[137]"></a>_dsub</STRONG> (Thumb, 472 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+</UL>
+
+<P><STRONG><a name="[f3]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_az()
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ay()
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::General::get_ax()
+</UL>
+
+<P><STRONG><a name="[138]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+</UL>
+
+<P><STRONG><a name="[139]"></a>__fpl_fnaninf</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, fnaninf.o(x$fpl$fnaninf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __fpl_fnaninf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frnd
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+</UL>
+
+<P><STRONG><a name="[8d]"></a>_fp_init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
+<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_fp_1
+</UL>
+
+<P><STRONG><a name="[171]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+
+<P><STRONG><a name="[172]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+
+<P><STRONG><a name="[12d]"></a>__fpl_fretinf</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fretinf.o(x$fpl$fretinf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+</UL>
+
+<P><STRONG><a name="[122]"></a>_frnd</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, frnd.o(x$fpl$frnd))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _frnd &rArr; __fpl_fnaninf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_roundf
+</UL>
+
+<P><STRONG><a name="[8b]"></a>_printf_fp_dec</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, printf1.o(x$fpl$printf1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec &rArr; _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_f
+</UL>
+<P>
+<H3>
+Local Symbols
+</H3>
+<P><STRONG><a name="[88]"></a>_GLOBAL__sub_I_cpp_main.cpp</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, cpp_main.o(.text._GLOBAL__sub_I_cpp_main.cpp))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = _GLOBAL__sub_I_cpp_main.cpp &rArr; __cxa_atexit &rArr; __aeabi_atexit &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;QMC5883P::QMC5883P(QMC5883P::QMC5883P_Mode, QMC5883P::QMC5883P_Spd, QMC5883P::QMC5883P_Rng)
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ICM42688::ICM42688(ICM42688::ICM42688_MountingOrientation)
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EULER::EULER(float)
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_atexit
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> cpp_main.o(.init_array)
+</UL>
+<P><STRONG><a name="[c7]"></a>SystemRuntimeInit</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, system.o(.text.SystemRuntimeInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
+<LI>Call Chain = SystemRuntimeInit &rArr; __aeabi_memcpy4
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+</UL>
+
+<P><STRONG><a name="[ff]"></a>bsp_prv_operating_mode_opccr_set</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, bsp_clocks.o(.text.bsp_prv_operating_mode_opccr_set))
+<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_clock_init
+</UL>
+
+<P><STRONG><a name="[b7]"></a>r_adc_irq_enable</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, r_adc.o(.text.r_adc_irq_enable))
+<BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_ADC_Open
+</UL>
+
+<P><STRONG><a name="[fe]"></a>r_adc_scan_end_common_isr</STRONG> (Thumb, 178 bytes, Stack size 88 bytes, r_adc.o(.text.r_adc_scan_end_common_isr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = r_adc_scan_end_common_isr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_scan_end_isr
+</UL>
+
+<P><STRONG><a name="[b8]"></a>r_agt_clock_frequency_get</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, r_agt.o(.text.r_agt_clock_frequency_get))
+<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_AGT_InfoGet
+</UL>
+
+<P><STRONG><a name="[be]"></a>gpt_calculate_duty_cycle</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, r_gpt.o(.text.gpt_calculate_duty_cycle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = gpt_calculate_duty_cycle
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_GPT_Open
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_GPT_DutyCycleSet
+</UL>
+
+<P><STRONG><a name="[10d]"></a>iic_master_notify</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, r_iic_master.o(.text.iic_master_notify))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iic_master_notify
+</UL>
+<BR>[Called By]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_txi_isr
+<LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_tei_isr
+<LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_rxi_isr
+<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_eri_isr
+</UL>
+
+<P><STRONG><a name="[bf]"></a>iic_master_open_hw_master</STRONG> (Thumb, 374 bytes, Stack size 20 bytes, r_iic_master.o(.text.iic_master_open_hw_master))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = iic_master_open_hw_master
+</UL>
+<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iic_master_eri_isr
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Close
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Abort
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Open
+</UL>
+
+<P><STRONG><a name="[c0]"></a>iic_master_read_write</STRONG> (Thumb, 340 bytes, Stack size 12 bytes, r_iic_master.o(.text.iic_master_read_write))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = iic_master_read_write
+</UL>
+<BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Write
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IIC_MASTER_Read
+</UL>
+
+<P><STRONG><a name="[c2]"></a>bsp_vbatt_init</STRONG> (Thumb, 204 bytes, Stack size 40 bytes, r_ioport.o(.text.bsp_vbatt_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = bsp_vbatt_init &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_RegisterProtectEnable
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_RegisterProtectDisable
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_BSP_SoftwareDelay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IOPORT_PinCfg
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_ioport_pins_config
+</UL>
+
+<P><STRONG><a name="[c1]"></a>r_ioport_pins_config</STRONG> (Thumb, 190 bytes, Stack size 16 bytes, r_ioport.o(.text.r_ioport_pins_config))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = r_ioport_pins_config &rArr; bsp_vbatt_init &rArr; R_BSP_RegisterProtectDisable
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_vbatt_init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IOPORT_PinsCfg
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_IOPORT_Open
+</UL>
+
+<P><STRONG><a name="[10e]"></a>r_sci_uart_call_callback</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, r_sci_uart.o(.text.r_sci_uart_call_callback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = r_sci_uart_call_callback
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sci_uart_txi_isr
+<LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sci_uart_tei_isr
+<LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sci_uart_rxi_isr
+<LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sci_uart_eri_isr
+</UL>
+
+<P><STRONG><a name="[10f]"></a>r_spi_call_callback</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, r_spi.o(.text.r_spi_call_callback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = r_spi_call_callback
+</UL>
+<BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_tei_isr
+<LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_eri_isr
+</UL>
+
+<P><STRONG><a name="[c3]"></a>r_spi_write_read_common</STRONG> (Thumb, 364 bytes, Stack size 16 bytes, r_spi.o(.text.r_spi_write_read_common))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = r_spi_write_read_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SPI_WriteRead
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SPI_Write
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;R_SPI_Read
+</UL>
+
+<P><STRONG><a name="[136]"></a>_dadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
+</UL>
+
+<P><STRONG><a name="[130]"></a>_dsub1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+</UL>
+
+<P><STRONG><a name="[9e]"></a>_fp_digits</STRONG> (Thumb, 432 bytes, Stack size 96 bytes, _printf_fp_dec.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_ediv
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_d2e
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ll_udiv10
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+</UL>
+<P>
+<H3>
+Undefined Global Symbols
+</H3><HR></body></html>
