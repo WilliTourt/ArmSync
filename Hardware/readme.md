@@ -2,6 +2,8 @@
 
 This directory contains all hardware-related files for the ArmSync 7DOF robotic arm project.
 
+[中文文档](/Hardware/readme-zh-CN.md)
+
 ## Overview
 
 ArmSync is a 7-degree-of-freedom robotic arm featuring dual-IMU master-slave wireless teleoperation control. The arm is designed for educational and research purposes, with a focus on cost-effectiveness and ease of replication.

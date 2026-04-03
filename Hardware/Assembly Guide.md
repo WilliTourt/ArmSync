@@ -1,5 +1,7 @@
 # Assembly Guide - ArmSync 7DOF Robotic Arm
 
+[中文文档](/Hardware/Assembly%20Guide-zh-CN.md)
+
 ## Preparation
 
 ### Tool List

@@ -1,5 +1,7 @@
 # 物料清单 - ArmSync 7DOF 机械臂物料清单
 
+[English Document](/Hardware/Parts%20BOM.md)
+
 ## 1. 电机 (J1-J7)
 
 | 关节 | 型号/规格 | 类型 | 价格 (人民币) | 备注 |

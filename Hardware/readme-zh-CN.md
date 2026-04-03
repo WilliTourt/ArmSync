@@ -2,6 +2,8 @@
 
 本目录包含 ArmSync 七自由度机械臂项目的所有硬件相关文件。
 
+[English Document](/Hardware/readme.md)
+
 ## 项目简介
 
 ArmSync 是一款采用双 IMU 主从无线遥操作控制的七自由度机械臂。本项目面向教育和研究用途，注重成本效益和易于复现。

@@ -1,5 +1,7 @@
 # 组装指南 - ArmSync 7DOF 机械臂
 
+[English Document](/Hardware/Assembly%20Guide.md)
+
 ## 准备工作
 
 ### 工具清单

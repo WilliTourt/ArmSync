@@ -1,5 +1,7 @@
 # Parts BOM - ArmSync 7DOF Robotic Arm Bill of Materials
 
+[中文文档](/Hardware/Parts%20BOM-zh-CN.md)
+
 ## 1. Motors (J1-J7)
 
 | Joint | Model/Specs | Type | Price (RMB) | Notes |
