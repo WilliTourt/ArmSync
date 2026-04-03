@@ -1,0 +1,648 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "arm.elf"
+		}
+	],
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"include",
+			"target_link_options",
+			"target_link_directories",
+			"add_dependencies",
+			"target_compile_options",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"cmake/GeneratedSrc.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 49,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 31,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 92,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 2
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 2
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-O3 -DNDEBUG"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-O2"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "--param=min-pagesize=0"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wno-format-truncation"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wno-stringop-overflow"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-mfloat-abi=hard"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-mcpu=cortex-m33"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-mfpu=fpv5-sp-d16"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wunused"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wuninitialized"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wmissing-declarations"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wconversion"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wpointer-arith"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wshadow"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wlogical-op"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Waggregate-return"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wfloat-equal"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-fmessage-length=0"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-fsigned-char"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-fdata-sections"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-mthumb"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-std=c99"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-MMD"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-MP"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 9,
+					"define" : "_RA_CORE=CM33"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "_RA_ORDINAL=1"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "_RENESAS_RA_"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/ra/arm/CMSIS_6/CMSIS/Core/Include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/ra/fsp/inc"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/ra/fsp/inc/api"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/ra/fsp/inc/instances"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/ra_cfg/fsp_cfg"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/ra_cfg/fsp_cfg/bsp"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/ra_gen"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/src"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/build/Release"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "generate_content_arm::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "arm.elf::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-O3 -DNDEBUG",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mfloat-abi=hard",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mcpu=cortex-m33",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mfpu=fpv5-sp-d16",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wunused",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wuninitialized",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wall",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wextra",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wmissing-declarations",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wconversion",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wpointer-arith",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wshadow",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wlogical-op",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Waggregate-return",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wfloat-equal",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-fmessage-length=0",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-fsigned-char",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-ffunction-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-fdata-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mthumb",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-T",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "script/fsp.ld",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wl,--gc-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wl,-Map,C:/Users/wtfzfj/FSPSmartConfigurator/arm/build/Release/arm.map",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "--specs=nano.specs",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-o",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/build/Release/arm.elf",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-LC:\\Users\\wtfzfj\\FSPSmartConfigurator\\arm",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-LC:\\Users\\wtfzfj\\FSPSmartConfigurator\\arm\\script",
+				"role" : "libraryPath"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "arm.elf",
+	"nameOnDisk" : "arm.elf",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_common.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_delay.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_group_irq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_guard.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_io.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_ipc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_irq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_macl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_sbrk.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_sdram.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_security.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/r_ioport/r_ioport.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/common_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/hal_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/pin_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/vector_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/hal_entry.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/hal_warmstart.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

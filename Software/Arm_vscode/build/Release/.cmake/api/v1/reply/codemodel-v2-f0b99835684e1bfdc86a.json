@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.4"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "arm",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "arm.elf::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm.elf-Release-b64538bba8c96e36424d.json",
+					"name" : "arm.elf",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "generate_content_arm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-generate_content_arm-Release-255fb369ba6d44ecedd8.json",
+					"name" : "generate_content_arm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "generate_sbd_arm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-generate_sbd_arm-Release-377a1c42e1696a6e715b.json",
+					"name" : "generate_sbd_arm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "open_rasc_arm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-open_rasc_arm-Release-0aff8ceb0df8fc1032cc.json",
+					"name" : "open_rasc_arm",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm/build/Release",
+		"source" : "C:/Users/wtfzfj/FSPSmartConfigurator/arm"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

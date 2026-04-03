@@ -1,0 +1,18 @@
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider org.slf4j.simple.SimpleServiceProvider of service org.slf4j.spi.SLF4JServiceProvider in bundle slf4j.simple
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider com.sun.tools.rngdatatype.helpers.ProxyDatatypeLibraryFactory of service com.sun.tools.rngdatatype.DatatypeLibraryFactory in bundle com.sun.xml.bind.jaxb-osgi
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider com.sun.tools.xjc.addon.code_injector.PluginImpl of service com.sun.tools.xjc.Plugin in bundle com.sun.xml.bind.jaxb-osgi
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider com.sun.tools.xjc.addon.locator.SourceLocationAddOn of service com.sun.tools.xjc.Plugin in bundle com.sun.xml.bind.jaxb-osgi
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider com.sun.tools.xjc.addon.sync.SynchronizedMethodAddOn of service com.sun.tools.xjc.Plugin in bundle com.sun.xml.bind.jaxb-osgi
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider com.sun.tools.xjc.addon.at_generated.PluginImpl of service com.sun.tools.xjc.Plugin in bundle com.sun.xml.bind.jaxb-osgi
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider com.sun.tools.xjc.addon.episode.PluginImpl of service com.sun.tools.xjc.Plugin in bundle com.sun.xml.bind.jaxb-osgi
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider com.sun.tools.xjc.addon.accessors.PluginImpl of service com.sun.tools.xjc.Plugin in bundle com.sun.xml.bind.jaxb-osgi
+3月 28, 2026 7:20:09 上午 org.apache.aries.spifly.BaseActivator log
+信息: Registered provider org.glassfish.jaxb.runtime.v2.JAXBContextFactory of service jakarta.xml.bind.JAXBContextFactory in bundle com.sun.xml.bind.jaxb-osgi

@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "name": "Generic",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "defines": [],
+      "intelliSenseMode": "gcc-arm",
+      "compilerPath": "${env:ARM_GCC_TOOLCHAIN_PATH}/arm-none-eabi-gcc",
+      "compilerArgs": [],
+      "browse": {
+        "path": [],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}

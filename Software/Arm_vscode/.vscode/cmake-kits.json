@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ARM GCC - Ninja",
+    "description": "Kit with toolchain file and toolchain path in environment",
+    "toolchainFile": "${workspaceFolder}/cmake/gcc.cmake",
+    "cmakeSettings": {
+      "ARM_TOOLCHAIN_PATH": "${env:ARM_GCC_TOOLCHAIN_PATH}"
+    },
+    "preferredGenerator": {
+      "name": "Ninja"
+    },
+    "isTrusted": true
+  },
+  {
+    "name": "ARM GCC - MinGW Makefiles",
+    "description": "Kit with toolchain file and toolchain path in environment",
+    "toolchainFile": "${workspaceFolder}/cmake/gcc.cmake",
+    "cmakeSettings": {
+      "ARM_TOOLCHAIN_PATH": "${env:ARM_GCC_TOOLCHAIN_PATH}"
+    },
+    "preferredGenerator": {
+      "name": "MinGW Makefiles"
+    },
+    "isTrusted": true
+  }
+]

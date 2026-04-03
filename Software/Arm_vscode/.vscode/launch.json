@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "renesas-hardware",
+      "request": "launch",
+      "name": "Renesas GDB Debugging",
+      "target": {
+        "deviceFamily": "RA",
+        "device": "R7FA6M5BF",
+        "debuggerType": "SEGGERJLINKARM"
+      }
+    }
+  ],
+  "version": "0.2.0"
+}

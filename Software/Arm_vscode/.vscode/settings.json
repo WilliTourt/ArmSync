@@ -1,0 +1,51 @@
+{
+  "cmake.configureOnOpen": true,
+  "cmake.configureOnEdit": true,
+  "cmake.useCMakePresets": "never",
+  "cmake.options.statusBarVisibility": "visible",
+  "cmake.sourceDirectory": "${workspaceFolder}",
+  "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
+  "cmake.preferredGenerators": [
+    "Ninja",
+    "MinGW Makefiles",
+    "Unix Makefiles"
+  ],
+  "cmake.debugConfig": {
+    "type": "renesas-hardware",
+    "request": "launch",
+    "name": "Renesas GDB Debugging",
+    "target": {
+      "deviceFamily": "RA",
+      "device": "R7FA6M5BF",
+      "debuggerType": "SEGGERJLINKARM"
+    },
+    "cwd": "${command:renesas.debug.supportFolder}"
+  },
+  "clangd.arguments": [
+    "--query-driver=${env:ARM_GCC_TOOLCHAIN_PATH}*",
+    "--compile-commands-dir=${workspaceFolder}",
+    "--background-index"
+  ],
+  "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
+  "files.associations": {
+    "hal_data.h": "c",
+    "bsp_api.h": "c",
+    "fsp_common_api.h": "c",
+    "assert.h": "c",
+    "bsp_cfg.h": "c",
+    "stdint.h": "c",
+    "can.h": "c",
+    "r_can_api.h": "c",
+    "emm_v5.h": "c",
+    "r_canfd.h": "c",
+    "r_canfd_cfg.h": "c",
+    "common_data.h": "c",
+    "key.h": "c",
+    "stdio.h": "c",
+    "bsp_qspi_flash.h": "c",
+    "r_qspi.h": "c",
+    "stdbool.h": "c",
+    "r_timer_api.h": "c",
+    "beam.h": "c"
+  }
+}

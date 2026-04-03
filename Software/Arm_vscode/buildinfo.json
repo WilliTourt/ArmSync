@@ -1,0 +1,36 @@
+{
+  "definedMacros": [
+    "_RA_CORE=CM33",
+    "_RA_ORDINAL=1",
+    "_RENESAS_RA_"
+  ],
+  "sourcePaths": [
+    "ra",
+    "ra_gen",
+    "src"
+  ],
+  "excludedFilePaths": [],
+  "includePaths": [
+    "ra/arm/CMSIS_6/CMSIS/Core/Include",
+    "ra/fsp/inc",
+    "ra/fsp/inc/api",
+    "ra/fsp/inc/instances",
+    "ra_cfg/driver",
+    "ra_cfg/fsp_cfg",
+    "ra_cfg/fsp_cfg/bsp",
+    "ra_gen",
+    "src"
+  ],
+  "libraryPaths": [],
+  "libraryNames": [],
+  "objectFiles": [],
+  "linkerScript": "script/fsp.ld",
+  "targetDeviceName": "R7FA6M5BF2CBG",
+  "entrySymbol": "Reset_Handler",
+  "isPreBuildContentGenEnabled": true,
+  "isPostBuildContentGenEnabled": true,
+  "isTargetDeviceSupportsTrustZone": true,
+  "buildOptionsMap": {},
+  "targetDeviceCommand": "R7FA6M5BF",
+  "targetCoreName": "CM33"
+}

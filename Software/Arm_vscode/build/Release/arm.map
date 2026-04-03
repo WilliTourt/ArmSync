@@ -1,0 +1,1293 @@
+Archive member included to satisfy reference by file (symbol)
+
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o (exit)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o) (__stdio_exit_handler)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fwalk.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o) (_fwalk_sglue)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o) (__sread)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o (memset)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o) (_close_r)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o) (errno)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-impure.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o) (_impure_ptr)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lseekr.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o) (_lseek_r)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-readr.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o) (_read_r)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-writer.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o) (_write_r)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-errno.o)
+                              CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj (__errno)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o (__libc_init_array)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+                              CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj (memcpy)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o) (_free_r)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o) (_malloc_r)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o) (__malloc_lock)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o) (_fflush_r)
+C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+                              C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o) (_sbrk_r)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crti.o
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crti.o
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crti.o
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .rodata.all_implied_fbits
+                0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .data.__dso_handle
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .text          0x00000000       0x7c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+ .ARM.extab     0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+ .ARM.exidx     0x00000000       0x10 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+ .debug_line_str
+                0x00000000       0xda C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+ .ARM.attributes
+                0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+ .bss.g_heap    0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+ .text.R_BSP_WarmStart
+                0x00000000        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text.bsp_prv_operating_mode_set
+                0x00000000       0x60 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text.bsp_prv_prepare_pll
+                0x00000000       0x14 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text.bsp_prv_clock_dividers_set
+                0x00000000        0xc CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text.bsp_prv_clock_set
+                0x00000000       0xc4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text.R_BSP_SubClockStabilizeWait
+                0x00000000        0x8 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text.R_BSP_OctaclkUpdate
+                0x00000000      0x108 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text.R_BSP_SourceClockHzGet
+                0x00000000        0xc CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+ .text.R_FSP_VersionGet
+                0x00000000       0x10 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+ .text.__assert_func
+                0x00000000        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+ .text.R_BSP_GroupIrqWrite
+                0x00000000       0x10 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_guard.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_guard.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_guard.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_guard.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_guard.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_io.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_io.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_io.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ipc.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ipc.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ipc.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ipc.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ipc.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+ .bss.gp_renesas_isr_context
+                0x00000000        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_macl.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_macl.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_macl.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_macl.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_macl.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj
+ .text._sbrk    0x00000000       0x14 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sdram.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sdram.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sdram.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sdram.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sdram.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_security.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_security.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_security.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_security.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_security.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_Close
+                0x00000000        0xc CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PinRead
+                0x00000000       0x24 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PortRead
+                0x00000000       0x14 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PortWrite
+                0x00000000       0x1c CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PinWrite
+                0x00000000       0x20 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PortDirectionSet
+                0x00000000       0x2c CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PortEventInputRead
+                0x00000000       0x18 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PinEventInputRead
+                0x00000000       0x34 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PortEventOutputWrite
+                0x00000000       0x1c CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PinEventOutputWrite
+                0x00000000       0x34 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PinsCfg
+                0x00000000        0xc CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_PinCfg
+                0x00000000       0xa8 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .rodata.g_ioport_on_ioport
+                0x00000000       0x34 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+ .text.g_common_init
+                0x00000000        0x4 CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+ .rodata.g_ioport
+                0x00000000        0xc CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/hal_data.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/hal_data.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/hal_data.c.obj
+ .text.g_hal_init
+                0x00000000        0x4 CMakeFiles/arm.elf.dir/ra_gen/hal_data.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra_gen/hal_data.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra_gen/hal_data.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/main.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/main.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/main.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/vector_data.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/vector_data.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/ra_gen/vector_data.c.obj
+ .comment       0x00000000       0x46 CMakeFiles/arm.elf.dir/ra_gen/vector_data.c.obj
+ .ARM.attributes
+                0x00000000       0x3a CMakeFiles/arm.elf.dir/ra_gen/vector_data.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/src/hal_entry.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/src/hal_entry.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/src/hal_entry.c.obj
+ .text          0x00000000        0x0 CMakeFiles/arm.elf.dir/src/hal_warmstart.c.obj
+ .data          0x00000000        0x0 CMakeFiles/arm.elf.dir/src/hal_warmstart.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/arm.elf.dir/src/hal_warmstart.c.obj
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+ .text.exit     0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+ .debug_frame   0x00000000       0x28 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.std      0x00000000       0x6c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.stdio_exit_handler
+                0x00000000       0x18 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.cleanup_stdio
+                0x00000000       0x40 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_lock
+                0x00000000       0x18 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_unlock
+                0x00000000       0x18 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.global_stdio_init.part.0
+                0x00000000       0x3c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp_lock_acquire
+                0x00000000        0xc C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp_lock_release
+                0x00000000        0xc C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp    0x00000000       0xa4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__sinit  0x00000000       0x30 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_lock_all
+                0x00000000       0x1c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_unlock_all
+                0x00000000       0x1c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .data.__sglue  0x00000000        0xc C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .bss.__sf      0x00000000      0x138 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .bss.__stdio_exit_handler
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00000000      0x144 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .text._fwalk_sglue
+                0x00000000       0x3c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x00000000       0x34 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__sread  0x00000000       0x22 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__seofread
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__swrite
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__sseek  0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text.__sclose
+                0x00000000        0x8 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .debug_frame   0x00000000       0x88 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
+ .text._close_r
+                0x00000000       0x20 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
+ .debug_frame   0x00000000       0x2c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+ .text._reclaim_reent
+                0x00000000       0xbc C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+ .bss.errno     0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-reent.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-impure.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-impure.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-impure.o)
+ .data._impure_data
+                0x00000000       0x4c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-impure.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-impure.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .text._lseek_r
+                0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x00000000       0x2c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-readr.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-readr.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-readr.o)
+ .text._read_r  0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-readr.o)
+ .debug_frame   0x00000000       0x2c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-readr.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-readr.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-writer.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-writer.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-writer.o)
+ .text._write_r
+                0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-writer.o)
+ .debug_frame   0x00000000       0x2c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-writer.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-writer.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-errno.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-errno.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-errno.o)
+ .text.__errno  0x00000000        0xc C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-errno.o)
+ .debug_frame   0x00000000       0x20 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-errno.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-errno.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+ .text.__libc_init_array
+                0x00000000       0x48 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+ .debug_frame   0x00000000       0x2c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_init
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_init_recursive
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_close
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_close_recursive
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_acquire
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_acquire_recursive
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_try_acquire
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_try_acquire_recursive
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_release
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_release_recursive
+                0x00000000        0x2 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___arc4random_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___dd_hash_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___tz_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___env_recursive_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___malloc_recursive_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___at_quick_exit_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___atexit_recursive_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___sfp_recursive_mutex
+                0x00000000        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00000000       0xb0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-lock.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o)
+ .text._free_r  0x00000000       0x94 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-freer.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .text.sbrk_aligned
+                0x00000000       0x44 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .text._malloc_r
+                0x00000000      0x100 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .bss.__malloc_sbrk_start
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .bss.__malloc_free_list
+                0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x00000000       0x50 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .text.__malloc_lock
+                0x00000000        0xc C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .text.__malloc_unlock
+                0x00000000        0xc C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x00000000       0x30 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text.__sflush_r
+                0x00000000      0x108 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text._fflush_r
+                0x00000000       0x50 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text.fflush   0x00000000       0x28 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .debug_frame   0x00000000       0x5c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .text._sbrk_r  0x00000000       0x20 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x00000000       0x2c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+ .rodata.all_implied_fbits
+                0x00000000       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+ .eh_frame      0x00000000        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+ .text          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
+ .data          0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
+ .bss           0x00000000        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
+ .init          0x00000000        0x8 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
+ .fini          0x00000000        0x8 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
+ .ARM.attributes
+                0x00000000       0x26 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00080000         xrw
+FLASH            0x00000000         0x00100000         xr
+DATA_FLASH       0x08000000         0x00002000         xr
+QSPI_FLASH       0x60000000         0x04000000         xr
+OSPI0_CS0        0x68000000         0x08000000         xrw
+OSPI0_CS1        0x70000000         0x10000000         xr
+OPTION_SETTING_OFS0 0x0100a100         0x00000004         r
+OPTION_SETTING_DUALSEL 0x0100a110         0x00000004         r
+OPTION_SETTING_OFS1 0x0100a180         0x00000004         r
+OPTION_SETTING_BANKSEL 0x0100a190         0x00000004         r
+OPTION_SETTING_BPS 0x0100a1c0         0x00000010         r
+OPTION_SETTING_PBPS 0x0100a1e0         0x00000010         r
+OPTION_SETTING_OFS1_SEC 0x0100a200         0x00000004         r
+OPTION_SETTING_BANKSEL_SEC 0x0100a210         0x00000004         r
+OPTION_SETTING_BPS_SEC 0x0100a240         0x00000010         r
+OPTION_SETTING_PBPS_SEC 0x0100a260         0x00000010         r
+OPTION_SETTING_OFS1_SEL 0x0100a280         0x00000004         r
+OPTION_SETTING_BANKSEL_SEL 0x0100a290         0x00000004         r
+OPTION_SETTING_BPS_SEL 0x0100a2c0         0x00000010         r
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crti.o
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crt0.o
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_guard.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_io.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ipc.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_macl.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_sdram.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_security.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra_gen/hal_data.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra_gen/main.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+LOAD CMakeFiles/arm.elf.dir/ra_gen/vector_data.c.obj
+LOAD CMakeFiles/arm.elf.dir/src/hal_entry.c.obj
+LOAD CMakeFiles/arm.elf.dir/src/hal_warmstart.c.obj
+START GROUP
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libgcc.a
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a
+END GROUP
+START GROUP
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libgcc.a
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a
+END GROUP
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
+                0x20000000                        RAM_START = 0x20000000
+                0x00080000                        RAM_LENGTH = 0x80000
+                0x00000000                        FLASH_START = 0x0
+                0x00100000                        FLASH_LENGTH = 0x100000
+                0x08000000                        DATA_FLASH_START = 0x8000000
+                0x00002000                        DATA_FLASH_LENGTH = 0x2000
+                0x60000000                        QSPI_FLASH_START = 0x60000000
+                0x04000000                        QSPI_FLASH_LENGTH = 0x4000000
+                0x68000000                        OSPI0_CS0_START = 0x68000000
+                0x08000000                        OSPI0_CS0_LENGTH = 0x8000000
+                0x70000000                        OSPI0_CS1_START = 0x70000000
+                0x10000000                        OSPI0_CS1_LENGTH = 0x10000000
+                0x0100a100                        OPTION_SETTING_OFS0_START = 0x100a100
+                0x00000004                        OPTION_SETTING_OFS0_LENGTH = 0x4
+                0x0100a110                        OPTION_SETTING_DUALSEL_START = 0x100a110
+                0x00000004                        OPTION_SETTING_DUALSEL_LENGTH = 0x4
+                0x0100a180                        OPTION_SETTING_OFS1_START = 0x100a180
+                0x00000004                        OPTION_SETTING_OFS1_LENGTH = 0x4
+                0x0100a190                        OPTION_SETTING_BANKSEL_START = 0x100a190
+                0x00000004                        OPTION_SETTING_BANKSEL_LENGTH = 0x4
+                0x0100a1c0                        OPTION_SETTING_BPS_START = 0x100a1c0
+                0x00000010                        OPTION_SETTING_BPS_LENGTH = 0x10
+                0x0100a1e0                        OPTION_SETTING_PBPS_START = 0x100a1e0
+                0x00000010                        OPTION_SETTING_PBPS_LENGTH = 0x10
+                0x0100a200                        OPTION_SETTING_OFS1_SEC_START = 0x100a200
+                0x00000004                        OPTION_SETTING_OFS1_SEC_LENGTH = 0x4
+                0x0100a210                        OPTION_SETTING_BANKSEL_SEC_START = 0x100a210
+                0x00000004                        OPTION_SETTING_BANKSEL_SEC_LENGTH = 0x4
+                0x0100a240                        OPTION_SETTING_BPS_SEC_START = 0x100a240
+                0x00000010                        OPTION_SETTING_BPS_SEC_LENGTH = 0x10
+                0x0100a260                        OPTION_SETTING_PBPS_SEC_START = 0x100a260
+                0x00000010                        OPTION_SETTING_PBPS_SEC_LENGTH = 0x10
+                0x0100a280                        OPTION_SETTING_OFS1_SEL_START = 0x100a280
+                0x00000004                        OPTION_SETTING_OFS1_SEL_LENGTH = 0x4
+                0x0100a290                        OPTION_SETTING_BANKSEL_SEL_START = 0x100a290
+                0x00000004                        OPTION_SETTING_BANKSEL_SEL_LENGTH = 0x4
+                0x0100a2c0                        OPTION_SETTING_BPS_SEL_START = 0x100a2c0
+                0x00000010                        OPTION_SETTING_BPS_SEL_LENGTH = 0x10
+START GROUP
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libgcc.a
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc.a
+LOAD C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libm.a
+END GROUP
+
+.qspi_flash.startof
+                0x60000000        0x0
+                0x60000000                        __ddsc_QSPI_FLASH_START = .
+
+.ospi0_cs0.startof
+                0x68000000        0x0
+                0x68000000                        __ddsc_OSPI0_CS0_START = .
+
+__ospi0_cs0_from_qspi_flash$$
+                0x68000000        0x0 load address 0x60000000
+                0x68000000                        __ospi0_cs0_from_qspi_flash$$Base = .
+                0x60000000                        __ospi0_cs0_from_qspi_flash$$Load = LOADADDR (__ospi0_cs0_from_qspi_flash$$)
+ *(.ospi0_cs0_from_qspi_flash)
+ *(.ospi0_cs0_code_from_qspi_flash)
+                0x68000000                        __ospi0_cs0_from_qspi_flash$$Limit = .
+
+.ram.startof    0x20000000        0x0
+                0x20000000                        __ddsc_RAM_START = .
+
+__ram_dtc_vector$$
+                0x20000000        0x0
+                0x20000000                        __ram_dtc_vector$$Base = .
+ *(.fsp_dtc_vector_table)
+                0x20000000                        __ram_dtc_vector$$Limit = .
+
+__ram_from_qspi_flash$$
+                0x20000000        0x0 load address 0x60000000
+                0x20000000                        __ram_from_qspi_flash$$Base = .
+                0x60000000                        __ram_from_qspi_flash$$Load = LOADADDR (__ram_from_qspi_flash$$)
+ *(.ram_from_qspi_flash)
+ *(.ram_code_from_qspi_flash)
+                0x20000000                        __ram_from_qspi_flash$$Limit = .
+
+__qspi_flash_readonly$$
+                0x60000000        0x0
+                0x60000000                        __qspi_flash_readonly$$Base = .
+ *(.qspi_flash)
+ *(.qspi_flash_code)
+                0x60000000                        __qspi_flash_readonly$$Limit = .
+
+__qspi_flash_noinit$$
+                0x60000000        0x0
+                0x60000000                        __qspi_flash_noinit$$Base = .
+ *(.qspi_flash_noinit)
+                0x60000000                        __qspi_flash_noinit$$Limit = .
+
+.qspi_flash.endof
+                0x60000000        0x0
+                0x60000000                        __ddsc_QSPI_FLASH_END = .
+
+.ospi0_cs1.startof
+                0x70000000        0x0
+                0x70000000                        __ddsc_OSPI0_CS1_START = .
+
+__ospi0_cs0_from_ospi0_cs1$$
+                0x68000000        0x0 load address 0x70000000
+                0x68000000                        __ospi0_cs0_from_ospi0_cs1$$Base = .
+                0x70000000                        __ospi0_cs0_from_ospi0_cs1$$Load = LOADADDR (__ospi0_cs0_from_ospi0_cs1$$)
+ *(.ospi0_cs0_from_ospi0_cs1)
+ *(.ospi0_cs0_code_from_ospi0_cs1)
+                0x68000000                        __ospi0_cs0_from_ospi0_cs1$$Limit = .
+
+__ram_from_ospi0_cs1$$
+                0x20000000        0x0 load address 0x70000000
+                0x20000000                        __ram_from_ospi0_cs1$$Base = .
+                0x70000000                        __ram_from_ospi0_cs1$$Load = LOADADDR (__ram_from_ospi0_cs1$$)
+ *(.ram_from_ospi0_cs1)
+ *(.ram_code_from_ospi0_cs1)
+                0x20000000                        __ram_from_ospi0_cs1$$Limit = .
+
+__ospi0_cs1_readonly$$
+                0x70000000        0x0
+                0x70000000                        __ospi0_cs1_readonly$$Base = .
+ *(.ospi0_cs1)
+ *(.ospi0_cs1_code)
+                0x70000000                        __ospi0_cs1_readonly$$Limit = .
+
+__ospi0_cs1_noinit$$
+                0x70000000        0x0
+                0x70000000                        __ospi0_cs1_noinit$$Base = .
+ *(.ospi0_cs1_noinit)
+                0x70000000                        __ospi0_cs1_noinit$$Limit = .
+
+.ospi0_cs1.endof
+                0x70000000        0x0
+                0x70000000                        __ddsc_OSPI0_CS1_END = .
+
+.data_flash.startof
+                0x08000000        0x0
+                0x08000000                        __ddsc_DATA_FLASH_START = .
+
+__ospi0_cs0_from_data_flash$$
+                0x68000000        0x0 load address 0x08000000
+                0x68000000                        __ospi0_cs0_from_data_flash$$Base = .
+                0x08000000                        __ospi0_cs0_from_data_flash$$Load = LOADADDR (__ospi0_cs0_from_data_flash$$)
+ *(.ospi0_cs0_from_data_flash)
+ *(.ospi0_cs0_code_from_data_flash)
+                0x68000000                        __ospi0_cs0_from_data_flash$$Limit = .
+
+__ram_from_data_flash$$
+                0x20000000        0x0 load address 0x08000000
+                0x20000000                        __ram_from_data_flash$$Base = .
+                0x08000000                        __ram_from_data_flash$$Load = LOADADDR (__ram_from_data_flash$$)
+ *(.ram_from_data_flash)
+ *(.ram_code_from_data_flash)
+                0x20000000                        __ram_from_data_flash$$Limit = .
+
+__data_flash_readonly$$
+                0x08000000        0x0
+                0x08000000                        __data_flash_readonly$$Base = .
+ *(.data_flash)
+ *(.data_flash_code)
+                0x08000000                        __data_flash_readonly$$Limit = .
+
+__data_flash_noinit$$
+                0x08000000        0x0
+                0x08000000                        __data_flash_noinit$$Base = .
+ *(.data_flash_noinit)
+                0x08000000                        __data_flash_noinit$$Limit = .
+
+.data_flash.endof
+                0x08000000        0x0
+                0x08000000                        __ddsc_DATA_FLASH_END = .
+
+.flash.startof  0x00000000        0x0
+                0x00000000                        __ddsc_FLASH_START = .
+
+__flash_vectors$$
+                0x00000000       0x40
+                0x00000000                        __flash_vectors$$Base = .
+                0x00000000                        _VECTORS = .
+ *(.fixed_vectors)
+ .fixed_vectors
+                0x00000000       0x40 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+                0x00000000                __Vectors
+ *(.application_vectors)
+                0x00000040                        __flash_vectors$$Limit = .
+
+__flash_noinit$$
+                0x00000040        0x0
+                0x00000040                        __flash_noinit$$Base = .
+ *(.flash_noinit)
+                0x00000040                        __flash_noinit$$Limit = .
+
+__ospi0_cs0_from_flash$$
+                0x68000000        0x0 load address 0x00000040
+                0x68000000                        __ospi0_cs0_from_flash$$Base = .
+                0x00000040                        __ospi0_cs0_from_flash$$Load = LOADADDR (__ospi0_cs0_from_flash$$)
+ *(.ospi0_cs0_from_flash)
+ *(.ospi0_cs0_code_from_flash)
+                0x68000000                        __ospi0_cs0_from_flash$$Limit = .
+
+__ospi0_cs0_noinit_nocache$$
+                0x68000000        0x0 load address 0x00000040
+                0x68000000                        __ospi0_cs0_noinit_nocache$$Base = .
+ *(.ospi0_cs0_noinit_nocache)
+                0x68000000                        __ospi0_cs0_noinit_nocache$$Limit = .
+
+__ospi0_cs0_zero_nocache$$
+                0x68000000        0x0 load address 0x00000040
+                0x68000000                        __ospi0_cs0_zero_nocache$$Base = .
+ *(.ospi0_cs0_nocache)
+                0x68000000                        . = ALIGN (0x20)
+                0x68000000                        __ospi0_cs0_zero_nocache$$Limit = .
+
+__ospi0_cs0_noinit$$
+                0x68000000        0x0 load address 0x00000040
+                0x68000000                        __ospi0_cs0_noinit$$Base = .
+ *(.ospi0_cs0_noinit)
+                0x68000000                        __ospi0_cs0_noinit$$Limit = .
+
+__ospi0_cs0_zero$$
+                0x68000000        0x0 load address 0x00000040
+                0x68000000                        __ospi0_cs0_zero$$Base = .
+ *(.ospi0_cs0)
+                0x68000000                        __ospi0_cs0_zero$$Limit = .
+
+.ospi0_cs0.endof
+                0x68000000        0x0
+                0x68000000                        __ddsc_OSPI0_CS0_END = .
+
+__ram_from_flash$$
+                0x20000000        0x0 load address 0x00000040
+                0x20000000                        __ram_from_flash$$Base = .
+                0x00000040                        __ram_from_flash$$Load = LOADADDR (__ram_from_flash$$)
+ *(.ram_from_flash)
+ *(.ram_code_from_flash)
+ *(.data*)
+ *(vtable)
+                0x20000000                        __ram_from_flash$$Limit = .
+
+__ram_noinit_nocache$$
+                0x20000000        0x0 load address 0x00000040
+                0x20000000                        __ram_noinit_nocache$$Base = .
+ *(.ram_noinit_nocache)
+                0x20000000                        __ram_noinit_nocache$$Limit = .
+
+__ram_zero_nocache$$
+                0x20000000        0x0 load address 0x00000040
+                0x20000000                        __ram_zero_nocache$$Base = .
+ *(.ram_nocache)
+                0x20000000                        . = ALIGN (0x20)
+                0x20000000                        __ram_zero_nocache$$Limit = .
+
+__ram_noinit$$  0x20000000      0x41c load address 0x00000040
+                0x20000000                        __ram_noinit$$Base = .
+ *(.bss.g_heap)
+ *(.bss.g_main_stack)
+ .bss.g_main_stack
+                0x20000000      0x400 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+                0x20000000                g_main_stack
+ *(.ram_noinit)
+ .ram_noinit    0x20000400       0x1c CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ *(.noinit)
+                0x2000041c                        __ram_noinit$$Limit = .
+
+__ram_zero$$    0x2000041c       0x78 load address 0x00000040
+                0x2000041c                        __ram_zero$$Base = .
+ *(.ram)
+ *(.bss*)
+ .bss.completed.1
+                0x2000041c        0x1 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ *fill*         0x2000041d        0x3 
+ .bss.object.0  0x20000420       0x18 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .bss.SystemCoreClock
+                0x20000438        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+                0x20000438                SystemCoreClock
+ .bss.g_bsp_group_irq_sources
+                0x2000043c       0x40 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+                0x2000043c                g_bsp_group_irq_sources
+ .bss.g_protect_pfswe_counter
+                0x2000047c        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_io.c.obj
+                0x2000047c                g_protect_pfswe_counter
+ .bss.g_protect_counters
+                0x20000480        0xa CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+                0x20000480                g_protect_counters
+ *fill*         0x2000048a        0x2 
+ .bss.g_ioport_ctrl
+                0x2000048c        0x8 CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+                0x2000048c                g_ioport_ctrl
+                0x20000494                        __ram_zero$$Limit = .
+
+__ram_thread_stack$$
+                0x20000498        0x0 load address 0x00000040
+                0x20000498                        __ram_thread_stack$$Base = .
+ *(.stack?*)
+                0x20000498                        __ram_thread_stack$$Limit = .
+
+.ram.endof      0x20002000        0x0
+                0x20002000                        __ddsc_RAM_END = .
+
+.ram.flat_nsc   0x20002000        0x0
+                0x20002000                        __ddsc_RAM_NSC = .
+
+__flash_readonly$$
+                0x00000040      0x938
+                0x00000040                        __flash_readonly$$Base = .
+ *(.flash)
+ *(.flash_code)
+ *(.text*)
+ .text.deregister_tm_clones
+                0x00000040       0x1c C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .text.register_tm_clones
+                0x0000005c       0x28 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .text.__do_global_dtors_aux
+                0x00000084       0x28 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .text.frame_dummy
+                0x000000ac       0x24 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .text.Default_Handler
+                0x000000d0        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+                0x000000d0                DebugMon_Handler
+                0x000000d0                HardFault_Handler
+                0x000000d0                SysTick_Handler
+                0x000000d0                PendSV_Handler
+                0x000000d0                UsageFault_Handler
+                0x000000d0                SecureFault_Handler
+                0x000000d0                Default_Handler
+                0x000000d0                MemManage_Handler
+                0x000000d0                SVC_Handler
+                0x000000d0                BusFault_Handler
+ .text.Reset_Handler
+                0x000000d4        0xc CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+                0x000000d4                Reset_Handler
+ .text.SystemRuntimeInit
+                0x000000e0       0x64 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+ .text.SystemInit
+                0x00000144       0xc0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+                0x00000144                SystemInit
+ .text.SystemCoreClockUpdate
+                0x00000204       0x28 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+                0x00000204                SystemCoreClockUpdate
+ .text.R_BSP_SubClockStabilizeWaitAfterReset
+                0x0000022c        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+                0x0000022c                R_BSP_SubClockStabilizeWaitAfterReset
+ .text.bsp_clock_init
+                0x00000230      0x14c CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+                0x00000230                bsp_clock_init
+ .text.R_BSP_Init_RTC
+                0x0000037c       0xb0 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+                0x0000037c                R_BSP_Init_RTC
+ .text.bsp_init_internal
+                0x0000042c        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+                0x0000042c                bsp_init_internal
+                0x0000042c                bsp_init
+ .text.bsp_prv_software_delay_loop
+                0x00000430        0xc CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+                0x00000430                bsp_prv_software_delay_loop
+ .text.R_BSP_SoftwareDelay
+                0x0000043c       0x8c CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+                0x0000043c                R_BSP_SoftwareDelay
+ .text.NMI_Handler
+                0x000004c8       0x3c CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+                0x000004c8                NMI_Handler
+ .text.bsp_irq_cfg
+                0x00000504       0x68 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+                0x00000504                bsp_irq_cfg
+ .text.R_BSP_RegisterProtectEnable
+                0x0000056c       0x60 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+                0x0000056c                R_BSP_RegisterProtectEnable
+ .text.R_BSP_RegisterProtectDisable
+                0x000005cc       0x54 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+                0x000005cc                R_BSP_RegisterProtectDisable
+ .text.bsp_vbatt_init
+                0x00000620       0xe8 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.r_ioport_pins_config
+                0x00000708       0xac CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .text.R_IOPORT_Open
+                0x000007b4       0x14 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+                0x000007b4                R_IOPORT_Open
+ .text.startup.main
+                0x000007c8        0xc CMakeFiles/arm.elf.dir/ra_gen/main.c.obj
+                0x000007c8                main
+ .text.hal_entry
+                0x000007d4        0x4 CMakeFiles/arm.elf.dir/src/hal_entry.c.obj
+                0x000007d4                hal_entry
+ .text.R_BSP_WarmStart
+                0x000007d8       0x18 CMakeFiles/arm.elf.dir/src/hal_warmstart.c.obj
+                0x000007d8                R_BSP_WarmStart
+ .text.memset   0x000007f0       0x10 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
+                0x000007f0                memset
+ .text.memcpy   0x00000800       0x1a C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+                0x00000800                memcpy
+ *(.rodata*)
+ *fill*         0x0000081a        0x2 
+ .rodata.g_interrupt_event_link_select
+                0x0000081c        0x2 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+                0x0000081c                g_interrupt_event_link_select
+ *fill*         0x0000081e        0x2 
+ .rodata.g_prcr_masks
+                0x00000820        0xa CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+ *fill*         0x0000082a        0x2 
+ .rodata.g_init_info
+                0x0000082c       0x18 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+                0x0000082c                g_init_info
+ .rodata.nocache_list
+                0x00000844       0x10 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .rodata.copy_list
+                0x00000854       0x80 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .rodata.zero_list
+                0x000008d4       0x30 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .rodata.g_vbatt_pins_input
+                0x00000904        0x6 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ *fill*         0x0000090a        0x2 
+ .rodata.g_bsp_pin_cfg
+                0x0000090c        0xc CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+                0x0000090c                g_bsp_pin_cfg
+ .rodata.g_bsp_pin_cfg_data
+                0x00000918       0x10 CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+                0x00000918                g_bsp_pin_cfg_data
+ *(.mcuboot_sce9_key)
+ *(.version)
+ .version       0x00000928       0x50 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+                0x00000978                        __flash_readonly$$Limit = .
+
+.glue_7         0x00000978        0x0
+ .glue_7        0x00000978        0x0 linker stubs
+
+.glue_7t        0x00000978        0x0
+ .glue_7t       0x00000978        0x0 linker stubs
+
+.vfp11_veneer   0x00000978        0x0
+ .vfp11_veneer  0x00000978        0x0 linker stubs
+
+.v4_bx          0x00000978        0x0
+ .v4_bx         0x00000978        0x0 linker stubs
+
+.init           0x00000978        0x4
+ .init          0x00000978        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crti.o
+                0x00000978                _init
+
+.fini           0x0000097c        0x4
+ .fini          0x0000097c        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crti.o
+                0x0000097c                _fini
+
+.iplt           0x00000980        0x0
+ .iplt          0x00000980        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+
+__flash_ctor$$
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ EXCLUDE_FILE(*crtend.o *crtend?.o) *(.ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ EXCLUDE_FILE(*crtend.o *crtend?.o) *(.dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+__flash_preinit_array$$
+                0x00000980        0x0
+                0x00000980                        __preinit_array_start = .
+ *(.preinit_array)
+                0x00000980                        __preinit_array_end = .
+
+__flash_.got$$
+ *(.got.plt)
+ *(.got)
+
+__flash_init_array$$
+                0x00000980        0x4
+                0x00000980                        __init_array_start = .
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+ .init_array    0x00000980        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+                0x00000984                        __init_array_end = .
+
+__flash_fini_array$$
+                0x00000984        0x4
+                0x00000984                        __fini_array_start = .
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+ .fini_array    0x00000984        0x4 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+                0x00000988                        __fini_array_end = .
+
+__flash_arm.extab$$
+ *(.ARM.extab*)
+ *(.gnu.linkonce.armextab.*)
+
+__flash_arm.exidx$$
+                0x00000988        0x0
+                0x00000988                        __exidx_start = .
+ *(.ARM.exidx*)
+ *(.gnu.linkonce.armexidx.*)
+                0x00000988                        __exidx_end = .
+
+.flash.endof    0x00008000        0x0
+                0x00008000                        __ddsc_FLASH_END = .
+
+.flash.flat_nsc
+                0x00008000        0x0
+                0x00008000                        __ddsc_FLASH_NSC = .
+
+.option_setting_ofs0.startof
+                0x0100a100        0x0
+                0x0100a100                        __ddsc_OPTION_SETTING_OFS0_START = .
+
+__option_setting_ofs0_reg$$
+                0x0100a100        0x4
+                0x0100a100                        __option_setting_ofs0_reg$$Base = .
+ *(.option_setting_ofs0)
+ .option_setting_ofs0
+                0x0100a100        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+                0x0100a104                        __option_setting_ofs0_reg$$Limit = .
+
+.option_setting_ofs0.endof
+                0x0100a104        0x0
+                0x0100a104                        __ddsc_OPTION_SETTING_OFS0_END = .
+
+.option_setting_dualsel.startof
+                0x0100a110        0x0
+                0x0100a110                        __ddsc_OPTION_SETTING_DUALSEL_START = .
+
+__option_setting_dualsel_reg$$
+                0x0100a110        0x0
+                0x0100a110                        __option_setting_dualsel_reg$$Base = .
+ *(.option_setting_dualsel)
+                0x0100a110                        __option_setting_dualsel_reg$$Limit = .
+
+.option_setting_dualsel.endof
+                0x0100a110        0x0
+                0x0100a110                        __ddsc_OPTION_SETTING_DUALSEL_END = .
+
+.option_setting_ofs1.startof
+                0x0100a180        0x0
+                0x0100a180                        __ddsc_OPTION_SETTING_OFS1_START = .
+
+__option_setting_ofs1_reg$$
+                0x0100a180        0x0
+                0x0100a180                        __option_setting_ofs1_reg$$Base = .
+ *(.option_setting_ofs1)
+                0x0100a180                        __option_setting_ofs1_reg$$Limit = .
+
+.option_setting_ofs1.endof
+                0x0100a180        0x0
+                0x0100a180                        __ddsc_OPTION_SETTING_OFS1_END = .
+
+.option_setting_banksel.startof
+                0x0100a190        0x0
+                0x0100a190                        __ddsc_OPTION_SETTING_BANKSEL_START = .
+
+__option_setting_banksel_reg$$
+                0x0100a190        0x0
+                0x0100a190                        __option_setting_banksel_reg$$Base = .
+ *(.option_setting_banksel)
+                0x0100a190                        __option_setting_banksel_reg$$Limit = .
+
+.option_setting_banksel.endof
+                0x0100a190        0x0
+                0x0100a190                        __ddsc_OPTION_SETTING_BANKSEL_END = .
+
+.option_setting_bps.startof
+                0x0100a1c0        0x0
+                0x0100a1c0                        __ddsc_OPTION_SETTING_BPS_START = .
+
+__option_setting_bps_reg$$
+                0x0100a1c0        0x0
+                0x0100a1c0                        __option_setting_bps_reg$$Base = .
+ *(.option_setting_bps)
+                0x0100a1c0                        __option_setting_bps_reg$$Limit = .
+
+.option_setting_bps.endof
+                0x0100a1c0        0x0
+                0x0100a1c0                        __ddsc_OPTION_SETTING_BPS_END = .
+
+.option_setting_pbps.startof
+                0x0100a1e0        0x0
+                0x0100a1e0                        __ddsc_OPTION_SETTING_PBPS_START = .
+
+__option_setting_pbps_reg$$
+                0x0100a1e0        0x0
+                0x0100a1e0                        __option_setting_pbps_reg$$Base = .
+ *(.option_setting_pbps)
+                0x0100a1e0                        __option_setting_pbps_reg$$Limit = .
+
+.option_setting_pbps.endof
+                0x0100a1e0        0x0
+                0x0100a1e0                        __ddsc_OPTION_SETTING_PBPS_END = .
+
+.option_setting_ofs1_sec.startof
+                0x0100a200        0x0
+                0x0100a200                        __ddsc_OPTION_SETTING_OFS1_SEC_START = .
+
+__option_setting_ofs1_sec_reg$$
+                0x0100a200        0x4
+                0x0100a200                        __option_setting_ofs1_sec_reg$$Base = .
+ *(.option_setting_ofs1_sec)
+ .option_setting_ofs1_sec
+                0x0100a200        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+                0x0100a204                        __option_setting_ofs1_sec_reg$$Limit = .
+
+.option_setting_ofs1_sec.endof
+                0x0100a204        0x0
+                0x0100a204                        __ddsc_OPTION_SETTING_OFS1_SEC_END = .
+
+.option_setting_banksel_sec.startof
+                0x0100a210        0x0
+                0x0100a210                        __ddsc_OPTION_SETTING_BANKSEL_SEC_START = .
+
+__option_setting_banksel_sec_reg$$
+                0x0100a210        0x0
+                0x0100a210                        __option_setting_banksel_sec_reg$$Base = .
+ *(.option_setting_banksel_sec)
+                0x0100a210                        __option_setting_banksel_sec_reg$$Limit = .
+
+.option_setting_banksel_sec.endof
+                0x0100a210        0x0
+                0x0100a210                        __ddsc_OPTION_SETTING_BANKSEL_SEC_END = .
+
+.option_setting_bps_sec.startof
+                0x0100a240        0x0
+                0x0100a240                        __ddsc_OPTION_SETTING_BPS_SEC_START = .
+
+__option_setting_bps_sec_reg$$
+                0x0100a240        0x0
+                0x0100a240                        __option_setting_bps_sec_reg$$Base = .
+ *(.option_setting_bps_sec)
+                0x0100a240                        __option_setting_bps_sec_reg$$Limit = .
+
+.option_setting_bps_sec.endof
+                0x0100a240        0x0
+                0x0100a240                        __ddsc_OPTION_SETTING_BPS_SEC_END = .
+
+.option_setting_pbps_sec.startof
+                0x0100a260        0x0
+                0x0100a260                        __ddsc_OPTION_SETTING_PBPS_SEC_START = .
+
+__option_setting_pbps_sec_reg$$
+                0x0100a260        0x0
+                0x0100a260                        __option_setting_pbps_sec_reg$$Base = .
+ *(.option_setting_pbps_sec)
+                0x0100a260                        __option_setting_pbps_sec_reg$$Limit = .
+
+.option_setting_pbps_sec.endof
+                0x0100a260        0x0
+                0x0100a260                        __ddsc_OPTION_SETTING_PBPS_SEC_END = .
+
+.option_setting_ofs1_sel.startof
+                0x0100a280        0x0
+                0x0100a280                        __ddsc_OPTION_SETTING_OFS1_SEL_START = .
+
+__option_setting_ofs1_sel_reg$$
+                0x0100a280        0x4
+                0x0100a280                        __option_setting_ofs1_sel_reg$$Base = .
+ *(.option_setting_ofs1_sel)
+ .option_setting_ofs1_sel
+                0x0100a280        0x4 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+                0x0100a284                        __option_setting_ofs1_sel_reg$$Limit = .
+
+.eh_frame       0x0100a284        0x0
+ .eh_frame      0x0100a284        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+
+.rel.dyn        0x0100a284        0x0
+ .rel.iplt      0x0100a284        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+
+.tm_clone_table
+                0x0100a284        0x0
+ .tm_clone_table
+                0x0100a284        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .tm_clone_table
+                0x0100a284        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+
+.igot.plt       0x00000988        0x0
+ .igot.plt      0x00000988        0x0 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+
+.option_setting_ofs1_sel.endof
+                0x0100a284        0x0
+                0x0100a284                        __ddsc_OPTION_SETTING_OFS1_SEL_END = .
+
+.option_setting_banksel_sel.startof
+                0x0100a290        0x0
+                0x0100a290                        __ddsc_OPTION_SETTING_BANKSEL_SEL_START = .
+
+__option_setting_banksel_sel_reg$$
+                0x0100a290        0x0
+                0x0100a290                        __option_setting_banksel_sel_reg$$Base = .
+ *(.option_setting_banksel_sel)
+                0x0100a290                        __option_setting_banksel_sel_reg$$Limit = .
+
+.option_setting_banksel_sel.endof
+                0x0100a290        0x0
+                0x0100a290                        __ddsc_OPTION_SETTING_BANKSEL_SEL_END = .
+
+.option_setting_bps_sel.startof
+                0x0100a2c0        0x0
+                0x0100a2c0                        __ddsc_OPTION_SETTING_BPS_SEL_START = .
+
+__option_setting_bps_sel_reg$$
+                0x0100a2c0        0x0
+                0x0100a2c0                        __option_setting_bps_sel_reg$$Base = .
+ *(.option_setting_bps_sel)
+                0x0100a2c0                        __option_setting_bps_sel_reg$$Limit = .
+
+.option_setting_bps_sel.endof
+                0x0100a2c0        0x0
+                0x0100a2c0                        __ddsc_OPTION_SETTING_BPS_SEL_END = .
+OUTPUT(arm.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x36
+ .ARM.attributes
+                0x00000000       0x26 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crti.o
+ .ARM.attributes
+                0x00000026       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .ARM.attributes
+                0x0000005e       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+ .ARM.attributes
+                0x00000098       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+ .ARM.attributes
+                0x000000d2       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .ARM.attributes
+                0x0000010c       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+ .ARM.attributes
+                0x00000146       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+ .ARM.attributes
+                0x00000180       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+ .ARM.attributes
+                0x000001ba       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_io.c.obj
+ .ARM.attributes
+                0x000001f4       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+ .ARM.attributes
+                0x0000022e       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+ .ARM.attributes
+                0x00000268       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .ARM.attributes
+                0x000002a2       0x3a CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .ARM.attributes
+                0x000002dc       0x3a CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+ .ARM.attributes
+                0x00000316       0x3a CMakeFiles/arm.elf.dir/ra_gen/main.c.obj
+ .ARM.attributes
+                0x00000350       0x3a CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+ .ARM.attributes
+                0x0000038a       0x3a CMakeFiles/arm.elf.dir/src/hal_entry.c.obj
+ .ARM.attributes
+                0x000003c4       0x3a CMakeFiles/arm.elf.dir/src/hal_warmstart.c.obj
+ .ARM.attributes
+                0x000003fe       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
+ .ARM.attributes
+                0x00000436       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .ARM.attributes
+                0x0000046e       0x38 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
+
+.comment        0x00000000       0x45
+ .comment       0x00000000       0x45 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c.obj
+                                 0x46 (size before relaxing)
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_clocks.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_common.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_delay.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_io.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_irq.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/bsp/mcu/ra6m5/bsp_linker.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra/fsp/src/r_ioport/r_ioport.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra_gen/common_data.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra_gen/main.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/ra_gen/pin_data.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/src/hal_entry.c.obj
+ .comment       0x00000045       0x46 CMakeFiles/arm.elf.dir/src/hal_warmstart.c.obj
+
+.debug_frame    0x00000000       0x48
+ .debug_frame   0x00000000       0x20 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x00000020       0x28 C:/Users/wtfzfj/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
