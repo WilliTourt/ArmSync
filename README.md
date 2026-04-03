@@ -1,23 +1,21 @@
 # ArmSync
 
-A 7-DOF wireless teleoperation robotic arm with dual-IMU master-slave control, designed for the Renesas Electronics Competition.
+A 7-DOF wireless teleoperation humanoid robotic arm with dual-IMU master-slave control, designed for the Renesas Electronics Competition.
 
-[中文文档](./README-zh-CN.md)
+If you are also working on a robotic arm project, feel free to reference our design and code, but please note their limitations. All files are provided as-is.
 
-## ⚠️ Work in Progress
+[中文文档](README-zh-CN.md)
 
-This repository is currently being organized. **Only 3D model files are uploaded at this stage.**
-
-Software, documentation, and BOM are coming soon. Check back later or watch this repo for updates.
+---
 
 ## Overview
 
 ArmSync is a 3D-printed robotic arm featuring:
+
 - **7 Degrees of Freedom**: Shoulder (3DOF) + Elbow (1DOF) + Wrist (2DOF) + Gripper (1DOF)
 - **Dual-IMU Control**: Wireless master-slave operation using IMU-based motion tracking
 - **CAN Bus Stepper Motors**: Precise control with high-torque reduction gearboxes
-- **500g Payload**: Capable of lifting a standard water bottle
-- **Fully Open Source**: Hardware, firmware, and software
+- **Design Payload**: ~500g, suitable for lightweight grasping tasks
 
 ## Specifications
 
@@ -34,67 +32,63 @@ ArmSync is a 3D-printed robotic arm featuring:
 
 ```
 ArmSync/
-├── Hardware/           # Mechanical design files ✅
-│   ├── 3D Files/       # CAD files (SolidWorks, STEP, STL, 3MF)
-│   │   ├── 3MF for printing/      # Ready-to-print 3MF files
-│   │   ├── SolidWorks 2026/       # Source CAD files
-│   │   └── STEP and STL/          # Exported formats
-│   ├── Parts BOM.md    # 🚧 Coming soon
-│   └── readme.md       # Hardware documentation 🚧
-├── Software/           # Firmware and control software 🚧
-│   └── readme.md       # 🚧 Coming soon
-├── LICENSE             # MIT License ✅
-└── README.md           # This file ✅
+├── Hardware/                   # Mechanical design files
+│   ├── 3D Files/               # CAD files
+│   │   ├── 3MF for printing/   # Ready-to-print 3MF files
+│   │   ├── SolidWorks 2026/    # Source CAD files
+│   │   └── STEP and STL/       # Exported formats
+│   ├── example_imgs/           # Assembly example images (J1-J7)
+│   ├── PCBs for Reference/     # Reference PCB files
+│   │   ├── EasyEDA_LCEDA/      # LCEDA project files
+│   │   └── Imgs/               # PCB images and schematics
+│   ├── Assembly Guide-zh-CN.md # Chinese assembly guide
+│   ├── Assembly Guide.md       # English assembly guide
+│   ├── Parts BOM-zh-CN.md      # Chinese parts list
+│   ├── Parts BOM.md            # English parts list
+│   ├── readme-zh-CN.md         # Hardware docs (Chinese)
+│   └── readme.md               # Hardware docs (English)
+├── Software/                   # Firmware and control software
+│   ├── Arm_vscode/             # Robotic arm main controller (RA6M5)
+│   ├── Ctrller_keil/           # Hand controller (RA4M1)
+│   ├── IMU_keil/               # IMU module (RA4M1)
+│   ├── readme-zh-CN.md         # Software docs (Chinese)
+│   └── readme.md               # Software docs (English)
+├── LICENSE                     # MIT License
+├── README-zh-CN.md             # This document (Chinese)
+└── README.md                   # This document (English)
 ```
 
-Legend: ✅ Available | 🚧 Work in progress
+## Quick Start
 
-## What's Available Now
+### Hardware Documentation
 
-### 3D Model Files (`Hardware/3D Files/`)
+- [Parts BOM](Hardware/Parts%20BOM.md) - All required parts and some supplier information
+- [Assembly Guide](Hardware/Assembly%20Guide.md) - Brief description of assembly steps
+- [Hardware readme](Hardware/readme.md) - Mechanical structure documentation
 
-| Folder | Contents |
-|--------|----------|
-| `3MF for printing/` | Pre-sliced 3MF file for Bambu Lab printers |
-| `SolidWorks 2026/` | Original CAD files (.SLDPRT, .SLDASM) |
-| `STEP and STL/` | Universal export formats |
-
-**Included assemblies:**
-- Main arm structure (J1 Base, Shoulder, Upper arm, Forearm, Wrist)
-- Gripper assembly
-- RC controller (remote control)
-
-## What's Coming
-
-- [ ] Complete Bill of Materials (BOM)
-- [ ] Assembly instructions
-- [ ] Firmware source code
-- [ ] Control software
-- [ ] Wiring diagrams
-- [ ] User manual
-
-## Quick Start (for 3D Printing)
+### Print Parts
 
 1. Download `Hardware/3D Files/3MF for printing/Renesas ArmSync.3mf`
-2. Import into Bambu Studio (or your preferred slicer)
-3. Review the print settings and adjust for your printer
+2. Import into Bambu Studio or other 3MF-compatible slicer
+3. Review print settings and adjust for your printer
 4. Print all parts
 
 For other CAD software, use files in `STEP and STL/` folder.
 
+### PCBs
+
+Refer to LCEDA project files and images in `Hardware/PCBs for Reference/`. For reference only.
+
+### Software
+
+Refer to `Software/readme.md` for information on the three project components.
+
+⚠️ **Note**: The software code is provided for documentation purposes only. Due to time constraints during the competition, the code was written hastily and has limited reference value.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+MIT License - See [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
-- Designed for the Renesas Electronics Competition
-- Gripper design adapted from open source projects
-
-## MakerWorld
-
-3D printable files will also be available on [MakerWorld](https://makerworld.com) for easier slicing and printing.
-
----
-
-**Note**: This is a student competition project. Use at your own risk.
+Thanks to Renesas Electronics for the technical support and competition platform.
