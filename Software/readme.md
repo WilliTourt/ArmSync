@@ -1,5 +1,7 @@
 # ArmSync Software Documentation
 
+[中文文档](/Software/readme-zh-CN.md)
+
 ⚠️ **The software code in this repository is provided for documentation purposes only. Due to time constraints during the competition, the code was written hastily and lacks proper architectural design and documentation. Its reference value is limited.** If needed, it is recommended to use it only as a reference for understanding the project working principles, rather than direct reuse.
 
 ---
