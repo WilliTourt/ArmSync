@@ -40,20 +40,20 @@ Using PFDE (Pufeide Electric) Planetary Gearboxes
 
 | Name | Specs | Qty | Unit Price (RMB) | Subtotal (RMB) | Notes |
 |------|------|------|------------|------------|------|
-| Timing Pulley | 2GT 20T 5mm Bore 7mm Belt Width | 4 | 4 | 16 | - |
-| Timing Pulley | 2GT 20T 5mm Bore 11mm Belt Width | 2 | 5 | 10 | - |
-| Timing Belt | 128-2GT-6 (6mm width) | 2 | 1 | 2 | - |
-| Timing Belt | 128-2GT-10 (10mm width) | 1 | 2 | 2 | - |
+| Timing Pulley | 2GT 20T 5mm Bore 7mm Belt Width | 2 | 4 | 8 | - |
+| Timing Pulley | H3M 25T 5mm Bore 11mm Belt Width | 2 | 6.4 | 12.8 | - |
+| Timing Pulley | H3M 25T 14mm Bore 16mm Belt Width | 2 | 7.1 | 14.2 | - |
+| Timing Belt | 128-2GT-6 (6mm width) | 1 | 1 | 1 | - |
+| Timing Belt | 162-H3M-10 (10mm width) | 1 | 3.5 | 3.5 | - |
+| Timing Belt | 162-H3M-15 (15mm width) | 1 | 4 | 4 | - |
 
-> **Alternative:** 126 length belts can be used for tighter tension but are harder to install
-
-**Subtotal: 30 RMB**
+**Subtotal: 43.5 RMB**
 
 ---
 
 ## 4. Fasteners and Drive Components
 
-### 4.1 Locking Bushings
+### 4.1 Locking Bushings (Not Recommended for J1/J2/J3/J4)
 
 | Specs | Qty | Unit Price (RMB) | Subtotal (RMB) | Usage |
 |------|------|------------|------------|------|
@@ -66,7 +66,8 @@ Using PFDE (Pufeide Electric) Planetary Gearboxes
 
 | Specs | Qty | Unit Price (RMB) | Subtotal (RMB) | Usage |
 |------|------|------------|------------|------|
-| Diaphragm Coupling D32d8 L28 | 2 | 19 | 38 | Alternative option |
+| Diaphragm Coupling D32d14 L28 | 1 | 19 | 19 | J1 |
+| Diaphragm Coupling D32d8 L28 | 3 | 19 | 57 | J2/J3/J4 |
 | Diaphragm Coupling D19d4 L20 | 1 | 18 | 18 | J6 |
 
 ### 4.3 Shafts
@@ -75,7 +76,7 @@ Using PFDE (Pufeide Electric) Planetary Gearboxes
 |------|------|------|------|
 | D-Shaft | 5mm diameter × 45mm length | 3 | - |
 
-**Subtotal: 125 RMB** (107 RMB with alternative option)
+**Subtotal: ~120 RMB**
 
 ---
 
@@ -165,9 +166,9 @@ Screws marked with "+" indicate the actual length can be longer than this value
 |------|----------------|
 | Motors | 577 |
 | Gearboxes | 447 |
-| Timing Belts/Pulleys | 30 |
-| Fasteners/Drive Components | 125 |
+| Timing Belts/Pulleys | 43.5 |
+| Fasteners/Drive Components | 120 |
 | Development Tools | 53 |
-| **Total** | **1,232 RMB** |
+| **Total** | **1,240.5 RMB** |
 
 > **Note:** Screws, aluminum extrusion, shipping costs and other standard parts not included. Actual cost approximately 1,400 RMB.

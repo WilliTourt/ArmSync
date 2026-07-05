@@ -6,7 +6,7 @@ This directory contains all hardware-related files for the ArmSync 7DOF robotic 
 
 ## Overview
 
-ArmSync is a 7-degree-of-freedom robotic arm featuring dual-IMU master-slave wireless teleoperation control. The arm is designed for educational and research purposes, with a focus on cost-effectiveness and ease of replication.
+ArmSync is a 7-degree-of-freedom robotic arm featuring dual-IMU master-slave wireless teleoperation control. The arm is designed with a focus on cost-effectiveness and ease of replication.
 
 ### Key Specifications
 
