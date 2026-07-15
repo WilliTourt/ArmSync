@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.4"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Armsync_Ctrller",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Armsync_Ctrller.elf::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Armsync_Ctrller.elf-Debug-50843fe2db2f1f83c4d4.json",
+					"name" : "Armsync_Ctrller.elf",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "generate_content_Armsync_Ctrller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-generate_content_Armsync_Ctrller-Debug-9f1a0c42f04cf188617c.json",
+					"name" : "generate_content_Armsync_Ctrller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "generate_sbd_Armsync_Ctrller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-generate_sbd_Armsync_Ctrller-Debug-94f41c6e578bbfca88d8.json",
+					"name" : "generate_sbd_Armsync_Ctrller",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "open_rasc_Armsync_Ctrller::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-open_rasc_Armsync_Ctrller-Debug-3efd5f22858fe96c951e.json",
+					"name" : "open_rasc_Armsync_Ctrller",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_Ctrller/build/Debug",
+		"source" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_Ctrller"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

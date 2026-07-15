@@ -1,0 +1,945 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "Armsync_ArmIMU.elf"
+		}
+	],
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"include",
+			"target_link_options",
+			"target_link_directories",
+			"add_dependencies",
+			"target_compile_options",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"cmake/GeneratedSrc.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 33,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 65,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 65,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 110,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 43,
+				"parent" : 2
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 2
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 2
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 44,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-O2"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "--param=min-pagesize=0"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wno-format-truncation"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wno-stringop-overflow"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-mfloat-abi=hard"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-mcpu=cortex-m4"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-mfpu=fpv4-sp-d16"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wunused"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wuninitialized"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wmissing-declarations"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wconversion"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wpointer-arith"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wshadow"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wlogical-op"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Waggregate-return"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wfloat-equal"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-fmessage-length=0"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-fsigned-char"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-fdata-sections"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-mthumb"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-std=c99"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-MMD"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-MP"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 10,
+					"define" : "_RA_CORE=CM4"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "_RA_ORDINAL=1"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "_RENESAS_RA_"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/arm/CMSIS_6/CMSIS/Core/Include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/fsp/inc"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/fsp/inc/api"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/fsp/inc/instances"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra_cfg/fsp_cfg"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra_cfg/fsp_cfg/bsp"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra_gen"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/src"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/build/Debug"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/src/Components/Inc"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/src/Components/Src"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				33
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-O2"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "--param=min-pagesize=0"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wno-format-truncation"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wno-stringop-overflow"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-mfloat-abi=hard"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-mcpu=cortex-m4"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-mfpu=fpv4-sp-d16"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wunused"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wuninitialized"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wmissing-declarations"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wconversion"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wpointer-arith"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wshadow"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wlogical-op"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Waggregate-return"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-Wfloat-equal"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-fmessage-length=0"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-fsigned-char"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-fdata-sections"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-mthumb"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-std=c++11"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-MMD"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "-MP"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 10,
+					"define" : "_RA_CORE=CM4"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "_RA_ORDINAL=1"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "_RENESAS_RA_"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/arm/CMSIS_6/CMSIS/Core/Include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/fsp/inc"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/fsp/inc/api"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra/fsp/inc/instances"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra_cfg/fsp_cfg"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra_cfg/fsp_cfg/bsp"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/ra_gen"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/src"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/build/Debug"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/src/Components/Inc"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/src/Components/Src"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				28,
+				29,
+				30,
+				31,
+				32
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 7,
+			"id" : "generate_content_Armsync_ArmIMU::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "Armsync_ArmIMU.elf::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mfloat-abi=hard",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mcpu=cortex-m4",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mfpu=fpv4-sp-d16",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wunused",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wuninitialized",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wall",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wextra",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wmissing-declarations",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wconversion",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wpointer-arith",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wshadow",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wlogical-op",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Waggregate-return",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wfloat-equal",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-fmessage-length=0",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-fsigned-char",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-ffunction-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-fdata-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-mthumb",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-T",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "script/fsp.ld",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wl,--gc-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-Wl,-Map,E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/build/Debug/Armsync_ArmIMU.map",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "--specs=nano.specs",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-o",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "E:/Folders/Documents/Dev/Renesas/RA4M1/Armsync_ArmIMU/build/Debug/Armsync_ArmIMU.elf",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "--specs=nosys.specs",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-LE:\\Folders\\Documents\\Dev\\Renesas\\RA4M1\\Armsync_ArmIMU",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-LE:\\Folders\\Documents\\Dev\\Renesas\\RA4M1\\Armsync_ArmIMU\\script",
+				"role" : "libraryPath"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "Armsync_ArmIMU.elf",
+	"nameOnDisk" : "Armsync_ArmIMU.elf",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_common.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_delay.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_group_irq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_guard.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_io.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_ipc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_irq.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_macl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_ospi_b.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_sbrk.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_sdram.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/all/bsp_security.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/bsp/mcu/ra4m1/bsp_linker.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/r_agt/r_agt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/r_icu/r_icu.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/r_iic_master/r_iic_master.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/r_ioport/r_ioport.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/r_sci_uart/r_sci_uart.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra/fsp/src/r_spi/r_spi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/common_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/hal_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/pin_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "ra_gen/vector_data.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 1,
+			"path" : "src/Components/Src/ESKF.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 1,
+			"path" : "src/Components/Src/ICM42688.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 1,
+			"path" : "src/Components/Src/qmc5883p.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 1,
+			"path" : "src/cpp_main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 1,
+			"path" : "src/hal_entry.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "src/hal_warmstart.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

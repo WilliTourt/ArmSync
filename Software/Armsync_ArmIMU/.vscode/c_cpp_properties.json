@@ -1,0 +1,36 @@
+{
+  "configurations": [
+    {
+      "name": "Generic",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "defines": [],
+      "intelliSenseMode": "gcc-arm",
+      "compilerPath": "C:/Users/29449/.renesas/platform/arm-gnu/13.3.Rel1/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/arm-none-eabi-gcc.exe",
+      "compilerArgs": [],
+      "includePath": [
+        "${workspaceFolder}/ra/arm/CMSIS_6/CMSIS/Core/Include",
+        "${workspaceFolder}/ra/fsp/inc",
+        "${workspaceFolder}/ra/fsp/inc/api",
+        "${workspaceFolder}/ra/fsp/inc/instances",
+        "${workspaceFolder}/ra_cfg/fsp_cfg",
+        "${workspaceFolder}/ra_cfg/fsp_cfg/bsp",
+        "${workspaceFolder}/ra_gen",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/Components/Inc",
+        "${workspaceFolder}/src/Components/Src",
+        "${workspaceFolder}",
+        "${workspaceFolder}/build/Debug"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}/ra",
+          "${workspaceFolder}/ra_gen",
+          "${workspaceFolder}/src",
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}

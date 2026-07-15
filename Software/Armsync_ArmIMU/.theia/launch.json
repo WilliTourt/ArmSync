@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "name": "Renesas WebUSB J-Link GDB Debugging",
+      "type": "renesas-web-debug",
+      "request": "launch",
+      "target": {
+        "device": "R7FA4M1AB",
+        "deviceFamily": "RA",
+        "debuggerType": "WEBUSBJLINKARM"
+      },
+      "projectRoot": "${workspaceFolder}/build/Debug"
+    }
+  ],
+  "version": "0.2.0"
+}
