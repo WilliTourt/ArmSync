@@ -2,44 +2,57 @@
 
 [English Document](/Software/readme.md)
 
-⚠️ **本仓库的软件代码仅为记录目的，由于比赛期间时间紧迫，代码写得较为仓促，缺乏良好的架构设计和注释，参考价值有限。** 如有需要，建议仅作为了解项目工作原理的参考，而非直接复用。
-
 ---
 
-## 项目结构
+## 目录结构
 
 ```
 Software/
-├── Arm_vscode/      # 机械臂主控程序（RA6M5）
-├── Ctrller_keil/    # 手部控制器程序（RA4M1）
-└── IMU_keil/       # IMU模块端程序（RA4M1）
+├── Armsync_RoboticArm_RA8P1/   # 机械臂主控（RA8P1，e2 Studio）
+├── Armsync_ArmIMU/             # IMU 模块端（RA4M1，CMake + VSCode）
+├── Armsync_Ctrller/            # 手部控制器（RA4M1，CMake + VSCode）
+├── Arm_vscode (DEPRECATED)/    # [已废弃] 旧版机械臂主控（RA6M5）
+├── Ctrller_keil (DEPRECATED)/  # [已废弃] 旧版手部控制器（RA4M1，Keil）
+└── IMU_keil (DEPRECATED)/      # [已废弃] 旧版 IMU 模块（RA4M1，Keil）
 ```
 
 ## 硬件平台
 
 - **主控芯片**: Renesas RA 系列 MCU
-  - RA6M5 (Arm_vscode)
-  - RA4M1 (Ctrller_keil, IMU_keil)
+  - RA8P1 (Armsync_RoboticArm_RA8P1，当前主力)
+  - RA4M1 (Armsync_ArmIMU, Armsync_Ctrller，当前主力)
+  - RA6M5 (Arm_vscode，已废弃)
+  - RA4M1 旧工程 (Ctrller_keil, IMU_keil，均已废弃)
 - **开发框架**: Renesas FSP
+  - RA8P1: FSP 6.4.0 (e2 Studio)
+  - RA4M1: FSP 6.4.0 (CMake + VSCode)
 
 ## 功能简介
 
-### Arm_vscode - 机械臂主控
-- CAN 总线通信，控制多个舵机
+### Armsync_RoboticArm_RA8P1 - 机械臂主控
+
+- FreeRTOS 多任务架构
 - 接收手部姿态数据并解析
 - 夹爪控制
-- 按键中断处理
+- （仍在开发）
 
-### Ctrller_keil - 手部控制器
+### Armsync_Ctrller - 手部控制器
+
 - IMU 传感器融合（ICM42688P 六轴 + QMC5883P 三轴磁力计）
 - 使用 ESKF 融合四元数
 - 通过蓝牙串口发送姿态数据
 - ADC 读取压力传感器控制夹爪
 
-### IMU_keil - IMU远程端
+### Armsync_ArmIMU - IMU 模块端
+
 - 同样使用 ICM42688P + QMC5883P
-- 支持大臂/小臂两种模式配置
+- 支持大臂/小臂两种模式配置（条件编译）
 - 通过串口发送四元数数据
+
+### 已废弃工程
+
+- **Arm_vscode**: 旧版 RA6M5 主控，已被 RA8P1 替代
+- **Ctrller_keil / IMU_keil**: 旧版 Keil 工程，已迁移到 CMake + VSCode
 
 ## 通信协议
 
@@ -51,13 +64,3 @@ Software/
 | 功能码 | 0x01~0x04 |
 | 数据 | 四元数/欧拉角/ADC值等 |
 | 帧尾 | 0xFA |
-
-## 注意事项
-
-- 代码结构较乱，直接复用需谨慎
-- 建议仅用于理解项目原理
-- 如需复用，请自行重构代码结构
-
-## 许可证
-
-MIT License

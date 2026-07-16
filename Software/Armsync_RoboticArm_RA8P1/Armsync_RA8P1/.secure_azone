@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<azone>
+    <rzone name="R7KA8P1KFLCAC.rzone"/>
+    <partition>
+        <peripheral name="PORT1.CPU0" group="PORT">
+            <slot name="P110.CPU0" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT2.CPU0" group="PORT">
+            <slot name="P201.CPU0" secure="true"/>
+            <slot name="P208.CPU0" secure="true"/>
+            <slot name="P209.CPU0" secure="true"/>
+            <slot name="P210.CPU0" secure="true"/>
+            <slot name="P211.CPU0" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT3.CPU0" group="PORT">
+            <slot name="P303.CPU0" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT6.CPU0" group="PORT">
+            <slot name="P602.CPU0" secure="true"/>
+            <slot name="P603.CPU0" secure="true"/>
+        </peripheral>
+        <peripheral name="AGT0.CPU0" group="AGT" security="s"/>
+        <peripheral name="ICU.CPU0">
+            <slot name="IRQ0.CPU0" secure="true"/>
+            <slot name="IRQ1.CPU0" secure="true"/>
+            <slot name="IRQ2.CPU0" secure="true"/>
+            <slot name="IRQ3.CPU0" secure="true"/>
+            <slot name="IRQ4.CPU0" secure="true"/>
+        </peripheral>
+    </partition>
+</azone>

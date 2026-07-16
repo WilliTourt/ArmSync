@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "RA8P1 ARMClang",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/src/Components/Inc",
+                "${workspaceFolder}/src/Components/Tasks/Inc",
+                "${workspaceFolder}/src/FreeRTOS-Cpp/FreeRTOS-Kernel/include",
+                "${workspaceFolder}/src/FreeRTOS-Cpp/FreeRTOS-Cpp/include",
+                "${workspaceFolder}/src/FreeRTOS-Cpp/FreeRTOS-Kernel/portable/RM_FSP_PORT",
+                "${workspaceFolder}/ra/fsp/inc",
+                "${workspaceFolder}/ra/fsp/inc/api",
+                "${workspaceFolder}/ra/fsp/inc/instances",
+                "${workspaceFolder}/ra/arm/CMSIS_6/CMSIS/Core/Include",
+                "${workspaceFolder}/ra_cfg/fsp_cfg",
+                "${workspaceFolder}/ra_cfg/fsp_cfg/bsp",
+                "${workspaceFolder}/ra_gen",
+                "${workspaceFolder}/Debug"
+            ],
+            "defines": [
+                "ARM_MATH_CM85",
+                "_RENESAS_RA_"
+            ],
+            "compilerPath": "arm-none-eabi-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}
