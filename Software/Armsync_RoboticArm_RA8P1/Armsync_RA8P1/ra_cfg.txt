@@ -296,13 +296,13 @@ FSP Configuration
     SDCLK Enabled
     EBCLK Src: BCLK (Synchronous)
     EBCLK Disabled
-    CLKOUT Disabled
+    CLKOUT Src: XTAL
     CLKOUT Div /1
     SCICLK Src: PLL2R
     SCICLK Div /4
     SPICLK Disabled
     SPICLK Div /1
-    CANFDCLK Disabled
+    CANFDCLK Src: PLL2R
     CANFDCLK Div /6
     GPTCLK Src: PLL2P
     GPTCLK Div /2
@@ -409,8 +409,8 @@ FSP Configuration
       P411 M14 - - - - Disabled - - "AGT1: AGTOA1; BUS: A20; CAC: CACREF; ESWM_GMII/MII: GPTP_PTPOUT1; ESWM_RGMII: GPTP_PTPOUT1; ESWM_RMII: GPTP_PTPOUT1; GPT9: GTIOC9A; GPT_OPS: GTOVUP; IRQ: IRQ4; MIPI: DSI_TE; SCI3: CTS_RTS3; SCI3: DE3; USB FS: USB_ID; USB HS: USBHS_ID" - None - - 
       P412 M12 - - - - Disabled - - "AGT1: AGTEE1; BUS: A21; ESWM_GMII/MII: GPTP_PTPOUT0; ESWM_RGMII: GPTP_PTPOUT0; ESWM_RMII: GPTP_PTPOUT0; GPT8: GTCPPO8; GPT_OPS: GTOULO; IRQ: IRQ20-DS; SCI3: CTS3; USB FS: USB_EXICEN; USB HS: USBHS_EXICEN" - None - - 
       P413 P14 - - - - Disabled - - "BUS: A22; ESWM_GMII/MII: ET_TAS_STA3; ESWM_RGMII: ET_TAS_STA3; ESWM_RMII: ET_TAS_STA3; GPT7: GTCPPO7; GPT_OPS: GTOUUP; IRQ: IRQ18; ULPT1: ULPTEE1" - None - - 
-      P414 L13 - - - - Disabled - - "BUS: A23; CANFD1: CRX1; CEU: VIO_CLK; ESWM_GMII/MII: ET1_MDIO; ESWM_RGMII1: ET1_MDIO; ESWM_RMII1: ET1_MDIO; GPT0: GTIOC0B; IRQ: IRQ9; SCI4: RXD4; SPI1: SSLB0" - None - - 
-      P415 R15 - - - - Disabled - - "BUS: WAIT; CANFD1: CTX1; CEU: VIO_HD; ESWM_GMII/MII: ET1_MDC; ESWM_RGMII1: ET1_MDC; ESWM_RMII1: ET1_MDC; GPT0: GTIOC0A; IRQ: IRQ8; SCI4: TXD4; SPI1: RSPCK1" - None - - 
+      P414 L13 CANFD1_CRX1 - L None "Peripheral mode" - - "BUS: A23; CANFD1: CRX1; CEU: VIO_CLK; ESWM_GMII/MII: ET1_MDIO; ESWM_RGMII1: ET1_MDIO; ESWM_RMII1: ET1_MDIO; GPT0: GTIOC0B; IRQ: IRQ9; SCI4: RXD4; SPI1: SSLB0" - I - - 
+      P415 R15 CANFD1_CTX1 - L None "Peripheral mode" - - "BUS: WAIT; CANFD1: CTX1; CEU: VIO_HD; ESWM_GMII/MII: ET1_MDC; ESWM_RGMII1: ET1_MDC; ESWM_RMII1: ET1_MDC; GPT0: GTIOC0A; IRQ: IRQ8; SCI4: TXD4; SPI1: RSPCK1" - O - - 
       P500 U7 - - - - Disabled - - "ADC0: AN021; ADC1: AN021; CAC: CACREF; GPT11: GTIOC11B; IRQ: IRQ24; PDM0: PDMDAT0; SCI8: RXD8; SDHI1: SD1DAT5; USB FS: USB_VBUSEN" - None - - 
       P501 R8 - - - - Disabled - - "ADC0: AN020; ADC1: AN020; GPT12: GTIOC12A; IRQ: IRQ25; PDM1: PDMDAT1; SCI8: TXD8; SDHI1: SD1DAT6; USB FS: USB_OVRCURA" - None - - 
       P502 T7 - - - - Disabled - - "ADC0: AN019; ADC1: AN019; GPT12: GTIOC12B; IRQ: IRQ26; PDM2: PDMDAT2; SCI8: DE8; SCI8: SCK8; SDHI1: SD1DAT7; USB FS: USB_OVRCURB" - None - - 
@@ -641,6 +641,15 @@ FSP Configuration
     DTC Support: Disable
     Flow Control Support: Disable
     
+  Module "CAN FD Lite (r_canfdlite)"
+    Parameter Checking: Default (BSP)
+    Global Error Interrupt: Callback Channel: Both
+    Global Error Interrupt: Priority: Priority 12
+    Reception: FIFOs: Interrupt Priority: Priority 12
+    Flexible Data (FD): Protocol Exceptions: Enabled (ISO 11898-1)
+    Reception: Acceptance Filtering: Channel 0 Rule Count: 16
+    Reception: Acceptance Filtering: Channel 1 Rule Count: 16
+    
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
       Name: g_ioport
@@ -695,4 +704,55 @@ FSP Configuration
       Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
       Interrupts: Transmit End Interrupt Priority: Priority 12
       Interrupts: Error Interrupt Priority: Priority 12
+      
+    Instance "g_canfd1 CAN FD Lite (r_canfdlite)"
+      General: Name: g_canfd1
+      General: Channel: 1
+      Bitrate: Automatic: Nominal Rate (bps): 1000000
+      Bitrate: Automatic: FD Data Rate (bps): 2000000
+      Bitrate: Automatic: Sample Point (%): 75
+      Bitrate: Delay Compensation: Enable
+      Bitrate: Manual: Nominal: Prescaler (divisor): 1
+      Bitrate: Manual: Nominal: Time Segment 1 (Tq): 29
+      Bitrate: Manual: Nominal: Time Segment 2 (Tq): 10
+      Bitrate: Manual: Nominal: Sync Jump Width (Tq): 4
+      Bitrate: Manual: Data: Prescaler (divisor): 1
+      Bitrate: Manual: Data: Time Segment 1 (Tq): 5
+      Bitrate: Manual: Data: Time Segment 2 (Tq): 2
+      Bitrate: Manual: Data: Sync Jump Width (Tq): 1
+      Bitrate: Manual: Use manual settings: No
+      Interrupts: Callback: CANFD1_Callback
+      Transmit Interrupts: TXMB 0
+      Channel Error Interrupts: 
+      Interrupts: Channel Interrupt Priority Level: Priority 5
+      Filter List Array: p_canfd1_afl
+      Global Error Interrupt: Sources: 
+      Transmission Priority: Buffer Number
+      DLC Check: Disabled
+      Flexible Data (FD): Payload Overflow: Reject
+      Reception: Message Buffers: Number of Buffers: 1
+      Reception: Message Buffers: Payload Size: 8 bytes
+      Interval Timer Prescaler: 0
+      Reception: FIFOs: FIFO 0: Enable: Enabled
+      Reception: FIFOs: FIFO 0: Interrupt Mode: Every Frame
+      Reception: FIFOs: FIFO 0: Interrupt Threshold: 1/2 full
+      Reception: FIFOs: FIFO 0: Payload Size: 8 bytes
+      Reception: FIFOs: FIFO 0: Depth: 16 stages
+      Reception: FIFOs: FIFO 1: Enable: Disabled
+      Reception: FIFOs: FIFO 1: Interrupt Mode: Every Frame
+      Reception: FIFOs: FIFO 1: Interrupt Threshold: 1/2 full
+      Reception: FIFOs: FIFO 1: Payload Size: 8 bytes
+      Reception: FIFOs: FIFO 1: Depth: 16 stages
+      Common FIFOs: FIFO 0: Enable: Disabled
+      Common FIFOs: FIFO 0: Mode: Receive
+      Common FIFOs: FIFO 0: RX Interrupt Enable: Disabled
+      Common FIFOs: FIFO 0: TX Interrupt Enable: Disabled
+      Common FIFOs: FIFO 0: Interrupt Mode: Threshold
+      Common FIFOs: FIFO 0: Interrupt Threshold: 1/2 full
+      Common FIFOs: FIFO 0: Payload Size: 8 bytes
+      Common FIFOs: FIFO 0: Depth: 16 stages
+      Common FIFOs: FIFO 0: TX Message Buffer: TX Message Buffer 0
+      Common FIFOs: FIFO 0: Interval TX Delay: 0
+      Common FIFOs: FIFO 0: Interval Timer: Reference clock
+      Common FIFOs: FIFO 0: Interval Timer Reference Clock Resolution: x1
       

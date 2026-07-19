@@ -18,7 +18,7 @@
 #if defined(_RA_TZ_SECURE) || defined(_RA_TZ_NONSECURE)
   #define BSP_CFG_OPTION_SETTING_OFS1_SEL  (0 | ((0U << 0U)) | ((0U << 3U)) | ((0U << 5U)) | ((BSP_CFG_CLOCKS_SECURE == 0) ? 0xF00 : 0U) | ((0U << 24U)) | ((0U << 25U)))
 #else
-#define BSP_CFG_OPTION_SETTING_OFS1_SEL  (0)
+  #define BSP_CFG_OPTION_SETTING_OFS1_SEL  (0)
 #endif
 #endif
 #ifndef BSP_CFG_OPTION_SETTING_OFS3_SEC

@@ -13,11 +13,13 @@ RM := rm -rf
 -include src/FreeRTOS-Cpp/FreeRTOS-Kernel/portable/RM_FSP_PORT/subdir.mk
 -include src/FreeRTOS-Cpp/FreeRTOS-Kernel/portable/MemMang/subdir.mk
 -include src/FreeRTOS-Cpp/FreeRTOS-Kernel/subdir.mk
+-include src/Components/Tasks/Src/subdir.mk
 -include src/Components/Src/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
 -include ra/fsp/src/r_sci_b_uart/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
+-include ra/fsp/src/r_canfd/subdir.mk
 -include ra/fsp/src/r_agt/subdir.mk
 -include ra/fsp/src/bsp/mcu/ra8p1/subdir.mk
 -include ra/fsp/src/bsp/mcu/all/subdir.mk

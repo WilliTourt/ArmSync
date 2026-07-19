@@ -358,7 +358,7 @@
     <node id="board.clock.ebclk.source" option="board.clock.ebclk.source.bclk"/>
     <node id="board.clock.bclkout.div" option="board.clock.bclkout.div.0"/>
     <node id="board.clock.bclkout.display" option="board.clock.bclkout.display.value"/>
-    <node id="board.clock.clkout.source" option="board.clock.clkout.source.disabled"/>
+    <node id="board.clock.clkout.source" option="board.clock.clkout.source.xtal"/>
     <node id="board.clock.clkout.div" option="board.clock.clkout.div.1"/>
     <node id="board.clock.clkout.display" option="board.clock.clkout.display.value"/>
     <node id="board.clock.sciclk.source" option="board.clock.sciclk.source.pll2r"/>
@@ -367,7 +367,7 @@
     <node id="board.clock.spiclk.source" option="board.clock.spiclk.source.disabled"/>
     <node id="board.clock.spiclk.div" option="board.clock.spiclk.div.1"/>
     <node id="board.clock.spiclk.display" option="board.clock.spiclk.display.value"/>
-    <node id="board.clock.canfdclk.source" option="board.clock.canfdclk.source.disabled"/>
+    <node id="board.clock.canfdclk.source" option="board.clock.canfdclk.source.pll2r"/>
     <node id="board.clock.canfdclk.div" option="board.clock.canfdclk.div.6"/>
     <node id="board.clock.canfdclk.display" option="board.clock.canfdclk.display.value"/>
     <node id="board.clock.gptclk.source" option="board.clock.gptclk.source.pll2p"/>
@@ -453,6 +453,10 @@
       <description>SCI UART</description>
       <originalPack>Renesas.RA.6.4.0.pack</originalPack>
     </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_canfdlite" variant="" vendor="Renesas" version="6.4.0">
+      <description>Controller Area Network - Flexible Data</description>
+      <originalPack>Renesas.RA.6.4.0.pack</originalPack>
+    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -512,16 +516,77 @@
       <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
       <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
     </module>
+    <module id="module.driver.canfd_on_canfdlite.449017217">
+      <property id="module.driver.canfdlite.name" value="g_canfd1"/>
+      <property id="module.driver.canfdlite.channel" value="1"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.nominal_rate" value="1000000"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.data_rate" value="2000000"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.sample_point" value="75"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.delay_compensation" value="module.driver.canfdlite.bitrate.automatic.delay_compensation.enabled"/>
+      <property id="module.driver.canfdlite.manual.nominal.prescaler" value="1"/>
+      <property id="module.driver.canfdlite.manual.nominal.time_segment_1" value="29"/>
+      <property id="module.driver.canfdlite.manual.nominal.time_segment_2" value="10"/>
+      <property id="module.driver.canfdlite.manual.nominal.sync_jump_width" value="4"/>
+      <property id="module.driver.canfdlite.manual.data.prescaler" value="1"/>
+      <property id="module.driver.canfdlite.manual.data.time_segment_1" value="5"/>
+      <property id="module.driver.canfdlite.manual.data.time_segment_2" value="2"/>
+      <property id="module.driver.canfdlite.manual.data.sync_jump_width" value="1"/>
+      <property id="module.driver.canfdlite.bitrate.manual.use_manual" value="module.driver.canfdlite.bitrate.manual.use_manual.disabled"/>
+      <property id="module.driver.canfdlite.p_callback" value="CANFD1_Callback"/>
+      <property id="module.driver.canfdlite.txmb.int" value="module.driver.canfd.txmb.int.0"/>
+      <property id="module.driver.canfdlite.ch_err.int" value=""/>
+      <property id="module.driver.canfdlite.ipl" value="board.icu.common.irq.priority5"/>
+      <property id="module.driver.canfdlite.afl_array" value="p_canfd1_afl"/>
+      <property id="module.driver.canfdlite.global_err.sources" value=""/>
+      <property id="module.driver.canfdlite.tx_priority" value="module.driver.canfdlite.tx_priority.buffer"/>
+      <property id="module.driver.canfdlite.dlc_check" value="module.driver.canfdlite.dlc_check.disabled"/>
+      <property id="module.driver.canfdlite.fd.overflow" value="module.driver.canfdlite.fd.overflow.reject"/>
+      <property id="module.driver.canfdlite.rxmb.number" value="1"/>
+      <property id="module.driver.canfdlite.rxmb.size" value="module.driver.canfdlite.rxmb.size.8"/>
+      <property id="module.driver.canfdlite.int_timer_prescaler" value="0"/>
+      <property id="module.driver.canfdlite.rxfifo.0.enable" value="module.driver.canfdlite.rxfifo.0.enable.enabled"/>
+      <property id="module.driver.canfdlite.rxfifo.0.int_mode" value="enum.driver.canfd.fifo.int_mode.every_frame"/>
+      <property id="module.driver.canfdlite.rxfifo.0.int_threshold" value="enum.driver.canfd.fifo.int_threshold.1_2"/>
+      <property id="module.driver.canfdlite.rxfifo.0.payload" value="enum.driver.canfd.fifo.payload.8"/>
+      <property id="module.driver.canfdlite.rxfifo.0.depth" value="enum.driver.canfd.fifo.depth.16"/>
+      <property id="module.driver.canfdlite.rxfifo.1.enable" value="module.driver.canfdlite.rxfifo.1.enable.disabled"/>
+      <property id="module.driver.canfdlite.rxfifo.1.int_mode" value="enum.driver.canfd.fifo.int_mode.every_frame"/>
+      <property id="module.driver.canfdlite.rxfifo.1.int_threshold" value="enum.driver.canfd.fifo.int_threshold.1_2"/>
+      <property id="module.driver.canfdlite.rxfifo.1.payload" value="enum.driver.canfd.fifo.payload.8"/>
+      <property id="module.driver.canfdlite.rxfifo.1.depth" value="enum.driver.canfd.fifo.depth.16"/>
+      <property id="module.driver.canfdlite.commonfifo.0.enable" value="module.driver.canfdlite.commonfifo.0.enable.disabled"/>
+      <property id="module.driver.canfdlite.commonfifo.0.mode" value="module.driver.canfdlite.commonfifo.0.mode.rx"/>
+      <property id="module.driver.canfdlite.commonfifo.0.rxi_enable" value="module.driver.canfdlite.commonfifo.0.rxi_enable.disabled"/>
+      <property id="module.driver.canfdlite.commonfifo.0.txi_enable" value="module.driver.canfdlite.commonfifo.0.txi_enable.disabled"/>
+      <property id="module.driver.canfdlite.commonfifo.0.int_mode" value="module.driver.canfdlite.commonfifo.0.int_mode.threshold"/>
+      <property id="module.driver.canfdlite.commonfifo.0.int_threshold" value="enum.driver.canfd.fifo.int_threshold.1_2"/>
+      <property id="module.driver.canfdlite.commonfifo.0.payload" value="enum.driver.canfd.fifo.payload.8"/>
+      <property id="module.driver.canfdlite.commonfifo.0.depth" value="enum.driver.canfd.fifo.depth.16"/>
+      <property id="module.driver.canfdlite.commonfifo.0.txmb" value="module.driver.canfd.cfifo.tx_mb.0"/>
+      <property id="module.driver.canfdlite.commonfifo.0.txdelay" value="0"/>
+      <property id="module.driver.canfdlite.commonfifo.0.interval_source" value="module.driver.canfdlite.commonfifo.0.interval_source.refclk"/>
+      <property id="module.driver.canfdlite.commonfifo.0.refclk_resolution" value="module.driver.canfdlite.commonfifo.0.refclk_resolution.1"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.timer_on_agt.104808316"/>
       <stack module="module.driver.uart_on_sci_b_uart.2111985668"/>
+      <stack module="module.driver.canfd_on_canfdlite.449017217"/>
     </context>
     <config id="config.driver.sci_b_uart">
       <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>
       <property id="config.driver.sci_b_uart.fifo_support" value="config.driver.sci_b_uart.fifo_support.disabled"/>
       <property id="config.driver.sci_b_uart.dtc_support" value="config.driver.sci_b_uart.dtc_support.disabled"/>
       <property id="config.driver.sci_b_uart.flow_control" value="config.driver.sci_b_uart.flow_control.disabled"/>
+    </config>
+    <config id="config.driver.canfdlite">
+      <property id="config.driver.canfdlite.param_checking_enable" value="config.driver.canfdlite.param_checking_enable.bsp"/>
+      <property id="config.driver.canfdlite.global_err.cb_channel" value="config.driver.canfd.global_err.cb_channel.0"/>
+      <property id="config.driver.canfdlite.global_err.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="config.driver.canfdlite.rxfifo.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="config.driver.canfdlite.fd.protocol_exception" value="config.driver.canfdlite.fd.protocol_exception.iso"/>
+      <property id="config.driver.canfdlite.afl.ch0_num" value="16"/>
+      <property id="config.driver.canfdlite.afl.ch1_num" value="16"/>
     </config>
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
@@ -538,6 +603,9 @@
     <symbolicName propertyId="p201.symbolic_name" value="KEY_MD"/>
     <comment propertyId="p303.comment" value="KEY_USER"/>
     <pincfg active="true" name="R7KA8P1KFLCAC.pincfg" selected="true" symbol="g_bsp_pin_cfg">
+      <configSetting altId="canfd1.crx1.p414" configurationId="canfd1.crx1"/>
+      <configSetting altId="canfd1.ctx1.p415" configurationId="canfd1.ctx1"/>
+      <configSetting altId="canfd1.mode.enabled.free" configurationId="canfd1.mode"/>
       <configSetting altId="jtag_fslash_swd.mode.jtag.free" configurationId="jtag_fslash_swd.mode"/>
       <configSetting altId="jtag_fslash_swd.tck.p211" configurationId="jtag_fslash_swd.tck"/>
       <configSetting altId="jtag_fslash_swd.tdi.p208" configurationId="jtag_fslash_swd.tdi"/>
@@ -560,6 +628,10 @@
       <configSetting altId="p303.input" configurationId="p303"/>
       <configSetting altId="p303.gpio_mode.gpio_mode_in" configurationId="p303.gpio_mode"/>
       <configSetting altId="p303.gpio_pupd.gpio_pupd_ip_up" configurationId="p303.gpio_pupd"/>
+      <configSetting altId="p414.canfd1.crx1" configurationId="p414"/>
+      <configSetting altId="p414.gpio_mode.gpio_mode_peripheral" configurationId="p414.gpio_mode"/>
+      <configSetting altId="p415.canfd1.ctx1" configurationId="p415"/>
+      <configSetting altId="p415.gpio_mode.gpio_mode_peripheral" configurationId="p415.gpio_mode"/>
       <configSetting altId="p602.sci0.rxd0" configurationId="p602"/>
       <configSetting altId="p602.gpio_mode.gpio_mode_peripheral" configurationId="p602.gpio_mode"/>
       <configSetting altId="p603.sci0.txd0" configurationId="p603"/>

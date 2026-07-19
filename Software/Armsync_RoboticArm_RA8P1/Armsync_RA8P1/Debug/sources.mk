@@ -85,10 +85,12 @@ ra/fsp/src/bsp/cmsis/Device/RENESAS/Source \
 ra/fsp/src/bsp/mcu/all \
 ra/fsp/src/bsp/mcu/ra8p1 \
 ra/fsp/src/r_agt \
+ra/fsp/src/r_canfd \
 ra/fsp/src/r_ioport \
 ra/fsp/src/r_sci_b_uart \
 ra_gen \
 src/Components/Src \
+src/Components/Tasks/Src \
 src/FreeRTOS-Cpp/FreeRTOS-Kernel \
 src/FreeRTOS-Cpp/FreeRTOS-Kernel/portable/MemMang \
 src/FreeRTOS-Cpp/FreeRTOS-Kernel/portable/RM_FSP_PORT \
