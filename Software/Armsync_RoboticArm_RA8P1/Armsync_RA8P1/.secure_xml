@@ -152,10 +152,8 @@
     <pincfg active="true" name="" symbol="">
       <configSetting altId="canfd1.crx1.p414" configurationId="canfd1.crx1" isUsedByDriver="true" peripheral="CANFD1"/>
       <configSetting altId="canfd1.ctx1.p415" configurationId="canfd1.ctx1" isUsedByDriver="true" peripheral="CANFD1"/>
-      <configSetting altId="jtag_fslash_swd.tck.p211" configurationId="jtag_fslash_swd.tck" peripheral="JTAG/SWD"/>
-      <configSetting altId="jtag_fslash_swd.tdi.p208" configurationId="jtag_fslash_swd.tdi" peripheral="JTAG/SWD"/>
-      <configSetting altId="jtag_fslash_swd.tdo.p209" configurationId="jtag_fslash_swd.tdo" peripheral="JTAG/SWD"/>
-      <configSetting altId="jtag_fslash_swd.tms.p210" configurationId="jtag_fslash_swd.tms" peripheral="JTAG/SWD"/>
+      <configSetting altId="jtag_fslash_swd.swclk.p211" configurationId="jtag_fslash_swd.swclk" peripheral="JTAG/SWD"/>
+      <configSetting altId="jtag_fslash_swd.swdio.p210" configurationId="jtag_fslash_swd.swdio" peripheral="JTAG/SWD"/>
       <configSetting altId="p110.output.low" configurationId="p110"/>
       <configSetting altId="p110.gpio_speed.gpio_speed_hh" configurationId="p110.gpio_drivecapacity"/>
       <configSetting altId="p110.gpio_mode.gpio_mode_out.low" configurationId="p110.gpio_mode"/>
@@ -169,12 +167,16 @@
       <configSetting altId="p303.input" configurationId="p303"/>
       <configSetting altId="p303.gpio_mode.gpio_mode_in" configurationId="p303.gpio_mode"/>
       <configSetting altId="p303.gpio_pupd.gpio_pupd_ip_up" configurationId="p303.gpio_pupd"/>
+      <configSetting altId="p410.output.low" configurationId="p410"/>
+      <configSetting altId="p410.gpio_mode.gpio_mode_out.low" configurationId="p410.gpio_mode"/>
       <configSetting altId="p414.gpio_mode.gpio_mode_peripheral" configurationId="p414.gpio_mode"/>
       <configSetting altId="p415.gpio_mode.gpio_mode_peripheral" configurationId="p415.gpio_mode"/>
       <configSetting altId="p602.gpio_mode.gpio_mode_peripheral" configurationId="p602.gpio_mode"/>
       <configSetting altId="p603.gpio_mode.gpio_mode_peripheral" configurationId="p603.gpio_mode"/>
       <configSetting altId="sci0.rxd0.p602" configurationId="sci0.rxd0" isUsedByDriver="true" peripheral="SCI0"/>
       <configSetting altId="sci0.txd0.p603" configurationId="sci0.txd0" isUsedByDriver="true" peripheral="SCI0"/>
+      <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9" isUsedByDriver="true" peripheral="SCI9"/>
+      <configSetting altId="sci9.txd9.p209" configurationId="sci9.txd9" isUsedByDriver="true" peripheral="SCI9"/>
     </pincfg>
   </raPinConfiguration>
 </raConfiguration>

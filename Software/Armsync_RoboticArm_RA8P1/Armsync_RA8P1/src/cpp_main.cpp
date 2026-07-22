@@ -4,13 +4,12 @@
 
 FSP_HEADER
 
-/* AGT tick → FreeRTOS SysTick (defined in port.c) */
-void SysTick_Handler(void);
+// void SysTick_Handler(void);
 
 void vSysTick(timer_callback_args_t *p_args)
 {
     (void)p_args;
-    SysTick_Handler();
+    // SysTick_Handler();
 
     // ElegantDebug tick
     ElegantDebug::tick();
@@ -48,21 +47,19 @@ void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer,
 
 FSP_FOOTER
 
-ElegantDebug dbg(&g_uart0, true, true);
+
+
+ElegantDebug dbg(&g_uart9, false, true);
+
+FreeRTOS::Queue<CtrllerHandleTask::CtrllerData> ctrllerQueue(4);
 
 BlinkTask blinkTask;
+CtrllerHandleTask ctrllerHandleTask(ctrllerQueue);
+ArmCtrlTask armCtrlTask(ctrllerQueue);
 
 void cpp_main() {
 
-    R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_HIGH);
-    R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
-    R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_LOW);
-
     fsp_err_t err = FSP_SUCCESS;
-    err = R_SCI_B_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
-    assert(err == FSP_SUCCESS);
-    dbg.ok("UART0 Opened successfully");
-
     err = R_AGT_Open(&agt_SysTick_ctrl, &agt_SysTick_cfg);
     assert(err == FSP_SUCCESS);
 
@@ -71,8 +68,28 @@ void cpp_main() {
     err = R_AGT_Enable(&agt_SysTick_ctrl);
     assert(err == FSP_SUCCESS);
 
-    dbg.ok("SysTick initialized. Starting FreeRTOS scheduler...");
+    err = R_SCI_B_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
+    assert(err == FSP_SUCCESS);
+    err = R_SCI_B_UART_Open(&g_uart9_ctrl, &g_uart9_cfg);
+    assert(err == FSP_SUCCESS);
+
+    R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_HIGH);
+    R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
+    R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_LOW);
+
+    dbg.ok("UART0 UART9 Opened successfully\n");
+
+    dbg.ok("SysTick initialized. Starting FreeRTOS scheduler...\n");
+
     FreeRTOS::Kernel::startScheduler();
 
     while (1);
+}
+
+extern "C" void UART0_Callback(uart_callback_args_t *p_args) {
+    CtrllerHandleTask::uartCallback(p_args);
+}
+
+extern "C" void UART9_Callback(uart_callback_args_t *p_args) {
+    FSP_PARAMETER_NOT_USED(*p_args);
 }

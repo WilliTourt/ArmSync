@@ -8,6 +8,7 @@ FSP_HEADER
 
 #define LED_USER (BSP_IO_PORT_01_PIN_10)
 #define KEY_MD (BSP_IO_PORT_02_PIN_01)
+#define TESTER (BSP_IO_PORT_04_PIN_10)
 
 extern const ioport_cfg_t g_bsp_pin_cfg; /* R7KA8P1KFLCAC.pincfg */
 

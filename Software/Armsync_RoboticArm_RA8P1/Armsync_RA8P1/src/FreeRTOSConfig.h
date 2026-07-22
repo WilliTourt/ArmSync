@@ -13,7 +13,7 @@ FSP_HEADER
 #define configTICK_RATE_HZ                       ((TickType_t)1000)
 #define configMAX_PRIORITIES                     (56)
 #define configMINIMAL_STACK_SIZE                 ((uint16_t)128)
-#define configMAX_TASK_NAME_LEN                  (16)
+#define configMAX_TASK_NAME_LEN                  (32)
 #define configUSE_16_BIT_TICKS                   0
 #define configUSE_TASK_NOTIFICATIONS             1
 
@@ -63,6 +63,7 @@ FSP_HEADER
 #define INCLUDE_uxTaskGetStackHighWaterMark  1
 #define INCLUDE_xTaskGetCurrentTaskHandle    1
 #define INCLUDE_eTaskGetState                1
+#define configQUEUE_REGISTRY_SIZE             8
 
 /* --- NVIC priorities (RA8P1: 4-bit, 0-15) --- */
 #define configPRIO_BITS                         __NVIC_PRIO_BITS

@@ -374,10 +374,10 @@ FSP Configuration
       P201 E6 GPIO KEY_MD - None "Input mode" - - "CGC: MD; IRQ: IRQ4" - IO - - 
       P206 B15 - - - - Disabled - - "BUS: CS7; CEU: VIO_D0; CLKOUT: CLKOUT; ESWM_GMII/MII1: ET1_RX_DV; ESWM_RGMII1: RGMII1_RX_CTL; ESWM_RMII1: RMII1_CRS_DV; GPT0: GTCPPO0; GPT_OPS: GTIU; IRQ: IRQ0-DS; SDHI0: SD0DAT7; SSIE1: SSIDATA1; ULPT1: ULPTOB1; USB FS: USB_VBUSEN" - None - - 
       P207 A17 - - - - Disabled - - "ESWM_GMII/MII1: ET1_RXD5; GLCDC: LCD_DATA9; GPT3: GTCPPO3; IRQ: IRQ25" - None - - 
-      P208 C7 JTAG/SWD_TDI - L None "Peripheral mode" - - "CANFD1: CRX1; CMPOUT: VCOUT; GPT1: GTIOC1B; GPT_OPS: GTOVLO; IRQ: IRQ3; JTAG/SWD: TDI; SCI9: RXD9" - IO - - 
-      P209 E7 JTAG/SWD_TDO - L None "Peripheral mode" - - "CANFD1: CTX1; CLKOUT: CLKOUT; GPT1: GTIOC1A; GPT_OPS: GTOVUP; IRQ: IRQ25; JTAG/SWD: TDO; SCI9: TXD9; TRACE: SWO" - IO - - 
-      P210 C6 JTAG/SWD_TMS - L None "Peripheral mode" - - "GPT0: GTIOC0B; GPT_OPS: GTOULO; IRQ: IRQ24; JTAG/SWD: SWDIO; JTAG/SWD: TMS; SCI9: CTS_RTS9; SCI9: DE9" - IO - - 
-      P211 D6 JTAG/SWD_TCK - L None "Peripheral mode" - - "GPT0: GTIOC0A; GPT_OPS: GTOUUP; IRQ: IRQ23; JTAG/SWD: SWCLK; JTAG/SWD: TCK; SCI9: DE9; SCI9: SCK9" - IO - - 
+      P208 C7 SCI9_RXD9 - L None "Peripheral mode" - - "CANFD1: CRX1; CMPOUT: VCOUT; GPT1: GTIOC1B; GPT_OPS: GTOVLO; IRQ: IRQ3; JTAG/SWD: TDI; SCI9: RXD9" - I - - 
+      P209 E7 SCI9_TXD9 - L None "Peripheral mode" - - "CANFD1: CTX1; CLKOUT: CLKOUT; GPT1: GTIOC1A; GPT_OPS: GTOVUP; IRQ: IRQ25; JTAG/SWD: TDO; SCI9: TXD9; TRACE: SWO" - O - - 
+      P210 C6 JTAG/SWD_SWDIO - L None "Peripheral mode" - - "GPT0: GTIOC0B; GPT_OPS: GTOULO; IRQ: IRQ24; JTAG/SWD: SWDIO; JTAG/SWD: TMS; SCI9: CTS_RTS9; SCI9: DE9" - IO - - 
+      P211 D6 JTAG/SWD_SWCLK - L None "Peripheral mode" - - "GPT0: GTIOC0A; GPT_OPS: GTOUUP; IRQ: IRQ23; JTAG/SWD: SWCLK; JTAG/SWD: TCK; SCI9: DE9; SCI9: SCK9" - IO - - 
       P212 K17 - - - - Disabled - - "AGT1: AGTEE1; CGC: EXTAL; GPT0: GTIOC0B; GPT_POEGD: GTETRGD; IRQ: IRQ3; SCI1: RXD1" - None - - 
       P213 K16 - - - - Disabled - - "ADC1(Digital): ADTRG1; CGC: XTAL; GPT0: GTIOC0A; GPT_POEGC: GTETRGC; IRQ: IRQ2; SCI1: TXD1; ULPT0: ULPTEE0" - None - - 
       P214 L16 - - - - Disabled - - "CGC: XCOUT; IRQ: IRQ21" - None - - 
@@ -405,7 +405,7 @@ FSP Configuration
       P407 R17 - - - - Disabled - - "ADC0(Digital): ADTRG0; AGT0: AGTIO0; BUS: CS6; ESWM_GMII/MII: GPTP_PTPOUT3; ESWM_RGMII: GPTP_PTPOUT3; ESWM_RMII: GPTP_PTPOUT3; GPT10: GTIOC10B; IIC0: SDA0; IRQ: IRQ22; RTC: RTCOUT; SCI1: DE1; SCI1: SCK1; USB FS: USB_VBUS; USB HS: USBHS_VBUSEN" - None - - 
       P408 M15 - - - - Disabled - - "ADC(Digital): ADSYNC; BUS: A17; ESWM_GMII/MII: GPTP_PTPOUT2; ESWM_RGMII: GPTP_PTPOUT2; ESWM_RMII: GPTP_PTPOUT2; GPT10: GTIOC10A; GPT_OPS: GTOWLO; IIC0: SCL0; IRQ: IRQ7; SCI3: RXD3; ULPT0: ULPTOB0; USB FS: USB_VBUSEN; USB HS: USBHS_VBUS" - None - - 
       P409 R16 - - - - Disabled - - "ADC1(Digital): ADST1; BUS: A18; ESWM_GMII/MII: GPTP0_CAPTURE; ESWM_RGMII0: GPTP0_CAPTURE; ESWM_RMII0: GPTP0_CAPTURE; GPT_OPS: GTOWUP; IIC0: SDA0; IRQ: IRQ6; SCI3: TXD3; ULPT0: ULPTOA0; USB FS: USB_OVRCURA-DS; USB HS: USBHS_OVRCURA" - None - - 
-      P410 K13 - - - - Disabled - - "ADC0(Digital): ADST0; AGT1: AGTOB1; BUS: A19; ESWM_GMII/MII: GPTP0_MATCH; ESWM_RGMII0: GPTP0_MATCH; ESWM_RMII0: GPTP0_MATCH; GPT9: GTIOC9B; GPT_OPS: GTOVLO; IIC0: SCL0; IRQ: IRQ5; SCI3: DE3; SCI3: SCK3; USB FS: USB_OVRCURB-DS; USB HS: USBHS_OVRCURB" - None - - 
+      P410 K13 GPIO TESTER L - "Output mode (Initial Low)" - - "ADC0(Digital): ADST0; AGT1: AGTOB1; BUS: A19; ESWM_GMII/MII: GPTP0_MATCH; ESWM_RGMII0: GPTP0_MATCH; ESWM_RMII0: GPTP0_MATCH; GPT9: GTIOC9B; GPT_OPS: GTOVLO; IIC0: SCL0; IRQ: IRQ5; SCI3: DE3; SCI3: SCK3; USB FS: USB_OVRCURB-DS; USB HS: USBHS_OVRCURB" - IO - - 
       P411 M14 - - - - Disabled - - "AGT1: AGTOA1; BUS: A20; CAC: CACREF; ESWM_GMII/MII: GPTP_PTPOUT1; ESWM_RGMII: GPTP_PTPOUT1; ESWM_RMII: GPTP_PTPOUT1; GPT9: GTIOC9A; GPT_OPS: GTOVUP; IRQ: IRQ4; MIPI: DSI_TE; SCI3: CTS_RTS3; SCI3: DE3; USB FS: USB_ID; USB HS: USBHS_ID" - None - - 
       P412 M12 - - - - Disabled - - "AGT1: AGTEE1; BUS: A21; ESWM_GMII/MII: GPTP_PTPOUT0; ESWM_RGMII: GPTP_PTPOUT0; ESWM_RMII: GPTP_PTPOUT0; GPT8: GTCPPO8; GPT_OPS: GTOULO; IRQ: IRQ20-DS; SCI3: CTS3; USB FS: USB_EXICEN; USB HS: USBHS_EXICEN" - None - - 
       P413 P14 - - - - Disabled - - "BUS: A22; ESWM_GMII/MII: ET_TAS_STA3; ESWM_RGMII: ET_TAS_STA3; ESWM_RMII: ET_TAS_STA3; GPT7: GTCPPO7; GPT_OPS: GTOUUP; IRQ: IRQ18; ULPT1: ULPTEE1" - None - - 
@@ -699,7 +699,7 @@ FSP Configuration
       Extra: RS-485: DE Pin Assertion Time: 1
       Extra: RS-485: DE Pin Negation Time: 1
       Extra: TXI/TEI Synchronization Delay Cycles: 0
-      Interrupts: Callback: NULL
+      Interrupts: Callback: UART0_Callback
       Interrupts: Receive Interrupt Priority: Priority 12
       Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
       Interrupts: Transmit End Interrupt Priority: Priority 12
@@ -755,4 +755,31 @@ FSP Configuration
       Common FIFOs: FIFO 0: Interval TX Delay: 0
       Common FIFOs: FIFO 0: Interval Timer: Reference clock
       Common FIFOs: FIFO 0: Interval Timer Reference Clock Resolution: x1
+      
+    Instance "g_uart9 UART (r_sci_b_uart)"
+      General: Name: g_uart9
+      General: Channel: 9
+      General: Data Bits: 8bits
+      General: Parity: None
+      General: Stop Bits: 1bit
+      Baud: Baud Rate: 115200
+      Baud: Baud Rate Modulation: Disabled
+      Baud: Max Error (%): 5
+      Flow Control: CTS/RTS Selection: Hardware RTS
+      Flow Control: Software RTS Port: Disabled
+      Flow Control: Software RTS Pin: Disabled
+      Extra: Clock Source: Internal Clock
+      Extra: Start bit detection: Falling Edge
+      Extra: Noise Filter: Disable
+      Extra: Receive FIFO Trigger Level: Max
+      Extra: RS-485: DE Pin: Disable
+      Extra: RS-485: DE Pin Polarity: Active High
+      Extra: RS-485: DE Pin Assertion Time: 1
+      Extra: RS-485: DE Pin Negation Time: 1
+      Extra: TXI/TEI Synchronization Delay Cycles: 0
+      Interrupts: Callback: UART9_Callback
+      Interrupts: Receive Interrupt Priority: Priority 12
+      Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
+      Interrupts: Transmit End Interrupt Priority: Priority 12
+      Interrupts: Error Interrupt Priority: Priority 12
       

@@ -510,7 +510,7 @@
       <property id="module.driver.uart.rs485.de_assertion_time" value="1"/>
       <property id="module.driver.uart.rs485.de_negation_time" value="1"/>
       <property id="module.driver.uart.tei_synchronization_delay_cycles" value="0"/>
-      <property id="module.driver.uart.callback" value="NULL"/>
+      <property id="module.driver.uart.callback" value="UART0_Callback"/>
       <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority12"/>
       <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
       <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
@@ -567,11 +567,39 @@
       <property id="module.driver.canfdlite.commonfifo.0.interval_source" value="module.driver.canfdlite.commonfifo.0.interval_source.refclk"/>
       <property id="module.driver.canfdlite.commonfifo.0.refclk_resolution" value="module.driver.canfdlite.commonfifo.0.refclk_resolution.1"/>
     </module>
+    <module id="module.driver.uart_on_sci_b_uart.1483998155">
+      <property id="module.driver.uart.name" value="g_uart9"/>
+      <property id="module.driver.uart.channel" value="9"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="115200"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.disabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.max"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_assertion_time" value="1"/>
+      <property id="module.driver.uart.rs485.de_negation_time" value="1"/>
+      <property id="module.driver.uart.tei_synchronization_delay_cycles" value="0"/>
+      <property id="module.driver.uart.callback" value="UART9_Callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.timer_on_agt.104808316"/>
       <stack module="module.driver.uart_on_sci_b_uart.2111985668"/>
       <stack module="module.driver.canfd_on_canfdlite.449017217"/>
+      <stack module="module.driver.uart_on_sci_b_uart.1483998155"/>
     </context>
     <config id="config.driver.sci_b_uart">
       <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>
@@ -601,33 +629,34 @@
   <raPinConfiguration>
     <symbolicName propertyId="p110.symbolic_name" value="LED_USER"/>
     <symbolicName propertyId="p201.symbolic_name" value="KEY_MD"/>
+    <symbolicName propertyId="p410.symbolic_name" value="TESTER"/>
     <comment propertyId="p303.comment" value="KEY_USER"/>
     <pincfg active="true" name="R7KA8P1KFLCAC.pincfg" selected="true" symbol="g_bsp_pin_cfg">
       <configSetting altId="canfd1.crx1.p414" configurationId="canfd1.crx1"/>
       <configSetting altId="canfd1.ctx1.p415" configurationId="canfd1.ctx1"/>
       <configSetting altId="canfd1.mode.enabled.free" configurationId="canfd1.mode"/>
-      <configSetting altId="jtag_fslash_swd.mode.jtag.free" configurationId="jtag_fslash_swd.mode"/>
-      <configSetting altId="jtag_fslash_swd.tck.p211" configurationId="jtag_fslash_swd.tck"/>
-      <configSetting altId="jtag_fslash_swd.tdi.p208" configurationId="jtag_fslash_swd.tdi"/>
-      <configSetting altId="jtag_fslash_swd.tdo.p209" configurationId="jtag_fslash_swd.tdo"/>
-      <configSetting altId="jtag_fslash_swd.tms.p210" configurationId="jtag_fslash_swd.tms"/>
+      <configSetting altId="jtag_fslash_swd.mode.swd.free" configurationId="jtag_fslash_swd.mode"/>
+      <configSetting altId="jtag_fslash_swd.swclk.p211" configurationId="jtag_fslash_swd.swclk"/>
+      <configSetting altId="jtag_fslash_swd.swdio.p210" configurationId="jtag_fslash_swd.swdio"/>
       <configSetting altId="p110.output.low" configurationId="p110"/>
       <configSetting altId="p110.gpio_speed.gpio_speed_hh" configurationId="p110.gpio_drivecapacity"/>
       <configSetting altId="p110.gpio_mode.gpio_mode_out.low" configurationId="p110.gpio_mode"/>
       <configSetting altId="p201.input" configurationId="p201"/>
       <configSetting altId="p201.gpio_mode.gpio_mode_in" configurationId="p201.gpio_mode"/>
       <configSetting altId="p201.gpio_pupd.gpio_pupd_ip_up" configurationId="p201.gpio_pupd"/>
-      <configSetting altId="p208.jtag_fslash_swd.tdi" configurationId="p208"/>
+      <configSetting altId="p208.sci9.rxd9" configurationId="p208"/>
       <configSetting altId="p208.gpio_mode.gpio_mode_peripheral" configurationId="p208.gpio_mode"/>
-      <configSetting altId="p209.jtag_fslash_swd.tdo" configurationId="p209"/>
+      <configSetting altId="p209.sci9.txd9" configurationId="p209"/>
       <configSetting altId="p209.gpio_mode.gpio_mode_peripheral" configurationId="p209.gpio_mode"/>
-      <configSetting altId="p210.jtag_fslash_swd.tms" configurationId="p210"/>
+      <configSetting altId="p210.jtag_fslash_swd.swdio" configurationId="p210"/>
       <configSetting altId="p210.gpio_mode.gpio_mode_peripheral" configurationId="p210.gpio_mode"/>
-      <configSetting altId="p211.jtag_fslash_swd.tck" configurationId="p211"/>
+      <configSetting altId="p211.jtag_fslash_swd.swclk" configurationId="p211"/>
       <configSetting altId="p211.gpio_mode.gpio_mode_peripheral" configurationId="p211.gpio_mode"/>
       <configSetting altId="p303.input" configurationId="p303"/>
       <configSetting altId="p303.gpio_mode.gpio_mode_in" configurationId="p303.gpio_mode"/>
       <configSetting altId="p303.gpio_pupd.gpio_pupd_ip_up" configurationId="p303.gpio_pupd"/>
+      <configSetting altId="p410.output.low" configurationId="p410"/>
+      <configSetting altId="p410.gpio_mode.gpio_mode_out.low" configurationId="p410.gpio_mode"/>
       <configSetting altId="p414.canfd1.crx1" configurationId="p414"/>
       <configSetting altId="p414.gpio_mode.gpio_mode_peripheral" configurationId="p414.gpio_mode"/>
       <configSetting altId="p415.canfd1.ctx1" configurationId="p415"/>
@@ -639,6 +668,9 @@
       <configSetting altId="sci0.mode.asynchronousuart.free" configurationId="sci0.mode"/>
       <configSetting altId="sci0.rxd0.p602" configurationId="sci0.rxd0"/>
       <configSetting altId="sci0.txd0.p603" configurationId="sci0.txd0"/>
+      <configSetting altId="sci9.mode.asynchronousuart.free" configurationId="sci9.mode"/>
+      <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9"/>
+      <configSetting altId="sci9.txd9.p209" configurationId="sci9.txd9"/>
       <lockSetting id="sci0.rxd0" lock="true"/>
       <lockSetting id="sci0.txd0" lock="true"/>
     </pincfg>

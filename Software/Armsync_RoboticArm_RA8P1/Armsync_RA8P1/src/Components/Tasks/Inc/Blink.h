@@ -3,18 +3,22 @@
 #include <FreeRTOS/Task.hpp>
 
 #include "cpp_main.h"
+#include "ElegantDebug.h"
+
+extern ElegantDebug dbg;
 
 class BlinkTask : public FreeRTOS::Task {
     public:
-        BlinkTask() : Task(tskIDLE_PRIORITY + 2, 128, "Blink") {}
+        BlinkTask() : Task(tskIDLE_PRIORITY + 2, 512, "Blink") {}
 
     private:
         void taskFunction() override {
             for (;;) {
                 R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_HIGH);
-                this->delayUntil(pdMS_TO_TICKS(100));
+                this->delay(100);
+                dbg.ok("Blinkyy~\n");
                 R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_LOW);
-                this->delayUntil(pdMS_TO_TICKS(900));
+                this->delay(900);
             }
         }
 };

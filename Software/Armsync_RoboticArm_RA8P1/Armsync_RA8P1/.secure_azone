@@ -16,6 +16,7 @@
             <slot name="P303.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="PORT4.CPU0" group="PORT">
+            <slot name="P410.CPU0" secure="true"/>
             <slot name="P414.CPU0" secure="true"/>
             <slot name="P415.CPU0" secure="true"/>
         </peripheral>
@@ -36,6 +37,10 @@
             <slot name="IRQ7.CPU0" secure="true"/>
             <slot name="IRQ8.CPU0" secure="true"/>
             <slot name="IRQ9.CPU0" secure="true"/>
+            <slot name="IRQ10.CPU0" secure="true"/>
+            <slot name="IRQ11.CPU0" secure="true"/>
+            <slot name="IRQ12.CPU0" secure="true"/>
+            <slot name="IRQ13.CPU0" secure="true"/>
         </peripheral>
     </partition>
 </azone>
