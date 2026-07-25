@@ -15,6 +15,7 @@ void vSysTick(timer_callback_args_t *p_args)
     ElegantDebug::tick();
 }
 
+
 /* Static allocation stubs — required when configSUPPORT_STATIC_ALLOCATION = 1 */
 void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
                                    StackType_t **ppxIdleTaskStackBuffer,
