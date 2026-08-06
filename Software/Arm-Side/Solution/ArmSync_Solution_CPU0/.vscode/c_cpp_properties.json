@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "ArmSync_CPU0 (M85)",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/src/app/tasks",
+                "${workspaceFolder}/src/app/tasks/UartRecvTask",
+                "${workspaceFolder}/src/app/tasks/NormalizeTask",
+                "${workspaceFolder}/src/app/tasks/CPUCommTask",
+                "${workspaceFolder}/src/app/tasks/IKTask",
+                "${workspaceFolder}/src/app/drivers",
+                "${workspaceFolder}/src/app/utils",
+                "${workspaceFolder}/src/shared",
+                "${workspaceFolder}/src/FreeRTOS/FreeRTOS-Cpp/include",
+                "${workspaceFolder}/src/FreeRTOS/FreeRTOS-Kernel/include",
+                "${workspaceFolder}/src/FreeRTOS/FreeRTOS-Kernel/portable/RM_FSP_PORT",
+                "${workspaceFolder}/ra/fsp/inc",
+                "${workspaceFolder}/ra/fsp/inc/api",
+                "${workspaceFolder}/ra/fsp/inc/instances",
+                "${workspaceFolder}/ra/arm/CMSIS_6/CMSIS/Core/Include",
+                "${workspaceFolder}/ra_gen",
+                "${workspaceFolder}/ra_cfg/fsp_cfg",
+                "${workspaceFolder}/ra_cfg/fsp_cfg/bsp",
+                "${workspaceFolder}/Debug"
+            ],
+            "defines": [
+                "_RENESAS_RA_",
+                "_RA_CORE=CPU0",
+                "_RA_ORDINAL=1",
+                "DEBUG_PLATFORM_RA"
+            ],
+            "compilerPath": "D:/Renesas/RA/e2studio_v2026-04.2_fsp_v6.5.0/toolchains/gcc_arm/13.2.rel1/bin/arm-none-eabi-g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "linux-gcc-arm"
+        }
+    ],
+    "version": 4
+}

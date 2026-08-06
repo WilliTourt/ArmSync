@@ -12,6 +12,7 @@ RM := rm -rf
 -include sources.mk
 -include src/app/utils/subdir.mk
 -include src/app/tasks/UartRecvTask/subdir.mk
+-include src/app/tasks/NormalizeTask/subdir.mk
 -include src/app/tasks/IKTask/subdir.mk
 -include src/app/tasks/CPUCommTask/subdir.mk
 -include src/app/tasks/subdir.mk

@@ -8,7 +8,7 @@
 
 
 
-class CtrllerHandleTask : public FreeRTOS::Task {
+class UartRecvTask : public FreeRTOS::Task {
     public:
     
         /* From controller:
@@ -22,15 +22,25 @@ class CtrllerHandleTask : public FreeRTOS::Task {
             float adc[2];
         };
 
-        CtrllerHandleTask(FreeRTOS::Queue<CtrllerData> &queue)
-            : Task(tskIDLE_PRIORITY + 3, 1024, "CtrllerHandle"), _queue(queue) {}
+        struct JetsonData {
+            const char *todo = "data to be defined later";
+        };
+
+        struct TransmitData {
+            CtrllerData ctrllerData;
+            JetsonData jetsonData;
+            uint32_t timestamp;
+        };
+
+        UartRecvTask(FreeRTOS::Queue<TransmitData> &queue)
+            : Task(tskIDLE_PRIORITY + 3, 1024, "UartRecv"), _queue(queue) {}
 
         static void uartCallback(uart_callback_args_t *p_args);
 
     private:
         void taskFunction() override;
-        FreeRTOS::Queue<CtrllerData> &_queue;
+        FreeRTOS::Queue<TransmitData> &_queue;
 
-        static uint8_t _rxRaw[1024];
-        static RingBuf _rxRing;
+        static uint8_t _rxRawCtrller[1024];
+        static RingBuf _rxRingCtrller;
 };

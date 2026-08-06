@@ -1,6 +1,5 @@
 src/app/tasks/UartRecvTask/UartRecvTask.o: \
  ../src/app/tasks/UartRecvTask/UartRecvTask.cpp \
- ../src/app/tasks/UartRecvTask/CtrllerHandleTask.h \
  ../src/app/tasks/UartRecvTask/UartRecvTask.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU0/src/FreeRTOS/FreeRTOS-Cpp/include/FreeRTOS/Task.hpp \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU0/src/FreeRTOS/FreeRTOS-Cpp/include/FreeRTOS/Kernel.hpp \
@@ -87,7 +86,6 @@ src/app/tasks/UartRecvTask/UartRecvTask.o: \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU0/ra/fsp/inc/api/r_timer_api.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU0/src/app/utils/ringbuf.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU0/src/app/utils/ElegantDebug.h
-../src/app/tasks/UartRecvTask/CtrllerHandleTask.h:
 ../src/app/tasks/UartRecvTask/UartRecvTask.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU0/src/FreeRTOS/FreeRTOS-Cpp/include/FreeRTOS/Task.hpp:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU0/src/FreeRTOS/FreeRTOS-Cpp/include/FreeRTOS/Kernel.hpp:

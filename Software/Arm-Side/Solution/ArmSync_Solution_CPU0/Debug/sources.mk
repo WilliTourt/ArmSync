@@ -92,10 +92,11 @@ src/FreeRTOS/FreeRTOS-Kernel \
 src/FreeRTOS/FreeRTOS-Kernel/portable/MemMang \
 src/FreeRTOS/FreeRTOS-Kernel/portable/RM_FSP_PORT \
 src/app/drivers \
-src/app/tasks \
 src/app/tasks/CPUCommTask \
 src/app/tasks/IKTask \
+src/app/tasks/NormalizeTask \
 src/app/tasks/UartRecvTask \
+src/app/tasks \
 src/app/utils \
 src \
 
