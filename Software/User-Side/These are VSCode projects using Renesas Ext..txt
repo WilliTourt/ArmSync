@@ -1,0 +1,1 @@
+These are VSCode projects using Renesas Extension
