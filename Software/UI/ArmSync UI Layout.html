@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 800px;
+    height: 480px;
+    background: rgb(241, 245, 248);
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-content: flex-start;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.22),
+                0 0 0 1px rgba(0,0,0,0.05);
+  }
+
+  .card-stop {
+    background: #e5484d;
+    border-radius: 14px;
+    box-shadow: 0 3px 16px rgba(230, 57, 57, 0.84),
+                0 0 0 1px rgba(128, 35, 35, 0.05);
+  }
+
+  /* ---- title bar ---- */
+  .title-bar {
+    width: 760px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 34px;
+    font-weight: 700;
+    color: #1a1d2e;
+    letter-spacing: 4px;
+    padding: 0 8px 6px;
+  }
+
+  .title-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgb(48, 64, 152);
+    margin-right: 14px;
+    box-shadow: 0 0 10px rgba(48,64,152,.7);
+  }
+
+  /* ---- layout ---- */
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 360px;
+  }
+
+  /* ---- buttons ---- */
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 12px;
+  }
+  .btn {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 17px 0;
+  }
+  .btn svg {
+    width: 38px;
+    height: 38px;
+  }
+  .btn-stop svg {
+    width: 54px;
+    height: 54px;
+  }
+  .btn-home  { background: rgb(48,64,152); color: #fff; }
+  .btn-rec   { background: #3dd68c; color: #fff; }
+  .btn-play  { background: #f5a623; color: #fff; }
+  .btn-stop  { background: #e5484d; color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- Title -->
+<div class="title-bar">
+  <div class="title-dot"></div>
+  ARMSYNC DASHBOARD
+</div>
+
+<!-- Left column -->
+<div class="left-col">
+  <div class="card" style="height:90px"></div>
+  <div class="card" style="height:176px"></div>
+  <div class="card" style="height:96px; display:flex; gap:14px; background:transparent; box-shadow:none; border-radius:0">
+    <!-- 急停 -->
+    <div class="card-stop" style="width:86px; height:96px; display:flex; align-items:center; justify-content:center">
+      <div class="btn btn-stop" style="width:58px; height:96px; border-radius:14px; padding:0">
+        <svg viewBox="0 0 24 24"><path fill="#fff" d="M2.725 21q-.275 0-.5-.138t-.35-.362q-.125-.225-.138-.488t.138-.512l9.25-16q.15-.25.388-.375T12 3q.25 0 .488.125t.387.375l9.25 16q.15.25.138.513t-.138.487q-.125.225-.35.363t-.5.137H2.725ZM12 18q.425 0 .713-.288T13 17q0-.425-.288-.713T12 16q-.425 0-.713.288T11 17q0 .425.288.713T12 18Zm0-3q.425 0 .713-.288T13 14v-3q0-.425-.288-.713T12 10q-.425 0-.713.288T11 11v3q0 .425.288.713T12 15Z"/></svg>
+      </div>
+    </div>
+    <!-- 回零 / 录制 / 回放 -->
+    <div class="card" style="flex:1; height:96px">
+      <div class="btn-row">
+        <div class="btn btn-home"><svg viewBox="0 0 24 24"><path fill="#fff" d="M6 21q-.825 0-1.413-.588T4 19v-9q0-.475.213-.9t.587-.7l6-4.5q.275-.2.575-.3T12 3.5q.325 0 .625.1t.575.3l6 4.5q.375.275.588.7T20 10v9q0 .825-.588 1.413T18 21h-4v-7h-4v7H6Z"/></svg></div>
+        <div class="btn btn-rec"><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 17q-2.075 0-3.538-1.463T7 12q0-2.075 1.463-3.538T12 7q2.075 0 3.538 1.463T17 12q0 2.075-1.463 3.538T12 17Zm8-5q0-1.05-.25-2.025t-.725-1.85q-.2-.375-.163-.8t.388-.675q.35-.25.775-.15t.625.45q.65 1.125 1 2.388T22 12q0 1.4-.363 2.675t-1.012 2.4q-.2.35-.613.438t-.762-.163q-.35-.25-.4-.675t.15-.8q.475-.875.738-1.838T20 12Zm-8-8q-1.075 0-2.038.263T8.126 5q-.375.2-.8.15t-.675-.4q-.25-.35-.163-.763t.438-.612q1.125-.65 2.4-1.012T12 2q1.4 0 2.675.363t2.4 1.012q.375.2.463.613t-.163.762q-.25.35-.675.4T15.9 5q-.875-.475-1.85-.738T12 4Zm-8 8q0 1.075.263 2.038T5 15.874q.2.375.15.8t-.4.675q-.35.25-.763.163t-.612-.438q-.65-1.125-1.012-2.4T2 12q0-1.4.35-2.663t1-2.387q.2-.35.625-.45t.775.15q.35.25.388.675t-.163.8Q4.5 9 4.25 9.975T4 12Zm8 8q1.05 0 2.025-.25t1.85-.725q.375-.2.788-.15t.662.4q.25.35.163.763t-.438.612q-1.125.65-2.388 1T12 22q-1.4 0-2.663-.35t-2.387-1q-.35-.2-.45-.625t.15-.775q.25-.35.675-.387t.8.162q.875.475 1.85.725T12 20Z"/></svg></div>
+        <div class="btn btn-play"><svg viewBox="0 0 24 24"><path fill="#fff" d="m10 16l6-4l-6-4zm2 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12q0-1.075.225-2.113t.65-2.012l1.55 1.55q-.2.65-.312 1.287T4 12q0 3.35 2.325 5.675T12 20t5.675-2.325T20 12t-2.325-5.675T12 4q-.675 0-1.312.112t-1.263.313L7.9 2.9q1-.45 2-.675T12 2q2.075 0 3.9.787t3.175 2.138T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22M5.5 7q-.625 0-1.062-.437T4 5.5t.438-1.062T5.5 4t1.063.438T7 5.5t-.437 1.063T5.5 7m6.5 5"/></svg></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Right: J1~J6 joints panel -->
+ <div class="right-col">
+  <div class="card" style="width:386px; height:296px"></div>
+  <div class="card" style="width:386px; height:80px"></div>
+ </div>
+
+</body>
+</html>

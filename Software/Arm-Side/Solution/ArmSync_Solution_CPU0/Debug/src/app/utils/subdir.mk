@@ -4,19 +4,22 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/app/utils/ElegantDebug.cpp 
+../src/app/utils/ElegantDebug.cpp \
+../src/app/utils/ringbuf.cpp 
 
 SREC += \
 ArmSync_Solution_CPU0.srec 
 
 OBJS += \
-./src/app/utils/ElegantDebug.o 
+./src/app/utils/ElegantDebug.o \
+./src/app/utils/ringbuf.o 
 
 MAP += \
 ArmSync_Solution_CPU0.map 
 
 CPP_DEPS += \
-./src/app/utils/ElegantDebug.d 
+./src/app/utils/ElegantDebug.d \
+./src/app/utils/ringbuf.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

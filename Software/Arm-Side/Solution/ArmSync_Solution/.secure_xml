@@ -161,12 +161,16 @@
       <configSetting altId="p303.input" configurationId="p303"/>
       <configSetting altId="p303.gpio_mode.gpio_mode_in" configurationId="p303.gpio_mode"/>
       <configSetting altId="p303.gpio_pupd.gpio_pupd_ip_up" configurationId="p303.gpio_pupd"/>
+      <configSetting altId="p406.gpio_mode.gpio_mode_peripheral" configurationId="p406.gpio_mode"/>
       <configSetting altId="p414.gpio_mode.gpio_mode_peripheral" configurationId="p414.gpio_mode"/>
       <configSetting altId="p415.gpio_mode.gpio_mode_peripheral" configurationId="p415.gpio_mode"/>
       <configSetting altId="p602.gpio_mode.gpio_mode_peripheral" configurationId="p602.gpio_mode"/>
       <configSetting altId="p603.gpio_mode.gpio_mode_peripheral" configurationId="p603.gpio_mode"/>
+      <configSetting altId="p700.gpio_mode.gpio_mode_peripheral" configurationId="p700.gpio_mode"/>
       <configSetting altId="sci0.rxd0.p602" configurationId="sci0.rxd0" peripheral="SCI0"/>
       <configSetting altId="sci0.txd0.p603" configurationId="sci0.txd0" peripheral="SCI0"/>
+      <configSetting altId="sci2.rxd2.p700" configurationId="sci2.rxd2" peripheral="SCI2"/>
+      <configSetting altId="sci2.txd2.p406" configurationId="sci2.txd2" peripheral="SCI2"/>
       <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9" peripheral="SCI9"/>
       <configSetting altId="sci9.txd9.p209" configurationId="sci9.txd9" peripheral="SCI9"/>
     </pincfg>

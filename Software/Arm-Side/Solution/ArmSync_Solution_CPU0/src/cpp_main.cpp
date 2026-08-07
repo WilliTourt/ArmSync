@@ -63,6 +63,8 @@ void cpp_main() {
 
     err = R_SCI_B_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
     assert(err == FSP_SUCCESS);
+    err = R_SCI_B_UART_Open(&g_uart2_ctrl, &g_uart2_cfg);
+    assert(err == FSP_SUCCESS);
     err = R_SCI_B_UART_Open(&g_uart9_ctrl, &g_uart9_cfg);
     assert(err == FSP_SUCCESS);
 
@@ -78,10 +80,19 @@ void cpp_main() {
     while (1);
 }
 
+
+
+/* UART0 Receive Callback for controller */
 extern "C" void UART0_Callback(uart_callback_args_t *p_args) {
-    UartRecvTask::uartCallback(p_args);
+    UartRecvTask::uart0Callback(p_args);
 }
 
+/* UART2 Receive Callback for jetson nano */
+extern "C" void UART2_Callback(uart_callback_args_t *p_args) {
+    UartRecvTask::uart2Callback(p_args);
+}
+
+/* JLink OB */
 extern "C" void UART9_Callback(uart_callback_args_t *p_args) {
     FSP_PARAMETER_NOT_USED(*p_args);
 }
