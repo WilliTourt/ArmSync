@@ -30,9 +30,9 @@ IK_PRIVATE_API ikret_t ik_node_FABRIK_construct(struct ik_node_t* node, uint32_t
 
 #define IK_NODE_FABRIK_IMPL \
     ik_node_FABRIK_create, \
-    ik_node_base_destroy, \
     ik_node_FABRIK_construct, \
     ik_node_base_destruct, \
+    ik_node_base_destroy, \
     ik_node_base_create_child, \
     ik_node_base_add_child, \
     ik_node_base_unlink, \

@@ -1,4 +1,5 @@
 #include "ik/node_FABRIK.h"
+#include "ik/node_base.h"
 #include "ik/memory.h"
 #include "ik/ik.h"
 #include <stddef.h>
@@ -23,6 +24,7 @@ ik_node_FABRIK_create(uint32_t guid)
 ikret_t
 ik_node_FABRIK_construct(struct ik_node_t* node_base, uint32_t guid)
 {
-    node_base->v = &IKAPI.internal.node_FABRIK;
+    ik_node_base_construct(node_base, guid);  // init children, guid, etc.
+    node_base->v = &IKAPI.internal.node_FABRIK;  // override vtable for FABRIK
     return IK_OK;
 }

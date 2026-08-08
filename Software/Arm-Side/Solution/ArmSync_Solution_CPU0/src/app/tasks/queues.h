@@ -26,6 +26,14 @@ struct JointOutput {
     bool converged;
 };
 
+// M33 motor feedback (via IPC → MotorFeedbackTask → UI)
+struct M33Feedback {
+    float jointAngle[6];      // J1~J6 actual angles (radians)
+    bool  isLockedRotor;
+    bool  isGripperStuck;
+    uint32_t timestamp;
+};
+
 } // namespace sharedDatatype
 
 
@@ -34,3 +42,4 @@ extern FreeRTOS::Queue<UartRecvTask::TransmitData> originalDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::ArmKPCoords> armKPCoordsQueue;
 extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::JointOutput> jointOutputQueue;
+extern FreeRTOS::Queue<sharedDatatype::M33Feedback> motorFeedbackQueue;

@@ -118,6 +118,7 @@
         </peripheral>
         <peripheral name="PORT3.CPU0" group="PORT">
             <slot name="P303.CPU0" secure="true"/>
+            <slot name="P310.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="PORT4.CPU0" group="PORT">
             <slot name="P406.CPU0" secure="true"/>
@@ -131,6 +132,9 @@
         <peripheral name="PORT7.CPU0" group="PORT">
             <slot name="P700.CPU0" secure="true"/>
         </peripheral>
+        <peripheral name="PORT9.CPU0" group="PORT">
+            <slot name="P905.CPU0" secure="true"/>
+        </peripheral>
         <peripheral name="AGT0.CPU0" group="AGT" security="s"/>
         <peripheral name="ICU.CPU0">
             <slot name="IRQ0.CPU0" secure="true"/>
@@ -142,6 +146,14 @@
             <slot name="IRQ6.CPU0" secure="true"/>
             <slot name="IRQ7.CPU0" secure="true"/>
             <slot name="IRQ8.CPU0" secure="true"/>
+            <slot name="IRQ9.CPU0" secure="true"/>
+            <slot name="IRQ10.CPU0" secure="true"/>
+            <slot name="IRQ11.CPU0" secure="true"/>
+            <slot name="IRQ12.CPU0" secure="true"/>
+            <slot name="IRQ13.CPU0" secure="true"/>
+            <slot name="IRQ14.CPU0" secure="true"/>
+            <slot name="IRQ15.CPU0" secure="true"/>
+            <slot name="IRQ16.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="CANFD1.CPU1" group="CANFD" security="s"/>
         <peripheral name="ICU.CPU1">
@@ -199,12 +211,14 @@
             <assign group="PORT" peripheral="PORT2.P210"/>
             <assign group="PORT" peripheral="PORT2.P211"/>
             <assign group="PORT" peripheral="PORT3.P303"/>
+            <assign group="PORT" peripheral="PORT3.P310"/>
             <assign group="PORT" peripheral="PORT4.P406"/>
             <assign group="PORT" peripheral="PORT4.P414"/>
             <assign group="PORT" peripheral="PORT4.P415"/>
             <assign group="PORT" peripheral="PORT6.P602"/>
             <assign group="PORT" peripheral="PORT6.P603"/>
             <assign group="PORT" peripheral="PORT7.P700"/>
+            <assign group="PORT" peripheral="PORT9.P905"/>
             <assign group="AGT" peripheral="AGT0"/>
             <assign peripheral="ICU.IRQ0"/>
             <assign peripheral="ICU.IRQ1"/>
@@ -215,6 +229,14 @@
             <assign peripheral="ICU.IRQ6"/>
             <assign peripheral="ICU.IRQ7"/>
             <assign peripheral="ICU.IRQ8"/>
+            <assign peripheral="ICU.IRQ9"/>
+            <assign peripheral="ICU.IRQ10"/>
+            <assign peripheral="ICU.IRQ11"/>
+            <assign peripheral="ICU.IRQ12"/>
+            <assign peripheral="ICU.IRQ13"/>
+            <assign peripheral="ICU.IRQ14"/>
+            <assign peripheral="ICU.IRQ15"/>
+            <assign peripheral="ICU.IRQ16"/>
         </zone>
     </zones>
 </azone>

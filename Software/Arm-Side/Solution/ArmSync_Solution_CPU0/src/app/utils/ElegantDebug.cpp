@@ -1,19 +1,21 @@
 /*******************************************************************************
  * @file    ElegantDebug.cpp
- * @version 1.4
- * @brief   C++ implementation for ANSI-colored debug logging — STM32 HAL & Renesas RA FSP.
+ * @version 1.6
+ * @brief   C++ implementation for ANSI-colored debug logging — STM32 HAL,
+ *          Renesas RA FSP, TI MSPM0 DL.
  *
- * Implements the `ElegantDebug` class declared in `Src-CPP/ElegantDebug.h`.
- * Supports STM32Cube HAL UART / USB-CDC and Renesas RA FSP SCI UART.
+ * Implements the `ElegantDebug` class declared in `ElegantDebug.h`.
+ * Supports STM32Cube HAL UART / USB-CDC, Renesas RA FSP SCI UART,
+ * and TI MSPM0 DL UART.
  * Optional timestamps (via `_getTick()`) and ANSI color
  * prefixes are supported for terminals that accept escape sequences.
  *
- * Usage: Construct `ElegantDebug` with a `UART_HandleTypeDef*` (STM32) or
- * `uart_instance_t const*` (RA), then call `log()`, `info()`, `error()`,
- * etc. See README for examples and integration notes.
+ * Usage: Construct `ElegantDebug` with a `UART_HandleTypeDef*` (STM32),
+ * `uart_instance_t const*` (RA), or `UART_Regs*` (TI MSPM0), then call
+ * `log()`, `info()`, `error()`, etc. See README for examples and integration notes.
  *
  * @author:    WilliTourt <willitourt@foxmail.com>
- * @date:      2026-07-16
+ * @date:      2026-08-09
  * 
  * @changelog:
  * - (See header file)
@@ -23,8 +25,12 @@
 
 
 
-#if DEBUG_PLATFORM_RA
+#if (DEBUG_PLATFORM_RA || DEBUG_PLATFORM_TI)
 volatile uint32_t _debug_tick_ms = 0;
+#endif
+
+#if DEBUG_PLATFORM_RA
+volatile bool ElegantDebug::_txDone = true;
 #endif
 
 #if __cplusplus < 202002L
@@ -37,10 +43,13 @@ volatile uint32_t _debug_tick_ms = 0;
         _huart(huart), _timestamp_enabled(enable_timestamp), _color_enabled(enable_color) {}
     #elif DEBUG_PLATFORM_RA
     ElegantDebug::ElegantDebug(uart_instance_t const *uart, bool enable_timestamp, bool enable_color) :
-    _uart(uart), _timestamp_enabled(enable_timestamp), _color_enabled(enable_color) {}
+        _uart(uart), _timestamp_enabled(enable_timestamp), _color_enabled(enable_color) {}
+    #elif DEBUG_PLATFORM_TI
+    ElegantDebug::ElegantDebug(UART_Regs *uart_inst, bool enable_timestamp, bool enable_color) :
+        _uart_inst(uart_inst), _timestamp_enabled(enable_timestamp), _color_enabled(enable_color) {}
     #endif
 
-#else // __cplusplus < 202002L
+#else
 
     #if DEBUG_PLATFORM_STM32
     ElegantDebug::ElegantDebug(bool enable_timestamp, bool enable_color,
@@ -62,13 +71,21 @@ volatile uint32_t _debug_tick_ms = 0;
                               _timestamp_enabled(enable_timestamp),
                               _color_enabled(enable_color),
                               _filename_line_enabled(enable_filename_line) {}
+    #elif DEBUG_PLATFORM_TI
+    ElegantDebug::ElegantDebug(UART_Regs *uart_inst, bool enable_timestamp,
+                               bool enable_color, bool enable_filename_line) :
+                               _uart_inst(uart_inst),
+                               _timestamp_enabled(enable_timestamp),
+                               _color_enabled(enable_color),
+                               _filename_line_enabled(enable_filename_line) {}
     #endif
 
 #endif // __cplusplus < 202002L
 
-#if DEBUG_PLATFORM_STM32
+#if (DEBUG_PLATFORM_STM32 || DEBUG_PLATFORM_TI)
 ElegantDebug::~ElegantDebug() {
     // STM32: UART lifecycle managed by CubeMX-generated code
+    // MSPM0: UART is configured by sysconfig, no explicit close needed
 }
 #endif
 
@@ -98,6 +115,7 @@ void ElegantDebug::_send(const char* text) {
                        (unsigned long)seconds, (unsigned long)(ms % 1000U));
         if (pos >= sizeof(out)) pos = 0; // guard
     }
+
     // append text safely
     strncpy(out + pos, text, sizeof(out) - pos - 1);
     out[sizeof(out) - 1] = '\0';
@@ -109,6 +127,11 @@ void ElegantDebug::_send(const char* text) {
         HAL_UART_Transmit(_huart, (uint8_t*)out, (uint16_t)strlen(out), HAL_MAX_DELAY);
         #endif
     #elif DEBUG_PLATFORM_RA
+        while (!_txDone) {
+            R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MILLISECONDS);
+        }
+        _txDone = false;
+
         #ifdef R_SCI_UART_H
         R_SCI_UART_Write(const_cast<uart_instance_t*>(_uart)->p_ctrl,
                          (uint8_t*)out,
@@ -118,13 +141,17 @@ void ElegantDebug::_send(const char* text) {
                            (uint8_t*)out,
                            (uint32_t)strlen(out));
         #endif
+    #elif DEBUG_PLATFORM_TI
+        for (size_t i = 0; out[i] != '\0'; i++) {
+            DL_UART_transmitDataBlocking(_uart_inst, (uint8_t)out[i]);
+        }
     #endif
 }
 
 uint32_t ElegantDebug::_getTick() {
     #if DEBUG_PLATFORM_STM32
     return HAL_GetTick();
-    #elif DEBUG_PLATFORM_RA
+    #elif (DEBUG_PLATFORM_RA || DEBUG_PLATFORM_TI)
     return _debug_tick_ms;
     #endif
 }

@@ -533,6 +533,8 @@
       <configSetting altId="p303.input" configurationId="p303"/>
       <configSetting altId="p303.gpio_mode.gpio_mode_in" configurationId="p303.gpio_mode"/>
       <configSetting altId="p303.gpio_pupd.gpio_pupd_ip_up" configurationId="p303.gpio_pupd"/>
+      <configSetting altId="p310.sci3.txd3" configurationId="p310"/>
+      <configSetting altId="p310.gpio_mode.gpio_mode_peripheral" configurationId="p310.gpio_mode"/>
       <configSetting altId="p406.sci2.txd2" configurationId="p406"/>
       <configSetting altId="p406.gpio_mode.gpio_mode_peripheral" configurationId="p406.gpio_mode"/>
       <configSetting altId="p414.canfd1.crx1" configurationId="p414"/>
@@ -545,12 +547,17 @@
       <configSetting altId="p603.gpio_mode.gpio_mode_peripheral" configurationId="p603.gpio_mode"/>
       <configSetting altId="p700.sci2.rxd2" configurationId="p700"/>
       <configSetting altId="p700.gpio_mode.gpio_mode_peripheral" configurationId="p700.gpio_mode"/>
+      <configSetting altId="p905.sci3.rxd3" configurationId="p905"/>
+      <configSetting altId="p905.gpio_mode.gpio_mode_peripheral" configurationId="p905.gpio_mode"/>
       <configSetting altId="sci0.mode.asynchronousuart.free" configurationId="sci0.mode"/>
       <configSetting altId="sci0.rxd0.p602" configurationId="sci0.rxd0"/>
       <configSetting altId="sci0.txd0.p603" configurationId="sci0.txd0"/>
       <configSetting altId="sci2.mode.asynchronousuart.free" configurationId="sci2.mode"/>
       <configSetting altId="sci2.rxd2.p700" configurationId="sci2.rxd2"/>
       <configSetting altId="sci2.txd2.p406" configurationId="sci2.txd2"/>
+      <configSetting altId="sci3.mode.asynchronousuart.free" configurationId="sci3.mode"/>
+      <configSetting altId="sci3.rxd3.p905" configurationId="sci3.rxd3"/>
+      <configSetting altId="sci3.txd3.p310" configurationId="sci3.txd3"/>
       <configSetting altId="sci9.mode.asynchronousuart.free" configurationId="sci9.mode"/>
       <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9"/>
       <configSetting altId="sci9.txd9.p209" configurationId="sci9.txd9"/>
@@ -562,6 +569,8 @@
       <lockSetting id="sci0.txd0" lock="true"/>
       <lockSetting id="sci2.rxd2" lock="true"/>
       <lockSetting id="sci2.txd2" lock="true"/>
+      <lockSetting id="sci3.rxd3" lock="true"/>
+      <lockSetting id="sci3.txd3" lock="true"/>
       <lockSetting id="sci9.rxd9" lock="true"/>
       <lockSetting id="sci9.txd9" lock="true"/>
     </pincfg>

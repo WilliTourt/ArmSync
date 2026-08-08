@@ -10,6 +10,17 @@
 #include "r_timer_api.h"
 FSP_HEADER
 /** UART on SCI Instance. */
+extern const uart_instance_t g_uart3;
+
+/** Access the UART instance using these structures when calling API functions directly (::p_api is not used). */
+extern sci_b_uart_instance_ctrl_t g_uart3_ctrl;
+extern const uart_cfg_t g_uart3_cfg;
+extern const sci_b_uart_extended_cfg_t g_uart3_cfg_extend;
+
+#ifndef UART3_Callback
+void UART3_Callback(uart_callback_args_t *p_args);
+#endif
+/** UART on SCI Instance. */
 extern const uart_instance_t g_uart9;
 
 /** Access the UART instance using these structures when calling API functions directly (::p_api is not used). */

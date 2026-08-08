@@ -2,56 +2,26 @@
 #define MEMORY_H
 
 #include "ik/config.h"
+#include <stddef.h>   // size_t
 
-#ifdef IK_MEMORY_DEBUGGING
-#   define MALLOC malloc_wrapper
-#   define FREE   free_wrapper
-#else
-#   include <stdlib.h>
-#   define MALLOC malloc
-#   define FREE   free
+/* FreeRTOS heap allocation */
+#ifdef __cplusplus
+extern "C" {
 #endif
+void* pvPortMalloc(size_t size);
+void  vPortFree(void* ptr);
+#ifdef __cplusplus
+}
+#endif
+
+#define MALLOC  pvPortMalloc
+#define FREE    vPortFree
 
 C_BEGIN
 
-/*!
- * @brief Initializes the memory system.
- *
- * In release mode this does nothing. In debug mode it will initialize
- * memory reports and backtraces, if enabled.
- */
-IK_PRIVATE_API void
-ik_memory_init(void);
-
-/*!
- * @brief De-initializes the memory system.
- *
- * In release mode this does nothing. In debug mode this will output the memory
- * report and print backtraces, if enabled.
- * @return Returns the number of memory leaks.
- */
-IK_PRIVATE_API uintptr_t
-ik_memory_deinit(void);
-
-#ifdef IK_MEMORY_DEBUGGING
-/*!
- * @brief Does the same thing as a normal call to malloc(), but does some
- * additional work to monitor and track down memory leaks.
- */
-IK_PRIVATE_API void*
-malloc_wrapper(intptr_t size);
-
-/*!
- * @brief Does the same thing as a normal call to fee(), but does some
- * additional work to monitor and track down memory leaks.
- */
-IK_PRIVATE_API void
-free_wrapper(void* ptr);
-#endif /* IK_MEMORY_DEBUGGING */
-
-IK_PRIVATE_API void
-mutated_string_and_hex_dump(void* data, intptr_t size_in_bytes);
+IK_PRIVATE_API void ik_memory_init(void);
+IK_PRIVATE_API uintptr_t ik_memory_deinit(void);
 
 C_END
 
-#endif /* MEMORY_H */
+#endif

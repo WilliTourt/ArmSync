@@ -10,3 +10,6 @@ NormalizeTask normalizeTask(originalDataQueue, armKPCoordsQueue, eeDataQueue);
 
 // Task 4: Inverse Kinematics (FABRIK)
 IKTask ikTask(armKPCoordsQueue, jointOutputQueue);
+
+// UI: TJC serial screen
+UITask uiTask(motorFeedbackQueue, eeDataQueue);

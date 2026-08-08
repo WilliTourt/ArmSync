@@ -97,6 +97,7 @@ src/app/ik/src/solver/base \
 src/app/tasks/CPUCommTask \
 src/app/tasks/IKTask \
 src/app/tasks/NormalizeTask \
+src/app/tasks/UITask \
 src/app/tasks/UartRecvTask \
 src/app/tasks \
 src/app/utils \

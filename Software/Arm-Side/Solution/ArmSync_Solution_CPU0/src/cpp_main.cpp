@@ -52,28 +52,30 @@ ElegantDebug dbg(&g_uart9, false, true);
 
 void cpp_main() {
 
-    fsp_err_t err = FSP_SUCCESS;
-    err = R_AGT_Open(&agt_SysTick_ctrl, &agt_SysTick_cfg);
-    assert(err == FSP_SUCCESS);
+    R_SCI_B_UART_Open(&g_uart3_ctrl, &g_uart3_cfg);
+    uiTask.booting(UITask::BootingPhase::MCU_PERIPH);
 
-    err = R_AGT_Start(&agt_SysTick_ctrl);
-    assert(err == FSP_SUCCESS);
-    err = R_AGT_Enable(&agt_SysTick_ctrl);
-    assert(err == FSP_SUCCESS);
+    R_AGT_Open(&agt_SysTick_ctrl, &agt_SysTick_cfg);
 
-    err = R_SCI_B_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
-    assert(err == FSP_SUCCESS);
-    err = R_SCI_B_UART_Open(&g_uart2_ctrl, &g_uart2_cfg);
-    assert(err == FSP_SUCCESS);
-    err = R_SCI_B_UART_Open(&g_uart9_ctrl, &g_uart9_cfg);
-    assert(err == FSP_SUCCESS);
+    R_AGT_Start(&agt_SysTick_ctrl);
+    R_AGT_Enable(&agt_SysTick_ctrl);
+
+    R_SCI_B_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
+    R_SCI_B_UART_Open(&g_uart2_ctrl, &g_uart2_cfg);
+    R_SCI_B_UART_Open(&g_uart9_ctrl, &g_uart9_cfg);
 
     R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_HIGH);
     R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
     R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_LOW);
 
-    dbg.ok("UART0 UART9 Opened successfully\n");
-    dbg.ok("SysTick initialized. Starting FreeRTOS scheduler...\n");
+    uiTask.booting(UITask::BootingPhase::COMM_INIT);
+    R_BSP_SoftwareDelay(400, BSP_DELAY_UNITS_MILLISECONDS);
+    uiTask.booting(UITask::BootingPhase::MEMORY_INIT);
+    R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
+    uiTask.booting(UITask::BootingPhase::ARM_SELFCHK);
+    R_BSP_SoftwareDelay(600, BSP_DELAY_UNITS_MILLISECONDS);
+    uiTask.booting(UITask::BootingPhase::DONE);
+    R_BSP_SoftwareDelay(100, BSP_DELAY_UNITS_MILLISECONDS);
 
     FreeRTOS::Kernel::startScheduler();
 
@@ -92,7 +94,12 @@ extern "C" void UART2_Callback(uart_callback_args_t *p_args) {
     UartRecvTask::uart2Callback(p_args);
 }
 
+/* UART3 Receive Callback for TJC Screen */
+extern "C" void UART3_Callback(uart_callback_args_t *p_args) {
+    UITask::uart3Callback(p_args);
+}
+
 /* JLink OB */
 extern "C" void UART9_Callback(uart_callback_args_t *p_args) {
-    FSP_PARAMETER_NOT_USED(*p_args);
+    ElegantDebug::onTxComplete(p_args);
 }

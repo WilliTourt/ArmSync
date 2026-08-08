@@ -392,7 +392,7 @@ FSP Configuration
       P307 C11 - - - - Disabled - - "CEU: VIO_D12; ESWM_GMII/MII1: ET1_TXD0; ESWM_RGMII1: RGMII1_TXD0; ESWM_RMII1: RMII1_TXD0; GPT10: GTCPPO10; GPT_OPS: GTIV; IRQ: IRQ27-DS; SCI6: CTS_RTS6; SCI6: DE6; SDHI0: SD0CMD; TRACE: TDATA0; ULPT1: ULPTOA1" - None - - 
       P308 C9 - - - - Disabled - - "CEU: VIO_D11; ESWM_GMII/MII1: ET1_TX_ER; ETHPHYCLK: ETHPHYCLK; GPT9: GTCPPO9; GPT_OPS: GTIU; IRQ: IRQ26-DS; SCI3: CTS3; SDHI0: SD0CLK; TRACE: TCLK; ULPT1: ULPTOB1" - None - - 
       P309 A12 - - - - Disabled - - "CEU: VIO_D10; CMPOUT: VCOUT; ESWM_GMII/MII1: ET1_GTX_CLK; ESWM_RGMII1: RGMII1_TXC; GLCDC: LCD_DATA15; GPT8: GTCPPO8; IRQ: IRQ25-DS; SCI9: CTS9" - None - - 
-      P310 E10 - - - - Disabled - - "AGT1: AGTEE1; CEU: VIO_D9; ESWM_GMII/MII1: ET1_TX_EN; ESWM_RGMII1: RGMII1_TX_CTL; ESWM_RMII1: RMII1_TX_EN; GLCDC: LCD_DATA16; GPT7: GTCPPO7; IRQ: IRQ24-DS; SCI3: TXD3" - None - - 
+      P310 E10 SCI3_TXD3 - L None "Peripheral mode" - - "AGT1: AGTEE1; CEU: VIO_D9; ESWM_GMII/MII1: ET1_TX_EN; ESWM_RGMII1: RGMII1_TX_CTL; ESWM_RMII1: RMII1_TX_EN; GLCDC: LCD_DATA16; GPT7: GTCPPO7; IRQ: IRQ24-DS; SCI3: TXD3" - O - - 
       P311 B12 - - - - Disabled - - "AGT1: AGTOB1; CANFD0: CRX0; CEU: VIO_D8; ESWM_GMII/MII1: ET1_TX_CLK; GLCDC: LCD_DATA17; GPT: GTADSM1; GPT6: GTCPPO6; IRQ: IRQ23-DS; SCI3: DE3; SCI3: SCK3" - None - - 
       P312 C13 - - - - Disabled - - "AGT1: AGTOA1; CANFD0: CTX0; CEU: VIO_D7; ESWM_GMII/MII1: ET1_RX_ER; ESWM_RMII1: RMII1_RX_ER; GLCDC: LCD_DATA18; GPT: GTADSM0; GPT5: GTCPPO5; IRQ: IRQ22-DS; PDM2: PDMDAT2; SCI3: CTS_RTS3; SCI3: DE3" - None - - 
       P400 P17 - - - - Disabled - - "ADC1(Digital): ADTRG1; AGT1: AGTIO1; CEU: VIO_D0; GPT6: GTIOC6A; I3C0: I3C_SCL0; IRQ: IRQ0; SCI1: TXD1; SDHI1: SD1CLK; SSIE: AUDIO_CLK" - None - - 
@@ -478,7 +478,7 @@ FSP Configuration
       P902 E9 - - - - Disabled - - "BUS: ALE; CEU: VIO_D1; ETHPHYCLK: ETHPHYCLK; GLCDC: LCD_DATA3; GPT13: GTCPPO13; IRQ: IRQ0; SSIE: AUDIO_CLK" - None - - 
       P903 D9 - - - - Disabled - - "GLCDC: LCD_DATA2; GPT11: GTIOC11A; IRQ: IRQ1" - None - - 
       P904 A16 - - - - Disabled - - "ESWM_GMII/MII1: ET1_RXD4; GLCDC: LCD_DATA8; GPT11: GTIOC11B; IRQ: IRQ2" - None - - 
-      P905 A14 - - - - Disabled - - "ADC1(Digital): AD1FLAG1; CEU: VIO_D6; ESWM_GMII/MII1: ET1_RX_CLK; ESWM_RGMII1: RGMII1_RXC; ESWM_RMII1: RMII1_REF50CK; GLCDC: LCD_DATA19; GPT13: GTCPPO13; IRQ: IRQ8; PDM1: PDMDAT1; SCI3: RXD3" - None - - 
+      P905 A14 SCI3_RXD3 - L None "Peripheral mode" - - "ADC1(Digital): AD1FLAG1; CEU: VIO_D6; ESWM_GMII/MII1: ET1_RX_CLK; ESWM_RGMII1: RGMII1_RXC; ESWM_RMII1: RMII1_REF50CK; GLCDC: LCD_DATA19; GPT13: GTCPPO13; IRQ: IRQ8; PDM1: PDMDAT1; SCI3: RXD3" - I - - 
       P906 A13 - - - - Disabled - - "ADC0(Digital): AD0FLAG1; CEU: VIO_D5; ESWM_GMII/MII1: ET1_RXD0; ESWM_RGMII1: RGMII1_RXD0; ESWM_RMII1: RMII1_RXD0; GLCDC: LCD_DATA20; GPT13: GTIOC13B; IRQ: IRQ9; PDM0: PDMDAT0; SCI6: CTS6; SSIE1: SSILRCK1; ULPT1: ULPTO1; USB FS: USB_ID" - None - - 
       P907 A15 - - - - Disabled - - "ADC(Digital): ADSYNC; CEU: VIO_D4; ESWM_GMII/MII1: ET1_RXD1; ESWM_RGMII1: RGMII1_RXD1; ESWM_RMII1: RMII1_RXD1; GLCDC: LCD_DATA21; GPT13: GTIOC13A; IRQ: IRQ10; PDM2: PDMCLK2; SCI6: DE6; SCI6: SCK6; SSIE1: SSIBCK1; ULPT1: ULPTEE1; USB FS: USB_EXICEN" - None - - 
       P908 B13 - - - - Disabled - - "ADC1(Digital): ADST1; CANFD1: CRX1; CEU: VIO_D3; ESWM_GMII/MII1: ET1_RXD2; ESWM_RGMII1: RGMII1_RXD2; GLCDC: LCD_DATA22; GPT12: GTIOC12B; IRQ: IRQ11; PDM1: PDMCLK1; SCI6: TXD6; ULPT1: ULPTEVI1; USB FS: USB_OVRCURB; USB HS: USBHS_ID" - None - - 
@@ -747,6 +747,33 @@ FSP Configuration
       Extra: TXI/TEI Synchronization Delay Cycles: 0
       Interrupts: Callback: UART9_Callback
       Interrupts: Receive Interrupt Priority: Priority 12
+      Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
+      Interrupts: Transmit End Interrupt Priority: Priority 12
+      Interrupts: Error Interrupt Priority: Priority 12
+      
+    Instance "g_uart3 UART (r_sci_b_uart)"
+      General: Name: g_uart3
+      General: Channel: 3
+      General: Data Bits: 8bits
+      General: Parity: None
+      General: Stop Bits: 1bit
+      Baud: Baud Rate: 115200
+      Baud: Baud Rate Modulation: Disabled
+      Baud: Max Error (%): 5
+      Flow Control: CTS/RTS Selection: Hardware RTS
+      Flow Control: Software RTS Port: Disabled
+      Flow Control: Software RTS Pin: Disabled
+      Extra: Clock Source: Internal Clock
+      Extra: Start bit detection: Falling Edge
+      Extra: Noise Filter: Disable
+      Extra: Receive FIFO Trigger Level: Max
+      Extra: RS-485: DE Pin: Disable
+      Extra: RS-485: DE Pin Polarity: Active High
+      Extra: RS-485: DE Pin Assertion Time: 1
+      Extra: RS-485: DE Pin Negation Time: 1
+      Extra: TXI/TEI Synchronization Delay Cycles: 0
+      Interrupts: Callback: UART3_Callback
+      Interrupts: Receive Interrupt Priority: Priority 7
       Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
       Interrupts: Transmit End Interrupt Priority: Priority 12
       Interrupts: Error Interrupt Priority: Priority 12

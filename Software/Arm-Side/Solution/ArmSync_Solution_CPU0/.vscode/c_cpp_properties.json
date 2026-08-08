@@ -9,6 +9,7 @@
                 "${workspaceFolder}/src/app/tasks/NormalizeTask",
                 "${workspaceFolder}/src/app/tasks/CPUCommTask",
                 "${workspaceFolder}/src/app/tasks/IKTask",
+                "${workspaceFolder}/src/app/tasks/UITask",
                 "${workspaceFolder}/src/app/drivers",
                 "${workspaceFolder}/src/app/utils",
                 "${workspaceFolder}/src/app/ik/include/public",
