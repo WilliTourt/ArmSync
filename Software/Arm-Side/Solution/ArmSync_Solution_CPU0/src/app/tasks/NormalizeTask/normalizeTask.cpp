@@ -1,7 +1,80 @@
 #include "normalizeTask.h"
 #include "ElegantDebug.h"
+#include <cmath>
 
 extern ElegantDebug dbg;
+
+static void rotX(float m[9], float rad) {
+    float c = cosf(rad), s = sinf(rad);
+    m[0]=1; m[1]=0; m[2]=0;
+    m[3]=0; m[4]=c; m[5]=-s;
+    m[6]=0; m[7]=s; m[8]=c;
+}
+static void rotY(float m[9], float rad) {
+    float c = cosf(rad), s = sinf(rad);
+    m[0]=c; m[1]=0; m[2]=s;
+    m[3]=0; m[4]=1; m[5]=0;
+    m[6]=-s; m[7]=0; m[8]=c;
+}
+static void rotZ(float m[9], float rad) {
+    float c = cosf(rad), s = sinf(rad);
+    m[0]=c; m[1]=-s; m[2]=0;
+    m[3]=s; m[4]=c; m[5]=0;
+    m[6]=0; m[7]=0; m[8]=1;
+}
+static void matMul(float C[9], const float A[9], const float B[9]) {
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            C[i*3+j] = A[i*3+0]*B[0*3+j] + A[i*3+1]*B[1*3+j] + A[i*3+2]*B[2*3+j];
+}
+static void matVec(float out[3], const float M[9], const float v[3]) {
+    for (int i = 0; i < 3; i++)
+        out[i] = M[i*3+0]*v[0] + M[i*3+1]*v[1] + M[i*3+2]*v[2];
+}
+
+/*
+ * 6 controller angles (DEGREES) → elbow + wrist 3D positions (METERS)
+ *   upperPitch = forward/back → X
+ *   upperRoll  = arm twist    → Z
+ *   upperYaw   = in/out       → Y
+ */
+void NormalizeTask::_armFK(const float ang_deg[6], float elbow_m[3], float wrist_m[3]) {
+    float up_p = ang_deg[0] * DEG2RAD;
+    float up_r = ang_deg[1] * DEG2RAD;
+    float up_y = ang_deg[2] * DEG2RAD;
+    float rl_p = ang_deg[3] * DEG2RAD;
+    float rl_r = ang_deg[4] * DEG2RAD;
+    float rl_y = ang_deg[5] * DEG2RAD;
+
+    // R_up = Y(yaw) * X(pitch) * Z(roll)
+    float Ry[9], Rx[9], Rz[9], tmp[9], R_up[9];
+    rotY(Ry, up_y); rotX(Rx, up_p); rotZ(Rz, up_r);
+    matMul(tmp, Ry, Rx);
+    matMul(R_up, tmp, Rz);
+
+    float bone_up[3] = {0, 0, -HUMAN_UPPER_M};
+    matVec(elbow_m, R_up, bone_up);
+
+    // R_rel = Y(rel_yaw) * X(rel_pitch) * Z(rel_roll)
+    rotY(Ry, rl_y); rotX(Rx, rl_p); rotZ(Rz, rl_r);
+    float R_rel[9];
+    matMul(tmp, Ry, Rx);
+    matMul(R_rel, tmp, Rz);
+
+    // R_fa = R_up * R_rel
+    float R_fa[9];
+    matMul(R_fa, R_up, R_rel);
+
+    float bone_fa[3] = {0, 0, -HUMAN_FOREARM_M};
+    float wrist_delta[3];
+    matVec(wrist_delta, R_fa, bone_fa);
+    wrist_m[0] = elbow_m[0] + wrist_delta[0];
+    wrist_m[1] = elbow_m[1] + wrist_delta[1];
+    wrist_m[2] = elbow_m[2] + wrist_delta[2];
+}
+
+
+// ====== NormalizeTask ======
 
 void NormalizeTask::taskFunction() {
     dbg.info("NormalizeTask started.\n");
@@ -10,26 +83,71 @@ void NormalizeTask::taskFunction() {
         auto rx = _inQueue.receive(portMAX_DELAY);
         if (!rx) continue;
 
-        dbg.logWithType("TASK2 RX", COLOR_MAGENTA, "%ld, xxx\n", rx->timestamp);
+        sharedDatatype::ArmKPCoords kp = {};
+        sharedDatatype::EndEffectorData ee = {};
+        
+        // ---- Controller FK: elbow + wrist (m → mm) ----
+        {
+            float el_m[3], wr_m[3];
+            _armFK(rx->ctrllerData.angles, el_m, wr_m);
+            kp.elbowCoord[0] = el_m[0] * 1000.0f;
+            kp.elbowCoord[1] = el_m[1] * 1000.0f;
+            kp.elbowCoord[2] = el_m[2] * 1000.0f;
+            kp.wristCoord[0] = wr_m[0] * 1000.0f;
+            kp.wristCoord[1] = wr_m[1] * 1000.0f;
+            kp.wristCoord[2] = wr_m[2] * 1000.0f;
 
-        sharedDatatype::Attitude6DOF att = {};
+            // ---- Fuse with Jetson (if available) ----
+            if (rx->jetsonData.valid) {
+                for (int i = 0; i < 3; i++) {
+                    float je = (float)rx->jetsonData.points[0][i];
+                    float jw = (float)rx->jetsonData.points[1][i];
+                    kp.elbowCoord[i] = FUSION_ALPHA * je + (1.0f - FUSION_ALPHA) * kp.elbowCoord[i];
+                    kp.wristCoord[i] = FUSION_ALPHA * jw + (1.0f - FUSION_ALPHA) * kp.wristCoord[i];
+                }
+            }
+        }
 
-        att.upper_pitch = rx->ctrllerData.angles[0];
-        att.upper_roll  = rx->ctrllerData.angles[1];
-        att.upper_yaw   = rx->ctrllerData.angles[2];
+        // ---- Map to robot arm lengths ----
+        {
+            // Elbow: direction stays, length = robot upper arm
+            float el_len = sqrtf(kp.elbowCoord[0]*kp.elbowCoord[0] +
+                                 kp.elbowCoord[1]*kp.elbowCoord[1] +
+                                 kp.elbowCoord[2]*kp.elbowCoord[2]);
+            if (el_len > 0.01f) {
+                float s = ROBOT_UPPER_MM / el_len;
+                kp.elbowCoord[0] *= s;
+                kp.elbowCoord[1] *= s;
+                kp.elbowCoord[2] *= s;
+            }
 
-        att.rel_pitch = rx->ctrllerData.angles[3];
-        att.rel_roll  = rx->ctrllerData.angles[4];
-        att.rel_yaw   = rx->ctrllerData.angles[5];
+            // Wrist: direction from elbow stays, length = robot forearm
+            float wx = kp.wristCoord[0] - kp.elbowCoord[0];
+            float wy = kp.wristCoord[1] - kp.elbowCoord[1];
+            float wz = kp.wristCoord[2] - kp.elbowCoord[2];
+            float wr_len = sqrtf(wx*wx + wy*wy + wz*wz);
+            if (wr_len > 0.01f) {
+                float s = ROBOT_FOREARM_MM / wr_len;
+                kp.wristCoord[0] = kp.elbowCoord[0] + wx * s;
+                kp.wristCoord[1] = kp.elbowCoord[1] + wy * s;
+                kp.wristCoord[2] = kp.elbowCoord[2] + wz * s;
+            }
+            kp.timestamp = rx->timestamp;
 
-        // TODO: 还未接收 jetson
+            dbg.log("FK: E(%.0f,%.0f,%.0f) W(%.0f,%.0f,%.0f) mm @%d\n",
+            kp.elbowCoord[0], kp.elbowCoord[1], kp.elbowCoord[2],
+            kp.wristCoord[0], kp.wristCoord[1], kp.wristCoord[2],
+            kp.timestamp);
 
-        // TODO: 根据实际 ADC 量程校准
-        att.grip_percent  = rx->ctrllerData.adc[0] / 3.3f;
-        att.pitch_percent = rx->ctrllerData.adc[1] / 3.3f;
+            _kpQueue.sendToBack(kp, 0);
+        }
 
-        att.timestamp = rx->timestamp;
-
-        _outQueue.sendToBack(att, 0);
+        // ---- Gripper / pitch data (separate queue, for CPU1) ----
+        {
+            ee.grip_percent  = rx->ctrllerData.adc[0] / 3.3f * 100.0f;
+            ee.pitch_percent = rx->ctrllerData.adc[1] / 3.3f * 100.0f;
+            ee.timestamp     = rx->timestamp;
+            _eeQueue.sendToBack(ee, 0);
+        }
     }
 }

@@ -115,8 +115,8 @@ void UartRecvTask::taskFunction() {
     dbg.info("UartRecvTask started.\n");
 
     for (;;) {
-        _parseCtrller();
         _parseJetson();
+        _parseCtrller();
         this->delay(pdMS_TO_TICKS(2));
     }
 }

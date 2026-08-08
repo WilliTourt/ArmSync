@@ -91,7 +91,9 @@ ra_gen \
 src/FreeRTOS/FreeRTOS-Kernel \
 src/FreeRTOS/FreeRTOS-Kernel/portable/MemMang \
 src/FreeRTOS/FreeRTOS-Kernel/portable/RM_FSP_PORT \
-src/app/drivers \
+src/app/ik/src \
+src/app/ik/src/solver/FABRIK \
+src/app/ik/src/solver/base \
 src/app/tasks/CPUCommTask \
 src/app/tasks/IKTask \
 src/app/tasks/NormalizeTask \

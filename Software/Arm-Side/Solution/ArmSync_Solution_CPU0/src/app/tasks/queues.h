@@ -7,16 +7,23 @@
 namespace sharedDatatype {
 
 // Task 2 output
-struct Attitude6DOF {
-    float upper_pitch;   // 上臂俯仰 (rad)
-    float upper_roll;    // 上臂横滚 (rad)
-    float upper_yaw;     // 上臂偏航 (rad)
-    float rel_pitch;     // 小臂相对俯仰 (rad)
-    float rel_roll;      // 小臂相对横滚 (rad)
-    float rel_yaw;       // 小臂相对偏航 (rad)
+struct ArmKPCoords {
+    float elbowCoord[3]; // [x, y, z] mm
+    float wristCoord[3]; // [x, y, z] mm
+    uint32_t timestamp;
+};
+
+struct EndEffectorData {
     float grip_percent;
     float pitch_percent;
     uint32_t timestamp;
+};
+
+// Task 4 output
+struct JointOutput {
+    float angles[6];      // J1~J6 in radians
+    uint32_t timestamp;
+    bool converged;
 };
 
 } // namespace sharedDatatype
@@ -24,4 +31,6 @@ struct Attitude6DOF {
 
 
 extern FreeRTOS::Queue<UartRecvTask::TransmitData> originalDataQueue;
-extern FreeRTOS::Queue<sharedDatatype::Attitude6DOF> normalizedDataQueue;
+extern FreeRTOS::Queue<sharedDatatype::ArmKPCoords> armKPCoordsQueue;
+extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue;
+extern FreeRTOS::Queue<sharedDatatype::JointOutput> jointOutputQueue;

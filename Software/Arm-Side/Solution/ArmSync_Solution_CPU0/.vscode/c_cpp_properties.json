@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "ArmSync_CPU0 (M85)",
+            "name": "ARM Cortex-M85",
             "includePath": [
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/src/app/tasks",
@@ -11,6 +11,8 @@
                 "${workspaceFolder}/src/app/tasks/IKTask",
                 "${workspaceFolder}/src/app/drivers",
                 "${workspaceFolder}/src/app/utils",
+                "${workspaceFolder}/src/app/ik/include/public",
+                "${workspaceFolder}/src/app/ik/include/private",
                 "${workspaceFolder}/src/shared",
                 "${workspaceFolder}/src/FreeRTOS/FreeRTOS-Cpp/include",
                 "${workspaceFolder}/src/FreeRTOS/FreeRTOS-Kernel/include",

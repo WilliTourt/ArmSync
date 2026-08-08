@@ -2,5 +2,11 @@
 
 BlinkTask blinkTask;
 
+// Task 1: UART receive (controller + Jetson)
 UartRecvTask uartRecvTask(originalDataQueue);
-NormalizeTask normalizeTask(originalDataQueue, normalizedDataQueue);
+
+// Task 2: FK + fusion
+NormalizeTask normalizeTask(originalDataQueue, armKPCoordsQueue, eeDataQueue);
+
+// Task 4: Inverse Kinematics (FABRIK)
+IKTask ikTask(armKPCoordsQueue, jointOutputQueue);

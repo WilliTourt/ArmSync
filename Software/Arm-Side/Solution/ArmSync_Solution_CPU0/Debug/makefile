@@ -16,7 +16,9 @@ RM := rm -rf
 -include src/app/tasks/IKTask/subdir.mk
 -include src/app/tasks/CPUCommTask/subdir.mk
 -include src/app/tasks/subdir.mk
--include src/app/drivers/subdir.mk
+-include src/app/ik/src/solver/base/subdir.mk
+-include src/app/ik/src/solver/FABRIK/subdir.mk
+-include src/app/ik/src/subdir.mk
 -include src/FreeRTOS/FreeRTOS-Kernel/portable/RM_FSP_PORT/subdir.mk
 -include src/FreeRTOS/FreeRTOS-Kernel/portable/MemMang/subdir.mk
 -include src/FreeRTOS/FreeRTOS-Kernel/subdir.mk
@@ -145,7 +147,7 @@ all: ArmSync_Solution_CPU0.elf secondary-outputs
 
 # Tool invocations
 ArmSync_Solution_CPU0.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > ArmSync_Solution_CPU0.elf.in,-mthumb -mfloat-abi=hard -mcpu=cortex-m85+nopacbti -O1 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "E:\\Folders\\Documents\\Dev\\Renesas\\RA8P1\\Projects\\ArmSync_Solution_CPU0\\script\\fsp.ld" -Xlinker --gc-sections -Wl,-Map,"ArmSync_Solution_CPU0.map" --specs=nano.specs --specs=nosys.specs -o "ArmSync_Solution_CPU0.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > ArmSync_Solution_CPU0.elf.in,-mthumb -mfloat-abi=hard -mcpu=cortex-m85+nopacbti -O1 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "E:\\Folders\\Documents\\Dev\\Renesas\\RA8P1\\Projects\\ArmSync_Solution_CPU0\\script\\fsp.ld" -Xlinker --gc-sections -Wl,-Map,"ArmSync_Solution_CPU0.map" --specs=nano.specs -u _printf_float -u _scanf_float --specs=nosys.specs -o "ArmSync_Solution_CPU0.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	@echo Building target: $@ && arm-none-eabi-g++ @"ArmSync_Solution_CPU0.elf.in"
 ArmSync_Solution_CPU0.srec: ArmSync_Solution_CPU0.elf
 	arm-none-eabi-objcopy -O srec "ArmSync_Solution_CPU0.elf"  "ArmSync_Solution_CPU0.srec"
