@@ -6,7 +6,8 @@
         <memory parent="RAM_NS" name="RAM_NS_CPU1_N" size="0x0" offset="0x1D4000" security="n" Pname="CPU1"/>
         <memory parent="RAM" name="RAM_CPU0_S" size="0xEA000" offset="0x0" security="s" Pname="CPU0"/>
         <memory parent="RAM" name="RAM_CPU0_C" size="0x0" offset="0xEA000" security="c" Pname="CPU0"/>
-        <memory parent="RAM" name="RAM_CPU1_S" size="0xEA000" offset="0xEA000" security="s" Pname="CPU1"/>
+        <memory parent="RAM" name="RAM_CPU1_S" size="0xDA000" offset="0xEA000" security="s" Pname="CPU1"/>
+        <memory parent="RAM" name="SHARED_RAM" size="0x10000" offset="0x1C4000" security="s" Pname="CPU0" info="@user"/>
         <memory parent="RAM" name="RAM_CPU1_C" size="0x0" offset="0x1D4000" security="c" Pname="CPU1"/>
         <memory parent="FLASH_NS" name="FLASH_NS_CPU0_N" size="0x0" offset="0x100000" security="n" Pname="CPU0"/>
         <memory parent="FLASH_NS" name="FLASH_NS_CPU1_N" size="0x0" offset="0x100000" security="n" Pname="CPU1"/>
@@ -122,8 +123,6 @@
         </peripheral>
         <peripheral name="PORT4.CPU0" group="PORT">
             <slot name="P406.CPU0" secure="true"/>
-            <slot name="P414.CPU0" secure="true"/>
-            <slot name="P415.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="PORT6.CPU0" group="PORT">
             <slot name="P602.CPU0" secure="true"/>
@@ -154,6 +153,7 @@
             <slot name="IRQ14.CPU0" secure="true"/>
             <slot name="IRQ15.CPU0" secure="true"/>
             <slot name="IRQ16.CPU0" secure="true"/>
+            <slot name="IRQ17.CPU0" secure="true"/>
         </peripheral>
     </partition>
 </azone>

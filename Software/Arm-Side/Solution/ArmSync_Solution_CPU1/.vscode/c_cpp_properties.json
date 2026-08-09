@@ -1,14 +1,13 @@
 {
     "configurations": [
         {
-            "name": "ArmSync_CPU1 (M33)",
+            "name": "ARM Cortex-M33",
             "includePath": [
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/src/shared",
                 "${workspaceFolder}/src/app/drivers",
                 "${workspaceFolder}/src/app/gripper",
-                "${workspaceFolder}/src/app/ipc_isr",
-                "${workspaceFolder}/src/app/motor",
+                "${workspaceFolder}/src/app/arm",
+                "${workspaceFolder}/src/app/ipc",
                 "${workspaceFolder}/src/app/safety",
                 "${workspaceFolder}/ra/fsp/inc",
                 "${workspaceFolder}/ra/fsp/inc/api",

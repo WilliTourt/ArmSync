@@ -36,6 +36,7 @@ MEMORY
 	OPTION_SETTING_OTP_ZHUK (r) : ORIGIN = OPTION_SETTING_OTP_ZHUK_START, LENGTH = OPTION_SETTING_OTP_ZHUK_LENGTH
 	CTCM (rwx) : ORIGIN = CTCM_START, LENGTH = CTCM_LENGTH
 	STCM (rwx) : ORIGIN = STCM_START, LENGTH = STCM_LENGTH
+	SHARED_RAM (rwx) : ORIGIN = SHARED_RAM_START, LENGTH = SHARED_RAM_LENGTH
 }
 
 /* code entry point...need to define to keep crt0 _start out */
@@ -1262,6 +1263,12 @@ SECTIONS
 		__ddsc_OPTION_SETTING_OTP_ZHUK_END = .;
 
 	}> OPTION_SETTING_OTP_ZHUK
+
+	/* User region SHARED_RAM */
+	__shared_ram$$ (NOLOAD) :
+	{
+		KEEP(*(.shared_ram))
+	}> SHARED_RAM
 
 }
 

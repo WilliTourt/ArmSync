@@ -1,0 +1,9 @@
+Project importing guide:
+
+1. Import three projects.
+ - Solution project: "<your specified project name>"
+ - C/C++ project:    "<your specified project name>_CPU0"
+ - C/C++ project:    "<your specified project name>_CPU1"
+2. Execute a project build for the Solution project.
+ Right click the Solution project and select "Build project"
+ Note: The two C/C++ projects are also built automatically.

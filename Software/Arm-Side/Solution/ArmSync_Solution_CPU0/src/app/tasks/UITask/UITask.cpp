@@ -114,13 +114,13 @@ void UITask::taskFunction() {
     for (;;) {
         _parseScreenInput();
 
-        auto motor = _motorQueue.receive(0);
-        if (motor) {
+        auto feedback = _fdbk.receive(0);
+        if (feedback) {
             for (int i = 0; i < 6; i++) {
-                _updateJointAngle(i, motor->jointAngle[i]);
+                _updateJointAngle(i, feedback->jointAngle[i]);
             }
             for (int i = 0; i < 6; i++) {
-                _updateJointStatus(i, !motor->isLockedRotor);
+                _updateJointStatus(i, !feedback->isLockedRotor);
             }
         }
 

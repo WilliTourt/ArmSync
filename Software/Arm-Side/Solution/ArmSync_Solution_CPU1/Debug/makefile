@@ -11,14 +11,16 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/app/safety/subdir.mk
--include src/app/motor/subdir.mk
--include src/app/ipc_isr/subdir.mk
+-include src/app/ipc/subdir.mk
 -include src/app/gripper/subdir.mk
 -include src/app/drivers/subdir.mk
+-include src/app/arm/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
+-include ra/fsp/src/r_sci_b_uart/subdir.mk
+-include ra/fsp/src/r_ipc/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
--include ra/fsp/src/r_canfd/subdir.mk
+-include ra/fsp/src/r_agt/subdir.mk
 -include ra/fsp/src/bsp/mcu/ra8p1/subdir.mk
 -include ra/fsp/src/bsp/mcu/all/subdir.mk
 -include ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/subdir.mk

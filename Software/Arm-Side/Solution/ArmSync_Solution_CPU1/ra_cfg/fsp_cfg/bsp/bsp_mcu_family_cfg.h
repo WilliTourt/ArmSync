@@ -113,7 +113,7 @@
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) /* SCI4 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) /* SCI3 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 29) /* SCI2 */ | \
-            (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 30) /* SCI1 */ | \
+            (((1 > 0) ? 0U : 1U) << 30) /* SCI1 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31) /* SCI0 */)
 #endif
 #ifndef BSP_TZ_CFG_PSARC
@@ -129,7 +129,7 @@
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 15) /* MIPI_CSI */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 16) /* CEU */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 24) /* PDM */ | \
-            (((1 > 0) ? 0U : 1U) << 26) /* CANFD1 */ | \
+            (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 26) /* CANFD1 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) /* CANFD0 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) /* ETHPHYCLK */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 30) /* ESWM */ | \
@@ -137,7 +137,7 @@
 #endif
 #ifndef BSP_TZ_CFG_PSARD
 #define BSP_TZ_CFG_PSARD (\
-            (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 4) /* AGT1 */ | \
+            (((1 > 0) ? 0U : 1U) << 4) /* AGT1 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 5) /* AGT0 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 6)  /* PDG */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 11) /* PGI3 */ | \

@@ -5,17 +5,6 @@
 
 FSP_HEADER
 
-// void SysTick_Handler(void);
-
-void vSysTick(timer_callback_args_t *p_args) {
-    (void)p_args;
-    // SysTick_Handler();
-
-    // ElegantDebug tick
-    ElegantDebug::tick();
-}
-
-
 /* Static allocation stubs — required when configSUPPORT_STATIC_ALLOCATION = 1 */
 void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
                                    StackType_t **ppxIdleTaskStackBuffer,
@@ -42,6 +31,38 @@ void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer,
     *ppxTimerTaskTCBBuffer = &xTimerTaskTCB;
     *ppxTimerTaskStackBuffer = uxTimerTaskStack;
     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
+}
+
+
+
+// void SysTick_Handler(void);
+
+void vSysTick(timer_callback_args_t *p_args) {
+    (void)p_args;
+    // SysTick_Handler();
+
+    // ElegantDebug tick
+    ElegantDebug::tick();
+}
+
+/* UART0 Receive Callback for controller */
+void UART0_Callback(uart_callback_args_t *p_args) {
+    UartRecvTask::uart0Callback(p_args);
+}
+
+/* UART2 Receive Callback for jetson nano */
+void UART2_Callback(uart_callback_args_t *p_args) {
+    UartRecvTask::uart2Callback(p_args);
+}
+
+/* UART3 Receive Callback for TJC Screen */
+void UART3_Callback(uart_callback_args_t *p_args) {
+    UITask::uart3Callback(p_args);
+}
+
+/* JLink OB */
+void UART9_Callback(uart_callback_args_t *p_args) {
+    ElegantDebug::onTxComplete(p_args);
 }
 
 FSP_FOOTER
@@ -75,31 +96,8 @@ void cpp_main() {
     uiTask.booting(UITask::BootingPhase::ARM_SELFCHK);
     R_BSP_SoftwareDelay(600, BSP_DELAY_UNITS_MILLISECONDS);
     uiTask.booting(UITask::BootingPhase::DONE);
-    R_BSP_SoftwareDelay(100, BSP_DELAY_UNITS_MILLISECONDS);
 
     FreeRTOS::Kernel::startScheduler();
 
     while (1);
-}
-
-
-
-/* UART0 Receive Callback for controller */
-extern "C" void UART0_Callback(uart_callback_args_t *p_args) {
-    UartRecvTask::uart0Callback(p_args);
-}
-
-/* UART2 Receive Callback for jetson nano */
-extern "C" void UART2_Callback(uart_callback_args_t *p_args) {
-    UartRecvTask::uart2Callback(p_args);
-}
-
-/* UART3 Receive Callback for TJC Screen */
-extern "C" void UART3_Callback(uart_callback_args_t *p_args) {
-    UITask::uart3Callback(p_args);
-}
-
-/* JLink OB */
-extern "C" void UART9_Callback(uart_callback_args_t *p_args) {
-    ElegantDebug::onTxComplete(p_args);
 }

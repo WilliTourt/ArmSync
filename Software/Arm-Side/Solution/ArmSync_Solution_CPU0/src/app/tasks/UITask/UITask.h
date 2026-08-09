@@ -15,10 +15,17 @@ class UITask : public FreeRTOS::Task {
             DONE        = 100
         };
 
-        UITask(FreeRTOS::Queue<sharedDatatype::M33Feedback>  &motorQueue,
+        enum CmdFlag {
+            CMD_ESTOP = (0b0001 << 0),
+            CMD_HOME  = (0b0001 << 1),
+            CMD_PLAY  = (0b0001 << 2),
+            CMD_REC   = (0b0001 << 3)
+        };
+
+        UITask(FreeRTOS::Queue<sharedDatatype::IPCFeedback>  &feedbackInQueue,
             FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeQueue)
             : Task(tskIDLE_PRIORITY + 2, 768, "UI"),
-            _motorQueue(motorQueue), _eeQueue(eeQueue) {}
+            _fdbk(feedbackInQueue), _eeQueue(eeQueue) {}
 
         static void uart3Callback(uart_callback_args_t *p_args);
         void booting(BootingPhase phase);
@@ -43,6 +50,6 @@ class UITask : public FreeRTOS::Task {
         static constexpr uint16_t tjcCOLOR_GREEN = 16049;
         static constexpr uint16_t tjcCOLOR_RED   = 57929;
 
-        FreeRTOS::Queue<sharedDatatype::M33Feedback>     &_motorQueue;
+        FreeRTOS::Queue<sharedDatatype::IPCFeedback>     &_fdbk;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeQueue;
 };

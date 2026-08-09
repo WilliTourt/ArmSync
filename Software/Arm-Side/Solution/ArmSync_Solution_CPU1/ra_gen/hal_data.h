@@ -4,22 +4,44 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
-#include "r_canfd.h"
-#include "r_can_api.h"
+#include "r_agt.h"
+#include "r_timer_api.h"
+#include "r_sci_b_uart.h"
+#include "r_uart_api.h"
+#include "r_ipc.h"
 FSP_HEADER
-/** CANFD on CANFD Instance. */
-extern const can_instance_t g_canfd1;
-/** Access the CANFD instance using these structures when calling API functions directly (::p_api is not used). */
-extern canfd_instance_ctrl_t g_canfd1_ctrl;
-extern const can_cfg_t g_canfd1_cfg;
-extern const canfd_extended_cfg_t g_canfd1_cfg_extend;
+/** AGT Timer Instance */
+extern const timer_instance_t agt_SysTick;
 
-#ifndef CANFD1_Callback
-void CANFD1_Callback(can_callback_args_t *p_args);
+/** Access the AGT instance using these structures when calling API functions directly (::p_api is not used). */
+extern agt_instance_ctrl_t agt_SysTick_ctrl;
+extern const timer_cfg_t agt_SysTick_cfg;
+
+#ifndef vSysTick
+void vSysTick(timer_callback_args_t *p_args);
 #endif
+/** UART on SCI Instance. */
+extern const uart_instance_t g_uart1;
 
-/* Global configuration (referenced by all instances) */
-extern canfd_global_cfg_t g_canfd_global_cfg;
+/** Access the UART instance using these structures when calling API functions directly (::p_api is not used). */
+extern sci_b_uart_instance_ctrl_t g_uart1_ctrl;
+extern const uart_cfg_t g_uart1_cfg;
+extern const sci_b_uart_extended_cfg_t g_uart1_cfg_extend;
+
+#ifndef UART1_Callback
+void UART1_Callback(uart_callback_args_t *p_args);
+#endif
+/** IPC Instance. */
+extern const ipc_instance_t g_ipc0;
+
+/** Access the IPC instance using these structures when calling API functions directly
+ (::p_api is not used). */
+extern ipc_instance_ctrl_t g_ipc0_ctrl;
+extern const ipc_cfg_t g_ipc0_cfg;
+
+#ifndef IPC0_Callback
+void IPC0_Callback(ipc_callback_args_t *p_args);
+#endif
 void hal_entry(void);
 void g_hal_init(void);
 FSP_FOOTER

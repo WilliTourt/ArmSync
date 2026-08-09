@@ -348,6 +348,10 @@
       <description>SCI UART</description>
       <originalPack>Renesas.RA.6.5.0.pack</originalPack>
     </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ipc" variant="" vendor="Renesas" version="6.5.0">
+      <description>IPC</description>
+      <originalPack>Renesas.RA.6.5.0.pack</originalPack>
+    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -488,6 +492,12 @@
       <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
       <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
     </module>
+    <module id="module.driver.ipc_on_ipc.1396334849">
+      <property id="module.driver.ipc.name" value="g_ipc0"/>
+      <property id="module.driver.ipc.channel" value="enum.driver.ipc.channel.0"/>
+      <property id="module.driver.ipc.callback" value="IPC0_Callback"/>
+      <property id="module.driver.ipc.ipl" value="board.icu.common.irq.priority8"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.timer_on_agt.301805898"/>
@@ -495,12 +505,16 @@
       <stack module="module.driver.uart_on_sci_b_uart.1992051947"/>
       <stack module="module.driver.uart_on_sci_b_uart.1290106310"/>
       <stack module="module.driver.uart_on_sci_b_uart.1049533245"/>
+      <stack module="module.driver.ipc_on_ipc.1396334849"/>
     </context>
     <config id="config.driver.sci_b_uart">
       <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>
       <property id="config.driver.sci_b_uart.fifo_support" value="config.driver.sci_b_uart.fifo_support.disabled"/>
       <property id="config.driver.sci_b_uart.dtc_support" value="config.driver.sci_b_uart.dtc_support.disabled"/>
       <property id="config.driver.sci_b_uart.flow_control" value="config.driver.sci_b_uart.flow_control.disabled"/>
+    </config>
+    <config id="config.driver.ipc">
+      <property id="config.driver.ipc.param_checking_enable" value="config.driver.ipc.param_checking_enable.bsp"/>
     </config>
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
@@ -517,7 +531,6 @@
     <symbolicName propertyId="p201.symbolic_name" value="KEY_MD"/>
     <symbolicName propertyId="p303.symbolic_name" value="KEY_USER"/>
     <pincfg active="true" name="R7KA8P1KFLCAC.pincfg" selected="true" symbol="g_bsp_pin_cfg">
-      <configSetting altId="canfd1.mode.enabled.free" configurationId="canfd1.mode"/>
       <configSetting altId="jtag_fslash_swd.mode.swd.free" configurationId="jtag_fslash_swd.mode"/>
       <configSetting altId="sci0.mode.asynchronousuart.free" configurationId="sci0.mode"/>
       <configSetting altId="sci9.mode.asynchronousuart.free" configurationId="sci9.mode"/>
