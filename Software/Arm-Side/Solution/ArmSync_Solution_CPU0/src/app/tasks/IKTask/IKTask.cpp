@@ -1,100 +1,80 @@
 #include "IKTask.h"
 #include "ElegantDebug.h"
-#include "ik/ik.h"
+#include <cmath>
+#include <string.h>
 
 extern ElegantDebug dbg;
 
-// Arm segment lengths (meters) — from your spec
-// base→J2=125mm  J2→J4=246mm  J4→J6=192mm  J6→ee=116mm
-static constexpr float L_J1 = 0.125f;
-static constexpr float L_J2 = 0.246f;
-static constexpr float L_J4 = 0.192f;
-static constexpr float L_J6 = 0.116f;
-
-bool IKTask::initSolver() {
-    // Init the IK library
-    if (IKAPI.init() != IK_OK) {
-        dbg.error("IK: ik.init() failed\n");
-        return false;
-    }
-
-    // Create FABRIK solver
-    _solver = IKAPI.solver.create(IK_FABRIK);
-    if (!_solver) {
-        dbg.error("IK: solver.create() failed\n");
-        return false;
-    }
-    _solver->max_iterations = 20;
-    _solver->tolerance = 1e-3f;
-
-    // Build bone chain: base → J2 → J4 → J6 → ee
-    _base = _solver->node->create(0);
-    _j2   = _solver->node->create_child(_base, 1);
-    _j4   = _solver->node->create_child(_j2,   2);
-    _j6   = _solver->node->create_child(_j4,   3);
-    struct ik_node_t* ee = _solver->node->create_child(_j6, 4);
-
-    // Set rest pose (arm pointing down, -Z)
-    _base->position = IKAPI.vec3.vec3(0, 0, 0);
-    _j2->position   = IKAPI.vec3.vec3(0, 0, -L_J1);
-    _j4->position   = IKAPI.vec3.vec3(0, 0, -(L_J1 + L_J2));
-    _j6->position   = IKAPI.vec3.vec3(0, 0, -(L_J1 + L_J2 + L_J4));
-    ee->position    = IKAPI.vec3.vec3(0, 0, -(L_J1 + L_J2 + L_J4 + L_J6));
-
-    // Attach effectors
-    _efElbow = _solver->effector->create();
-    _efWrist = _solver->effector->create();
-    _solver->effector->attach(_efElbow, _j4);  // J4 = elbow
-    _solver->effector->attach(_efWrist, _j6);  // J6 = wrist
-
-    // Give tree to solver
-    IKAPI.solver.set_tree(_solver, _base);
-    IKAPI.solver.rebuild(_solver);
-
-    dbg.ok("IK: FABRIK solver ready (chain: base→J2(%.0f)→J4(%.0f)→J6(%.0f)→ee(%.0f) mm)\n",
-        L_J1*1000, L_J2*1000, L_J4*1000, L_J6*1000);
-    return true;
-}
+// Arm segment lengths (meters) — matched to NormalizeTask mapping
+static constexpr float ROBOT_UPPER_M  = 0.260f;  // 260 mm
+static constexpr float ROBOT_FOREARM_M = 0.190f;  // 190 mm
 
 void IKTask::taskFunction() {
-    dbg.info("IKTask started.\n");
-
-    if (!initSolver()) {
-        dbg.error("IK: init failed, task suspended\n");
-        this->suspend();
-    }
+    dbg.info("IKTask started (analytical 2-segment).\n");
 
     for (;;) {
         auto target = _inQueue.receive(portMAX_DELAY);
         if (!target) continue;
 
-        // --- Set targets (mm → m) ---
-        _efElbow->target_position.x = target->elbowCoord[0] / 1000.0f;
-        _efElbow->target_position.y = target->elbowCoord[1] / 1000.0f;
-        _efElbow->target_position.z = target->elbowCoord[2] / 1000.0f;
+        float ex = target->elbowCoord[0];  // mm
+        float ey = target->elbowCoord[1];
+        float ez = target->elbowCoord[2];
+        float wx = target->wristCoord[0];
+        float wy = target->wristCoord[1];
+        float wz = target->wristCoord[2];
 
-        _efWrist->target_position.x = target->wristCoord[0] / 1000.0f;
-        _efWrist->target_position.y = target->wristCoord[1] / 1000.0f;
-        _efWrist->target_position.z = target->wristCoord[2] / 1000.0f;
+        // --- Length checks (should always pass after NormalizeTask mapping) ---
+        float elLen = sqrtf(ex*ex + ey*ey + ez*ez);
+        float wrLen = sqrtf(wx*wx + wy*wy + wz*wz);
+        float ewLen = sqrtf((wx-ex)*(wx-ex) + (wy-ey)*(wy-ey) + (wz-ez)*(wz-ez));
 
-        // --- Solve ---
-        int result = IKAPI.solver.solve(_solver);
+        bool converged = true;
+        if (fabsf(elLen - ROBOT_UPPER_M * 1000.0f) > 2.0f) converged = false;
+        if (fabsf(ewLen - ROBOT_FOREARM_M * 1000.0f) > 2.0f) converged = false;
 
         sharedDatatype::JointOutput out = {};
         out.timestamp = target->timestamp;
-        out.converged = (result == 1);
+        out.converged = converged;
 
-        // TODO: extract J1~J6 angles from _j2/_j4/_j6 positions
-        // For now, stub zeros
-        for (int i = 0; i < 6; i++) out.angles[i] = 0.0f;
+        if (converged) {
+            // --- Compute joint angles from positions ---
+            // Upper arm direction (base → elbow), normalized
+            float ux = ex / elLen;
+            float uy = ey / elLen;
+            float uz = ez / elLen;
 
-        if (out.converged) {
+            // Forearm direction (elbow → wrist), normalized
+            float fx = (wx - ex) / ewLen;
+            float fy = (wy - ey) / ewLen;
+            float fz = (wz - ez) / ewLen;
+
+            // Elbow bend angle: angle between upper arm and forearm
+            float dot = ux*fx + uy*fy + uz*fz;
+            if (dot >  1.0f) dot =  1.0f;
+            if (dot < -1.0f) dot = -1.0f;
+            float elbowBend = acosf(dot);  // radians, [0,π]
+
+            // Upper arm spherical angles (for J1/J2/J3 decomposition later)
+            // Yaw   = atan2(ux, uz) in XZ plane
+            // Pitch = asin(uy) or atan2(uy, sqrt(ux²+uz²))
+            float upperYaw   = atan2f(ux, -uz);    // horizontal angle
+            float upperPitch = atan2f(-uy, sqrtf(ux*ux + uz*uz));  // elevation
+
+            // Store as J1~J6 angles (J1=yaw, J2=pitch, J3=0 for now, J4=elbowBend, J5=0, J6=0)
+            out.angles[0] = upperYaw;
+            out.angles[1] = upperPitch;
+            out.angles[2] = 0.0f;
+            out.angles[3] = elbowBend;
+            out.angles[4] = 0.0f;
+            out.angles[5] = 0.0f;
+
             dbg.logWithType("IK", COLOR_GREEN,
-                "converged: J4=(%.3f,%.3f,%.3f) J6=(%.3f,%.3f,%.3f) m\n",
-                _j4->position.x, _j4->position.y, _j4->position.z,
-                _j6->position.x, _j6->position.y, _j6->position.z);
+                "J: yaw=%.1f° pitch=%.1f° bend=%.1f° | E(%.0f,%.0f,%.0f)|%.0fmm| W(%.0f,%.0f,%.0f)|%.0fmm| wr%.0f ew%.0f\n",
+                upperYaw * 57.3f, upperPitch * 57.3f, elbowBend * 57.3f,
+                ex, ey, ez, elLen, wx, wy, wz, wrLen, ewLen);
         } else {
-            dbg.warning("IK: did not converge (target unreachable?)\n");
+            dbg.info("IK: bad lengths (el=%.0f ew=%.0f, expect %.0f/%.0f)\n",
+                elLen, ewLen, ROBOT_UPPER_M*1000, ROBOT_FOREARM_M*1000);
         }
 
         _outQueue.sendToBack(out, 0);

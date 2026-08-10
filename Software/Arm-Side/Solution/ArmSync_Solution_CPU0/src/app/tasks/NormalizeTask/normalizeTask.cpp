@@ -134,9 +134,11 @@ void NormalizeTask::taskFunction() {
             }
             kp.timestamp = rx->timestamp;
 
-            dbg.log("FK: E(%.0f,%.0f,%.0f) W(%.0f,%.0f,%.0f) mm @%d\n",
-            kp.elbowCoord[0], kp.elbowCoord[1], kp.elbowCoord[2],
-            kp.wristCoord[0], kp.wristCoord[1], kp.wristCoord[2],
+            float fkEtLen = sqrtf(kp.elbowCoord[0]*kp.elbowCoord[0] + kp.elbowCoord[1]*kp.elbowCoord[1] + kp.elbowCoord[2]*kp.elbowCoord[2]);
+            float fkWrLen = sqrtf(kp.wristCoord[0]*kp.wristCoord[0] + kp.wristCoord[1]*kp.wristCoord[1] + kp.wristCoord[2]*kp.wristCoord[2]);
+            dbg.log("FK: E(%.0f,%.0f,%.0f) |%.0fmm| W(%.0f,%.0f,%.0f) |%.0fmm| @%d\n",
+            kp.elbowCoord[0], kp.elbowCoord[1], kp.elbowCoord[2], fkEtLen,
+            kp.wristCoord[0], kp.wristCoord[1], kp.wristCoord[2], fkWrLen,
             kp.timestamp);
 
             _kpQueue.sendToBack(kp, 0);

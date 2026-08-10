@@ -102,12 +102,18 @@ void UartRecvTask::_parseJetson() {
         jd.valid = true;
         _latestJetsonData = jd;
 
+        float jEtLen = sqrtf((float)jd.points[0][0]*jd.points[0][0] + (float)jd.points[0][1]*jd.points[0][1] + (float)jd.points[0][2]*jd.points[0][2]);
+        float jWrLen = sqrtf((float)jd.points[1][0]*jd.points[1][0] + (float)jd.points[1][1]*jd.points[1][1] + (float)jd.points[1][2]*jd.points[1][2]);
         dbg.logWithType("JETSON", COLOR_CYAN,
-            "KeyPoints: E(%d,%d,%d) W(%d,%d,%d) I(%d,%d,%d) T(%d,%d,%d)\n",
-            jd.points[0][0], jd.points[0][1], jd.points[0][2],
-            jd.points[1][0], jd.points[1][1], jd.points[1][2],
-            jd.points[2][0], jd.points[2][1], jd.points[2][2],
-            jd.points[3][0], jd.points[3][1], jd.points[3][2]);
+            "KeyPoints: E(%d,%d,%d) |%.0fmm| W(%d,%d,%d) |%.0fmm|\n",
+            jd.points[0][0], jd.points[0][1], jd.points[0][2], jEtLen,
+            jd.points[1][0], jd.points[1][1], jd.points[1][2], jWrLen);
+
+        // Test
+        UartRecvTask::TransmitData data;
+        data.ctrllerData = {};
+        data.jetsonData  = _latestJetsonData;
+        _queue.sendToBack(data, 0);
     }
 }
 

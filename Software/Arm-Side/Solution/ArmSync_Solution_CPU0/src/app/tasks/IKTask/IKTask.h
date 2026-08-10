@@ -13,16 +13,7 @@ public:
 
 private:
     void taskFunction() override;
-    bool initSolver();
 
     FreeRTOS::Queue<sharedDatatype::ArmKPCoords> &_inQueue;
     FreeRTOS::Queue<sharedDatatype::JointOutput>  &_outQueue;
-
-    struct ik_solver_t*   _solver   = nullptr;
-    struct ik_node_t*     _base     = nullptr;
-    struct ik_node_t*     _j2       = nullptr;
-    struct ik_node_t*     _j4       = nullptr;
-    struct ik_node_t*     _j6       = nullptr;
-    struct ik_effector_t* _efElbow  = nullptr;
-    struct ik_effector_t* _efWrist  = nullptr;
 };

@@ -69,7 +69,7 @@ FSP_FOOTER
 
 
 
-ElegantDebug dbg(&g_uart9, false, true);
+ElegantDebug dbg(&g_uart9, true, true);
 
 void cpp_main() {
 

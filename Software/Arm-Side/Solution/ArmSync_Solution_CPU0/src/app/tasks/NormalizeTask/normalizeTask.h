@@ -32,7 +32,7 @@ class NormalizeTask : public FreeRTOS::Task {
         static constexpr float ROBOT_FOREARM_MM = 190.0f;  // mm
 
         // ---- Fusion ----
-        static constexpr float FUSION_ALPHA = 0.95f;    // trust Jetson 95%
+        static constexpr float FUSION_ALPHA = 1.0f;    // trust Jetson 100%
 
         // ---- Queues ----
         FreeRTOS::Queue<UartRecvTask::TransmitData>      &_inQueue;

@@ -35,6 +35,8 @@ void cpp_main() {
 
     R_SCI_B_UART_Open(&g_uart1_ctrl, &g_uart1_cfg);
 
+    arm.init();
+
     while (1) {
 
     }
