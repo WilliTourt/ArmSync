@@ -108,41 +108,9 @@ void NormalizeTask::taskFunction() {
             }
         }
 
-        // ---- Map to robot arm lengths ----
-        {
-            // Elbow: direction stays, length = robot upper arm
-            float el_len = sqrtf(kp.elbowCoord[0]*kp.elbowCoord[0] +
-                                 kp.elbowCoord[1]*kp.elbowCoord[1] +
-                                 kp.elbowCoord[2]*kp.elbowCoord[2]);
-            if (el_len > 0.01f) {
-                float s = ROBOT_UPPER_MM / el_len;
-                kp.elbowCoord[0] *= s;
-                kp.elbowCoord[1] *= s;
-                kp.elbowCoord[2] *= s;
-            }
-
-            // Wrist: direction from elbow stays, length = robot forearm
-            float wx = kp.wristCoord[0] - kp.elbowCoord[0];
-            float wy = kp.wristCoord[1] - kp.elbowCoord[1];
-            float wz = kp.wristCoord[2] - kp.elbowCoord[2];
-            float wr_len = sqrtf(wx*wx + wy*wy + wz*wz);
-            if (wr_len > 0.01f) {
-                float s = ROBOT_FOREARM_MM / wr_len;
-                kp.wristCoord[0] = kp.elbowCoord[0] + wx * s;
-                kp.wristCoord[1] = kp.elbowCoord[1] + wy * s;
-                kp.wristCoord[2] = kp.elbowCoord[2] + wz * s;
-            }
-            kp.timestamp = rx->timestamp;
-
-            float fkEtLen = sqrtf(kp.elbowCoord[0]*kp.elbowCoord[0] + kp.elbowCoord[1]*kp.elbowCoord[1] + kp.elbowCoord[2]*kp.elbowCoord[2]);
-            float fkWrLen = sqrtf(kp.wristCoord[0]*kp.wristCoord[0] + kp.wristCoord[1]*kp.wristCoord[1] + kp.wristCoord[2]*kp.wristCoord[2]);
-            dbg.log("FK: E(%.0f,%.0f,%.0f) |%.0fmm| W(%.0f,%.0f,%.0f) |%.0fmm| @%d\n",
-            kp.elbowCoord[0], kp.elbowCoord[1], kp.elbowCoord[2], fkEtLen,
-            kp.wristCoord[0], kp.wristCoord[1], kp.wristCoord[2], fkWrLen,
-            kp.timestamp);
-
-            _kpQueue.sendToBack(kp, 0);
-        }
+        // Send raw positions (mm) to IKTask; IKTask handles projection + IK
+        kp.timestamp = rx->timestamp;
+        _kpQueue.sendToBack(kp, 0);
 
         // ---- Gripper / pitch data (separate queue, for CPU1) ----
         {

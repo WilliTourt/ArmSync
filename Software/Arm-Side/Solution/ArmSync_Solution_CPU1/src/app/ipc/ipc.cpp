@@ -4,14 +4,7 @@
 static IPCCtrlPacket ctrlData BSP_PLACE_IN_SECTION(".shared_ram");   // from CPU0
 static IPCFeedback   fbData   BSP_PLACE_IN_SECTION(".shared_ram");   // to CPU0
 
-// IPC ISR callback
-extern "C" void IPC0_Callback(ipc_callback_args_t *p_args) {
-    if (p_args->event == IPC_EVENT_MESSAGE_RECEIVED) {
-        if (p_args->message == static_cast<uint32_t>(MsgToken::MSG_CTRL_READY)) {
-            IPC::onCtrlReady();
-        }
-    }
-}
+
 
 volatile bool IPC::_ctrlPacketRdy = false;
 

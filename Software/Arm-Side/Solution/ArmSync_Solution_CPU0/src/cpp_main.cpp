@@ -41,8 +41,7 @@ void vSysTick(timer_callback_args_t *p_args) {
     (void)p_args;
     // SysTick_Handler();
 
-    // ElegantDebug tick
-    ElegantDebug::tick();
+    ElegantDebug::tick();   // ElegantDebug tick
 }
 
 /* UART0 Receive Callback for controller */

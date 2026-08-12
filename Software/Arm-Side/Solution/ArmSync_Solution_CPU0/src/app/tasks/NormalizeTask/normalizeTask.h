@@ -27,10 +27,6 @@ class NormalizeTask : public FreeRTOS::Task {
         static constexpr float HUMAN_UPPER_M  = 0.35f;   // shoulder→elbow, meters
         static constexpr float HUMAN_FOREARM_M = 0.26f;   // elbow→wrist, meters
 
-        // ---- Robot arm mapping ----
-        static constexpr float ROBOT_UPPER_MM  = 260.0f;  // mm
-        static constexpr float ROBOT_FOREARM_MM = 190.0f;  // mm
-
         // ---- Fusion ----
         static constexpr float FUSION_ALPHA = 1.0f;    // trust Jetson 100%
 

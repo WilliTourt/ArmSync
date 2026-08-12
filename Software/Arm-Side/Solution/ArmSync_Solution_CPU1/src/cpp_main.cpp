@@ -15,6 +15,15 @@ void UART1_Callback(uart_callback_args_t *p_args) {
     Motor::uartCallback(p_args);
 }
 
+// IPC ISR callback
+void IPC0_Callback(ipc_callback_args_t *p_args) {
+    if (p_args->event == IPC_EVENT_MESSAGE_RECEIVED) {
+        if (p_args->message == static_cast<uint32_t>(MsgToken::MSG_CTRL_READY)) {
+            IPC::onCtrlReady();
+        }
+    }
+}
+
 FSP_FOOTER
 
 
@@ -34,6 +43,8 @@ Arm arm(J1_Upper_Swing, J2_Upper_Abduction, J3_Upper_Rot,
 void cpp_main() {
 
     R_SCI_B_UART_Open(&g_uart1_ctrl, &g_uart1_cfg);
+
+    ipc.init();
 
     arm.init();
 

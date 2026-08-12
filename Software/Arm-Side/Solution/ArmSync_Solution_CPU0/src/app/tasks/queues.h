@@ -6,27 +6,28 @@
 
 namespace sharedDatatype {
 
-// Task 2 output
+// From Task 2 to Task 4 (NormalizeTask to IKTask)
 struct ArmKPCoords {
     float elbowCoord[3]; // [x, y, z] mm
     float wristCoord[3]; // [x, y, z] mm
     uint32_t timestamp;
 };
 
+// From Task 2 to Task 6 (NormalizeTask to CPUCommTask)
 struct EndEffectorData {
     float grip_percent;
     float pitch_percent;
     uint32_t timestamp;
 };
 
-// Task 4 output
+// From Task 4 to Task 6 (IKTask to CPUCommTask)
 struct JointOutput {
     float angles[6];      // J1~J6 in deg
     uint32_t timestamp;
     bool converged;
 };
 
-// M85 to M33 ctrl
+// M85 to M33 ctrl (CPUCommTask)
 struct IPCCtrlPacket {
     float    jointAngle[6];   // J1~J6 target degrees
     float    grip_percent;    // 0.0 ~ 100.0
@@ -34,7 +35,7 @@ struct IPCCtrlPacket {
     uint32_t timestamp;       // FreeRTOS tick when written
 };
 
-// M33 feedback
+// M33 feedback (CPUCommTask)
 struct IPCFeedback {
     float    jointAngle[6];   // J1~J6 actual degrees
     bool     isLockedRotor;
