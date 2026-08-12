@@ -1,4 +1,6 @@
-ra_gen/hal_data.o: ../ra_gen/hal_data.c ../ra_gen/hal_data.h \
+src/app/ElegantDebug.o: ../src/app/ElegantDebug.cpp \
+ ../src/app/ElegantDebug.h \
+ E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra_gen/hal_data.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/bsp_api.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/fsp_common_api.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/fsp_version.h \
@@ -49,7 +51,7 @@ ra_gen/hal_data.o: ../ra_gen/hal_data.c ../ra_gen/hal_data.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/src/bsp/mcu/all/bsp_compiler_support.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/src/bsp/mcu/all/bsp_delay.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/src/bsp/mcu/all/bsp_mcu_api.h \
- ../ra_gen/common_data.h \
+ E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra_gen/common_data.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/instances/r_ioport.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/r_ioport_api.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/bsp_api.h \
@@ -65,7 +67,8 @@ ra_gen/hal_data.o: ../ra_gen/hal_data.c ../ra_gen/hal_data.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/instances/r_ipc.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra_cfg/fsp_cfg/r_ipc_cfg.h \
  E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/r_ipc_api.h
-../ra_gen/hal_data.h:
+../src/app/ElegantDebug.h:
+E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra_gen/hal_data.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/bsp_api.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/fsp_common_api.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/fsp_version.h:
@@ -116,7 +119,7 @@ E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/src/bsp/mcu/all/bsp_compiler_support.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/src/bsp/mcu/all/bsp_delay.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/src/bsp/mcu/all/bsp_mcu_api.h:
-../ra_gen/common_data.h:
+E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra_gen/common_data.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/instances/r_ioport.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/r_ioport_api.h:
 E:/Folders/Documents/Dev/Renesas/RA8P1/Projects/ArmSync_Solution_CPU1/ra/fsp/inc/api/bsp_api.h:

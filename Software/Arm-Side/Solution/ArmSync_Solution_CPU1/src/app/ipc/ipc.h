@@ -42,6 +42,7 @@ class IPC {
     public:
         void init();
         void tick();                 // called from AGT ISR, 1ms
+        uint32_t getTick() const { return _tick; }  // millisecond counter
 
         // reads control from CPU0, splits into ArmTarget + GripTarget
         bool getCtrlPacket(ArmTarget &arm, GripTarget &grip);

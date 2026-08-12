@@ -4,11 +4,11 @@
             "name": "ARM Cortex-M33",
             "includePath": [
                 "${workspaceFolder}/src",
+                "${workspaceFolder}/src/app",
                 "${workspaceFolder}/src/app/drivers",
                 "${workspaceFolder}/src/app/gripper",
                 "${workspaceFolder}/src/app/arm",
                 "${workspaceFolder}/src/app/ipc",
-                "${workspaceFolder}/src/app/safety",
                 "${workspaceFolder}/ra/fsp/inc",
                 "${workspaceFolder}/ra/fsp/inc/api",
                 "${workspaceFolder}/ra/fsp/inc/instances",

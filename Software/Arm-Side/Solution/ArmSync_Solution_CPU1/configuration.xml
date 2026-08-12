@@ -417,11 +417,67 @@
       <property id="module.driver.timer.p_callback" value="vSysTick"/>
       <property id="module.driver.timer.ipl" value="board.icu.common.irq.priority1"/>
     </module>
+    <module id="module.driver.uart_on_sci_b_uart.154750782">
+      <property id="module.driver.uart.name" value="g_uart5"/>
+      <property id="module.driver.uart.channel" value="5"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="115200"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.disabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.max"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_assertion_time" value="1"/>
+      <property id="module.driver.uart.rs485.de_negation_time" value="1"/>
+      <property id="module.driver.uart.tei_synchronization_delay_cycles" value="0"/>
+      <property id="module.driver.uart.callback" value="UART5_Callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority7"/>
+      <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
+    </module>
+    <module id="module.driver.uart_on_sci_b_uart.492844781">
+      <property id="module.driver.uart.name" value="g_uart8"/>
+      <property id="module.driver.uart.channel" value="8"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="115200"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.disabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.max"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_assertion_time" value="1"/>
+      <property id="module.driver.uart.rs485.de_negation_time" value="1"/>
+      <property id="module.driver.uart.tei_synchronization_delay_cycles" value="0"/>
+      <property id="module.driver.uart.callback" value="UART8_Callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="board.icu.common.irq.priority7"/>
+      <property id="module.driver.uart.txi_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.ipc_on_ipc.1010053332"/>
       <stack module="module.driver.uart_on_sci_b_uart.33690824"/>
       <stack module="module.driver.timer_on_agt.2095406578"/>
+      <stack module="module.driver.uart_on_sci_b_uart.154750782"/>
+      <stack module="module.driver.uart_on_sci_b_uart.492844781"/>
     </context>
     <config id="config.driver.sci_b_uart">
       <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>
@@ -452,11 +508,29 @@
       <configSetting altId="p400.gpio_mode.gpio_mode_peripheral" configurationId="p400.gpio_mode"/>
       <configSetting altId="p401.sci1.rxd1" configurationId="p401"/>
       <configSetting altId="p401.gpio_mode.gpio_mode_peripheral" configurationId="p401.gpio_mode"/>
+      <configSetting altId="p805.sci8.txd8" configurationId="p805"/>
+      <configSetting altId="p805.gpio_mode.gpio_mode_peripheral" configurationId="p805.gpio_mode"/>
+      <configSetting altId="p806.sci8.rxd8" configurationId="p806"/>
+      <configSetting altId="p806.gpio_mode.gpio_mode_peripheral" configurationId="p806.gpio_mode"/>
+      <configSetting altId="pb02.sci5.rxd5" configurationId="pb02"/>
+      <configSetting altId="pb02.gpio_mode.gpio_mode_peripheral" configurationId="pb02.gpio_mode"/>
+      <configSetting altId="pb03.sci5.txd5" configurationId="pb03"/>
+      <configSetting altId="pb03.gpio_mode.gpio_mode_peripheral" configurationId="pb03.gpio_mode"/>
       <configSetting altId="sci1.mode.asynchronousuart.free" configurationId="sci1.mode"/>
       <configSetting altId="sci1.rxd1.p401" configurationId="sci1.rxd1"/>
       <configSetting altId="sci1.txd1.p400" configurationId="sci1.txd1"/>
+      <configSetting altId="sci5.mode.asynchronousuart.free" configurationId="sci5.mode"/>
+      <configSetting altId="sci5.rxd5.pb02" configurationId="sci5.rxd5"/>
+      <configSetting altId="sci5.txd5.pb03" configurationId="sci5.txd5"/>
+      <configSetting altId="sci8.mode.asynchronousuart.free" configurationId="sci8.mode"/>
+      <configSetting altId="sci8.rxd8.p806" configurationId="sci8.rxd8"/>
+      <configSetting altId="sci8.txd8.p805" configurationId="sci8.txd8"/>
       <lockSetting id="sci1.rxd1" lock="true"/>
       <lockSetting id="sci1.txd1" lock="true"/>
+      <lockSetting id="sci5.rxd5" lock="true"/>
+      <lockSetting id="sci5.txd5" lock="true"/>
+      <lockSetting id="sci8.rxd8" lock="true"/>
+      <lockSetting id="sci8.txd8" lock="true"/>
     </pincfg>
   </raPinConfiguration>
 </raConfiguration>

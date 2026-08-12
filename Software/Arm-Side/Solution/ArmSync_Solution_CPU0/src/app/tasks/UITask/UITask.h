@@ -22,13 +22,24 @@ class UITask : public FreeRTOS::Task {
             CMD_REC   = (0b0001 << 3)
         };
 
+        enum class StatusText {
+            MANUAL = 0,
+            RECORD = 1,
+            AUTO   = 2,
+            ERROR  = 3
+        };
+
         UITask(FreeRTOS::Queue<sharedDatatype::IPCFeedback>  &feedbackInQueue,
-            FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeQueue)
+            FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeUIQueue)
             : Task(tskIDLE_PRIORITY + 2, 768, "UI"),
-            _fdbk(feedbackInQueue), _eeQueue(eeQueue) {}
+            _fdbk(feedbackInQueue), _eeUIQueue(eeUIQueue) {}
 
         static void uart3Callback(uart_callback_args_t *p_args);
         void booting(BootingPhase phase);
+
+        void updateStatusText(StatusText text);
+        void updateFreq(int hz);
+        void updateHMS(int line, const char* msg);
 
     private:
         void taskFunction() override;
@@ -39,9 +50,7 @@ class UITask : public FreeRTOS::Task {
         void _updateJointAngle(int idx, float angle_deg);
         void _updateJointStatus(int idx, bool ok);
         void _updateGrip(float percent, bool stuck);
-        void _updateStatusText(const char* text);
-        void _updateFreq(int hz);
-        void _updateHMS(int line, const char* msg);
+
 
         static uint8_t      _rxBuf[128];
         static RingBuf      _rxRing;
@@ -51,5 +60,5 @@ class UITask : public FreeRTOS::Task {
         static constexpr uint16_t tjcCOLOR_RED   = 57929;
 
         FreeRTOS::Queue<sharedDatatype::IPCFeedback>     &_fdbk;
-        FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeQueue;
+        FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeUIQueue;
 };

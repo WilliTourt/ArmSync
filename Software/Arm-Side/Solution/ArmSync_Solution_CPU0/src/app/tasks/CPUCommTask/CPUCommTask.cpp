@@ -28,36 +28,44 @@ void CPUCommTask::taskFunction() {
 
     R_IPC_Open(&g_ipc0_ctrl, &g_ipc0_cfg);
 
+    TickType_t lastSendTick = 0;
     for (;;) {
-        // Block on joint data (sync point for control loop frame)
-        auto jointOut = _jointQueue.receive(portMAX_DELAY);
-        if (!jointOut) continue;
+        // ---- Poll joint data with short timeout (keep latest) ----
+        auto jointOut = _jointQueue.receive(pdMS_TO_TICKS(10));
+        if (jointOut) {
+            _latestJoint = *jointOut;
+        }
 
-        // Try to grab latest EE data (non-blocking, use last known if stale)
+        // Always grab latest EE data (non-blocking)
         auto eeData = _eeQueue.receive(0);
         if (eeData) {
             _latestEE = *eeData;
         }
 
-        // Write joint + ee together, then send ONE msg
-        while (FSP_ERR_IN_USE == R_BSP_IpcSemaphoreTake(&_lock));
-        for (int i = 0; i < 6; i++) {
-            _tx->jointAngle[i] = jointOut->angles[i];
+        // ---- Send IPC periodically (~20ms), even without joint data ----
+        TickType_t now = xTaskGetTickCount();
+        if ((now - lastSendTick) >= pdMS_TO_TICKS(20)) {
+            lastSendTick = now;
+
+            while (FSP_ERR_IN_USE == R_BSP_IpcSemaphoreTake(&_lock));
+            for (int i = 0; i < 6; i++) {
+                _tx->jointAngle[i] = _latestJoint.angles[i];
+            }
+            _tx->grip_percent  = _latestEE.grip_percent;
+            _tx->pitch_percent = _latestEE.pitch_percent;
+            _tx->timestamp = now;
+            R_BSP_IpcSemaphoreGive(&_lock);
+
+            R_IPC_MessageSend(&g_ipc0_ctrl, static_cast<uint32_t>(MsgToken::MSG_CTRL_READY));
+
+            dbg.logWithType("IPC", COLOR_BLUE,
+                "TX->M33: J1=%.1f J2=%.1f J3=%.1f J4=%.1f J5=%.1f J6=%.1f | grip=%.0f%% pitch=%.0f%%\n",
+                _latestJoint.angles[0], _latestJoint.angles[1], _latestJoint.angles[2],
+                _latestJoint.angles[3], _latestJoint.angles[4], _latestJoint.angles[5],
+                _latestEE.grip_percent, _latestEE.pitch_percent);
         }
-        _tx->grip_percent  = _latestEE.grip_percent;
-        _tx->pitch_percent = _latestEE.pitch_percent;
-        _tx->timestamp = xTaskGetTickCount();
-        R_BSP_IpcSemaphoreGive(&_lock);
 
-        R_IPC_MessageSend(&g_ipc0_ctrl, static_cast<uint32_t>(MsgToken::MSG_CTRL_READY));
-
-        dbg.logWithType("IPC", COLOR_BLUE,
-            "TX->M33: J1=%.1f J2=%.1f J3=%.1f J4=%.1f J5=%.1f J6=%.1f | grip=%.0f%% pitch=%.0f%%\n",
-            jointOut->angles[0], jointOut->angles[1], jointOut->angles[2],
-            jointOut->angles[3], jointOut->angles[4], jointOut->angles[5],
-            _latestEE.grip_percent, _latestEE.pitch_percent);
-
-        // ---- Feedback handling (unchanged) ----
+        // ---- Feedback handling (always check) ----
         if (_fbReady) {
             _fbReady = false;
 

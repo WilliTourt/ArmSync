@@ -152,8 +152,16 @@
     <pincfg active="true" name="" symbol="">
       <configSetting altId="p400.gpio_mode.gpio_mode_peripheral" configurationId="p400.gpio_mode"/>
       <configSetting altId="p401.gpio_mode.gpio_mode_peripheral" configurationId="p401.gpio_mode"/>
+      <configSetting altId="p805.gpio_mode.gpio_mode_peripheral" configurationId="p805.gpio_mode"/>
+      <configSetting altId="p806.gpio_mode.gpio_mode_peripheral" configurationId="p806.gpio_mode"/>
+      <configSetting altId="pb02.gpio_mode.gpio_mode_peripheral" configurationId="pb02.gpio_mode"/>
+      <configSetting altId="pb03.gpio_mode.gpio_mode_peripheral" configurationId="pb03.gpio_mode"/>
       <configSetting altId="sci1.rxd1.p401" configurationId="sci1.rxd1" isUsedByDriver="true" peripheral="SCI1"/>
       <configSetting altId="sci1.txd1.p400" configurationId="sci1.txd1" isUsedByDriver="true" peripheral="SCI1"/>
+      <configSetting altId="sci5.rxd5.pb02" configurationId="sci5.rxd5" isUsedByDriver="true" peripheral="SCI5"/>
+      <configSetting altId="sci5.txd5.pb03" configurationId="sci5.txd5" isUsedByDriver="true" peripheral="SCI5"/>
+      <configSetting altId="sci8.rxd8.p806" configurationId="sci8.rxd8" isUsedByDriver="true" peripheral="SCI8"/>
+      <configSetting altId="sci8.txd8.p805" configurationId="sci8.txd8" isUsedByDriver="true" peripheral="SCI8"/>
     </pincfg>
     <pincfg active="false" name="solution" symbol="">
       <configSetting altId="jtag_fslash_swd.swclk.p211" configurationId="jtag_fslash_swd.swclk" peripheral="JTAG/SWD"/>
@@ -172,15 +180,15 @@
       <configSetting altId="p303.gpio_mode.gpio_mode_in" configurationId="p303.gpio_mode"/>
       <configSetting altId="p303.gpio_pupd.gpio_pupd_ip_up" configurationId="p303.gpio_pupd"/>
       <configSetting altId="p310.gpio_mode.gpio_mode_peripheral" configurationId="p310.gpio_mode"/>
-      <configSetting altId="p406.gpio_mode.gpio_mode_peripheral" configurationId="p406.gpio_mode"/>
       <configSetting altId="p602.gpio_mode.gpio_mode_peripheral" configurationId="p602.gpio_mode"/>
       <configSetting altId="p603.gpio_mode.gpio_mode_peripheral" configurationId="p603.gpio_mode"/>
-      <configSetting altId="p700.gpio_mode.gpio_mode_peripheral" configurationId="p700.gpio_mode"/>
+      <configSetting altId="p801.gpio_mode.gpio_mode_peripheral" configurationId="p801.gpio_mode"/>
+      <configSetting altId="p802.gpio_mode.gpio_mode_peripheral" configurationId="p802.gpio_mode"/>
       <configSetting altId="p905.gpio_mode.gpio_mode_peripheral" configurationId="p905.gpio_mode"/>
       <configSetting altId="sci0.rxd0.p602" configurationId="sci0.rxd0" peripheral="SCI0"/>
       <configSetting altId="sci0.txd0.p603" configurationId="sci0.txd0" peripheral="SCI0"/>
-      <configSetting altId="sci2.rxd2.p700" configurationId="sci2.rxd2" peripheral="SCI2"/>
-      <configSetting altId="sci2.txd2.p406" configurationId="sci2.txd2" peripheral="SCI2"/>
+      <configSetting altId="sci2.rxd2.p802" configurationId="sci2.rxd2" peripheral="SCI2"/>
+      <configSetting altId="sci2.txd2.p801" configurationId="sci2.txd2" peripheral="SCI2"/>
       <configSetting altId="sci3.rxd3.p905" configurationId="sci3.rxd3" peripheral="SCI3"/>
       <configSetting altId="sci3.txd3.p310" configurationId="sci3.txd3" peripheral="SCI3"/>
       <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9" peripheral="SCI9"/>

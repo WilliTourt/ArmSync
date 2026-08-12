@@ -6,7 +6,7 @@
         #endif
 /* Number of interrupts allocated */
 #ifndef VECTOR_DATA_IRQ_COUNT
-#define VECTOR_DATA_IRQ_COUNT    (6)
+#define VECTOR_DATA_IRQ_COUNT    (14)
 #endif
 /* ISR prototypes */
 void ipc_isr(void);
@@ -29,8 +29,24 @@ void agt_int_isr(void);
 #define SCI1_ERI_IRQn          ((IRQn_Type) 4) /* SCI1 ERI (Receive error) */
 #define VECTOR_NUMBER_AGT1_INT ((IRQn_Type) 5) /* AGT1 INT (AGT interrupt) */
 #define AGT1_INT_IRQn          ((IRQn_Type) 5) /* AGT1 INT (AGT interrupt) */
+#define VECTOR_NUMBER_SCI5_RXI ((IRQn_Type) 6) /* SCI5 RXI (Receive data full) */
+#define SCI5_RXI_IRQn          ((IRQn_Type) 6) /* SCI5 RXI (Receive data full) */
+#define VECTOR_NUMBER_SCI5_TXI ((IRQn_Type) 7) /* SCI5 TXI (Transmit data empty) */
+#define SCI5_TXI_IRQn          ((IRQn_Type) 7) /* SCI5 TXI (Transmit data empty) */
+#define VECTOR_NUMBER_SCI5_TEI ((IRQn_Type) 8) /* SCI5 TEI (Transmit end) */
+#define SCI5_TEI_IRQn          ((IRQn_Type) 8) /* SCI5 TEI (Transmit end) */
+#define VECTOR_NUMBER_SCI5_ERI ((IRQn_Type) 9) /* SCI5 ERI (Receive error) */
+#define SCI5_ERI_IRQn          ((IRQn_Type) 9) /* SCI5 ERI (Receive error) */
+#define VECTOR_NUMBER_SCI8_RXI ((IRQn_Type) 10) /* SCI8 RXI (Receive data full) */
+#define SCI8_RXI_IRQn          ((IRQn_Type) 10) /* SCI8 RXI (Receive data full) */
+#define VECTOR_NUMBER_SCI8_TXI ((IRQn_Type) 11) /* SCI8 TXI (Transmit data empty) */
+#define SCI8_TXI_IRQn          ((IRQn_Type) 11) /* SCI8 TXI (Transmit data empty) */
+#define VECTOR_NUMBER_SCI8_TEI ((IRQn_Type) 12) /* SCI8 TEI (Transmit end) */
+#define SCI8_TEI_IRQn          ((IRQn_Type) 12) /* SCI8 TEI (Transmit end) */
+#define VECTOR_NUMBER_SCI8_ERI ((IRQn_Type) 13) /* SCI8 ERI (Receive error) */
+#define SCI8_ERI_IRQn          ((IRQn_Type) 13) /* SCI8 ERI (Receive error) */
 /* The number of entries required for the ICU vector table. */
-#define BSP_ICU_VECTOR_NUM_ENTRIES (6)
+#define BSP_ICU_VECTOR_NUM_ENTRIES (14)
 
 #ifdef __cplusplus
         }

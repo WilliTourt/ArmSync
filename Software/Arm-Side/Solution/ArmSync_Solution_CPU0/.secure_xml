@@ -167,19 +167,15 @@
       <configSetting altId="p303.gpio_mode.gpio_mode_in" configurationId="p303.gpio_mode"/>
       <configSetting altId="p303.gpio_pupd.gpio_pupd_ip_up" configurationId="p303.gpio_pupd"/>
       <configSetting altId="p310.gpio_mode.gpio_mode_peripheral" configurationId="p310.gpio_mode"/>
-      <configSetting altId="p400.gpio_mode.gpio_mode_peripheral" configurationId="p400.gpio_mode"/>
-      <configSetting altId="p401.gpio_mode.gpio_mode_peripheral" configurationId="p401.gpio_mode"/>
-      <configSetting altId="p406.gpio_mode.gpio_mode_peripheral" configurationId="p406.gpio_mode"/>
       <configSetting altId="p602.gpio_mode.gpio_mode_peripheral" configurationId="p602.gpio_mode"/>
       <configSetting altId="p603.gpio_mode.gpio_mode_peripheral" configurationId="p603.gpio_mode"/>
-      <configSetting altId="p700.gpio_mode.gpio_mode_peripheral" configurationId="p700.gpio_mode"/>
+      <configSetting altId="p801.gpio_mode.gpio_mode_peripheral" configurationId="p801.gpio_mode"/>
+      <configSetting altId="p802.gpio_mode.gpio_mode_peripheral" configurationId="p802.gpio_mode"/>
       <configSetting altId="p905.gpio_mode.gpio_mode_peripheral" configurationId="p905.gpio_mode"/>
       <configSetting altId="sci0.rxd0.p602" configurationId="sci0.rxd0" isUsedByDriver="true" peripheral="SCI0"/>
       <configSetting altId="sci0.txd0.p603" configurationId="sci0.txd0" isUsedByDriver="true" peripheral="SCI0"/>
-      <configSetting altId="sci1.rxd1.p401" configurationId="sci1.rxd1" peripheral="SCI1"/>
-      <configSetting altId="sci1.txd1.p400" configurationId="sci1.txd1" peripheral="SCI1"/>
-      <configSetting altId="sci2.rxd2.p700" configurationId="sci2.rxd2" isUsedByDriver="true" peripheral="SCI2"/>
-      <configSetting altId="sci2.txd2.p406" configurationId="sci2.txd2" isUsedByDriver="true" peripheral="SCI2"/>
+      <configSetting altId="sci2.rxd2.p802" configurationId="sci2.rxd2" isUsedByDriver="true" peripheral="SCI2"/>
+      <configSetting altId="sci2.txd2.p801" configurationId="sci2.txd2" isUsedByDriver="true" peripheral="SCI2"/>
       <configSetting altId="sci3.rxd3.p905" configurationId="sci3.rxd3" isUsedByDriver="true" peripheral="SCI3"/>
       <configSetting altId="sci3.txd3.p310" configurationId="sci3.txd3" isUsedByDriver="true" peripheral="SCI3"/>
       <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9" isUsedByDriver="true" peripheral="SCI9"/>

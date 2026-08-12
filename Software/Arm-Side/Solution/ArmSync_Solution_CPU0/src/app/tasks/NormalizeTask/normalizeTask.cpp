@@ -79,6 +79,7 @@ void NormalizeTask::_armFK(const float ang_deg[6], float elbow_m[3], float wrist
 void NormalizeTask::taskFunction() {
     dbg.info("NormalizeTask started.\n");
 
+    TickType_t lastPushTick = 0;
     for (;;) {
         auto rx = _inQueue.receive(portMAX_DELAY);
         if (!rx) continue;
@@ -108,16 +109,23 @@ void NormalizeTask::taskFunction() {
             }
         }
 
-        // Send raw positions (mm) to IKTask; IKTask handles projection + IK
-        kp.timestamp = rx->timestamp;
-        _kpQueue.sendToBack(kp, 0);
-
-        // ---- Gripper / pitch data (separate queue, for CPU1) ----
+        // ---- Gripper / pitch (every frame, low latency for gripper) ----
         {
-            ee.grip_percent  = rx->ctrllerData.adc[0] / 3.3f * 100.0f;
-            ee.pitch_percent = rx->ctrllerData.adc[1] / 3.3f * 100.0f;
+            ee.grip_percent  = rx->ctrllerData.adc[0];  // already 0~100 from controller
+            ee.pitch_percent = rx->ctrllerData.adc[1];
             ee.timestamp     = rx->timestamp;
             _eeQueue.sendToBack(ee, 0);
+            _eeUIQueue.sendToBack(ee, 0);
+        }
+
+        // ---- IK data: only push if Jetson is providing valid positions ----
+        if (rx->jetsonData.valid) {
+            TickType_t now = xTaskGetTickCount();
+            if ((now - lastPushTick) >= pdMS_TO_TICKS(40)) {
+                lastPushTick = now;
+                kp.timestamp = rx->timestamp;
+                _kpQueue.sendToBack(kp, 0);
+            }
         }
     }
 }

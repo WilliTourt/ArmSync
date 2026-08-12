@@ -48,5 +48,6 @@ struct IPCFeedback {
 extern FreeRTOS::Queue<UartRecvTask::TransmitData> originalDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::ArmKPCoords> armKPCoordsQueue;
 extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue;
+extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeUIQueue;
 extern FreeRTOS::Queue<sharedDatatype::JointOutput> jointOutputQueue;
 extern FreeRTOS::Queue<sharedDatatype::IPCFeedback> IPCFeedbackQueue;

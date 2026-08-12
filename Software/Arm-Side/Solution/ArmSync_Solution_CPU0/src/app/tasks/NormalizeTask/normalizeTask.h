@@ -13,10 +13,11 @@ class NormalizeTask : public FreeRTOS::Task {
     public:
         NormalizeTask(FreeRTOS::Queue<UartRecvTask::TransmitData>      &inQueue,
                       FreeRTOS::Queue<sharedDatatype::ArmKPCoords>     &kpQueue,
-                      FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeQueue)
+                      FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeQueue,
+                      FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeUIQueue)
             : Task(tskIDLE_PRIORITY + 3, 1024, "Normalize"),
             _inQueue(inQueue),
-            _kpQueue(kpQueue), _eeQueue(eeQueue) {}
+            _kpQueue(kpQueue), _eeQueue(eeQueue), _eeUIQueue(eeUIQueue) {}
 
     private:
         void taskFunction() override;
@@ -34,4 +35,5 @@ class NormalizeTask : public FreeRTOS::Task {
         FreeRTOS::Queue<UartRecvTask::TransmitData>      &_inQueue;
         FreeRTOS::Queue<sharedDatatype::ArmKPCoords>     &_kpQueue;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeQueue;
+        FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeUIQueue;
 };

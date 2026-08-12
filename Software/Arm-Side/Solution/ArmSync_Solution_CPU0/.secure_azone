@@ -121,15 +121,13 @@
             <slot name="P303.CPU0" secure="true"/>
             <slot name="P310.CPU0" secure="true"/>
         </peripheral>
-        <peripheral name="PORT4.CPU0" group="PORT">
-            <slot name="P406.CPU0" secure="true"/>
-        </peripheral>
         <peripheral name="PORT6.CPU0" group="PORT">
             <slot name="P602.CPU0" secure="true"/>
             <slot name="P603.CPU0" secure="true"/>
         </peripheral>
-        <peripheral name="PORT7.CPU0" group="PORT">
-            <slot name="P700.CPU0" secure="true"/>
+        <peripheral name="PORT8.CPU0" group="PORT">
+            <slot name="P801.CPU0" secure="true"/>
+            <slot name="P802.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="PORT9.CPU0" group="PORT">
             <slot name="P905.CPU0" secure="true"/>

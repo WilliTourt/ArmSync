@@ -10,11 +10,11 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include src/app/safety/subdir.mk
 -include src/app/ipc/subdir.mk
 -include src/app/gripper/subdir.mk
 -include src/app/drivers/subdir.mk
 -include src/app/arm/subdir.mk
+-include src/app/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
 -include ra/fsp/src/r_sci_b_uart/subdir.mk
@@ -141,7 +141,7 @@ all: ArmSync_Solution_CPU1.elf secondary-outputs
 
 # Tool invocations
 ArmSync_Solution_CPU1.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > ArmSync_Solution_CPU1.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "E:\\Folders\\Documents\\Dev\\Renesas\\RA8P1\\Projects\\ArmSync_Solution_CPU1\\script\\fsp.ld" -Xlinker --gc-sections -Wl,-Map,"ArmSync_Solution_CPU1.map" --specs=nano.specs --specs=nosys.specs -o "ArmSync_Solution_CPU1.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > ArmSync_Solution_CPU1.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "E:\\Folders\\Documents\\Dev\\Renesas\\RA8P1\\Projects\\ArmSync_Solution_CPU1\\script\\fsp.ld" -Xlinker --gc-sections -Wl,-Map,"ArmSync_Solution_CPU1.map" --specs=nano.specs -u _printf_float -u _scanf_float --specs=nosys.specs -o "ArmSync_Solution_CPU1.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	@echo Building target: $@ && arm-none-eabi-g++ @"ArmSync_Solution_CPU1.elf.in"
 ArmSync_Solution_CPU1.srec: ArmSync_Solution_CPU1.elf
 	arm-none-eabi-objcopy -O srec "ArmSync_Solution_CPU1.elf"  "ArmSync_Solution_CPU1.srec"

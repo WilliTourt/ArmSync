@@ -68,33 +68,48 @@ void UITask::_updateJointAngle(int idx, float angle_deg) {
     // J1Angle ~ J6Angle, virtual float vvs1=2
     int val = (int)(angle_deg * 100.0f);
     _send("J%dAngle.val=%d", idx + 1, val);
+    vTaskDelay(pdMS_TO_TICKS(3));
 }
 
 void UITask::_updateJointStatus(int idx, bool ok) {
     // J1Status ~ J6Status: text "●", color green/red
     _send("J%dStatus.txt=\"●\"", idx + 1);
+    vTaskDelay(pdMS_TO_TICKS(3));
     _send("J%dStatus.pco=%d", idx + 1, (ok ? tjcCOLOR_GREEN : tjcCOLOR_RED));
+    vTaskDelay(pdMS_TO_TICKS(3));
 }
 
 void UITask::_updateGrip(float percent, bool stuck) {
     // GRIPPercent: 0=69mm open, 100=0mm closed
     _send("GRIPPercent.val=%d", (int)percent);
-    // GRIPStatus: dot color
+    vTaskDelay(pdMS_TO_TICKS(3));
     _send("GRIPStatus.txt=\"●\"");
+    vTaskDelay(pdMS_TO_TICKS(3));
     _send("GRIPStatus.pco=%d", (stuck ? tjcCOLOR_RED : tjcCOLOR_GREEN));
+    vTaskDelay(pdMS_TO_TICKS(3));
 }
 
-void UITask::_updateStatusText(const char* text) {
-    _send("StatusText.txt=\"%s\"", text);
+void UITask::updateStatusText(StatusText text) {
+    switch (text) {
+        case StatusText::MANUAL:  _send("StatusText.txt=\"MANUAL\""); break;
+        case StatusText::RECORD:  _send("StatusText.txt=\"RECORD.\""); break;
+        case StatusText::AUTO: _send("StatusText.txt=\"AUTO\""); break;
+        case StatusText::ERROR:   _send("StatusText.txt=\"ERROR\""); break;
+    }
+    vTaskDelay(pdMS_TO_TICKS(3));
 }
 
-void UITask::_updateFreq(int hz) {
+void UITask::updateFreq(int hz) {
     _send("Freq.txt=\"%dHz\"", hz);
+    vTaskDelay(pdMS_TO_TICKS(3));
 }
 
-void UITask::_updateHMS(int line, const char* msg) {
+void UITask::updateHMS(int line, const char* msg) {
     // HMS_Msg0 ~ HMS_Msg4, max 26 chars
+    if (line < 0) line = 0; else if (line > 4) line = 4;
+
     _send("HMS_Msg%d.txt=\"%s\"", line, msg);
+    vTaskDelay(pdMS_TO_TICKS(3));
 }
 
 
@@ -124,8 +139,9 @@ void UITask::taskFunction() {
             }
         }
 
-        auto ee = _eeQueue.receive(0);
+        auto ee = _eeUIQueue.receive(0);
         if (ee) {
+            dbg.log("UI: grip=%.1f%%\n", ee->grip_percent);
             _updateGrip(ee->grip_percent, false);
         }
 

@@ -35,6 +35,7 @@ class CPUCommTask : public FreeRTOS::Task {
         bsp_ipc_semaphore_handle_t    _lock = { .semaphore_num = 0 };
 
         sharedDatatype::IPCFeedback   _fb;
+        sharedDatatype::JointOutput    _latestJoint = {};
         sharedDatatype::EndEffectorData _latestEE = {};
         uint32_t _lastRx = 0;
 

@@ -6,7 +6,7 @@ BlinkTask blinkTask;
 UartRecvTask uartRecvTask(originalDataQueue);
 
 // Task 2: FK + fusion
-NormalizeTask normalizeTask(originalDataQueue, armKPCoordsQueue, eeDataQueue);
+NormalizeTask normalizeTask(originalDataQueue, armKPCoordsQueue, eeDataQueue, eeUIQueue);
 
 // Task 4: Inverse Kinematics (FABRIK)
 IKTask ikTask(armKPCoordsQueue, jointOutputQueue);
@@ -15,4 +15,4 @@ IKTask ikTask(armKPCoordsQueue, jointOutputQueue);
 CPUCommTask cpuCommTask(jointOutputQueue, eeDataQueue, IPCFeedbackQueue);
 
 // UI: TJC serial screen
-UITask uiTask(IPCFeedbackQueue, eeDataQueue);
+UITask uiTask(IPCFeedbackQueue, eeUIQueue);
