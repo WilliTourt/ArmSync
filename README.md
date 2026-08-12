@@ -4,6 +4,10 @@ A 7-DOF wireless teleoperation humanoid robotic arm with dual-IMU master-slave c
 
 If you are also working on a robotic arm project, feel free to reference our hardware design and code, but please note their limitations. All files are provided as-is.
 
+---
+## NOTICE: Currently, the project is undergoing iterations, and the final version is expected to be completed by the end of August
+---
+
 [中文文档](README-zh-CN.md)
 
 ---
