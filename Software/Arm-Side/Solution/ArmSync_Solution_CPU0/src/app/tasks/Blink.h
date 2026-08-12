@@ -9,7 +9,7 @@ extern ElegantDebug dbg;
 
 class BlinkTask : public FreeRTOS::Task {
     public:
-        BlinkTask() : Task(tskIDLE_PRIORITY + 2, 512, "Blink") {}
+        BlinkTask() : Task(tskIDLE_PRIORITY + 1, 512, "Blink") {}
 
     private:
         void taskFunction() override {

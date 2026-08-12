@@ -16,7 +16,7 @@ class CPUCommTask : public FreeRTOS::Task {
         CPUCommTask(FreeRTOS::Queue<sharedDatatype::JointOutput>     &jointQueue,
                     FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeQueue,
                     FreeRTOS::Queue<sharedDatatype::IPCFeedback>     &fbQueue)
-            : Task(tskIDLE_PRIORITY + 2, 1024, "CPUComm"),
+            : Task(tskIDLE_PRIORITY + 3, 1024, "CPUComm"),
             _jointQueue(jointQueue), _eeQueue(eeQueue), _fbQueue(fbQueue) {}
 
         static inline void onFbReady() {
