@@ -15,13 +15,22 @@
 #define EMM_AT_MODE_ATTEMPTS          (3U)
 #define EMM_AT_RETRY_DELAY_MS         (100U)
 
+#define EMM_AT_FRAME_TYPE_MASK        (0x07U)
+#define EMM_PROTOCOL_CHECK_BYTE       (0x6BU)
+#define EMM_FEEDBACK_ADDRESS_COUNT    (7U)
+
 static volatile bool g_emm_uart_tx_busy = false;
 static volatile bool g_emm_at_waiting_for_ok = false;
 static volatile bool g_emm_at_mode_ready = false;
-static volatile bool g_emm_uart_rx_active = false;
 static volatile uint8_t g_emm_at_response_state = 0U;
 static uint8_t g_emm_uart_tx_buffer[EMM_UART_TX_BUFFER_SIZE];
-static uint8_t g_emm_uart_rx_buffer[EMM_AT_RESPONSE_LENGTH];
+static volatile Emm_V5_Feedback_t g_emm_feedback[EMM_FEEDBACK_ADDRESS_COUNT] = {0};
+static emm_rx_state_t g_emm_rx_state = EMM_RX_WAIT_A;
+static uint32_t g_emm_rx_header = 0U;
+static uint8_t g_emm_rx_header_bytes = 0U;
+static uint8_t g_emm_rx_data_length = 0U;
+static uint8_t g_emm_rx_data_index = 0U;
+static uint8_t g_emm_rx_data[EMM_CAN_MAX_DATA_LENGTH];
 
 
 
@@ -115,41 +124,24 @@ static fsp_err_t Emm_V5_Send(uint8_t const * p_cmd, uint32_t length) {
 }
 
 bool Emm_V5_Init(void) {
-	static uint8_t const enter_at_mode[][7] = {
-	 	{'A', 'T', '+', 'A', 'T', '\r', '\n'},
-	 	{'A', 'T', '=', 'A', 'T', '\r', '\n'},
-	};
+	static uint8_t const enter_at_mode[] = {'A', 'T', '+', 'A', 'T', '\r', '\n'};
 
 	for (uint32_t attempt = 0U; attempt < EMM_AT_MODE_ATTEMPTS; ++attempt) {
-	 	uint32_t const command_index = (1U == attempt) ? 1U : 0U;
+		g_emm_at_mode_ready = false;
+		g_emm_at_response_state = 0U;
+		g_emm_at_waiting_for_ok = true;
 
-	 	g_emm_at_mode_ready = false;
-	 	g_emm_at_response_state = 0U;
-	 	g_emm_at_waiting_for_ok = true;
-	 	memset(g_emm_uart_rx_buffer, 0, sizeof(g_emm_uart_rx_buffer));
+		fsp_err_t const write_err = Emm_V5_UartWrite(enter_at_mode, sizeof(enter_at_mode));
+		if ((FSP_SUCCESS == write_err) &&
+			(FSP_SUCCESS == Emm_V5_WaitForFlag(&g_emm_at_mode_ready,
+											true,
+											EMM_AT_RESPONSE_TIMEOUT_STEPS))) {
+			R_BSP_SoftwareDelay(10U, BSP_DELAY_UNITS_MILLISECONDS);
+			return true;
+		}
 
-	 	fsp_err_t const read_err = g_uart1.p_api->read(g_uart1.p_ctrl,
-	 	                                               g_emm_uart_rx_buffer,
-	 	                                               sizeof(g_emm_uart_rx_buffer));
-	 	g_emm_uart_rx_active = (FSP_SUCCESS == read_err);
-
-	 	fsp_err_t const write_err = Emm_V5_UartWrite(enter_at_mode[command_index],
-	 	                                             sizeof(enter_at_mode[command_index]));
-	 	if ((FSP_SUCCESS == write_err) &&
-	 	    (FSP_SUCCESS == Emm_V5_WaitForFlag(&g_emm_at_mode_ready,
-	 	                                       true,
-	 	                                       EMM_AT_RESPONSE_TIMEOUT_STEPS))) {
-	 	  R_BSP_SoftwareDelay(10U, BSP_DELAY_UNITS_MILLISECONDS);
-	 	  return true;
-	 	}
-
-	 	g_emm_at_waiting_for_ok = false;
-	 	if (g_emm_uart_rx_active) {
-	 	  (void) g_uart1.p_api->communicationAbort(g_uart1.p_ctrl, UART_DIR_RX);
-	 	  g_emm_uart_rx_active = false;
-	 	}
-
-	 	R_BSP_SoftwareDelay(EMM_AT_RETRY_DELAY_MS, BSP_DELAY_UNITS_MILLISECONDS);
+		g_emm_at_waiting_for_ok = false;
+		R_BSP_SoftwareDelay(EMM_AT_RETRY_DELAY_MS, BSP_DELAY_UNITS_MILLISECONDS);
 	}
 
 	return false;
@@ -157,6 +149,149 @@ bool Emm_V5_Init(void) {
 
 bool Emm_V5_IsReady(void) {
   	return g_emm_at_mode_ready;
+}
+
+bool Emm_V5_GetFeedback(uint8_t addr, Emm_V5_Feedback_t * p_feedback) {
+	if ((NULL == p_feedback) || (addr >= EMM_FEEDBACK_ADDRESS_COUNT)) {
+		return false;
+	}
+
+	Emm_V5_Feedback_t feedback;
+	volatile Emm_V5_Feedback_t const * p_source = &g_emm_feedback[addr];
+	FSP_CRITICAL_SECTION_DEFINE;
+	FSP_CRITICAL_SECTION_ENTER;
+	feedback.address = p_source->address;
+	feedback.position_raw = p_source->position_raw;
+	feedback.position_updates = p_source->position_updates;
+	feedback.status_updates = p_source->status_updates;
+	feedback.status_flags = p_source->status_flags;
+	feedback.position_negative = p_source->position_negative;
+	feedback.position_valid = p_source->position_valid;
+	feedback.status_valid = p_source->status_valid;
+	FSP_CRITICAL_SECTION_EXIT;
+
+	if ((feedback.address != addr) || (!feedback.position_valid && !feedback.status_valid)) {
+		return false;
+	}
+
+	*p_feedback = feedback;
+	return true;
+}
+
+bool Emm_V5_GetPositionDegrees(uint8_t addr, float * p_degrees) {
+	Emm_V5_Feedback_t feedback;
+	if ((NULL == p_degrees) || !Emm_V5_GetFeedback(addr, &feedback) || !feedback.position_valid) {
+		return false;
+	}
+
+	float position = (float) feedback.position_raw * 360.0f / 65536.0f;
+	*p_degrees = feedback.position_negative ? -position : position;
+	return true;
+}
+
+static void Emm_V5_ProcessCANFrame(uint32_t frame_header, uint8_t const * p_data, uint8_t data_length) {
+	if (((frame_header & EMM_AT_FRAME_TYPE_MASK) != EMM_AT_EXTENDED_FRAME_FLAG) ||
+		(NULL == p_data) || (0U == data_length) ||
+		(EMM_PROTOCOL_CHECK_BYTE != p_data[data_length - 1U])) {
+		return;
+	}
+
+	uint32_t const can_id = frame_header >> 3U;
+	uint8_t const packet_number = (uint8_t) can_id;
+	uint8_t const address = (uint8_t) (can_id >> 8U);
+	if ((0U != packet_number) || (address >= EMM_FEEDBACK_ADDRESS_COUNT)) {
+		return;
+	}
+
+	volatile Emm_V5_Feedback_t * p_feedback = &g_emm_feedback[address];
+
+	if ((7U == data_length) && (0x36U == p_data[0])) {
+		p_feedback->address = address;
+		p_feedback->position_negative = (0U != p_data[1]);
+		p_feedback->position_raw = ((uint32_t) p_data[2] << 24U) |
+								((uint32_t) p_data[3] << 16U) |
+								((uint32_t) p_data[4] << 8U) |
+								(uint32_t) p_data[5];
+		p_feedback->position_valid = true;
+		++p_feedback->position_updates;
+	} else if ((3U == data_length) && (0x3AU == p_data[0])) {
+		p_feedback->address = address;
+		p_feedback->status_flags = p_data[1];
+		p_feedback->status_valid = true;
+		++p_feedback->status_updates;
+	}
+}
+
+static void Emm_V5_ResetFrameParser(uint8_t received) {
+  g_emm_rx_state = ('A' == received) ? EMM_RX_WAIT_T : EMM_RX_WAIT_A;
+  g_emm_rx_header = 0U;
+  g_emm_rx_header_bytes = 0U;
+  g_emm_rx_data_length = 0U;
+  g_emm_rx_data_index = 0U;
+}
+
+static void Emm_V5_ProcessATFrameByte(uint8_t received) {
+	switch (g_emm_rx_state) {
+		case EMM_RX_WAIT_A:
+			if ('A' == received) {
+				g_emm_rx_state = EMM_RX_WAIT_T;
+			}
+			break;
+
+		case EMM_RX_WAIT_T:
+			if ('T' == received) {
+				g_emm_rx_header = 0U;
+				g_emm_rx_header_bytes = 0U;
+				g_emm_rx_state = EMM_RX_HEADER;
+			} else {
+				Emm_V5_ResetFrameParser(received);
+			}
+			break;
+
+		case EMM_RX_HEADER:
+			g_emm_rx_header = (g_emm_rx_header << 8U) | received;
+			++g_emm_rx_header_bytes;
+			if (4U == g_emm_rx_header_bytes) {
+				g_emm_rx_state = EMM_RX_LENGTH;
+			}
+			break;
+
+		case EMM_RX_LENGTH:
+			if (received > EMM_CAN_MAX_DATA_LENGTH) {
+				Emm_V5_ResetFrameParser(received);
+			} else {
+				g_emm_rx_data_length = received;
+				g_emm_rx_data_index = 0U;
+				g_emm_rx_state = (0U == received) ? EMM_RX_CR : EMM_RX_DATA;
+			}
+			break;
+
+		case EMM_RX_DATA:
+			g_emm_rx_data[g_emm_rx_data_index++] = received;
+			if (g_emm_rx_data_index == g_emm_rx_data_length) {
+				g_emm_rx_state = EMM_RX_CR;
+			}
+			break;
+
+		case EMM_RX_CR:
+			if ('\r' == received) {
+				g_emm_rx_state = EMM_RX_LF;
+			} else {
+				Emm_V5_ResetFrameParser(received);
+			}
+			break;
+
+		case EMM_RX_LF:
+			if ('\n' == received) {
+				Emm_V5_ProcessCANFrame(g_emm_rx_header, g_emm_rx_data, g_emm_rx_data_length);
+			}
+			Emm_V5_ResetFrameParser(received);
+			break;
+
+		default:
+			Emm_V5_ResetFrameParser(received);
+			break;
+	}
 }
 
 static void Emm_V5_ProcessATResponseByte(uint8_t received) {
@@ -180,15 +315,12 @@ void Emm_V5_UartCallback(uart_callback_args_t *p_args) {
 
 	if (UART_EVENT_TX_COMPLETE == p_args->event) {
 	  	g_emm_uart_tx_busy = false;
-	} else if (UART_EVENT_RX_COMPLETE == p_args->event) {
-	  	g_emm_uart_rx_active = false;
-	  	if (g_emm_at_waiting_for_ok) {
-	  	  for (uint32_t i = 0U; i < sizeof(g_emm_uart_rx_buffer); ++i) {
-	  	    Emm_V5_ProcessATResponseByte(g_emm_uart_rx_buffer[i]);
-	  	  }
-	  	}
-	} else if ((UART_EVENT_RX_CHAR == p_args->event) && g_emm_at_waiting_for_ok) {
-	  	Emm_V5_ProcessATResponseByte((uint8_t) p_args->data);
+	} else if ((UART_EVENT_RX_CHAR == p_args->event)) {
+		if (g_emm_at_waiting_for_ok) {
+	  		Emm_V5_ProcessATResponseByte((uint8_t) p_args->data);
+		} else {
+			Emm_V5_ProcessATFrameByte((uint8_t) p_args->data);
+		}
 	}
 }
 

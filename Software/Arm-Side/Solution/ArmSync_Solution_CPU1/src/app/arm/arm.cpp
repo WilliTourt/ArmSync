@@ -1,16 +1,20 @@
 #include "arm.h"
 #include "app/drivers/Emm_V5.h"
+#include <cmath>
 
-Arm::Arm(Motor& j1, Motor& j2, Motor& j3,
-         Motor& j4, Motor& j5, Motor& j6)
-    : _j1(j1), _j2(j2), _j3(j3),
-      _j4(j4), _j5(j5), _j6(j6) {}
+Arm::Arm(Motor &j1, Motor &j2, Motor &j3,
+         Motor &j4, Motor &j5, Motor &j6) :
+    _motors{&j1, &j2, &j3, &j4, &j5, &j6} {}
 
 bool Arm::init() {
-    if (!Emm_V5_Init()) return false;
+    if (!Emm_V5_Init()) {
+        return false;
+    }
 
-    return _j1.init() && _j2.init() && _j3.init()
-        && _j4.init() && _j5.init() && _j6.init();
+    for (Motor *motor : _motors) {
+        motor->init();
+    }
+    return true;
 }
 
 bool Arm::isReady() const {
@@ -18,29 +22,87 @@ bool Arm::isReady() const {
 }
 
 void Arm::setAngles(const float angles_deg[6]) {
-    _j1.setAngle(angles_deg[0]);
-    _j2.setAngle(angles_deg[1]);
-    _j3.setAngle(angles_deg[2]);
-    _j4.setAngle(angles_deg[3]);
-    _j5.setAngle(angles_deg[4]);
-    _j6.setAngle(angles_deg[5]);
+    if (nullptr == angles_deg) {
+        return;
+    }
+
+    // Set each joint's target, detect change, and compute per-joint min duration
+
+    float commonDuration = 0.0f;
+    bool  targetChanged = !_hasTargets;
+
+    for (uint32_t i = 0U; i < 6U; ++i) {
+        float target = angles_deg[i];
+        if (!std::isfinite(target)) {
+            continue;
+        }
+
+        _motors[i]->setTgtAngle(target);
+
+        if (std::fabs(target - _lastTargets[i]) >= 0.01f) {
+            targetChanged = true;
+        }
+
+        float const duration = _motors[i]->getMoveDuration();
+        if (duration > commonDuration) {
+            commonDuration = duration;
+        }
+    }
+
+    if (!targetChanged) {
+        return;
+    }
+
+    // Plan all joints against the slowest joint so they arrive together
+
+    for (uint32_t i = 0U; i < 6U; ++i) {
+        _motors[i]->planMove(commonDuration);
+        _lastTargets[i] = _motors[i]->getLastTarget();
+    }
+    _hasTargets = true;
+
+    Motor::move();
 }
 
-void Arm::getFeedback(float angles_deg[6], float currents_ma[6]) {
-    (void)angles_deg;
-    (void)currents_ma;
+bool Arm::getFeedback(float angles_deg[6]) const {
+    if (nullptr == angles_deg) {
+        return false;
+    }
+
+    for (uint32_t i = 0U; i < 6U; ++i) {
+        angles_deg[i] = _motors[i]->getAngle();
+    }
+    return true;
+}
+
+bool Arm::isStuck() const {
+    for (Motor *motor : _motors) {
+        if (motor->isStuck()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Arm::pollNext() {
+    Motor *motor = _motors[_pollIndex];
+    Emm_V5_Read_Sys_Params(motor->getAddr(), _pollStatus ? S_FLAG : S_CPOS);
+
+    ++_pollIndex;
+    if (_pollIndex >= 6U) {
+        _pollIndex = 0U;
+        _pollStatus = !_pollStatus;
+    }
 }
 
 void Arm::stop() {
-    _j1.stop(); _j2.stop(); _j3.stop();
-    _j4.stop(); _j5.stop(); _j6.stop();
+    for (Motor *motor : _motors) {
+        motor->stop();
+    }
 }
 
-void Arm::enable(bool en) {
-    Emm_V5_En_Control(_j1.addr(), en, false);
-    Emm_V5_En_Control(_j2.addr(), en, false);
-    Emm_V5_En_Control(_j3.addr(), en, false);
-    Emm_V5_En_Control(_j4.addr(), en, false);
-    Emm_V5_En_Control(_j5.addr(), en, false);
-    Emm_V5_En_Control(_j6.addr(), en, false);
+void Arm::enable(bool enabled) {
+    for (Motor *motor : _motors) {
+        motor->enable(enabled);
+    }
 }

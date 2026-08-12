@@ -760,3 +760,22 @@ FSP Configuration
       Interrupts: Transmit End Interrupt Priority: Priority 12
       Interrupts: Error Interrupt Priority: Priority 12
       
+    Instance "agt_Poll Timer, Low-Power (r_agt)"
+      General: Name: agt_Poll
+      General: Counter Bit Width: AGT 16-bit
+      General: Channel: 1
+      General: Mode: Periodic
+      General: Period: 25
+      General: Period Unit: Milliseconds
+      Output: Duty Cycle Percent (only applicable in PWM mode): 50
+      General: Count Source: PCLKB
+      Output: AGTOA Output: Disabled
+      Output: AGTOB Output: Disabled
+      Output: AGTO Output: Disabled
+      Input: Measurement Mode: Measure Disabled
+      Input: Input Filter: No Filter
+      Input: Enable Pin: Enable Pin Not Used
+      Input: Trigger Edge: Trigger Edge Rising
+      Interrupts: Callback: POLL_Callback
+      Interrupts: Underflow Interrupt Priority: Priority 4
+      

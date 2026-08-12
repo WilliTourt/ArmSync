@@ -35,8 +35,36 @@ typedef enum {
 	S_ORG   = 16,     /* 读取正在回零/回零失败状态标志位 */
 } SysParams_t;
 
+typedef enum {
+	EMM_RX_WAIT_A = 0,
+	EMM_RX_WAIT_T,
+	EMM_RX_HEADER,
+	EMM_RX_LENGTH,
+	EMM_RX_DATA,
+	EMM_RX_CR,
+	EMM_RX_LF
+} emm_rx_state_t;
+
+typedef struct {
+	uint8_t address;
+	uint32_t position_raw;
+	uint32_t position_updates;
+	uint32_t status_updates;
+	uint8_t status_flags;
+	bool position_negative;
+	bool position_valid;
+	bool status_valid;
+} Emm_V5_Feedback_t;
+
+#define EMM_V5_STATUS_ENABLED          (0x01U)
+#define EMM_V5_STATUS_IN_POSITION      (0x02U)
+#define EMM_V5_STATUS_STALLED          (0x04U)
+#define EMM_V5_STATUS_STALL_PROTECTION (0x08U)
+
 bool Emm_V5_Init(void);
 bool Emm_V5_IsReady(void);
+bool Emm_V5_GetFeedback(uint8_t addr, Emm_V5_Feedback_t * p_feedback);
+bool Emm_V5_GetPositionDegrees(uint8_t addr, float * p_degrees);
 
 void Emm_V5_UartCallback(uart_callback_args_t *p_args);
 

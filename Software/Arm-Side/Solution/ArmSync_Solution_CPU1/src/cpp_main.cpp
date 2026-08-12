@@ -8,13 +8,15 @@ IPC ipc;
 Gripper gripper(0);
 ElegantDebug dbg(&g_uart8, true, true);
 
-// Define the joint motors      addr, mindeg , maxdeg
-Motor   J1_Upper_Swing          (6  , -90.0f , 90.0f );
-Motor   J2_Upper_Abduction      (1  , -22.5f , 125.0f);
-Motor   J3_Upper_Rot            (2  , -90.0f , 90.0f );
-Motor   J4_Forearm_Swing        (3  , -122.0f, 0.0f  );
-Motor   J5_Forearm_Rot          (4  , -90.0f , 90.0f );
-Motor   J6_Wrist_Swing          (5  , -90.0f , 90.0f );
+// Define the joint motors
+//            addr, minDeg, maxDeg, reductionRatio, inverted, velocity
+// Inverted is because the motor is applied with synchronous belt drive
+static Motor J1_Upper_Swing      (6, -90.0f , 90.0f , 20.0f, false, 150);
+static Motor J2_Upper_Abduction  (1, -22.5f , 125.0f, 30.0f, true , 100);
+static Motor J3_Upper_Rot        (2, -90.0f , 90.0f , 10.0f, false, 100);
+static Motor J4_Forearm_Swing    (3, -122.0f, 0.0f  , 10.0f, true , 100);
+static Motor J5_Forearm_Rot      (4, -90.0f , 90.0f ,  1.0f, false, 100);
+static Motor J6_Wrist_Swing      (5, -90.0f , 90.0f , 10.0f, true , 100);
 
 Arm arm(J1_Upper_Swing, J2_Upper_Abduction, J3_Upper_Rot,
         J4_Forearm_Swing, J5_Forearm_Rot,
@@ -26,6 +28,11 @@ void vSysTick(timer_callback_args_t *p_args) {
     (void)p_args;
     ipc.tick();
     ElegantDebug::tick();
+}
+
+void POLL_Callback(timer_callback_args_t *p_args) {
+    (void)p_args;
+    arm.pollNext();
 }
 
 // IPC ISR callback
@@ -92,10 +99,9 @@ void cpp_main() {
             lastFeedbackMs = now;
 
             float angles_deg[6];
-            float currents_ma[6];
-            arm.getFeedback(angles_deg, currents_ma);
+            arm.getFeedback(angles_deg);
 
-            bool locked = false;   // TODO: read from motor status
+            bool locked = arm.isStuck();
             bool stuck  = gripper.isStuck();
 
             ipc.sendFeedback(angles_deg, locked, stuck);
@@ -106,6 +112,9 @@ void cpp_main() {
             lastGripMs = now;
             gripper.getAngle();
         }
+
+        // ---- 4. Poll next motor's feedback (position/status) -------
+        arm.pollNext();
 
         R_BSP_SoftwareDelay(5, BSP_DELAY_UNITS_MILLISECONDS);
     }
