@@ -19,7 +19,7 @@ class Motor {
             float reductionRatio;
             bool inverted;      // true = belt drive reverses the output direction
             uint16_t velocity;
-            uint8_t acceleration;
+            uint8_t accel;
             uint16_t microsteps;
             float stepAngleDeg;
         };
@@ -29,7 +29,7 @@ class Motor {
               float reductionRatio,
               bool inverted = false,
               uint16_t velocity = 100U,
-              uint8_t acceleration = 150U,
+              uint8_t accel = 150U,
               uint16_t microsteps = 16U,
               float stepAngleDeg = 1.8f);
 
@@ -48,13 +48,13 @@ class Motor {
         float _clampAngle(float degrees) const;
 
         uint32_t _deg2Pulse(float jointDegrees) const;
-        float _accel2Rpm(uint8_t acceleration) const;
-        float _calcMoveDuration(float motorDegrees, float maxRpm, uint8_t acceleration) const;
+        float _accel2Rpm(uint8_t accel) const;
+        float _calcMoveDuration(float motorDegrees, float maxRpm, uint8_t accel) const;
 
         static constexpr float SECONDS_PER_MINUTE = 60.0f;
-        static constexpr float ACCELERATION_TIME_STEP_US = 50.0f;
+        static constexpr float ACCEL_TIME_STEP_US = 50.0f;
         static constexpr float MAX_MOTOR_RPM = 5000.0f;
-        static constexpr uint8_t MIN_CURVE_ACCELERATION = 1U;
+        static constexpr uint8_t MIN_CURVE_ACCEL = 1U;
         static constexpr float PLAN_EPSILON_DEGREES = 0.0001f;
 
         float _minDeg, _maxDeg;

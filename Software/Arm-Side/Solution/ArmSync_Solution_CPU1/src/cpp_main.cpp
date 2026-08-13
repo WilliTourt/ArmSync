@@ -98,7 +98,7 @@ void cpp_main() {
     uint32_t lastGripMs = 0;
 
     while (1) {
-        // ---- 1. Receive motion plan from CPU0, drive motors directly ----
+        // Receive motion plan from CPU0, drive motors directly
         MotionPlanPacket plan;
         float gripPercent;
         if (ipc.getCtrlPacket(plan, gripPercent)) {
@@ -122,7 +122,7 @@ void cpp_main() {
                 plan.motors[0].pulse);
         }
 
-        // ---- 2. Send feedback to CPU0 (every ~50 ms) ----
+        // Send feedback to CPU0
         uint32_t now = ipc.getTick();
         if (now - lastFeedbackMs >= IPC_FEEDBACK_MS) {
             lastFeedbackMs = now;

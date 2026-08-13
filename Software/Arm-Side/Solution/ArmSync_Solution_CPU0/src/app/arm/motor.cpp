@@ -6,11 +6,11 @@ Motor::Motor(float minDeg,
              float reductionRatio,
              bool inverted,
              uint16_t velocity,
-             uint8_t acceleration,
+             uint8_t accel,
              uint16_t microsteps,
              float stepAngleDeg) :
     _minDeg(minDeg), _maxDeg(maxDeg),
-    _cfg{reductionRatio, inverted, velocity, acceleration, microsteps, stepAngleDeg} {}
+    _cfg{reductionRatio, inverted, velocity, accel, microsteps, stepAngleDeg} {}
 
 void Motor::setTgtAngle(float deg) {
     _nextTarget = _clampAngle(deg);
@@ -20,7 +20,7 @@ float Motor::getMoveDuration() const {
     float const motorDegrees = std::fabs(_nextTarget - _lastTarget) * _cfg.reductionRatio;
     return _calcMoveDuration(motorDegrees,
                              static_cast<float>(_cfg.velocity),
-                             _cfg.acceleration);
+                             _cfg.accel);
 }
 
 sharedDatatype::MotorCommand Motor::planMove(float commonDuration) {
@@ -39,39 +39,46 @@ sharedDatatype::MotorCommand Motor::planMove(float commonDuration) {
 
     float const minimumTime = _calcMoveDuration(motorDegrees,
                                                 static_cast<float>(_cfg.velocity),
-                                                _cfg.acceleration);
+                                                _cfg.accel);
     float const duration = (commonDuration > minimumTime) ?
                             commonDuration : minimumTime;
 
-    // brute-force search for the rpm/acc pair closest to the target duration
-    float bestError = 1.0e30f;
-    uint16_t bestRpm = 1U;
-    uint8_t bestAcceleration = _cfg.acceleration;
+    // Binary-search the rpm that makes the move time close to duration.
     uint16_t const maxRpm = (_cfg.velocity < static_cast<uint16_t>(MAX_MOTOR_RPM)) ?
                              _cfg.velocity : static_cast<uint16_t>(MAX_MOTOR_RPM);
-    uint16_t const minAcceleration = (0U == _cfg.acceleration) ? 0U : MIN_CURVE_ACCELERATION;
-    uint16_t const maxAcceleration = _cfg.acceleration;
-    for (uint16_t rpm = 1U; rpm <= maxRpm; ++rpm) {
-        for (uint16_t acceleration = minAcceleration;
-             acceleration <= maxAcceleration;
-             ++acceleration) {
-            float const candidateTime = _calcMoveDuration(motorDegrees,
-                                                          static_cast<float>(rpm),
-                                                          static_cast<uint8_t>(acceleration));
-            float const error = std::fabs(candidateTime - duration);
-            if (error < bestError) {
-                bestError = error;
-                bestRpm = rpm;
-                bestAcceleration = static_cast<uint8_t>(acceleration);
-            }
+
+    // Binary search: find smallest rpm whose move time <= duration.
+    uint16_t lo = 1;
+    uint16_t hi = maxRpm;
+    while (lo < hi) {
+        uint16_t const mid = lo + (hi - lo) / 2;
+        float const midTime = _calcMoveDuration(motorDegrees,
+                                                static_cast<float>(mid),
+                                                _cfg.accel);
+        if (midTime > duration) {
+            lo = mid + 1;    // too slow -> speed up
+        } else {
+            hi = mid;        // fast enough -> keep it (may be the answer)
         }
+    }
+
+    // lo == hi is the wanted rpm.
+    uint16_t bestRpm = lo;
+    float const tLo = _calcMoveDuration(motorDegrees,
+                                        static_cast<float>(bestRpm),
+                                        _cfg.accel);
+    float const tPrev = _calcMoveDuration(motorDegrees,
+                                            static_cast<float>(bestRpm - 1),
+                                            _cfg.accel);
+    if (std::fabs(tPrev - duration) < std::fabs(tLo - duration)) { // if prev is closer, use prev
+        bestRpm = bestRpm - 1;
     }
 
     // positive = CW (dir 0), negative = CCW (dir 1); invert if belt drive
     float const motorSigned = _cfg.inverted ? -nextTarget : nextTarget;
     cmd.dir = (motorSigned >= 0.0f) ? 0U : 1U;
     cmd.rpm = bestRpm;
-    cmd.acc = bestAcceleration;
+    cmd.acc = _cfg.accel;
     cmd.pulse = _deg2Pulse(nextTarget);
 
     _lastTarget = nextTarget;
@@ -96,24 +103,24 @@ uint32_t Motor::_deg2Pulse(float jointDegrees) const {
     return static_cast<uint32_t>(std::lround(pulses));
 }
 
-float Motor::_accel2Rpm(uint8_t acceleration) const {
-    if (0U == acceleration) {
+float Motor::_accel2Rpm(uint8_t accel) const {
+    if (0U == accel) {
         return 0.0f;
     }
 
-    float const stepDurationSec = (256.0f - static_cast<float>(acceleration)) *
-                                  ACCELERATION_TIME_STEP_US * 1.0e-6f;
+    float const stepDurationSec = (256.0f - static_cast<float>(accel)) *
+                                  ACCEL_TIME_STEP_US * 1.0e-6f;
     return 1.0f / stepDurationSec;
 }
 
-float Motor::_calcMoveDuration(float motorDegrees, float maxRpm, uint8_t acceleration) const {
+float Motor::_calcMoveDuration(float motorDegrees, float maxRpm, uint8_t accel) const {
     if ((motorDegrees <= 0.0f) || (maxRpm <= 0.0f)) {
         return 0.0f;
     }
 
     maxRpm = (maxRpm > MAX_MOTOR_RPM) ? MAX_MOTOR_RPM : maxRpm;
     float const distRevolutions = motorDegrees / 360.0f;
-    float const accelRpm = _accel2Rpm(acceleration);
+    float const accelRpm = _accel2Rpm(accel);
     if (accelRpm <= 0.0f) {
         return distRevolutions * SECONDS_PER_MINUTE / maxRpm;
     }
