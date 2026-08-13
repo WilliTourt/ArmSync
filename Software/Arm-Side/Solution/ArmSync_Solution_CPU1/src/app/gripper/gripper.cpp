@@ -27,15 +27,12 @@ void Gripper::uartCallback(uart_callback_args_t *p_args) {
 }
 
 bool Gripper::init() {
-    // Set mode 1: 270° clockwise servo mode
     _sendCmd("#%03dPMOD1!", _id);
     R_BSP_SoftwareDelay(50, BSP_DELAY_UNITS_MILLISECONDS);
 
-    // Restore torque
     _sendCmd("#%03dPULR!", _id);
     R_BSP_SoftwareDelay(50, BSP_DELAY_UNITS_MILLISECONDS);
 
-    // Move to center
     _sendCmd("#%03dP1500T0500!", _id);
 
     return true;
@@ -45,8 +42,7 @@ void Gripper::setRatio(float ratio) {
     if (ratio < 0.0f) ratio = 0.0f;
     if (ratio > 100.0f) ratio = 100.0f;
 
-    // Map 0~100% → custom PWM range (e.g. open=800, closed=2200)
-    // For ZP20S gripper: ratio=0 means open, ratio=100 means closed
+    // Map 0~100% -> PWM range (open=800, closed=2200)
     static constexpr float OPEN_PWM  = 800.0f;
     static constexpr float CLOSE_PWM = 2200.0f;
     float pwm = OPEN_PWM + (CLOSE_PWM - OPEN_PWM) * ratio / 100.0f;
@@ -67,21 +63,21 @@ void Gripper::stop() {
     _sendCmd("#%03dPDST!", _id);
 }
 
-bool Gripper::getAngle() {
-    // Step 1: send PRAD if not already waiting for reply
+void Gripper::updateFeedback() {
+    // Step 1: send PRAD query if not already waiting
     if (!_reading) {
         _rxHead = 0;
         _rxCount = 0;
         _reading = true;
-
+        
         _sendCmd("#%03dPRAD!", _id);
-        return false;  // reply will arrive via RX_CHAR ISR
+        return;
     }
 
-    // Step 2: check if reply has arrived
-    if (_rxCount == 0) return false;
+    // Step 2: wait for reply
+    if (_rxCount == 0) return;
 
-    // Step 3: parse reply from ring buffer
+    // Step 3: parse reply
     uint8_t reply[32];
     size_t n = _rxCount < sizeof(reply) - 1 ? _rxCount : sizeof(reply) - 1;
     for (size_t i = 0; i < n; i++) {
@@ -92,9 +88,9 @@ bool Gripper::getAngle() {
     _rxCount = 0;
     _reading = false;
 
-    // Parse: "#000P1500!"
-    char* p = (char*)reply + 4;  // skip "#000"
-    if (*p != 'P') return false;
+    // Parse "#000P1500!"
+    char* p = (char*)reply + 4;   // skip "#000"
+    if (*p != 'P') return;
     p++;
 
     float pwmVal = 0.0f;
@@ -107,8 +103,6 @@ bool Gripper::getAngle() {
 
     float targetDeg = (_targetPWM - 1500.0f) * PWM_TO_DEG;
     _stuck = (fabsf(_lastAngle - targetDeg) > STUCK_THRESH_DEG);
-
-    return true;
 }
 
 // ===== Private helpers =====
@@ -119,11 +113,6 @@ void Gripper::_sendCmd(const char* fmt, ...) {
     int len = vsnprintf(_txBuf, sizeof(_txBuf), fmt, args);
     va_end(args);
     if (len <= 0) return;
-
-    // Flush any stale RX data before sending
-    _rxHead = 0;
-    _rxCount = 0;
-    _reading = false;
 
     // Wait for previous TX to complete
     while (!_txDone) {

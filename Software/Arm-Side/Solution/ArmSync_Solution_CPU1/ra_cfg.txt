@@ -305,7 +305,7 @@ FSP Configuration
     CANFDCLK Src: PLL2R
     CANFDCLK Div /6
     GPTCLK Src: PLL2P
-    GPTCLK Div /2
+    GPTCLK Div /4
     GPT Src: GPTCLK
     LCDCLK Disabled
     LCDCLK Div /2
@@ -765,8 +765,8 @@ FSP Configuration
       General: Counter Bit Width: AGT 16-bit
       General: Channel: 1
       General: Mode: Periodic
-      General: Period: 25
-      General: Period Unit: Milliseconds
+      General: Period: 40
+      General: Period Unit: Hertz
       Output: Duty Cycle Percent (only applicable in PWM mode): 50
       General: Count Source: PCLKB
       Output: AGTOA Output: Disabled

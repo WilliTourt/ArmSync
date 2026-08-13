@@ -534,8 +534,6 @@
       <configSetting altId="jtag_fslash_swd.mode.swd.free" configurationId="jtag_fslash_swd.mode"/>
       <configSetting altId="sci0.mode.asynchronousuart.free" configurationId="sci0.mode"/>
       <configSetting altId="sci9.mode.asynchronousuart.free" configurationId="sci9.mode"/>
-      <lockSetting id="jtag_fslash_swd.swclk" lock="true"/>
-      <lockSetting id="jtag_fslash_swd.swdio" lock="true"/>
     </pincfg>
   </raPinConfiguration>
 </raConfiguration>

@@ -86,6 +86,7 @@ void NormalizeTask::taskFunction() {
 
         sharedDatatype::ArmKPCoords kp = {};
         sharedDatatype::EndEffectorData ee = {};
+        sharedDatatype::PitchData pitch = {};
         
         // ---- Controller FK: elbow + wrist (m → mm) ----
         {
@@ -109,13 +110,19 @@ void NormalizeTask::taskFunction() {
             }
         }
 
-        // ---- Gripper / pitch (every frame, low latency for gripper) ----
+        // ---- Gripper (every frame, low latency) ----
         {
-            ee.grip_percent  = rx->ctrllerData.adc[0];  // already 0~100 from controller
-            ee.pitch_percent = rx->ctrllerData.adc[1];
-            ee.timestamp     = rx->timestamp;
+            ee.grip_percent = rx->ctrllerData.adc[0];  // already 0~100 from controller
+            ee.timestamp    = rx->timestamp;
             _eeQueue.sendToBack(ee, 0);
             _eeUIQueue.sendToBack(ee, 0);
+        }
+
+        // ---- Pitch -> FusionTask (maps to J6) ----
+        {
+            pitch.pitch_percent = rx->ctrllerData.adc[1];
+            pitch.timestamp     = rx->timestamp;
+            _pitchQueue.sendToBack(pitch, 0);
         }
 
         // ---- IK data: only push if Jetson is providing valid positions ----

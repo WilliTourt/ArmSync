@@ -121,16 +121,15 @@ void IKTask::taskFunction() {
                 j1, j2, j3, j4,
                 exP, eyP, ezP, wxP, wyP, wzP);
 
-        sharedDatatype::JointOutput out = {};
+        sharedDatatype::JointAngleData out = {};
         out.timestamp = target->timestamp;
-        out.converged = true;
-        // JointOutput.angles[] is in DEG (see queues.h)
+        // JointAngleData.angles[] is in DEG (see queues.h)
         out.angles[0] = j1 * R2D;
         out.angles[1] = j2 * R2D;
         out.angles[2] = j3 * R2D;
         out.angles[3] = j4 * R2D;
-        out.angles[4] = 0.0f;   // J5: no orientation sensor yet
-        out.angles[5] = 0.0f;   // J6: no orientation sensor yet
+        out.angles[4] = NAN;   // J5: no orientation sensor yet
+        out.angles[5] = NAN;   // J6: mapped from pitch in FusionTask
 
         // Validation: projected distances should match arm segment lengths
         float dJ1J4 = sqrtf(exP*exP + eyP*eyP + ezP*ezP);

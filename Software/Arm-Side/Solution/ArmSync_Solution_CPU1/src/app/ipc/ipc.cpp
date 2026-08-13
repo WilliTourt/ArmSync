@@ -27,7 +27,7 @@ void IPC::tick() {
     // TODO: WATCHDOG - if no ctrl update for > 500ms, arm.stop()
 }
 
-bool IPC::getCtrlPacket(ArmTarget &arm, GripTarget &grip) {
+bool IPC::getCtrlPacket(MotionPlanPacket &plan, float &grip_percent) {
     if (!_ctrlPacketRdy) return false;
     _ctrlPacketRdy = false;
 
@@ -39,22 +39,20 @@ bool IPC::getCtrlPacket(ArmTarget &arm, GripTarget &grip) {
     }
     _lastRx = _rx->timestamp;
 
-    for (int i = 0; i < 6; i++) {
-        arm.jointAngle[i] = _rx->jointAngle[i];
-    }
-    arm.pitch_percent = _rx->pitch_percent;
-    grip.ratio = _rx->grip_percent;
+    plan = _rx->motion_pkt;
+    grip_percent = _rx->grip_percent;
 
     R_BSP_IpcSemaphoreGive(&_lock);
     return true;
 }
 
-void IPC::sendFeedback(const float angles_deg[6], bool locked, bool stuck) {
+void IPC::sendFeedback(const float angles_deg[6], float gripAngle, bool locked, bool stuck) {
     while (FSP_ERR_IN_USE == R_BSP_IpcSemaphoreTake(&_lock));
 
     for (int i = 0; i < 6; i++) {
         _tx->jointAngle[i] = angles_deg[i];
     }
+    _tx->gripAngle      = gripAngle;
     _tx->isLockedRotor  = locked;
     _tx->isGripperStuck = stuck;
     _tx->timestamp = _tick;

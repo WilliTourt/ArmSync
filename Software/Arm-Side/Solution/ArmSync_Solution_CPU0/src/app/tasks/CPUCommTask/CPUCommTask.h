@@ -13,11 +13,11 @@ class CPUCommTask : public FreeRTOS::Task {
             MSG_FB_READY   = 0xA2u,
         };
 
-        CPUCommTask(FreeRTOS::Queue<sharedDatatype::JointOutput>     &jointQueue,
-                    FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeQueue,
-                    FreeRTOS::Queue<sharedDatatype::IPCFeedback>     &fbQueue)
+        CPUCommTask(FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &planQueue,
+                    FreeRTOS::Queue<sharedDatatype::EndEffectorData>  &eeQueue,
+                    FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &fbQueue)
             : Task(tskIDLE_PRIORITY + 3, 1024, "CPUComm"),
-            _jointQueue(jointQueue), _eeQueue(eeQueue), _fbQueue(fbQueue) {}
+            _planQueue(planQueue), _eeQueue(eeQueue), _fbQueue(fbQueue) {}
 
         static inline void onFbReady() {
             _fbReady = true;
@@ -26,17 +26,17 @@ class CPUCommTask : public FreeRTOS::Task {
     private:
         void taskFunction() override;
 
-        FreeRTOS::Queue<sharedDatatype::JointOutput>     &_jointQueue;
-        FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeQueue;
-        FreeRTOS::Queue<sharedDatatype::IPCFeedback>     &_fbQueue;
+        FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &_planQueue;
+        FreeRTOS::Queue<sharedDatatype::EndEffectorData>  &_eeQueue;
+        FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &_fbQueue;
 
         sharedDatatype::IPCCtrlPacket *_tx = nullptr;
         sharedDatatype::IPCFeedback   *_rx = nullptr;
         bsp_ipc_semaphore_handle_t    _lock = { .semaphore_num = 0 };
 
         sharedDatatype::IPCFeedback   _fb;
-        sharedDatatype::JointOutput    _latestJoint = {};
-        sharedDatatype::EndEffectorData _latestEE = {};
+        sharedDatatype::MotionPlanPacket _latestPlan = {};
+        sharedDatatype::EndEffectorData  _latestEE = {};
         uint32_t _lastRx = 0;
 
         static volatile bool _fbReady;

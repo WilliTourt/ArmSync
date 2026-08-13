@@ -305,7 +305,7 @@ FSP Configuration
     CANFDCLK Src: PLL2R
     CANFDCLK Div /6
     GPTCLK Src: PLL2P
-    GPTCLK Div /2
+    GPTCLK Div /4
     GPT Src: GPTCLK
     LCDCLK Disabled
     LCDCLK Div /2

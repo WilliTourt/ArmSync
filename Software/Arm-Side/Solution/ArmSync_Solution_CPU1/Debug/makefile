@@ -13,7 +13,6 @@ RM := rm -rf
 -include src/app/ipc/subdir.mk
 -include src/app/gripper/subdir.mk
 -include src/app/drivers/subdir.mk
--include src/app/arm/subdir.mk
 -include src/app/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk

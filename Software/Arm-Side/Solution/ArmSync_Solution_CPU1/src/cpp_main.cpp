@@ -1,26 +1,27 @@
 #include "cpp_main.h"
 #include "ipc.h"
-#include "arm.h"
 #include "gripper.h"
 #include "ElegantDebug.h"
+#include "app/drivers/Emm_V5.h"
 
 IPC ipc;
 Gripper gripper(0);
 ElegantDebug dbg(&g_uart8, true, true);
 
-// Define the joint motors
-//            addr, minDeg, maxDeg, reductionRatio, inverted, velocity
-// Inverted is because the motor is applied with synchronous belt drive
-static Motor J1_Upper_Swing      (6, -90.0f , 90.0f , 20.0f, false, 150);
-static Motor J2_Upper_Abduction  (1, -22.5f , 125.0f, 30.0f, true , 100);
-static Motor J3_Upper_Rot        (2, -90.0f , 90.0f , 10.0f, false, 100);
-static Motor J4_Forearm_Swing    (3, -122.0f, 0.0f  , 10.0f, true , 100);
-static Motor J5_Forearm_Rot      (4, -90.0f , 90.0f ,  1.0f, false, 100);
-static Motor J6_Wrist_Swing      (5, -90.0f , 90.0f , 10.0f, true , 100);
+// Motor UART addresses (matches CPU0 joint order J1~J6)
+static const uint8_t kJointAddr[6] = {6, 1, 2, 3, 4, 5};
 
-Arm arm(J1_Upper_Swing, J2_Upper_Abduction, J3_Upper_Rot,
-        J4_Forearm_Swing, J5_Forearm_Rot,
-        J6_Wrist_Swing);
+// Feedback poll state (position/status alternating, one motor per poll)
+static uint8_t pollIndex = 0;
+static bool    pollStatus = false;
+
+// Set in POLL_Callback (AGT ISR), consumed in main loop
+static volatile bool pollPending = false;
+
+
+#define IPC_FEEDBACK_MS 40 
+#define GRIPPER_FEEDBACK_MS 25
+
 
 FSP_HEADER
 
@@ -30,9 +31,10 @@ void vSysTick(timer_callback_args_t *p_args) {
     ElegantDebug::tick();
 }
 
+// AGT Poll callback: just raise a flag, main loop does the actual polling
 void POLL_Callback(timer_callback_args_t *p_args) {
     (void)p_args;
-    arm.pollNext();
+    pollPending = true;
 }
 
 // IPC ISR callback
@@ -44,8 +46,9 @@ void IPC0_Callback(ipc_callback_args_t *p_args) {
     }
 }
 
+// Motor UART1 callback
 void UART1_Callback(uart_callback_args_t *p_args) {
-    Motor::uartCallback(p_args);
+    Emm_V5_UartCallback(p_args);
 }
 
 // Gripper SCI5 callback
@@ -60,7 +63,16 @@ void UART8_Callback(uart_callback_args_t *p_args) {
 
 FSP_FOOTER
 
+// Query the next motor's feedback (position S_CPOS / status S_FLAG alternating)
+static void pollNextFeedback() {
+    Emm_V5_Read_Sys_Params(kJointAddr[pollIndex], pollStatus ? S_FLAG : S_CPOS);
 
+    pollIndex++;
+    if (pollIndex >= 6) {
+        pollIndex = 0;
+        pollStatus = !pollStatus;
+    }
+}
 
 void cpp_main() {
 
@@ -68,9 +80,16 @@ void cpp_main() {
     R_SCI_B_UART_Open(&g_uart5_ctrl, &g_uart5_cfg);
     R_SCI_B_UART_Open(&g_uart8_ctrl, &g_uart8_cfg);
 
+    R_AGT_Open(&agt_Poll_ctrl, &agt_Poll_cfg);
+    R_AGT_Start(&agt_Poll_ctrl);
+
     ipc.init();
 
-    arm.init();
+    Emm_V5_Init();
+    for (int i = 0; i < 6; i++) {
+        Emm_V5_Modify_Ctrl_Mode(kJointAddr[i], true, 2);   // closed-loop
+        Emm_V5_En_Control(kJointAddr[i], true, false);     // enable
+    }
     gripper.init();
 
     dbg.info("M33 main loop started.\n");
@@ -79,43 +98,67 @@ void cpp_main() {
     uint32_t lastGripMs = 0;
 
     while (1) {
-        // ---- 1. Receive control from CPU0 ----
-        ArmTarget armTarget;
-        GripTarget grip;
-        if (ipc.getCtrlPacket(armTarget, grip)) {
-            arm.setAngles(armTarget.jointAngle);
-            gripper.setRatio(grip.ratio);
+        // ---- 1. Receive motion plan from CPU0, drive motors directly ----
+        MotionPlanPacket plan;
+        float gripPercent;
+        if (ipc.getCtrlPacket(plan, gripPercent)) {
+            for (int i = 0; i < 6; i++) {
+                Emm_V5_Pos_Control(kJointAddr[i],
+                                   plan.motors[i].dir,
+                                   plan.motors[i].rpm,
+                                   plan.motors[i].acc,
+                                   plan.motors[i].pulse,
+                                   true,   // absolute position
+                                   true);  // cache, trigger together
+            }
+            Emm_V5_Synchronous_motion(0);   // move all together
+
+            gripper.setRatio(gripPercent);
 
             dbg.logWithType("M33", COLOR_GREEN,
-                "RX: J1=%.1f J2=%.1f J3=%.1f J4=%.1f J5=%.1f J6=%.1f | grip=%.0f%%\n",
-                armTarget.jointAngle[0], armTarget.jointAngle[1], armTarget.jointAngle[2],
-                armTarget.jointAngle[3], armTarget.jointAngle[4], armTarget.jointAngle[5],
-                grip.ratio);
+                "RX: grip=%.0f%% | m0(dir%d r%d a%d p%lu)\n",
+                gripPercent,
+                plan.motors[0].dir, plan.motors[0].rpm, plan.motors[0].acc,
+                plan.motors[0].pulse);
         }
 
         // ---- 2. Send feedback to CPU0 (every ~50 ms) ----
         uint32_t now = ipc.getTick();
-        if (now - lastFeedbackMs >= 50) {
+        if (now - lastFeedbackMs >= IPC_FEEDBACK_MS) {
             lastFeedbackMs = now;
 
-            float angles_deg[6];
-            arm.getFeedback(angles_deg);
+            float angles_deg[6] = {0};
+            bool locked = false;
+            for (int i = 0; i < 6; i++) {
+                float motorDeg = 0.0f;
+                if (Emm_V5_GetPositionDegrees(kJointAddr[i], &motorDeg)) {
+                    angles_deg[i] = motorDeg;
+                }
+                Emm_V5_Feedback_t fb;
+                if (Emm_V5_GetFeedback(kJointAddr[i], &fb) && fb.status_valid) {
+                    if (fb.status_flags & (EMM_V5_STATUS_STALLED | EMM_V5_STATUS_STALL_PROTECTION)) {
+                        locked = true;
+                    }
+                }
+            }
+            bool stuck = gripper.isStuck();
+            float gripAngle = gripper.getAngle();
 
-            bool locked = arm.isStuck();
-            bool stuck  = gripper.isStuck();
-
-            ipc.sendFeedback(angles_deg, locked, stuck);
+            ipc.sendFeedback(angles_deg, gripAngle, locked, stuck);
         }
 
-        // ---- 3. Poll gripper angle (every ~200 ms) ----
-        if (now - lastGripMs >= 200) {
+        // Update gripper feedback
+        if (now - lastGripMs >= GRIPPER_FEEDBACK_MS) {
             lastGripMs = now;
-            gripper.getAngle();
+            gripper.updateFeedback();
         }
 
-        // ---- 4. Poll next motor's feedback (position/status) -------
-        arm.pollNext();
+        // Poll next motor's feedback
+        if (pollPending) {
+            pollPending = false;
+            pollNextFeedback();
+        }
 
-        R_BSP_SoftwareDelay(5, BSP_DELAY_UNITS_MILLISECONDS);
+        R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MILLISECONDS);
     }
 }
