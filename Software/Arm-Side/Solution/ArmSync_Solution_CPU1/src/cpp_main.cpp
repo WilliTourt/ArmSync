@@ -128,7 +128,7 @@ void cpp_main() {
             lastFeedbackMs = now;
 
             float angles_deg[6] = {0};
-            bool locked = false;
+            bool locked[6] = {false};
             for (int i = 0; i < 6; i++) {
                 float motorDeg = 0.0f;
                 if (Emm_V5_GetPositionDegrees(kJointAddr[i], &motorDeg)) {
@@ -137,7 +137,7 @@ void cpp_main() {
                 Emm_V5_Feedback_t fb;
                 if (Emm_V5_GetFeedback(kJointAddr[i], &fb) && fb.status_valid) {
                     if (fb.status_flags & (EMM_V5_STATUS_STALLED | EMM_V5_STATUS_STALL_PROTECTION)) {
-                        locked = true;
+                        locked[i] = true;
                     }
                 }
             }

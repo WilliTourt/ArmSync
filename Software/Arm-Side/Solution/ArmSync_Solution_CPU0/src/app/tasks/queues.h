@@ -57,7 +57,7 @@ struct IPCCtrlPacket {
 struct IPCFeedback {
     float    jointAngle[6];   // J1~J6 actual degrees
     float    gripAngle;       // gripper actual angle (deg)
-    bool     isLockedRotor;
+    bool     isLockedRotor[6]; // per-joint stall flag
     bool     isGripperStuck;
     uint32_t timestamp;       // CPU1 counter when written
 };

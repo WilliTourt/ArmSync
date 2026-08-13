@@ -135,7 +135,7 @@ void UITask::taskFunction() {
                 _updateJointAngle(i, feedback->jointAngle[i]);
             }
             for (int i = 0; i < 6; i++) {
-                _updateJointStatus(i, !feedback->isLockedRotor);
+                _updateJointStatus(i, !feedback->isLockedRotor[i]);
             }
         }
 

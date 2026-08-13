@@ -30,7 +30,7 @@ struct IPCCtrlPacket {
 struct IPCFeedback {
     float    jointAngle[6];   // J1~J6 actual degrees
     float    gripAngle;       // gripper actual angle (deg)
-    bool     isLockedRotor;
+    bool     isLockedRotor[6]; // per-joint stall flag
     bool     isGripperStuck;
     uint32_t timestamp;       // CPU1 counter when written
 };
@@ -51,7 +51,7 @@ class IPC {
 
         // reads control from CPU0 (motion plan + grip)
         bool getCtrlPacket(MotionPlanPacket &plan, float &grip_percent);
-        void sendFeedback(const float angles_deg[6], float gripAngle, bool locked, bool stuck);
+        void sendFeedback(const float angles_deg[6], float gripAngle, const bool locked[6], bool stuck);
 
         static void onCtrlReady();   // ISR hook
 

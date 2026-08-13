@@ -46,14 +46,14 @@ bool IPC::getCtrlPacket(MotionPlanPacket &plan, float &grip_percent) {
     return true;
 }
 
-void IPC::sendFeedback(const float angles_deg[6], float gripAngle, bool locked, bool stuck) {
+void IPC::sendFeedback(const float angles_deg[6], float gripAngle, const bool locked[6], bool stuck) {
     while (FSP_ERR_IN_USE == R_BSP_IpcSemaphoreTake(&_lock));
 
     for (int i = 0; i < 6; i++) {
         _tx->jointAngle[i] = angles_deg[i];
+        _tx->isLockedRotor[i] = locked[i];
     }
     _tx->gripAngle      = gripAngle;
-    _tx->isLockedRotor  = locked;
     _tx->isGripperStuck = stuck;
     _tx->timestamp = _tick;
 
