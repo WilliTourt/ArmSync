@@ -3,13 +3,13 @@
 
 extern ElegantDebug dbg;
 
-// Joint motors: minDeg, maxDeg, reductionRatio, inverted, velocity
-Motor MotionPlanningTask::g_j1(-90.0f,  90.0f, 20.0f, false, 150);
-Motor MotionPlanningTask::g_j2(-22.5f, 125.0f, 30.0f, true,  100);
-Motor MotionPlanningTask::g_j3(-90.0f,  90.0f, 10.0f, false, 100);
-Motor MotionPlanningTask::g_j4(-122.0f, 0.0f,  10.0f, true,  100);
-Motor MotionPlanningTask::g_j5(-90.0f,  90.0f,  1.0f, false, 100);
-Motor MotionPlanningTask::g_j6(-90.0f,  90.0f, 10.0f, true,  100);
+// Joint motors: minDeg, maxDeg, reductionRatio, inverted, maxRPM
+Motor MotionPlanningTask::_j1(-90.0f , 90.0f , 20.0f, false, 150);
+Motor MotionPlanningTask::_j2(-22.5f , 125.0f, 30.0f, true , 150);
+Motor MotionPlanningTask::_j3(-90.0f , 90.0f , 10.0f, false, 150);
+Motor MotionPlanningTask::_j4(-122.0f, 0.0f  , 10.0f, true , 150);
+Motor MotionPlanningTask::_j5(-90.0f , 90.0f , 1.0f , false, 150);
+Motor MotionPlanningTask::_j6(-90.0f , 90.0f , 10.0f, true , 150);
 
 void MotionPlanningTask::taskFunction() {
     dbg.info("MotionPlanningTask started.\n");

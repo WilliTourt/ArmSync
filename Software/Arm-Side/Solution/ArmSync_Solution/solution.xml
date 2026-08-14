@@ -314,7 +314,7 @@
     <node id="board.clock.pll2.div" option="board.clock.pll2.div.3"/>
     <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.300_00"/>
     <node id="board.clock.pll2.display" option="board.clock.pll2.display.value"/>
-    <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.4"/>
+    <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.8"/>
     <node id="board.clock.pll2p.display" option="board.clock.pll2p.display.value"/>
     <node id="board.clock.pll2q.div" option="board.clock.pll2q.div.3"/>
     <node id="board.clock.pll2q.display" option="board.clock.pll2q.display.value"/>
@@ -365,8 +365,8 @@
     <node id="board.clock.canfdclk.source" option="board.clock.canfdclk.source.pll2r"/>
     <node id="board.clock.canfdclk.div" option="board.clock.canfdclk.div.6"/>
     <node id="board.clock.canfdclk.display" option="board.clock.canfdclk.display.value"/>
-    <node id="board.clock.gptclk.source" option="board.clock.gptclk.source.pll2p"/>
-    <node id="board.clock.gptclk.div" option="board.clock.gptclk.div.4"/>
+    <node id="board.clock.gptclk.source" option="board.clock.gptclk.source.pll2r"/>
+    <node id="board.clock.gptclk.div" option="board.clock.gptclk.div.3"/>
     <node id="board.clock.gptclk.display" option="board.clock.gptclk.display.value"/>
     <node id="board.clock.gtclk.source" option="board.clock.gtclk.source.gptclk"/>
     <node id="board.clock.gtclk.display" option="board.clock.gtclk.display.value"/>
@@ -382,8 +382,8 @@
     <node id="board.clock.u60ck.source" option="board.clock.u60ck.source.disabled"/>
     <node id="board.clock.u60ck.div" option="board.clock.u60ck.div.8"/>
     <node id="board.clock.u60ck.display" option="board.clock.u60ck.display.value"/>
-    <node id="board.clock.octaspiclk.source" option="board.clock.octaspiclk.source.disabled"/>
-    <node id="board.clock.octaspiclk.div" option="board.clock.octaspiclk.div.1"/>
+    <node id="board.clock.octaspiclk.source" option="board.clock.octaspiclk.source.pll2p"/>
+    <node id="board.clock.octaspiclk.div" option="board.clock.octaspiclk.div.3"/>
     <node id="board.clock.octaspiclk.display" option="board.clock.octaspiclk.display.value"/>
     <node id="board.clock.octaspiclk.om_sclk.display" option="board.clock.octaspiclk.om_sclk.display.value"/>
     <node id="board.clock.adcclk.source" option="board.clock.adcclk.source.disabled"/>
@@ -537,21 +537,21 @@
       <configSetting altId="p602.gpio_mode.gpio_mode_peripheral" configurationId="p602.gpio_mode"/>
       <configSetting altId="p603.sci0.txd0" configurationId="p603"/>
       <configSetting altId="p603.gpio_mode.gpio_mode_peripheral" configurationId="p603.gpio_mode"/>
-      <configSetting altId="p801.sci2.txd2" configurationId="p801"/>
-      <configSetting altId="p801.gpio_mode.gpio_mode_peripheral" configurationId="p801.gpio_mode"/>
-      <configSetting altId="p802.sci2.rxd2" configurationId="p802"/>
-      <configSetting altId="p802.gpio_mode.gpio_mode_peripheral" configurationId="p802.gpio_mode"/>
+      <configSetting altId="p714.sci4.txd4" configurationId="p714"/>
+      <configSetting altId="p714.gpio_mode.gpio_mode_peripheral" configurationId="p714.gpio_mode"/>
+      <configSetting altId="p715.sci4.rxd4" configurationId="p715"/>
+      <configSetting altId="p715.gpio_mode.gpio_mode_peripheral" configurationId="p715.gpio_mode"/>
       <configSetting altId="p905.sci3.rxd3" configurationId="p905"/>
       <configSetting altId="p905.gpio_mode.gpio_mode_peripheral" configurationId="p905.gpio_mode"/>
       <configSetting altId="sci0.mode.asynchronousuart.free" configurationId="sci0.mode"/>
       <configSetting altId="sci0.rxd0.p602" configurationId="sci0.rxd0"/>
       <configSetting altId="sci0.txd0.p603" configurationId="sci0.txd0"/>
-      <configSetting altId="sci2.mode.asynchronousuart.free" configurationId="sci2.mode"/>
-      <configSetting altId="sci2.rxd2.p802" configurationId="sci2.rxd2"/>
-      <configSetting altId="sci2.txd2.p801" configurationId="sci2.txd2"/>
       <configSetting altId="sci3.mode.asynchronousuart.free" configurationId="sci3.mode"/>
       <configSetting altId="sci3.rxd3.p905" configurationId="sci3.rxd3"/>
       <configSetting altId="sci3.txd3.p310" configurationId="sci3.txd3"/>
+      <configSetting altId="sci4.mode.asynchronousuart.free" configurationId="sci4.mode"/>
+      <configSetting altId="sci4.rxd4.p715" configurationId="sci4.rxd4"/>
+      <configSetting altId="sci4.txd4.p714" configurationId="sci4.txd4"/>
       <configSetting altId="sci9.mode.asynchronousuart.free" configurationId="sci9.mode"/>
       <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9"/>
       <configSetting altId="sci9.txd9.p209" configurationId="sci9.txd9"/>
@@ -559,10 +559,10 @@
       <lockSetting id="jtag_fslash_swd.swdio" lock="true"/>
       <lockSetting id="sci0.rxd0" lock="true"/>
       <lockSetting id="sci0.txd0" lock="true"/>
-      <lockSetting id="sci2.rxd2" lock="true"/>
-      <lockSetting id="sci2.txd2" lock="true"/>
       <lockSetting id="sci3.rxd3" lock="true"/>
       <lockSetting id="sci3.txd3" lock="true"/>
+      <lockSetting id="sci4.rxd4" lock="true"/>
+      <lockSetting id="sci4.txd4" lock="true"/>
       <lockSetting id="sci9.rxd9" lock="true"/>
       <lockSetting id="sci9.txd9" lock="true"/>
     </pincfg>

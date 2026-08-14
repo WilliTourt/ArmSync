@@ -49,14 +49,14 @@ void UART0_Callback(uart_callback_args_t *p_args) {
     UartRecvTask::uart0Callback(p_args);
 }
 
-/* UART2 Receive Callback for jetson nano */
-void UART2_Callback(uart_callback_args_t *p_args) {
-    UartRecvTask::uart2Callback(p_args);
-}
-
 /* UART3 Receive Callback for TJC Screen */
 void UART3_Callback(uart_callback_args_t *p_args) {
     UITask::uart3Callback(p_args);
+}
+
+/* UART4 Receive Callback for jetson nano */
+void UART4_Callback(uart_callback_args_t *p_args) {
+    UartRecvTask::uart4Callback(p_args);
 }
 
 /* JLink OB */
@@ -81,7 +81,7 @@ void cpp_main() {
     R_AGT_Enable(&agt_SysTick_ctrl);
 
     R_SCI_B_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
-    R_SCI_B_UART_Open(&g_uart2_ctrl, &g_uart2_cfg);
+    R_SCI_B_UART_Open(&g_uart4_ctrl, &g_uart4_cfg);
     R_SCI_B_UART_Open(&g_uart9_ctrl, &g_uart9_cfg);
 
     R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_HIGH);

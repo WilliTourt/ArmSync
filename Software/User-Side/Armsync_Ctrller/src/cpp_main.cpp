@@ -7,7 +7,7 @@
 #include "periph.h"
 #include "utils.h"
 
-#define UART1_RECEIVE_LEN 27
+#define UART1_RECEIVE_LEN 43
 #define UART2_RECEIVE_LEN 5
 
 AdcSlider sliderGrip(ADC_CHANNEL_0);
@@ -25,8 +25,9 @@ volatile bool is_calibrated = false;
 
 // 小臂发来的欧拉角（大端序 float）
 struct ArmData {
-    float upper_pitch, upper_roll, upper_yaw;
-    float rel_pitch, rel_roll, rel_yaw;
+    float fore_quaternion[4];
+    float elbow_x, elbow_y, elbow_z;
+    float wrist_x, wrist_y, wrist_z;
 };
 volatile ArmData armData = {0, 0, 0, 0, 0, 0};
 
@@ -81,13 +82,17 @@ void cpp_main() {
         if (uart1_receive_complete_flag) {
             uart1_receive_complete_flag = false;
 
-            if (receivePacket1[0] == 0xAF && receivePacket1[1] == 0x01 && receivePacket1[26] == 0xFA) {
-                armData.upper_pitch = Utils::bytes2F(receivePacket1 + 2);
-                armData.upper_roll  = Utils::bytes2F(receivePacket1 + 6);
-                armData.upper_yaw   = Utils::bytes2F(receivePacket1 + 10);
-                armData.rel_pitch   = Utils::bytes2F(receivePacket1 + 14);
-                armData.rel_roll    = Utils::bytes2F(receivePacket1 + 18);
-                armData.rel_yaw     = Utils::bytes2F(receivePacket1 + 22);
+            if (receivePacket1[0] == 0xAF && receivePacket1[1] == 0x01 && receivePacket1[42] == 0xFA) {
+                armData.fore_quaternion[0] = Utils::bytes2F(receivePacket1 + 2);
+                armData.fore_quaternion[1] = Utils::bytes2F(receivePacket1 + 6);
+                armData.fore_quaternion[2] = Utils::bytes2F(receivePacket1 + 10);
+                armData.fore_quaternion[3] = Utils::bytes2F(receivePacket1 + 14);
+                armData.elbow_x            = Utils::bytes2F(receivePacket1 + 18);
+                armData.elbow_y            = Utils::bytes2F(receivePacket1 + 22);
+                armData.elbow_z            = Utils::bytes2F(receivePacket1 + 26);
+                armData.wrist_x            = Utils::bytes2F(receivePacket1 + 30);
+                armData.wrist_y            = Utils::bytes2F(receivePacket1 + 34);
+                armData.wrist_z            = Utils::bytes2F(receivePacket1 + 38);
 
                 if (!is_calibrated) {
                     for (uint8_t i = 0; i < 3; i++) {
@@ -99,10 +104,12 @@ void cpp_main() {
                     is_calibrated = true;
                 }
                 
-                int len = sprintf(tx_buf, "%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.2f,%.2f\n",
-                    armData.upper_pitch, armData.upper_roll, armData.upper_yaw,
-                    armData.rel_pitch, armData.rel_roll, armData.rel_yaw,
-                    sliderGripPercent, sliderPitchPercent);
+                int len = sprintf(tx_buf, "%.4f, %.4f, %.4f, %.4f, 
+                                           %.4f, %.4f, %.4f, 
+                                           %.4f, %.4f, %.4f\n",
+                    armData.fore_quaternion[0], armData.fore_quaternion[1], armData.fore_quaternion[2], armData.fore_quaternion[3],
+                    armData.elbow_x, armData.elbow_y, armData.elbow_z,
+                    armData.wrist_x, armData.wrist_y, armData.wrist_z);
                 if (!uart2_send_pending) {
                     uart2_send_pending = true;
                     R_SCI_UART_Write(&g_uart2_ctrl, (uint8_t*)tx_buf, len);

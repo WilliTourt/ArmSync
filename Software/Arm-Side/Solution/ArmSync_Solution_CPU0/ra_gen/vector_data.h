@@ -27,14 +27,14 @@ void ipc_isr(void);
 #define SCI0_TEI_IRQn          ((IRQn_Type) 3) /* SCI0 TEI (Transmit end) */
 #define VECTOR_NUMBER_SCI0_ERI ((IRQn_Type) 4) /* SCI0 ERI (Receive error) */
 #define SCI0_ERI_IRQn          ((IRQn_Type) 4) /* SCI0 ERI (Receive error) */
-#define VECTOR_NUMBER_SCI2_RXI ((IRQn_Type) 5) /* SCI2 RXI (Receive data full) */
-#define SCI2_RXI_IRQn          ((IRQn_Type) 5) /* SCI2 RXI (Receive data full) */
-#define VECTOR_NUMBER_SCI2_TXI ((IRQn_Type) 6) /* SCI2 TXI (Transmit data empty) */
-#define SCI2_TXI_IRQn          ((IRQn_Type) 6) /* SCI2 TXI (Transmit data empty) */
-#define VECTOR_NUMBER_SCI2_TEI ((IRQn_Type) 7) /* SCI2 TEI (Transmit end) */
-#define SCI2_TEI_IRQn          ((IRQn_Type) 7) /* SCI2 TEI (Transmit end) */
-#define VECTOR_NUMBER_SCI2_ERI ((IRQn_Type) 8) /* SCI2 ERI (Receive error) */
-#define SCI2_ERI_IRQn          ((IRQn_Type) 8) /* SCI2 ERI (Receive error) */
+#define VECTOR_NUMBER_SCI4_RXI ((IRQn_Type) 5) /* SCI4 RXI (Receive data full) */
+#define SCI4_RXI_IRQn          ((IRQn_Type) 5) /* SCI4 RXI (Receive data full) */
+#define VECTOR_NUMBER_SCI4_TXI ((IRQn_Type) 6) /* SCI4 TXI (Transmit data empty) */
+#define SCI4_TXI_IRQn          ((IRQn_Type) 6) /* SCI4 TXI (Transmit data empty) */
+#define VECTOR_NUMBER_SCI4_TEI ((IRQn_Type) 7) /* SCI4 TEI (Transmit end) */
+#define SCI4_TEI_IRQn          ((IRQn_Type) 7) /* SCI4 TEI (Transmit end) */
+#define VECTOR_NUMBER_SCI4_ERI ((IRQn_Type) 8) /* SCI4 ERI (Receive error) */
+#define SCI4_ERI_IRQn          ((IRQn_Type) 8) /* SCI4 ERI (Receive error) */
 #define VECTOR_NUMBER_SCI9_RXI ((IRQn_Type) 9) /* SCI9 RXI (Receive data full) */
 #define SCI9_RXI_IRQn          ((IRQn_Type) 9) /* SCI9 RXI (Receive data full) */
 #define VECTOR_NUMBER_SCI9_TXI ((IRQn_Type) 10) /* SCI9 TXI (Transmit data empty) */

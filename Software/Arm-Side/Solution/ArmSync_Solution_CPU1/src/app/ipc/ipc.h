@@ -53,6 +53,11 @@ class IPC {
         bool getCtrlPacket(MotionPlanPacket &plan, float &grip_percent);
         void sendFeedback(const float angles_deg[6], float gripAngle, const bool locked[6], bool stuck);
 
+        // Communication watchdog: true if no new ctrl packet from CPU0 within timeoutMs
+        inline bool isWatchDogHungry(uint32_t timeoutMs) const {
+            return (_tick - _wdgTick) > timeoutMs;
+        }
+
         static void onCtrlReady();   // ISR hook
 
     private:
@@ -60,8 +65,9 @@ class IPC {
         IPCFeedback                *_tx = nullptr;   // sent to CPU0
         bsp_ipc_semaphore_handle_t _lock = { .semaphore_num = 0 };
 
-        uint32_t _lastRx = 0;   // last received control timestamp
+        uint32_t _lastRx = 0;   // last received control timestamp (from CPU0)
         uint32_t _tick   = 0;   // millisecond counter, incremented by tick()
+        uint32_t _wdgTick = 0;  // tick value when last new ctrl packet armed the watchdog
 
         static volatile bool _ctrlPacketRdy;
 };

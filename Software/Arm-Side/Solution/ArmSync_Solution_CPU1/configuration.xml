@@ -471,25 +471,6 @@
       <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
       <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
     </module>
-    <module id="module.driver.timer_on_agt.1068692791">
-      <property id="module.driver.timer.name" value="agt_Poll"/>
-      <property id="module.driver.timer.bit_width" value="module.driver.timer.bit_width.16"/>
-      <property id="module.driver.timer.channel" value="1"/>
-      <property id="module.driver.timer.mode" value="module.driver.timer.mode.mode_periodic"/>
-      <property id="module.driver.timer.period" value="40"/>
-      <property id="module.driver.timer.unit" value="module.driver.timer.unit.unit_frequency_hz"/>
-      <property id="module.driver.timer.duty_cycle" value="50"/>
-      <property id="module.driver.timer.count_source" value="module.driver.timer.count_source.clock_pclkb"/>
-      <property id="module.driver.timer.agtoa_output_enable" value="module.driver.timer.agtoa_output_enable.false"/>
-      <property id="module.driver.timer.agtob_output_enable" value="module.driver.timer.agtob_output_enable.false"/>
-      <property id="module.driver.timer.agto_output_enable" value="module.driver.timer.agto_output_enable.false"/>
-      <property id="module.driver.timer.measurement_mode" value="module.driver.timer.measurement_mode.measure_disabled"/>
-      <property id="module.driver.timer.agtio_filter" value="module.driver.timer.agtio_filter.agtio_filter_none"/>
-      <property id="module.driver.timer.enable_pin" value="module.driver.timer.enable_pin.enable_pin_not_used"/>
-      <property id="module.driver.timer.trigger_edge" value="module.driver.timer.trigger_edge.trigger_edge_rising"/>
-      <property id="module.driver.timer.p_callback" value="POLL_Callback"/>
-      <property id="module.driver.timer.ipl" value="board.icu.common.irq.priority4"/>
-    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.ipc_on_ipc.1010053332"/>
@@ -497,7 +478,6 @@
       <stack module="module.driver.timer_on_agt.2095406578"/>
       <stack module="module.driver.uart_on_sci_b_uart.154750782"/>
       <stack module="module.driver.uart_on_sci_b_uart.492844781"/>
-      <stack module="module.driver.timer_on_agt.1068692791"/>
     </context>
     <config id="config.driver.sci_b_uart">
       <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>

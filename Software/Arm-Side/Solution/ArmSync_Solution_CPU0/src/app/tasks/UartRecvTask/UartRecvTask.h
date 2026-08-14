@@ -44,7 +44,7 @@ class UartRecvTask : public FreeRTOS::Task {
             : Task(tskIDLE_PRIORITY + 3, 1024, "UartRecv"), _queue(queue) {}
 
         static void uart0Callback(uart_callback_args_t *p_args);
-        static void uart2Callback(uart_callback_args_t *p_args);
+        static void uart4Callback(uart_callback_args_t *p_args);
 
     private:
         void taskFunction() override;

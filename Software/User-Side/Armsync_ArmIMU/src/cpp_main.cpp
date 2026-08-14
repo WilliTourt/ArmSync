@@ -1,8 +1,8 @@
-#include "cpp_main.h"
+#include "src\UserCode\cpp_main\cpp_main.h"
 
-#include "ICM42688.h"
-#include "qmc5883p.h"
-#include "ESKF.h"
+#include "src\UserCode\ICM42688\ICM42688.h"
+#include "src\UserCode\QMC5883P\qmc5883p.h"
+#include "src\UserCode\ICM42688\ESKF.h"
 #include "common_data.h"
 #include "fsp_common_api.h"
 #include "hal_data.h"
@@ -21,15 +21,17 @@
 
 #define UART1_RECEIVE_LEN   3
 
+#define ARM_LENTH           1
+
 #endif
 #ifndef BigArm
 
 #define UART1_RECEIVE_LEN   3
 #define UART2_RECEIVE_LEN   19
 
-#endif
+#define ARM_LENTH           1
 
-#define LED_RXTX_BLINK_CNT 2
+#endif
 
 // sysTick
 volatile uint32_t sysTick = 0;
@@ -63,8 +65,13 @@ volatile bool main_timer_call = false;
 uint8_t sendbuf[64] = {0};
 uint8_t receivePacket1[32] = {0};
 uint8_t receivePacket2[32] = {0};
-uint8_t sendbuf_key1[3] = {0xAF, 0x02, 0xFA};
-uint8_t sendbuf_key2[3] = {0xAF, 0x03, 0xFA};
+const uint8_t sendbuf_key1[3] = {0xAF, 0x02, 0xFA};
+const uint8_t sendbuf_key2[3] = {0xAF, 0x03, 0xFA};
+
+// 参考轴 = 机头方向
+const float U[3] = {0.0f, 1.0f, 0.0f};   
+float P_upper[3];
+float P_fore[3];
 
 // debug存储空间
 uint8_t debug_buf[256] = {0};
@@ -137,6 +144,32 @@ void quat_to_euler(const Quaternion *q, EulerAngle *euler)
     float siny_cosp = 2.0f * (q->w * q->x + q->y * q->z);
     float cosy_cosp = 1.0f - 2.0f * (q->x * q->x + q->y * q->y);
     euler->roll = atan2f(siny_cosp, cosy_cosp) * 180 / PI;
+}
+
+// q = (w,x,y,z) 已归一化,机头 = x 轴
+void quat_to_point(float w, float x, float y, float z, float P[3])
+{
+    // t = 2 * (q.xyz x u)
+    float t[3] = {
+        2.0f * (y * U[2] - z * U[1]),
+        2.0f * (z * U[0] - x * U[2]),
+        2.0f * (x * U[1] - y * U[0])
+    };
+
+    // v' = u + w*t + q.xyz x t
+    float cx = y * t[2] - z * t[1];
+    float cy = z * t[0] - x * t[2];
+    float cz = x * t[1] - y * t[0];
+
+    float v[3] = {
+        U[0] + w * t[0] + cx,
+        U[1] + w * t[1] + cy,
+        U[2] + w * t[2] + cz
+    };
+
+    P[0] = ARM_LENTH * v[0];
+    P[1] = ARM_LENTH * v[1];
+    P[2] = ARM_LENTH * v[2];
 }
 
 void arm_calibrate(void)
@@ -306,16 +339,6 @@ void g_uart2_callback(uart_callback_args_t *p_args)
     {
         case UART_EVENT_RX_COMPLETE:
         {
-            // static uint8_t rx_led_count = 0;
-            // static bool rx_led = false;
-            // rx_led_count++;
-            // if(rx_led_count >= LED_RXTX_BLINK_CNT)
-            // {
-            //     rx_led_count = 0;
-            //     rx_led = !rx_led;
-            //     R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, rx_led ? BSP_IO_LEVEL_HIGH : BSP_IO_LEVEL_LOW);
-            // }
-
             uart2_receive_complete_flag = true;
             break;
         }
@@ -339,16 +362,24 @@ void g_timer_main_callback(timer_callback_args_t *p_args)
 {
     if(p_args->event == TIMER_EVENT_CYCLE_END)
     {
+        // 初始方向z->z,x->y,y->-x == 需求->真实
+        
         #ifdef BigArm
-        eskf.update(icm42688.general.get_ax(), icm42688.general.get_ay(), icm42688.general.get_az(),
-                    icm42688.general.get_gx() * 0.01745f, icm42688.general.get_gy() * 0.01745f, icm42688.general.get_gz() * 0.01745f,
-                    qmc5883p.getX(), qmc5883p.getY(), qmc5883p.getZ());
+//        eskf.update(icm42688.general.get_ax(), icm42688.general.get_ay(), icm42688.general.get_az(),
+//                    icm42688.general.get_gx() * 0.01745f, icm42688.general.get_gy() * 0.01745f, icm42688.general.get_gz() * 0.01745f,
+//                    qmc5883p.getX(), qmc5883p.getY(), qmc5883p.getZ());
+        eskf.update(icm42688.general.get_ay(), -icm42688.general.get_ax(), icm42688.general.get_az(),
+            icm42688.general.get_gy() * 0.01745f, -icm42688.general.get_gx() * 0.01745f, icm42688.general.get_gz() * 0.01745f,
+            qmc5883p.getY(), -qmc5883p.getX(), qmc5883p.getZ());
         #endif
         
         #ifndef BigArm
-        eskf.update(icm42688.general.get_ax(), icm42688.general.get_ay(), icm42688.general.get_az(),
-                    icm42688.general.get_gx() * 0.01745f, icm42688.general.get_gy() * 0.01745f, icm42688.general.get_gz() * 0.01745f,
-                    qmc5883p.getX(), qmc5883p.getY(), qmc5883p.getZ());
+//        eskf.update(icm42688.general.get_ax(), icm42688.general.get_ay(), icm42688.general.get_az(),
+//                    icm42688.general.get_gx() * 0.01745f, icm42688.general.get_gy() * 0.01745f, icm42688.general.get_gz() * 0.01745f,
+//                    qmc5883p.getX(), qmc5883p.getY(), qmc5883p.getZ());
+        eskf.update(icm42688.general.get_ay(), -icm42688.general.get_ax(), icm42688.general.get_az(),
+            icm42688.general.get_gy() * 0.01745f, -icm42688.general.get_gx() * 0.01745f, icm42688.general.get_gz() * 0.01745f,
+            qmc5883p.getY(), -qmc5883p.getX(), qmc5883p.getZ());
         #endif
 
         main_timer_call = true;
@@ -398,24 +429,31 @@ void cpp_main(void)
     
     static uint8_t breath = 0;
     
-    while(1) {   
-        if(main_timer_call == true) {
+    while(1)
+    {   
+        if(main_timer_call == true)
+        {
             breath++;
             
-            if(is_calibrated == true) {
-                if(breath >= 100) {
-                    // R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, BSP_IO_LEVEL_HIGH);
+            if(is_calibrated == true)
+            {
+                if(breath >= 100)
+                {
+                    R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, BSP_IO_LEVEL_HIGH);
                     if(breath == 200) breath = 0;
-                } else {
-                    // R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, BSP_IO_LEVEL_LOW);
                 }
-            } else {
-                if(breath >= 20) {
+                else 
+                    R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, BSP_IO_LEVEL_LOW);
+            }
+            else
+            {
+                if(breath >= 20)
+                {
                     R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, BSP_IO_LEVEL_HIGH);
                     if(breath == 40) breath = 0;
-                } else {
-                    R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, BSP_IO_LEVEL_LOW);
                 }
+                else 
+                    R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, BSP_IO_LEVEL_LOW);
             }
 
             
@@ -452,16 +490,6 @@ void cpp_main(void)
                 float_trans_int(q_upper_delta.y, sendbuf + 10);
                 float_trans_int(q_upper_delta.z, sendbuf + 14);
                 sendbuf[18] = 0xFA;
-
-                static uint8_t tx_led_count = 0;
-                static bool tx_led = false;
-                tx_led_count++;
-                if(tx_led_count >= LED_RXTX_BLINK_CNT)
-                {
-                    tx_led_count = 0;
-                    tx_led = !tx_led;
-                    R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, tx_led ? BSP_IO_LEVEL_HIGH : BSP_IO_LEVEL_LOW);
-                }
                 
                 R_SCI_UART_Write(g_uart1.p_ctrl, sendbuf, 19);
                 while(uart1_send_complete_flag == false);
@@ -523,6 +551,15 @@ void cpp_main(void)
                     quat_to_euler(&q_upper_delta, &angle_upper);
                     quat_to_euler(&q_fore_final, &angle_rel);
                     
+                    quat_to_point(q_upper_delta.w, q_upper_delta.x, q_upper_delta.y, q_upper_delta.z, P_upper);
+                    quat_to_point(q_fore_delta.w, q_fore_delta.x, q_fore_delta.y, q_fore_delta.z, P_fore);
+                    P_upper[0] = -P_upper[0];
+//                    P_upper[1] = -P_upper[1];
+                    P_upper[2] = -P_upper[2];
+                    P_fore[0] = -P_fore[0];
+//                    P_fore[1] = -P_fore[1];
+                    P_fore[2] = -P_fore[2];
+                    
                     // =====   发送四元数给串口1   =====
 //                    sendbuf[0] = 0xAF;
 //                    sendbuf[1] = 0x01;
@@ -545,37 +582,52 @@ void cpp_main(void)
 //                    uart1_send_complete_flag = false;
                     
                     // =====   发送欧拉角给串口1   =====
-                   sendbuf[0] = 0xAF;
-                   sendbuf[1] = 0x01;
-                   float_trans_int(angle_upper.pitch, sendbuf + 2);
-                   float_trans_int(angle_upper.roll, sendbuf + 6);
-                   float_trans_int(angle_upper.yaw, sendbuf + 10);
-                   float_trans_int(angle_rel.pitch, sendbuf + 14);
-                   float_trans_int(angle_rel.roll, sendbuf + 18);
-                   float_trans_int(angle_rel.yaw, sendbuf + 22);
-                   sendbuf[26] = 0xFA;
-                   
-                   R_SCI_UART_Write(g_uart1.p_ctrl, sendbuf, 27);
-                   while(uart1_send_complete_flag == false);
-                   uart1_send_complete_flag = false;
-                   
-                   static uint8_t tx_led_count = 0;
-                   static bool tx_led = false;
-                   tx_led_count++;
-                   if(tx_led_count >= LED_RXTX_BLINK_CNT)
-                   {
-                       tx_led_count = 0;
-                       tx_led = !tx_led;
-                       R_IOPORT_PinWrite(&g_ioport_ctrl, LED1, tx_led ? BSP_IO_LEVEL_HIGH : BSP_IO_LEVEL_LOW);
-                   }
+//                    sendbuf[0] = 0xAF;
+//                    sendbuf[1] = 0x01;
+//                    float_trans_int(angle_upper.pitch, sendbuf + 2);
+//                    float_trans_int(angle_upper.roll, sendbuf + 6);
+//                    float_trans_int(angle_upper.yaw, sendbuf + 10);
+//                    float_trans_int(angle_rel.pitch, sendbuf + 14);
+//                    float_trans_int(angle_rel.roll, sendbuf + 18);
+//                    float_trans_int(angle_rel.yaw, sendbuf + 22);
+//                    sendbuf[26] = 0xFA;
+//                    
+//                    R_SCI_UART_Write(g_uart1.p_ctrl, sendbuf, 27);
+//                    while(uart1_send_complete_flag == false);
+//                    uart1_send_complete_flag = false;
+
+                    // =====   发送四元数和矢量给串口1   =====
+                    sendbuf[0] = 0xAF;
+                    sendbuf[1] = 0x01;
+                    float_trans_int(q_fore_final.w, sendbuf + 2);
+                    float_trans_int(q_fore_final.x, sendbuf + 6);
+                    float_trans_int(q_fore_final.y, sendbuf + 10);
+                    float_trans_int(q_fore_final.z, sendbuf + 14);
+                    float_trans_int(P_upper[0], sendbuf + 18);
+                    float_trans_int(P_upper[1], sendbuf + 22);
+                    float_trans_int(P_upper[2], sendbuf + 26);
+                    float_trans_int(P_fore[0], sendbuf + 30);
+                    float_trans_int(P_fore[1], sendbuf + 34);
+                    float_trans_int(P_fore[2], sendbuf + 38);
+                    sendbuf[42] = 0xFA;
+                    
+                    R_SCI_UART_Write(g_uart1.p_ctrl, sendbuf, 43);
+                    while(uart1_send_complete_flag == false);
+                    uart1_send_complete_flag = false;
                 
                     // =====   发送四元数给电脑   =====
-                    // sprintf((char *)debug_buf, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n", q_upper_delta.w, q_upper_delta.x, q_upper_delta.y, q_upper_delta.z,
-                    //                                                                     q_fore_delta.w, q_fore_delta.x, q_fore_delta.y, q_fore_delta.z,
-                    //                                                                     q_fore_final.w, q_fore_final.x, q_fore_final.y, q_fore_final.z);
-                    // R_SCI_UART_Write(g_uart1.p_ctrl, debug_buf, strlen((const char*)debug_buf));
-                    // while(uart1_send_complete_flag == false);
-                    // uart1_send_complete_flag = false;
+//                    sprintf((char *)debug_buf, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n", q_upper_delta.w, q_upper_delta.x, q_upper_delta.y, q_upper_delta.z,
+//                                                                                        q_fore_delta.w, q_fore_delta.x, q_fore_delta.y, q_fore_delta.z,
+//                                                                                        q_fore_final.w, q_fore_final.x, q_fore_final.y, q_fore_final.z);
+//                    R_SCI_UART_Write(g_uart1.p_ctrl, debug_buf, strlen((const char*)debug_buf));
+//                    while(uart1_send_complete_flag == false);
+//                    uart1_send_complete_flag = false;
+
+                    // =====   发送矢量给电脑   =====
+//                    sprintf((char *)debug_buf, "%f,%f,%f,%f,%f,%f\n", P_upper[0], P_upper[1], P_upper[2], P_fore[0], P_fore[1], P_fore[2]);
+//                    R_SCI_UART_Write(g_uart1.p_ctrl, debug_buf, strlen((const char*)debug_buf));
+//                    while(uart1_send_complete_flag == false);
+//                    uart1_send_complete_flag = false;
                 }
             }
         

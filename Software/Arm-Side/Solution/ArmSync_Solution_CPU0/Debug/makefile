@@ -26,6 +26,7 @@ RM := rm -rf
 -include src/subdir.mk
 -include ra_gen/subdir.mk
 -include ra/fsp/src/r_sci_b_uart/subdir.mk
+-include ra/fsp/src/r_ospi_b/subdir.mk
 -include ra/fsp/src/r_ipc/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
 -include ra/fsp/src/r_agt/subdir.mk

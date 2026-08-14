@@ -4,12 +4,24 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
+#include "r_ospi_b.h"
+#include "r_spi_flash_api.h"
 #include "r_ipc.h"
 #include "r_sci_b_uart.h"
 #include "r_uart_api.h"
 #include "r_agt.h"
 #include "r_timer_api.h"
 FSP_HEADER
+#if OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+#include "r_dmac.h"
+#endif
+#if OSPI_CFG_DOTF_SUPPORT_ENABLE
+#include "r_sce_if.h"
+#endif
+
+extern const spi_flash_instance_t g_ospi0;
+extern ospi_b_instance_ctrl_t g_ospi0_ctrl;
+extern const spi_flash_cfg_t g_ospi0_cfg;
 /** IPC Instance. */
 extern const ipc_instance_t g_ipc0;
 
@@ -44,15 +56,15 @@ extern const sci_b_uart_extended_cfg_t g_uart9_cfg_extend;
 void UART9_Callback(uart_callback_args_t *p_args);
 #endif
 /** UART on SCI Instance. */
-extern const uart_instance_t g_uart2;
+extern const uart_instance_t g_uart4;
 
 /** Access the UART instance using these structures when calling API functions directly (::p_api is not used). */
-extern sci_b_uart_instance_ctrl_t g_uart2_ctrl;
-extern const uart_cfg_t g_uart2_cfg;
-extern const sci_b_uart_extended_cfg_t g_uart2_cfg_extend;
+extern sci_b_uart_instance_ctrl_t g_uart4_ctrl;
+extern const uart_cfg_t g_uart4_cfg;
+extern const sci_b_uart_extended_cfg_t g_uart4_cfg_extend;
 
-#ifndef UART2_Callback
-void UART2_Callback(uart_callback_args_t *p_args);
+#ifndef UART4_Callback
+void UART4_Callback(uart_callback_args_t *p_args);
 #endif
 /** UART on SCI Instance. */
 extern const uart_instance_t g_uart0;

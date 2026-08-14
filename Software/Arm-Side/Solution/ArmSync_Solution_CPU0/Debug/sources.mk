@@ -87,6 +87,7 @@ ra/fsp/src/bsp/mcu/ra8p1 \
 ra/fsp/src/r_agt \
 ra/fsp/src/r_ioport \
 ra/fsp/src/r_ipc \
+ra/fsp/src/r_ospi_b \
 ra/fsp/src/r_sci_b_uart \
 ra_gen \
 src/FreeRTOS/FreeRTOS-Kernel \

@@ -22,9 +22,7 @@ void IPC::init() {
 }
 
 void IPC::tick() {
-    _tick++;
-
-    // TODO: WATCHDOG - if no ctrl update for > 500ms, arm.stop()
+    _tick++;   // 1ms system clock (kept lightweight; watchdog handled in main loop)
 }
 
 bool IPC::getCtrlPacket(MotionPlanPacket &plan, float &grip_percent) {
@@ -38,6 +36,7 @@ bool IPC::getCtrlPacket(MotionPlanPacket &plan, float &grip_percent) {
         return false;
     }
     _lastRx = _rx->timestamp;
+    _wdgTick = _tick;   // rearm watchdog on every fresh ctrl packet
 
     plan = _rx->motion_pkt;
     grip_percent = _rx->grip_percent;

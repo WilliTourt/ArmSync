@@ -275,7 +275,7 @@ FSP Configuration
     PLL2 Src: XTAL
     PLL2 Div /3
     PLL2 Mul x280-300|Mul x300|PLL2 Mul x300.00
-    PLL2P Div /4
+    PLL2P Div /8
     PLL2Q Div /3
     PLL2R Div /5
     Clock Src: PLL1P
@@ -304,8 +304,8 @@ FSP Configuration
     SPICLK Div /1
     CANFDCLK Src: PLL2R
     CANFDCLK Div /6
-    GPTCLK Src: PLL2P
-    GPTCLK Div /4
+    GPTCLK Src: PLL2R
+    GPTCLK Div /3
     GPT Src: GPTCLK
     LCDCLK Disabled
     LCDCLK Div /2
@@ -315,8 +315,8 @@ FSP Configuration
     USBCLK Div /10
     USB60CLK Disabled
     USB60CLK Div /8
-    OCTACLK Disabled
-    OCTACLK Div /1
+    OCTACLK Src: PLL2P
+    OCTACLK Div /3
     ADCCLK Disabled
     ADCCLK Div /4
     ESWCLK Disabled
@@ -354,14 +354,14 @@ FSP Configuration
       P013 N9 - - - - Disabled - - "ADC1: AN013; IRQ: IRQ14" - None - - 
       P014 T8 - - - - Disabled - - "ACMPHS: IVCMP0; ADC0: AN014; DAC120: DA0; IRQ: IRQ27" - None - - 
       P015 U8 - - - - Disabled - - "ACMPHS: IVCMP0; ADC1: AN015; DAC121: DA1; IRQ: IRQ13" - None - - 
-      P100 U6 - - - - Disabled - - "AGT0: AGTIO0; ESWM_GMII/MII: GPTP1_MATCH; ESWM_RGMII1: GPTP1_MATCH; ESWM_RMII1: GPTP1_MATCH; GPT8: GTIOC8B; GPT_POEGA: GTETRGA; IRQ: IRQ2; OSPI0: OM_0_SIO0; SCI9: DE9; SCI9: SCK9; SPI1: MISO1" - None - - 
-      P101 R5 - - - - Disabled - - "AGT0: AGTEE0; ESWM_GMII/MII: GPTP1_CAPTURE; ESWM_RGMII1: GPTP1_CAPTURE; ESWM_RMII1: GPTP1_CAPTURE; GPT8: GTIOC8A; GPT_POEGB: GTETRGB; IRQ: IRQ1; OSPI0: OM_0_SIO3; SCI9: RXD9; SPI1: MOSI1" - None - - 
+      P100 U6 OSPI0_OM_0_SIO0 - L None "Peripheral mode" - - "AGT0: AGTIO0; ESWM_GMII/MII: GPTP1_MATCH; ESWM_RGMII1: GPTP1_MATCH; ESWM_RMII1: GPTP1_MATCH; GPT8: GTIOC8B; GPT_POEGA: GTETRGA; IRQ: IRQ2; OSPI0: OM_0_SIO0; SCI9: DE9; SCI9: SCK9; SPI1: MISO1" - IO - - 
+      P101 R5 OSPI0_OM_0_SIO3 - L None "Peripheral mode" - - "AGT0: AGTEE0; ESWM_GMII/MII: GPTP1_CAPTURE; ESWM_RGMII1: GPTP1_CAPTURE; ESWM_RMII1: GPTP1_CAPTURE; GPT8: GTIOC8A; GPT_POEGB: GTETRGB; IRQ: IRQ1; OSPI0: OM_0_SIO3; SCI9: RXD9; SPI1: MOSI1" - IO - - 
       P102 P5 - - - - Disabled - - "ADC0(Digital): ADTRG0; AGT0: AGTO0; CANFD0: CRX0; GPT2: GTIOC2B; GPT_OPS: GTOWLO; IRQ: IRQ17; OSPI0: OM_0_SIO4; SCI9: TXD9; SPI1: RSPCK1" - None - - 
-      P103 R4 - - - - Disabled - - "ADC1(Digital): AD1FLAG1; CANFD0: CTX0; ESWM_GMII/MII: GPTP0_PPS; ESWM_RGMII0: GPTP0_PPS; ESWM_RMII0: GPTP0_PPS; GPT2: GTIOC2A; GPT_OPS: GTOWUP; IRQ: IRQ16; OSPI0: OM_0_SIO2; SCI9: CTS_RTS9; SCI9: DE9; SPI1: SSLB0" - None - - 
+      P103 R4 OSPI0_OM_0_SIO2 - L None "Peripheral mode" - - "ADC1(Digital): AD1FLAG1; CANFD0: CTX0; ESWM_GMII/MII: GPTP0_PPS; ESWM_RGMII0: GPTP0_PPS; ESWM_RMII0: GPTP0_PPS; GPT2: GTIOC2A; GPT_OPS: GTOWUP; IRQ: IRQ16; OSPI0: OM_0_SIO2; SCI9: CTS_RTS9; SCI9: DE9; SPI1: SSLB0" - IO - - 
       P104 M6 - - - - Disabled - - "ADC0(Digital): AD0FLAG1; ESWM_GMII/MII: GPTP0_MATCH; ESWM_RGMII0: GPTP0_MATCH; ESWM_RMII0: GPTP0_MATCH; GPT1: GTIOC1B; GPT_POEGB: GTETRGB; IRQ: IRQ1; OSPI0: OM_0_CS1; SCI9: CTS9; SPI1: SSLB1" - None - - 
       P105 N7 - - - - Disabled - - "ADC(Digital): ADSYNC; ESWM_GMII/MII: GPTP0_CAPTURE; ESWM_RGMII0: GPTP0_CAPTURE; ESWM_RMII0: GPTP0_CAPTURE; GPT1: GTIOC1A; IRQ: IRQ0; OSPI0: OM_0_ECSINT1; SCI8: CTS_RTS8; SCI8: DE8; SPI1: SSLB2; ULPT1: ULPTO1-DS" - None - - 
       P106 N6 - - - - Disabled - - "ADC1(Digital): ADST1; AGT0: AGTOB0; ESWM_GMII/MII: ET1_LINKSTA; ESWM_RGMII1: ET1_LINKSTA; ESWM_RMII1: ET1_LINKSTA; GPT8: GTIOC8B; GPT_OPS: GTOWLO; IRQ: IRQ16; OSPI0: OM_0_RESET; SCI8: CTS8; SPI1: SSLB3; ULPT1: ULPTEE1-DS" - None - - 
-      P107 N5 - - - - Disabled - - "ADC0(Digital): ADST0; AGT0: AGTOA0; ESWM_GMII/MII: ET1_INT; ESWM_RGMII1: ET1_INT; ESWM_RMII1: ET1_INT; GPT8: GTIOC8A; GPT_OPS: GTOWUP; IRQ: IRQ31; OSPI0: OM_0_CS0; SCI4: CTS4" - None - - 
+      P107 N5 OSPI0_OM_0_CS0 - L None "Peripheral mode" - - "ADC0(Digital): ADST0; AGT0: AGTOA0; ESWM_GMII/MII: ET1_INT; ESWM_RGMII1: ET1_INT; ESWM_RMII1: ET1_INT; GPT8: GTIOC8A; GPT_OPS: GTOWUP; IRQ: IRQ31; OSPI0: OM_0_CS0; SCI4: CTS4" - IO - - 
       P108 D8 - - - - Disabled - - "GPT10: GTIOC10B; IRQ: IRQ24; SDHI0: SD0DAT6" - None - - 
       P109 D7 - - - - Disabled - - "GPT10: GTIOC10A; IRQ: IRQ23; SDHI0: SD0DAT5" - None - - 
       P110 C8 GPIO LED_USER HH - "Output mode (Initial Low)" - - "GPT9: GTIOC9B; IRQ: IRQ20; SDHI0: SD0DAT4" - IO - - 
@@ -457,17 +457,17 @@ FSP Configuration
       P711 N15 - - - - Disabled - - "AGT0: AGTEE0; ESWM_GMII/MII: GPTP0_PPS; ESWM_RGMII0: GPTP0_PPS; ESWM_RMII0: GPTP0_PPS; GLCDC: LCD_DATA19; GPT11: GTIOC11A; IRQ: IRQ3; SCI1: CTS_RTS1; SCI1: DE1; SPI1: SSLB2" - None - - 
       P712 N13 - - - - Disabled - - "AGT0: AGTOB0; ESWM_GMII/MII: GPTP1_CAPTURE; ESWM_RGMII1: GPTP1_CAPTURE; ESWM_RMII1: GPTP1_CAPTURE; GLCDC: LCD_DATA20; GPT2: GTIOC2B; IRQ: IRQ2; SCI1: CTS1; SPI1: SSLB1" - None - - 
       P713 N16 - - - - Disabled - - "AGT0: AGTOA0; ESWM_GMII/MII: GPTP1_MATCH; ESWM_RGMII1: GPTP1_MATCH; ESWM_RMII1: GPTP1_MATCH; GLCDC: LCD_DATA21; GPT2: GTIOC2A; IRQ: IRQ14; SCI4: CTS4" - None - - 
-      P714 N14 - - - - Disabled - - "ESWM_GMII/MII: GPTP1_PPS; ESWM_RGMII1: GPTP1_PPS; ESWM_RMII1: GPTP1_PPS; GLCDC: LCD_DATA22; GPT12: GTIOC12B; IRQ: IRQ13; MIPI: DSI_TE; SCI4: TXD4" - None - - 
-      P715 T15 - - - - Disabled - - "ESWM_GMII/MII: ET_TAS_STA2; ESWM_RGMII: ET_TAS_STA2; ESWM_RMII: ET_TAS_STA2; GLCDC: LCD_DATA23; GPT12: GTIOC12A; IRQ: IRQ12; SCI4: RXD4" - None - - 
+      P714 N14 SCI4_TXD4 - L None "Peripheral mode" - - "ESWM_GMII/MII: GPTP1_PPS; ESWM_RGMII1: GPTP1_PPS; ESWM_RMII1: GPTP1_PPS; GLCDC: LCD_DATA22; GPT12: GTIOC12B; IRQ: IRQ13; MIPI: DSI_TE; SCI4: TXD4" - O - - 
+      P715 T15 SCI4_RXD4 - L None "Peripheral mode" - - "ESWM_GMII/MII: ET_TAS_STA2; ESWM_RGMII: ET_TAS_STA2; ESWM_RMII: ET_TAS_STA2; GLCDC: LCD_DATA23; GPT12: GTIOC12A; IRQ: IRQ12; SCI4: RXD4" - I - - 
       P800 T6 - - - - Disabled - - "AGT0: AGTOA0; GPT11: GTIOC11A; GPT_OPS: GTIU; IRQ: IRQ11; OSPI0: OM_0_SIO5; SCI2: CTS2" - None - - 
-      P801 P6 SCI2_TXD2 - L None "Peripheral mode" - - "AGT0: AGTOB0; ESWM_GMII/MII: GPTP1_PPS; ESWM_RGMII1: GPTP1_PPS; ESWM_RMII1: GPTP1_PPS; GPT11: GTIOC11B; GPT_OPS: GTIV; IRQ: IRQ12; OSPI0: OM_0_DQS; SCI2: TXD2" - O - - 
-      P802 R6 SCI2_RXD2 - L None "Peripheral mode" - - "GPT12: GTIOC12A; GPT_OPS: GTIW; IRQ: IRQ18; OSPI0: OM_0_SIO6; SCI2: RXD2" - I - - 
-      P803 P7 - - - - Disabled - - "GPT12: GTIOC12B; GPT_POEGC: GTETRGC; IRQ: IRQ19; OSPI0: OM_0_SIO1; SCI2: DE2; SCI2: SCK2" - None - - 
+      P801 P6 - - - - Disabled - - "AGT0: AGTOB0; ESWM_GMII/MII: GPTP1_PPS; ESWM_RGMII1: GPTP1_PPS; ESWM_RMII1: GPTP1_PPS; GPT11: GTIOC11B; GPT_OPS: GTIV; IRQ: IRQ12; OSPI0: OM_0_DQS; SCI2: TXD2" - None - - 
+      P802 R6 - - - - Disabled - - "GPT12: GTIOC12A; GPT_OPS: GTIW; IRQ: IRQ18; OSPI0: OM_0_SIO6; SCI2: RXD2" - None - - 
+      P803 P7 OSPI0_OM_0_SIO1 - L None "Peripheral mode" - - "GPT12: GTIOC12B; GPT_POEGC: GTETRGC; IRQ: IRQ19; OSPI0: OM_0_SIO1; SCI2: DE2; SCI2: SCK2" - IO - - 
       P804 R7 - - - - Disabled - - "GPT13: GTIOC13A; GPT_POEGD: GTETRGD; IRQ: IRQ14; MIPI: DSI_TE; OSPI0: OM_0_SIO7; SCI2: CTS_RTS2; SCI2: DE2" - None - - 
       P805 P12 - - - - Disabled - - "ACMPHS: IVCMP0; ADC0: AN017; ADC1: AN017; CEU: VIO_D15; ESWM_GMII/MII: ET1_MDIO; ESWM_RGMII1: ET1_MDIO; ESWM_RMII1: ET1_MDIO; GLCDC: LCD_TCON1; IRQ: IRQ30; SCI8: TXD8" - None - - 
       P806 T14 - - - - Disabled - - "ADC0: AN018; ADC1: AN018; CEU: VIO_D14; ESWM_GMII/MII: ET1_MDC; ESWM_RGMII1: ET1_MDC; ESWM_RMII1: ET1_MDC; GLCDC: LCD_TCON0; IRQ: IRQ0; SCI8: RXD8" - None - - 
       P807 N11 - - - - Disabled - - "GLCDC: LCD_TCON2; GPT13: GTIOC13A; IRQ: IRQ11" - None - - 
-      P808 U5 - - - - Disabled - - "GPT13: GTIOC13B; IRQ: IRQ15; OSPI0: OM_0_SCLK; SCI7: RXD7" - None - - 
+      P808 U5 OSPI0_OM_0_SCLK - L None "Peripheral mode" - - "GPT13: GTIOC13B; IRQ: IRQ15; OSPI0: OM_0_SCLK; SCI7: RXD7" - IO - - 
       P809 T5 - - - - Disabled - - "IRQ: IRQ20; OSPI0: OM_0_SCLKN; SCI7: TXD7" - None - - 
       P810 M9 - - - - Disabled - - "GPT10: GTIOC10A; IRQ: IRQ21; PDM0: PDMCLK0; SCI7: DE7; SCI7: SCK7; SDHI1: SD1DAT2; ULPT0: ULPTOA0" - None - - 
       P811 N8 - - - - Disabled - - "GPT10: GTIOC10B; IRQ: IRQ22; PDM1: PDMCLK1; SCI7: CTS7; SDHI1: SD1DAT3; ULPT0: ULPTOB0; USB FS: USB_ID" - None - - 
@@ -645,6 +645,16 @@ FSP Configuration
   Module "IPC (r_ipc)"
     Parameter Checking: Default (BSP)
     
+  Module "OSPI (r_ospi_b)"
+    Parameter Checking: Default (BSP)
+    DMAC Support: Disable
+    Autocalibration Support: Disable
+    Memory-mapping Support: Prefetch Function: Enable
+    Memory-mapping Support: Combination Function: 64 Bytes
+    Memory-mapping Support: XiP Support: Disable
+    DOTF Support: Disable
+    Row Addressing Support: Disable
+    
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
       Name: g_ioport
@@ -700,9 +710,9 @@ FSP Configuration
       Interrupts: Transmit End Interrupt Priority: Priority 12
       Interrupts: Error Interrupt Priority: Priority 12
       
-    Instance "g_uart2 UART (r_sci_b_uart)"
-      General: Name: g_uart2
-      General: Channel: 2
+    Instance "g_uart4 UART (r_sci_b_uart)"
+      General: Name: g_uart4
+      General: Channel: 4
       General: Data Bits: 8bits
       General: Parity: None
       General: Stop Bits: 1bit
@@ -721,7 +731,7 @@ FSP Configuration
       Extra: RS-485: DE Pin Assertion Time: 1
       Extra: RS-485: DE Pin Negation Time: 1
       Extra: TXI/TEI Synchronization Delay Cycles: 0
-      Interrupts: Callback: UART2_Callback
+      Interrupts: Callback: UART4_Callback
       Interrupts: Receive Interrupt Priority: Priority 7
       Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
       Interrupts: Transmit End Interrupt Priority: Priority 12
@@ -786,4 +796,80 @@ FSP Configuration
       Channel: 0
       Callback: IPC0_Callback
       Interrupt Priority: Priority 8
+      
+    Instance "g_ospi0 OSPI (r_ospi_b)"
+      General: Name: g_ospi0
+      General: Unit: OSPI_B0
+      General: Chip Select: CS0
+      General: Write Status Bit: b0
+      General: Write Enable Bit: b1
+      General: DS Auto-calibration Pattern Address: 0x00
+      Command Sets: Custom Table: Table Pointer: 
+      Command Sets: Custom Table: Table Length: 0
+      Command Sets: Custom Table: Erase Command Table: 
+      Command Sets: Custom Table: Erase Command Table Length: 0
+      Command Sets: Erase Sizes: Sector Erase: 0x1000
+      Command Sets: Erase Sizes: Block Erase: 0x8000
+      Command Sets: Initial Mode: Protocol Mode: SPI (1S-1S-1S)
+      Command Sets: Initial Mode: Frame Format: Standard
+      Command Sets: Initial Mode: Latency Mode: Fixed
+      Command Sets: Initial Mode: Address Length: 3 bytes
+      Command Sets: Initial Mode: Address MSB Mask: 0xF0
+      Command Sets: Initial Mode: Command Code Length: 1 byte
+      Command Sets: Initial Mode: Status Register: No address
+      Command Sets: Initial Mode: Status Register Address: 0x0
+      Command Sets: Initial Mode: Read: Command Code: 0x03
+      Command Sets: Initial Mode: Read: Dummy Cycles: 0
+      Command Sets: Initial Mode: Program: Command Code: 0x02
+      Command Sets: Initial Mode: Program: Dummy Cycles: 0
+      Command Sets: Initial Mode: Row Load: Command Code: 0x0
+      Command Sets: Initial Mode: Row Load: Dummy Cycles: 0
+      Command Sets: Initial Mode: Row Store: Command Code: 0x0
+      Command Sets: Initial Mode: Row Store: Dummy Cycles: 0
+      Command Sets: Initial Mode: Write Enable: Command Code: 0x06
+      Command Sets: Initial Mode: Status Read: Command Code: 0x05
+      Command Sets: Initial Mode: Status Read: Dummy Cycles: 0
+      Command Sets: Initial Mode: Sector Erase: Command Code: 0x20
+      Command Sets: Initial Mode: Block Erase: Command Code: 0x52
+      Command Sets: Initial Mode: Chip Erase: Command Code: 0x60
+      Command Sets: High-speed Mode: Protocol Mode: QSPI (1S-4S-4S)
+      Command Sets: High-speed Mode: Frame Format: Standard
+      Command Sets: High-speed Mode: Latency Mode: Fixed
+      Command Sets: High-speed Mode: Address Length: 3 bytes
+      Command Sets: High-speed Mode: Address MSB Mask: 0xF0
+      Command Sets: High-speed Mode: Command Code Length: 1 byte
+      Command Sets: High-speed Mode: Status Register: 3 bytes
+      Command Sets: High-speed Mode: Status Register Address: 0x00
+      Command Sets: High-speed Mode: Read: Command Code: 0xEB
+      Command Sets: High-speed Mode: Read: Dummy Cycles: 6
+      Command Sets: High-speed Mode: Program: Command Code: 0x32
+      Command Sets: High-speed Mode: Program: Dummy Cycles: 0
+      Command Sets: High-speed Mode: Row Load: Command Code: 0x0
+      Command Sets: High-speed Mode: Row Load: Dummy Cycles: 0
+      Command Sets: High-speed Mode: Row Store: Command Code: 0x0
+      Command Sets: High-speed Mode: Row Store: Dummy Cycles: 0
+      Command Sets: High-speed Mode: Write Enable: Command Code: 0x06
+      Command Sets: High-speed Mode: Status Read: Command Code: 0x05
+      Command Sets: High-speed Mode: Status Read: Dummy Cycles: 0
+      Command Sets: High-speed Mode: Sector Erase: Command Code: 0x20
+      Command Sets: High-speed Mode: Block Erase: Command Code: 0x52
+      Command Sets: High-speed Mode: Chip Erase: Command Code: 0x60
+      Timing Settings: Chip Select: Command Interval: 2 cycles
+      Timing Settings: Chip Select: Assertion Extension: No extension
+      Timing Settings: Chip Select: Negation Extension: No extension
+      Timing Settings: DS Latching Delay: Auto-calibrate
+      Timing Settings: SDR: Drive Timing: Drive 1/2 cycle before CK
+      Timing Settings: SDR: CK Sampling Edge: Rising edge
+      Timing Settings: SDR: Sampling Delay: None
+      Timing Settings: DDR: Sampling Window Extension: None
+      XiP Mode: XiP Enter Code: 0
+      XiP Mode: XiP Exit Code: 0
+      DOTF: Name: g_ospi_dotf
+      DOTF: AES Key: g_ospi_dotf_key
+      DOTF: AES IV: g_ospi_dotf_iv
+      DOTF: AES Key Length: 128
+      DOTF: Key Format: Plaintext
+      DOTF: Decryption Start Address: 0x80000000
+      DOTF: Decryption End Address: 0x80001FFF
+      Row Addressing: Row Address Length: No address
       

@@ -19,7 +19,7 @@ void UartRecvTask::uart0Callback(uart_callback_args_t *p_args) {
     }
 }
 
-void UartRecvTask::uart2Callback(uart_callback_args_t *p_args) {
+void UartRecvTask::uart4Callback(uart_callback_args_t *p_args) {
     if (p_args->event == UART_EVENT_RX_CHAR) {
         _rxRingJetson.put((uint8_t)p_args->data);
     }

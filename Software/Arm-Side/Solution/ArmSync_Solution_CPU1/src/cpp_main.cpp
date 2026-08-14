@@ -15,12 +15,11 @@ static const uint8_t kJointAddr[6] = {6, 1, 2, 3, 4, 5};
 static uint8_t pollIndex = 0;
 static bool    pollStatus = false;
 
-// Set in POLL_Callback (AGT ISR), consumed in main loop
-static volatile bool pollPending = false;
-
-
-#define IPC_FEEDBACK_MS 40 
+#define IPC_MS 40 
+#define MOTOR_FEEDBACK_MS 5
 #define GRIPPER_FEEDBACK_MS 25
+
+#define WATCHDOG_MS 500    // arm.stop() if no ctrl from CPU0 within this
 
 
 FSP_HEADER
@@ -29,12 +28,6 @@ void vSysTick(timer_callback_args_t *p_args) {
     (void)p_args;
     ipc.tick();
     ElegantDebug::tick();
-}
-
-// AGT Poll callback: just raise a flag, main loop does the actual polling
-void POLL_Callback(timer_callback_args_t *p_args) {
-    (void)p_args;
-    pollPending = true;
 }
 
 // IPC ISR callback
@@ -74,14 +67,22 @@ static void pollNextFeedback() {
     }
 }
 
+// Emergency stop all 6 motors (called on watchdog trip)
+static void armEmergencyStop() {
+    for (int i = 0; i < 6; i++) {
+        Emm_V5_Stop_Now(kJointAddr[i], true);
+    }
+    Emm_V5_Synchronous_motion(0);
+}
+
 void cpp_main() {
 
     R_SCI_B_UART_Open(&g_uart1_ctrl, &g_uart1_cfg);
     R_SCI_B_UART_Open(&g_uart5_ctrl, &g_uart5_cfg);
     R_SCI_B_UART_Open(&g_uart8_ctrl, &g_uart8_cfg);
 
-    R_AGT_Open(&agt_Poll_ctrl, &agt_Poll_cfg);
-    R_AGT_Start(&agt_Poll_ctrl);
+    R_AGT_Open(&agt_SysTick_ctrl, &agt_SysTick_cfg);
+    R_AGT_Start(&agt_SysTick_ctrl);
 
     ipc.init();
 
@@ -94,14 +95,27 @@ void cpp_main() {
 
     dbg.info("M33 main loop started.\n");
 
-    uint32_t lastFeedbackMs = 0;
-    uint32_t lastGripMs = 0;
+    uint32_t lastIPCMs = 0;
+    uint32_t lastMotorFbMs = 0;
+    uint32_t lastGripFbMs = 0;
+    bool dogBark = false;
 
     while (1) {
+        // Watchdog: if CPU0 stops sending ctrl, emergency-stop the arm
+        if (ipc.isWatchDogHungry(WATCHDOG_MS)) {
+            if (!dogBark) {
+                dogBark = true;
+                armEmergencyStop();
+                dbg.logWithType("M33", COLOR_RED, "WATCHDOG: no ctrl from CPU0 for %dms, EMERGENCY STOP!\n", WATCHDOG_MS);
+            }
+        } else {
+            dogBark = false;   // link healthy again
+        }
+
         // Receive motion plan from CPU0, drive motors directly
         MotionPlanPacket plan;
         float gripPercent;
-        if (ipc.getCtrlPacket(plan, gripPercent)) {
+        if (!dogBark && ipc.getCtrlPacket(plan, gripPercent)) {
             for (int i = 0; i < 6; i++) {
                 Emm_V5_Pos_Control(kJointAddr[i],
                                    plan.motors[i].dir,
@@ -124,8 +138,8 @@ void cpp_main() {
 
         // Send feedback to CPU0
         uint32_t now = ipc.getTick();
-        if (now - lastFeedbackMs >= IPC_FEEDBACK_MS) {
-            lastFeedbackMs = now;
+        if (now - lastIPCMs >= IPC_MS) {
+            lastIPCMs = now;
 
             float angles_deg[6] = {0};
             bool locked[6] = {false};
@@ -147,16 +161,16 @@ void cpp_main() {
             ipc.sendFeedback(angles_deg, gripAngle, locked, stuck);
         }
 
-        // Update gripper feedback
-        if (now - lastGripMs >= GRIPPER_FEEDBACK_MS) {
-            lastGripMs = now;
-            gripper.updateFeedback();
+        // Poll next motor's feedback
+        if (now - lastMotorFbMs >= MOTOR_FEEDBACK_MS) {
+            lastMotorFbMs = now;
+            pollNextFeedback();
         }
 
-        // Poll next motor's feedback
-        if (pollPending) {
-            pollPending = false;
-            pollNextFeedback();
+        // Update gripper feedback
+        if (now - lastGripFbMs >= GRIPPER_FEEDBACK_MS) {
+            lastGripFbMs = now;
+            gripper.updateFeedback();
         }
 
         R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MILLISECONDS);

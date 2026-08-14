@@ -29,7 +29,7 @@ class Motor {
               float reductionRatio,
               bool inverted = false,
               uint16_t velocity = 100U,
-              uint8_t accel = 150U,
+              uint8_t accel = 182U,
               uint16_t microsteps = 16U,
               float stepAngleDeg = 1.8f);
 
