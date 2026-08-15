@@ -3,6 +3,7 @@
 #include <FreeRTOS/Task.hpp>
 #include <FreeRTOS/Queue.hpp>
 #include "queues.h"
+#include "RecPlayTask/RecPlayTask.h"
 #include "ringbuf.h"
 
 class UITask : public FreeRTOS::Task {
@@ -13,13 +14,6 @@ class UITask : public FreeRTOS::Task {
             MEMORY_INIT = 45,
             ARM_SELFCHK = 68,
             DONE        = 100
-        };
-
-        enum CmdFlag {
-            CMD_ESTOP = (0b0001 << 0),
-            CMD_HOME  = (0b0001 << 1),
-            CMD_PLAY  = (0b0001 << 2),
-            CMD_REC   = (0b0001 << 3)
         };
 
         enum class StatusText {
@@ -41,11 +35,19 @@ class UITask : public FreeRTOS::Task {
         void updateFreq(int hz);
         void updateHMS(int line, const char* msg);
 
+        void setTaskHandles(TaskHandle_t fusion, TaskHandle_t recplay,
+                            TaskHandle_t uartRecv, TaskHandle_t normalize,
+                            TaskHandle_t ik);
+
     private:
         void taskFunction() override;
 
         void _send(const char* fmt, ...);
         void _parseScreenInput();
+        void _notifyFusion();   // push current UICommand to FusionTask
+        void _notifyRecPlay(RecPlayTask::RecCmd cmd);
+        void _suspendUpstream();
+        void _resumeUpstream();
 
         void _updateJointAngle(int idx, float angle_deg);
         void _updateJointStatus(int idx, bool ok);
@@ -58,6 +60,18 @@ class UITask : public FreeRTOS::Task {
 
         static constexpr uint16_t tjcCOLOR_GREEN = 16049;
         static constexpr uint16_t tjcCOLOR_RED   = 57929;
+
+        TaskHandle_t _fusionHandle = nullptr;   // receives UICommand (REC start/end)
+        TaskHandle_t _recPlayHandle = nullptr;  // receives RecCmd (PLAY start/end)
+
+        // Tasks suspended while PLAY is active (everything upstream of Motion).
+        TaskHandle_t _suspendHandles[4] = {nullptr, nullptr, nullptr, nullptr};
+
+        // UI state with mutual-exclusion rules:
+        //  - while PLAY: REC and HOME are ignored (ESTOP valid)
+        //  - while REC : PLAY is ignored; HOME (homing) remains valid (ESTOP valid)
+        bool _isRecording = false;
+        bool _isPlaying   = false;
 
         FreeRTOS::Queue<sharedDatatype::IPCFeedback>     &_fdbk;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeUIQueue;

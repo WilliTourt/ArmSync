@@ -22,11 +22,15 @@ class FusionTask : public FreeRTOS::Task {
     public:
         FusionTask(FreeRTOS::Queue<sharedDatatype::JointAngleData> &ikQueue,
                    FreeRTOS::Queue<sharedDatatype::JointAngleData> &npuQueue,
-                   FreeRTOS::Queue<sharedDatatype::PitchData>      &pitchQueue,
-                   FreeRTOS::Queue<sharedDatatype::JointAngleData> &outQueue)
+                   FreeRTOS::Queue<sharedDatatype::HandJointData>   &handQueue,
+                   FreeRTOS::Queue<sharedDatatype::JointAngleData> &outQueue,
+                   FreeRTOS::Queue<sharedDatatype::JointAngleData> &recQueue)
             : Task(tskIDLE_PRIORITY + 3, 1024, "Fusion"),
               _ikQueue(ikQueue), _npuQueue(npuQueue),
-              _pitchQueue(pitchQueue), _outQueue(outQueue) {}
+              _handQueue(handQueue), _outQueue(outQueue), _recQueue(recQueue) {}
+
+        void setUIHandle(TaskHandle_t handle);
+        void setRecHandle(TaskHandle_t handle);   // RecPlayTask (for REC_DONE notify)
 
     private:
         void taskFunction() override;
@@ -38,10 +42,15 @@ class FusionTask : public FreeRTOS::Task {
         static constexpr float J6_MIN_DEG = -90.0f;
         static constexpr float J6_MAX_DEG =  90.0f;
 
+        TaskHandle_t _uiHandle = nullptr;
+        TaskHandle_t _recHandle = nullptr;
+        bool         _recording = false;   // true while UI says REC
+
         float _mapPitchToJ6(float pitch_percent) const;
 
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_ikQueue;
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_npuQueue;
-        FreeRTOS::Queue<sharedDatatype::PitchData>      &_pitchQueue;
+        FreeRTOS::Queue<sharedDatatype::HandJointData>   &_handQueue;  // J5 roll + pitch
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_outQueue;
+        FreeRTOS::Queue<sharedDatatype::JointAngleData> &_recQueue;  // record tap
 };

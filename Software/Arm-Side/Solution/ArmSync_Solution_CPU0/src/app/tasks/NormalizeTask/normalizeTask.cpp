@@ -4,135 +4,77 @@
 
 extern ElegantDebug dbg;
 
-static void rotX(float m[9], float rad) {
-    float c = cosf(rad), s = sinf(rad);
-    m[0]=1; m[1]=0; m[2]=0;
-    m[3]=0; m[4]=c; m[5]=-s;
-    m[6]=0; m[7]=s; m[8]=c;
-}
-static void rotY(float m[9], float rad) {
-    float c = cosf(rad), s = sinf(rad);
-    m[0]=c; m[1]=0; m[2]=s;
-    m[3]=0; m[4]=1; m[5]=0;
-    m[6]=-s; m[7]=0; m[8]=c;
-}
-static void rotZ(float m[9], float rad) {
-    float c = cosf(rad), s = sinf(rad);
-    m[0]=c; m[1]=-s; m[2]=0;
-    m[3]=s; m[4]=c; m[5]=0;
-    m[6]=0; m[7]=0; m[8]=1;
-}
-static void matMul(float C[9], const float A[9], const float B[9]) {
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
-            C[i*3+j] = A[i*3+0]*B[0*3+j] + A[i*3+1]*B[1*3+j] + A[i*3+2]*B[2*3+j];
-}
-static void matVec(float out[3], const float M[9], const float v[3]) {
-    for (int i = 0; i < 3; i++)
-        out[i] = M[i*3+0]*v[0] + M[i*3+1]*v[1] + M[i*3+2]*v[2];
-}
-
-/*
- * 6 controller angles (DEGREES) → elbow + wrist 3D positions (METERS)
- *   upperPitch = forward/back → X
- *   upperRoll  = arm twist    → Z
- *   upperYaw   = in/out       → Y
- */
-void NormalizeTask::_armFK(const float ang_deg[6], float elbow_m[3], float wrist_m[3]) {
-    float up_p = ang_deg[0] * DEG2RAD;
-    float up_r = ang_deg[1] * DEG2RAD;
-    float up_y = ang_deg[2] * DEG2RAD;
-    float rl_p = ang_deg[3] * DEG2RAD;
-    float rl_r = ang_deg[4] * DEG2RAD;
-    float rl_y = ang_deg[5] * DEG2RAD;
-
-    // R_up = Y(yaw) * X(pitch) * Z(roll)
-    float Ry[9], Rx[9], Rz[9], tmp[9], R_up[9];
-    rotY(Ry, up_y); rotX(Rx, up_p); rotZ(Rz, up_r);
-    matMul(tmp, Ry, Rx);
-    matMul(R_up, tmp, Rz);
-
-    float bone_up[3] = {0, 0, -HUMAN_UPPER_M};
-    matVec(elbow_m, R_up, bone_up);
-
-    // R_rel = Y(rel_yaw) * X(rel_pitch) * Z(rel_roll)
-    rotY(Ry, rl_y); rotX(Rx, rl_p); rotZ(Rz, rl_r);
-    float R_rel[9];
-    matMul(tmp, Ry, Rx);
-    matMul(R_rel, tmp, Rz);
-
-    // R_fa = R_up * R_rel
-    float R_fa[9];
-    matMul(R_fa, R_up, R_rel);
-
-    float bone_fa[3] = {0, 0, -HUMAN_FOREARM_M};
-    float wrist_delta[3];
-    matVec(wrist_delta, R_fa, bone_fa);
-    wrist_m[0] = elbow_m[0] + wrist_delta[0];
-    wrist_m[1] = elbow_m[1] + wrist_delta[1];
-    wrist_m[2] = elbow_m[2] + wrist_delta[2];
-}
-
-
 // ====== NormalizeTask ======
 
 void NormalizeTask::taskFunction() {
     dbg.info("NormalizeTask started.\n");
 
-    TickType_t lastPushTick = 0;
     for (;;) {
         auto rx = _inQueue.receive(portMAX_DELAY);
         if (!rx) continue;
 
         sharedDatatype::ArmKPCoords kp = {};
+        sharedDatatype::HandJointData hd = {};
         sharedDatatype::EndEffectorData ee = {};
-        sharedDatatype::PitchData pitch = {};
-        
-        // ---- Controller FK: elbow + wrist (m → mm) ----
-        {
-            float el_m[3], wr_m[3];
-            _armFK(rx->ctrllerData.angles, el_m, wr_m);
-            kp.elbowCoord[0] = el_m[0] * 1000.0f;
-            kp.elbowCoord[1] = el_m[1] * 1000.0f;
-            kp.elbowCoord[2] = el_m[2] * 1000.0f;
-            kp.wristCoord[0] = wr_m[0] * 1000.0f;
-            kp.wristCoord[1] = wr_m[1] * 1000.0f;
-            kp.wristCoord[2] = wr_m[2] * 1000.0f;
 
-            // ---- Fuse with Jetson (if available) ----
-            if (rx->jetsonData.valid) {
-                for (int i = 0; i < 3; i++) {
-                    float je = (float)rx->jetsonData.points[0][i];
-                    float jw = (float)rx->jetsonData.points[1][i];
-                    kp.elbowCoord[i] = FUSION_ALPHA * je + (1.0f - FUSION_ALPHA) * kp.elbowCoord[i];
-                    kp.wristCoord[i] = FUSION_ALPHA * jw + (1.0f - FUSION_ALPHA) * kp.wristCoord[i];
-                }
-            }
-        }
+        // ---- 1. Hand unit-vectors -> elbow/wrist coordinates (mm) ----
+        // elbow = ev * UPPER_LEN ; wrist = elbow + wv * FORE_LEN
+        const float *ev = rx->ctrllerData.elbowVec;   // upper-arm unit vec
+        const float *wv = rx->ctrllerData.wristVec;   // forearm unit vec
+        float el[3] = {
+            ev[0] * (HUMAN_UPPER_M * 1000.0f),
+            ev[1] * (HUMAN_UPPER_M * 1000.0f),
+            ev[2] * (HUMAN_UPPER_M * 1000.0f)
+        };
+        float wr[3] = {
+            el[0] + wv[0] * (HUMAN_FOREARM_M * 1000.0f),
+            el[1] + wv[1] * (HUMAN_FOREARM_M * 1000.0f),
+            el[2] + wv[2] * (HUMAN_FOREARM_M * 1000.0f)
+        };
 
-        // ---- Gripper (every frame, low latency) ----
-        {
-            ee.grip_percent = rx->ctrllerData.adc[0];  // already 0~100 from controller
-            ee.timestamp    = rx->timestamp;
-            _eeQueue.sendToBack(ee, 0);
-            _eeUIQueue.sendToBack(ee, 0);
-        }
+        // No shoulder offset, IKTask applies the J1->J2 121mm shift
 
-        // ---- Pitch -> FusionTask (maps to J6) ----
-        {
-            pitch.pitch_percent = rx->ctrllerData.adc[1];
-            pitch.timestamp     = rx->timestamp;
-            _pitchQueue.sendToBack(pitch, 0);
-        }
-
-        // ---- IK data: only push if Jetson is providing valid positions ----
+        // ---- 2. Fuse with Jetson keypoints (J1~J4 alpha blend) ----
         if (rx->jetsonData.valid) {
-            TickType_t now = xTaskGetTickCount();
-            if ((now - lastPushTick) >= pdMS_TO_TICKS(40)) {
-                lastPushTick = now;
-                kp.timestamp = rx->timestamp;
-                _kpQueue.sendToBack(kp, 0);
+            for (int i = 0; i < 3; i++) {
+                float je = (float)rx->jetsonData.points[0][i];
+                float jw = (float)rx->jetsonData.points[1][i];
+                el[i] = FUSION_ALPHA * je + (1.0f - FUSION_ALPHA) * el[i];
+                wr[i] = FUSION_ALPHA * jw + (1.0f - FUSION_ALPHA) * wr[i];
             }
         }
+
+        kp.elbowCoord[0] = el[0];
+        kp.elbowCoord[1] = el[1];
+        kp.elbowCoord[2] = el[2];
+        kp.wristCoord[0] = wr[0];
+        kp.wristCoord[1] = wr[1];
+        kp.wristCoord[2] = wr[2];
+        kp.timestamp = rx->timestamp;
+
+        // ---- 3. J5 forearm rotation from controller (forearm_pitch, computed on the handset) ----
+        hd.j5deg         = rx->ctrllerData.forearmPitch;
+        hd.pitch_percent = rx->ctrllerData.pitchPercent;
+        hd.timestamp     = rx->timestamp;
+
+        // ---- 4. Outputs ----
+        _kpQueue.sendToBack(kp, 0);
+
+        _handQueue.sendToBack(hd, 0);
+
+        // Grip (UI + control)
+        ee.grip_percent = rx->ctrllerData.gripPercent;
+        ee.timestamp    = rx->timestamp;
+        _eeQueue.sendToBack(ee, 0);
+        _eeUIQueue.sendToBack(ee, 0);
+
+        // Float-free but precision-kept (one decimal): avoids %%f malloc chain.
+        dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
+            "Elbow(%d,%d,%d), Wrist(%d,%d,%d), no-use-data:(J5=%d.%d Gripper=%d j6Pitch=%d)\n",
+            (int)el[0], (int)el[1], (int)el[2],
+            (int)wr[0], (int)wr[1], (int)wr[2],
+            (int)hd.j5deg,
+            (int)(fabsf(hd.j5deg - (int)hd.j5deg) * 10.0f),
+            (int)ee.grip_percent, (int)hd.pitch_percent);
     }
 }

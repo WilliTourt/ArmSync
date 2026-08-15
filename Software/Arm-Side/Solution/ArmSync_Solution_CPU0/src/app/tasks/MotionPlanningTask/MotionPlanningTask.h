@@ -12,9 +12,10 @@
 class MotionPlanningTask : public FreeRTOS::Task {
     public:
         MotionPlanningTask(FreeRTOS::Queue<sharedDatatype::JointAngleData>   &inQueue,
+                           FreeRTOS::Queue<sharedDatatype::JointAngleData>   &inReplayQueue,
                            FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &outQueue)
             : Task(tskIDLE_PRIORITY + 3, 2048, "MotionPlan"),
-              _inQueue(inQueue), _outQueue(outQueue),
+              _inQueue(inQueue), _replayQueue(inReplayQueue), _outQueue(outQueue),
               _arm(_j1, _j2, _j3, _j4, _j5, _j6) {}
 
     private:
@@ -30,6 +31,7 @@ class MotionPlanningTask : public FreeRTOS::Task {
 
         Arm _arm;
 
-        FreeRTOS::Queue<sharedDatatype::JointAngleData>  &_inQueue;
+        FreeRTOS::Queue<sharedDatatype::JointAngleData>  &_inQueue;      // live fused joints
+        FreeRTOS::Queue<sharedDatatype::JointAngleData>  &_replayQueue;  // playback feed
         FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &_outQueue;
 };

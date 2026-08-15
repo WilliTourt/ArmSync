@@ -138,15 +138,22 @@ void IKTask::taskFunction() {
                           + (wzP - 0.0f)*(wzP - 0.0f));
         float ewProj = sqrtf((wxP-exP)*(wxP-exP) + (wyP-eyP)*(wyP-eyP) + (wzP-ezP)*(wzP-ezP));
 
-        dbg.logWithType("IK", COLOR_GREEN,
-            "J1=%.1f J2=%.1f J3=%.1f J4=%.1f J5=%.1f J6=%.1f | "
-            "in: Eraw(%.0f,%.0f,%.0f) Wraw(%.0f,%.0f,%.0f)\n"
-            "  proj: E(%.0f,%.0f,%.0f) W(%.0f,%.0f,%.0f) | "
-            "len: d14=%.0f/%.0f d26=%.0f/%.0f ew=%.0f/%.0f\n",
-            j1 * R2D, j2 * R2D, j3 * R2D, j4 * R2D, 0.0f, 0.0f,
-            ex, ey, ez, wx, wy, wz,
-            exP, eyP, ezP, wxP, wyP, wzP,
-            dJ1J4, L_UPPER, dJ2J6, L_UPPER + L_FORE, ewProj, L_FORE);
+        // Float-free but precision-kept (one decimal): avoids %%f malloc chain.
+        // #define _D0(x) ((int)(x))
+        // #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
+        // dbg.logWithType("IK", COLOR_GREEN,
+        //     "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d J6=%d | "
+        //     "in: Eraw(%d,%d,%d) Wraw(%d,%d,%d)\n"
+        //     "  proj: E(%d,%d,%d) W(%d,%d,%d) | "
+        //     "len: d14=%d/%d d26=%d/%d ew=%d/%d\n",
+        //     _D1(j1 * R2D), _D1(j2 * R2D), _D1(j3 * R2D), _D1(j4 * R2D),
+        //     _D0(0.0f), _D0(0.0f),
+        //     _D0(ex), _D0(ey), _D0(ez), _D0(wx), _D0(wy), _D0(wz),
+        //     _D0(exP), _D0(eyP), _D0(ezP), _D0(wxP), _D0(wyP), _D0(wzP),
+        //     _D0(dJ1J4), _D0(L_UPPER), _D0(dJ2J6), _D0(L_UPPER + L_FORE),
+        //     _D0(ewProj), _D0(L_FORE));
+        // #undef _D0
+        // #undef _D1
 
         _outQueue.sendToBack(out, 0);
     }

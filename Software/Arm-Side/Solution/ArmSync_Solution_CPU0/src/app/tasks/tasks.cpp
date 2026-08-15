@@ -5,18 +5,22 @@ BlinkTask blinkTask;
 // Task 1: UART receive (controller + Jetson)
 UartRecvTask uartRecvTask(originalDataQueue);
 
-// Task 2: FK + spatial fusion
+// Task 2: normalize + hand->coord + J5/pitch
 NormalizeTask normalizeTask(originalDataQueue, armKPCoordsQueue,
-                            eeDataQueue, eeUIQueue, pitchDataQueue);
+                            handJointQueue, eeDataQueue, eeUIQueue);
 
 // Task 4: Inverse Kinematics (analytic)
 IKTask ikTask(armKPCoordsQueue, ikJointQueue);
 
-// Task 5: Joint fusion (IK + NPU + pitch->J6)
-FusionTask fusionTask(ikJointQueue, npuJointQueue, pitchDataQueue, fusedJointQueue);
+// Task 5: Joint fusion (J1~J4 IK/NPU + J5 hand + J6 pitch)
+FusionTask fusionTask(ikJointQueue, npuJointQueue, handJointQueue, fusedJointQueue, recQueue);
+
+// Task 5.5: Record / playback of fused joint angles
+RecPlayTask recPlayTask(recQueue, replayQueue, fusedJointQueue);
 
 // Task 6: Motion planning (joint angles -> motion plan)
-MotionPlanningTask motionPlanningTask(fusedJointQueue, motionPlanQueue);
+//   live input: fusedJointQueue, playback input: replayQueue
+MotionPlanningTask motionPlanningTask(fusedJointQueue, replayQueue, motionPlanQueue);
 
 // Task 7: IPC to CPU1 (motion plan -> M33)
 CPUCommTask cpuCommTask(motionPlanQueue, eeDataQueue, IPCFeedbackQueue);

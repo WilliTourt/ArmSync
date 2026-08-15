@@ -13,12 +13,14 @@ RM := rm -rf
 -include src/app/utils/subdir.mk
 -include src/app/tasks/UartRecvTask/subdir.mk
 -include src/app/tasks/UITask/subdir.mk
+-include src/app/tasks/RecPlayTask/subdir.mk
 -include src/app/tasks/NormalizeTask/subdir.mk
 -include src/app/tasks/MotionPlanningTask/subdir.mk
 -include src/app/tasks/IKTask/subdir.mk
 -include src/app/tasks/FusionTask/subdir.mk
 -include src/app/tasks/CPUCommTask/subdir.mk
 -include src/app/tasks/subdir.mk
+-include src/app/flash/subdir.mk
 -include src/app/arm/subdir.mk
 -include src/FreeRTOS/FreeRTOS-Kernel/portable/RM_FSP_PORT/subdir.mk
 -include src/FreeRTOS/FreeRTOS-Kernel/portable/MemMang/subdir.mk

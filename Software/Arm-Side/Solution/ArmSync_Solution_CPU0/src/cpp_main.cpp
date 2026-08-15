@@ -70,6 +70,8 @@ FSP_FOOTER
 
 ElegantDebug dbg(&g_uart9, true, true);
 
+
+
 void cpp_main() {
 
     R_SCI_B_UART_Open(&g_uart3_ctrl, &g_uart3_cfg);
@@ -95,6 +97,17 @@ void cpp_main() {
     uiTask.booting(UITask::BootingPhase::ARM_SELFCHK);
     R_BSP_SoftwareDelay(600, BSP_DELAY_UNITS_MILLISECONDS);
     uiTask.booting(UITask::BootingPhase::DONE);
+
+    // Wire up UI -> Fusion / RecPlay notifications and the handles UITask
+    // needs to suspend the upstream task chain during playback.
+    // (Handles resolved by name; INCLUDE_xTaskGetHandle is enabled.)
+    uiTask.setTaskHandles(FreeRTOS::Task::getHandle("Fusion"),
+                          FreeRTOS::Task::getHandle("RecPlay"),
+                          FreeRTOS::Task::getHandle("UartRecv"),
+                          FreeRTOS::Task::getHandle("Normalize"),
+                          FreeRTOS::Task::getHandle("IK"));
+    fusionTask.setRecHandle(FreeRTOS::Task::getHandle("RecPlay"));
+    recPlayTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));
 
     FreeRTOS::Kernel::startScheduler();
 

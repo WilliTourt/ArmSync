@@ -25,8 +25,15 @@ struct PitchData {
     uint32_t timestamp;
 };
 
+// From NormalizeTask to FusionTask: hand-only joint angles (J5 roll + pitch).
+struct HandJointData {
+    float j5deg;           // forearm roll (from quaternion, degrees)
+    float pitch_percent;   // gripper pitch slider 0~100 (maps to J6)
+    uint32_t timestamp;
+};
+
 // Joint angle data (generic carrier used by IK / NPU / fusion output).
-// Invalid joints are expressed as NAN.
+// Invalid joints are NAN
 struct JointAngleData {
     float angles[6];      // J1~J6 in deg
     uint32_t timestamp;
@@ -62,15 +69,29 @@ struct IPCFeedback {
     uint32_t timestamp;       // CPU1 counter when written
 };
 
+
+
+// UI mode command
+// One mode at a time
+enum class UICommand : uint32_t {
+    NONE  = 0,   // idle / no action
+    REC   = 1,   // recording in progress -> FusionTask mirrors to recQueue
+    PLAY  = 2,   // playback in progress  -> FusionTask pauses live output
+    HOME  = 3,   // home/reset (future)
+    ESTOP = 4,   // emergency stop (future)
+};
+
 } // namespace sharedDatatype
 
 extern FreeRTOS::Queue<UartRecvTask::TransmitData> originalDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::ArmKPCoords> armKPCoordsQueue;
 extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeUIQueue;
-extern FreeRTOS::Queue<sharedDatatype::PitchData> pitchDataQueue;
+extern FreeRTOS::Queue<sharedDatatype::HandJointData> handJointQueue;   // NormalizeTask -> FusionTask (J5+pitch)
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> ikJointQueue;
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> npuJointQueue;
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> fusedJointQueue;
+extern FreeRTOS::Queue<sharedDatatype::JointAngleData> recQueue;      // FusionTask -> RecPlayTask (record tap)
+extern FreeRTOS::Queue<sharedDatatype::JointAngleData> replayQueue;   // RecPlayTask -> MotionPlanningTask (playback)
 extern FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> motionPlanQueue;
 extern FreeRTOS::Queue<sharedDatatype::IPCFeedback> IPCFeedbackQueue;

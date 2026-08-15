@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <cstdarg>
 #include <cstring>
+#include <cmath>
 
 extern ElegantDebug dbg;
 
@@ -56,7 +57,38 @@ void UITask::_parseScreenInput() {
             if (memcmp(buf, known[i], knownLen[i]) == 0) {
                 for (size_t j = 0; j < knownLen[i]; j++) _rxRing.get();
                 dbg.logWithType("TJC BTN", COLOR_YELLOW, "%s\n", known[i]);
-                // TODO: trigger actions
+
+                // Map button presses following the mutual-exclusion rules:
+                //  - while PLAY: REC/HOME ignored (ESTOP valid)
+                //  - while REC : PLAY/HOME ignored (ESTOP valid)
+                switch (i) {
+                    case 0:  // BTZ (home / zero) : future
+                        break;
+                    case 1:  // ESTOP : future (valid in any state)
+                        break;
+                    case 2:  // REC : start/stop recording
+                        if (_isPlaying) break;               // ignore while playing
+                        _isRecording = !_isRecording;
+                        if (_isRecording) {
+                            _notifyFusion();                 // REC start -> push to Fusion
+                        } else {
+                            _notifyFusion();                 // REC end -> Fusion saves + tells RecPlay
+                        }
+                        break;
+                    case 3:  // PLAY : start/stop playback
+                        if (_isRecording) break;             // ignore while recording
+                        _isPlaying = !_isPlaying;
+                        if (_isPlaying) {
+                            _suspendUpstream();              // pause IK/Normalize/UartRecv/Fusion
+                            _notifyRecPlay(RecPlayTask::RecCmd::PLAY_START);
+                        } else {
+                            _notifyRecPlay(RecPlayTask::RecCmd::PLAY_END);
+                            _resumeUpstream();
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -89,6 +121,44 @@ void UITask::_updateGrip(float percent, bool stuck) {
     vTaskDelay(pdMS_TO_TICKS(3));
 }
 
+
+void UITask::setTaskHandles(TaskHandle_t fusion, TaskHandle_t recplay,
+                            TaskHandle_t uartRecv, TaskHandle_t normalize,
+                            TaskHandle_t ik) {
+    _fusionHandle  = fusion;
+    _recPlayHandle = recplay;
+    _suspendHandles[0] = uartRecv;
+    _suspendHandles[1] = normalize;
+    _suspendHandles[2] = ik;
+    _suspendHandles[3] = fusion;
+}
+
+void UITask::_notifyFusion() {
+    if (_fusionHandle == nullptr) return;
+    sharedDatatype::UICommand cmd = sharedDatatype::UICommand::NONE;
+    if (_isRecording) cmd = sharedDatatype::UICommand::REC;
+    xTaskNotifyIndexed(_fusionHandle, 0, static_cast<uint32_t>(cmd), eSetValueWithOverwrite);
+    dbg.logWithType("UI->FUSION", COLOR_CYAN, "%s\n", (_isRecording ? "REC" : "NONE"));
+}
+
+void UITask::_notifyRecPlay(RecPlayTask::RecCmd cmd) {
+    if (_recPlayHandle == nullptr) return;
+    xTaskNotifyIndexed(_recPlayHandle, 0, static_cast<uint32_t>(cmd), eSetValueWithOverwrite);
+}
+
+void UITask::_suspendUpstream() {
+    for (auto h : _suspendHandles) {
+        if (h != nullptr) vTaskSuspend(h);
+    }
+}
+
+void UITask::_resumeUpstream() {
+    for (auto h : _suspendHandles) {
+        if (h != nullptr) vTaskResume(h);
+    }
+}
+
+
 void UITask::updateStatusText(StatusText text) {
     switch (text) {
         case StatusText::MANUAL:  _send("StatusText.txt=\"MANUAL\""); break;
@@ -112,8 +182,6 @@ void UITask::updateHMS(int line, const char* msg) {
     vTaskDelay(pdMS_TO_TICKS(3));
 }
 
-
-
 void UITask::booting(BootingPhase phase) {
     _send("ProgressBar.val=%d", static_cast<int>(phase));
 
@@ -122,11 +190,25 @@ void UITask::booting(BootingPhase phase) {
     }
 }
 
-
 void UITask::taskFunction() {
     dbg.info("UITask started.\n");
 
     for (;;) {
+        // Receive PLAY_DONE from RecPlayTask: take exhausted naturally.
+        // Respawn upstream tasks and clear the playback state so the UI returns
+        // to manual control (see mutual-exclusion note).
+        uint32_t uiNotif = 0;
+        if (xTaskNotifyWaitIndexed(0, 0, UINT32_MAX, &uiNotif, 0) == pdTRUE) {
+            if (static_cast<RecPlayTask::RecCmd>(uiNotif) == RecPlayTask::RecCmd::PLAY_DONE) {
+                if (_isPlaying) {
+                    _isPlaying = false;
+                    _resumeUpstream();
+                    _notifyFusion();
+                    dbg.logWithType("UI", COLOR_YELLOW, "playback done -> auto resume\n");
+                }
+            }
+        }
+
         _parseScreenInput();
 
         auto feedback = _fdbk.receive(0);
@@ -141,7 +223,9 @@ void UITask::taskFunction() {
 
         auto ee = _eeUIQueue.receive(0);
         if (ee) {
-            dbg.log("UI: grip=%.1f%%\n", ee->grip_percent);
+            dbg.log("UI: grip=%d.%d%%\n",
+                    (int)ee->grip_percent,
+                    (int)(fabsf(ee->grip_percent - (int)ee->grip_percent) * 10.0f));
             _updateGrip(ee->grip_percent, false);
         }
 

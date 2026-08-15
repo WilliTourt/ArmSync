@@ -11,15 +11,17 @@
 class UartRecvTask : public FreeRTOS::Task {
     public:
     
-        /* From controller:
-        int len = sprintf(tx_buf, "%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.2f,%.2f\n",
-            armData.upper_pitch, armData.upper_roll, armData.upper_yaw,
-            armData.rel_pitch, armData.rel_roll, armData.rel_yaw,
-            sliderGripPercent, sliderPitchPercent);
+        /* From controller (9 floats, comma/newline separated):
+             elbow_x/y/z (unit vec) | wrist_x/y/z (unit vec) | forearm_pitch | grip | pitch
+        int len = sprintf(tx_buf, "%.4f, %.4f, %.4f, %.4f, %.4f, %.4f, %.4f, %.2f, %.2f\n",
+            elx,ely,elz, wrx,wry,wrz, forearm_pitch, sliderGripPercent, sliderPitchPercent);
         */
         struct CtrllerData {
-            float angles[6];
-            float adc[2];
+            float elbowVec[3];      // 上臂单位向量 (x,y,z)
+            float wristVec[3];      // 小臂单位向量 (x,y,z)
+            float forearmPitch;     // 前臂绕轴旋转角度 (deg, 手柄直接计算)
+            float gripPercent;      // sliderGripPercent (0~100)
+            float pitchPercent;     // sliderPitchPercent (0~100)
         };
 
         // Jetson sends 4 keypoints (elbow/wrist/index/thumb), each 3×int16 (x,y,z) mm
@@ -58,4 +60,16 @@ class UartRecvTask : public FreeRTOS::Task {
 
         void _parseJetson();
         void _parseCtrller();
+        void _emitFrame();
+        void _send(uint32_t now);
+
+        // handset/Jetson alignment
+        JetsonData  _latestJetsonData  = {};   // last Jetson frame cache
+        CtrllerData _latestCtrllerData = {};   // last handset frame cache
+        bool        _newJetsonFlag     = false;// a fresh Jetson frame arrived
+        bool        _handsetValid      = false;// at least one handset line parsed OK
+        uint32_t    _lastJetsonTick    = 0;    // tick of last received Jetson frame
+
+        // If no fresh Jetson frame for this long (ms), fall back to emitting handset frames alone
+        static constexpr uint32_t JETSON_TIMEOUT_MS = 80;
 };

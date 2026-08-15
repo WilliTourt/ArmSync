@@ -11,8 +11,6 @@ RingBuf UartRecvTask::_rxRingCtrller(UartRecvTask::_rxRawCtrller, sizeof(UartRec
 uint8_t UartRecvTask::_rxRawJetson[512];
 RingBuf UartRecvTask::_rxRingJetson(UartRecvTask::_rxRawJetson, sizeof(UartRecvTask::_rxRawJetson));
 
-static UartRecvTask::JetsonData _latestJetsonData = {};
-
 void UartRecvTask::uart0Callback(uart_callback_args_t *p_args) {
     if (p_args->event == UART_EVENT_RX_CHAR) {
         _rxRingCtrller.put((uint8_t)p_args->data);
@@ -31,25 +29,30 @@ void UartRecvTask::_parseCtrller() {
         size_t  len = _rxRingCtrller.readLine(line, sizeof(line));
 
         if (len > 0) {
-            
             UartRecvTask::CtrllerData ctrl_data = {};
             int   count = 0;
             char *tok = (char*)line;
 
-            for (int i = 0; i < 8; i++) {
+            // Protocol: elbow[3] + wrist[3] + forearm_pitch + grip + pitch = 9 floats
+            for (int i = 0; i < 9; i++) {
                 char *end = tok;
-
                 while (*end && *end != ',' && *end != '\n' && *end != '\r') {
                     end++;
                 }
-
                 char saved = *end;
                 *end = '\0';
                 float val = strtof(tok, nullptr);
-                if (i < 6) {
-                    ctrl_data.angles[i] = val;
-                } else {
-                    ctrl_data.adc[i - 6] = val;
+
+                switch (i) {
+                    case 0: ctrl_data.elbowVec[0] = val; break;
+                    case 1: ctrl_data.elbowVec[1] = val; break;
+                    case 2: ctrl_data.elbowVec[2] = val; break;
+                    case 3: ctrl_data.wristVec[0] = val; break;
+                    case 4: ctrl_data.wristVec[1] = val; break;
+                    case 5: ctrl_data.wristVec[2] = val; break;
+                    case 6: ctrl_data.forearmPitch = val; break;
+                    case 7: ctrl_data.gripPercent = val; break;
+                    case 8: ctrl_data.pitchPercent = val; break;
                 }
                 count++;
 
@@ -58,13 +61,10 @@ void UartRecvTask::_parseCtrller() {
                 tok = end + 1;
             }
 
-            if (count >= 6) {
-                UartRecvTask::TransmitData data;
-                data.ctrllerData = ctrl_data;
-                data.jetsonData  = _latestJetsonData;  // latest available Jetson frame
-                data.timestamp   = FreeRTOS::Kernel::getTickCount();
-
-                _queue.sendToBack(data, 0);
+            if (count >= 9) {
+                // Cache newest handset frame only
+                _latestCtrllerData = ctrl_data;
+                _handsetValid = true;
             }
         }
     }
@@ -101,20 +101,44 @@ void UartRecvTask::_parseJetson() {
         }
         jd.valid = true;
         _latestJetsonData = jd;
-
-        float jEtLen = sqrtf((float)jd.points[0][0]*jd.points[0][0] + (float)jd.points[0][1]*jd.points[0][1] + (float)jd.points[0][2]*jd.points[0][2]);
-        float jWrLen = sqrtf((float)jd.points[1][0]*jd.points[1][0] + (float)jd.points[1][1]*jd.points[1][1] + (float)jd.points[1][2]*jd.points[1][2]);
-        dbg.logWithType("JETSON", COLOR_CYAN,
-            "KeyPoints: E(%d,%d,%d) |%.0fmm| W(%d,%d,%d) |%.0fmm|\n",
-            jd.points[0][0], jd.points[0][1], jd.points[0][2], jEtLen,
-            jd.points[1][0], jd.points[1][1], jd.points[1][2], jWrLen);
-
-        // Test
-        UartRecvTask::TransmitData data;
-        data.ctrllerData = {};
-        data.jetsonData  = _latestJetsonData;
-        _queue.sendToBack(data, 0);
+        _newJetsonFlag    = true; // mark: a fresh Jetson frame
+        _lastJetsonTick   = FreeRTOS::Kernel::getTickCount();
     }
+}
+
+void UartRecvTask::_send(uint32_t now) {
+    UartRecvTask::TransmitData data;
+    data.ctrllerData = _latestCtrllerData;
+    data.jetsonData  = _latestJetsonData;
+    data.timestamp   = now;
+    _queue.sendToBack(data, 0);
+}
+
+// Decide WHEN to emit, and emit the merged frame. Jetson is the clock source, 
+// the camera carries latency, so:
+//   - fresh Jetson frame: emit now (Jetson cadence)
+//   - Jetson dead but handset valid -> emit handset-only
+//   - otherwise emit nothing
+void UartRecvTask::_emitFrame() {
+    uint32_t now = FreeRTOS::Kernel::getTickCount();
+
+    // Case 1
+    if (_newJetsonFlag) {
+        _newJetsonFlag = false;
+        _send(now);
+        dbg.log("sent jetson @ %dms\n", now);
+        return;
+    }
+
+    // Case 2
+    bool jetsonAlive = ((_lastJetsonTick != 0) && ((now - _lastJetsonTick) < JETSON_TIMEOUT_MS));
+    if (_handsetValid && !jetsonAlive) {
+        _send(now);
+        return;
+    }
+
+    // Case 3
+    // dbg.error("UART: NO JETSON AND HANDSET INPUT!\n");
 }
 
 void UartRecvTask::taskFunction() {
@@ -123,6 +147,7 @@ void UartRecvTask::taskFunction() {
     for (;;) {
         _parseJetson();
         _parseCtrller();
-        this->delay(pdMS_TO_TICKS(2));
+        _emitFrame();
+        this->delay(pdMS_TO_TICKS(3));
     }
 }

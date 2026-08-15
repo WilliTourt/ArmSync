@@ -16,6 +16,7 @@ FSP_HEADER
 #define configMAX_TASK_NAME_LEN                  (32)
 #define configUSE_16_BIT_TICKS                   0
 #define configUSE_TASK_NOTIFICATIONS             1
+#define INCLUDE_xTaskGetHandle                   1
 
 /* --- Memory --- */
 #define configSUPPORT_STATIC_ALLOCATION          1

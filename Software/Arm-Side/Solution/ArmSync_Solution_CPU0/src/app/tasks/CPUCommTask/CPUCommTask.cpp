@@ -55,11 +55,11 @@ void CPUCommTask::taskFunction() {
 
             R_IPC_MessageSend(&g_ipc0_ctrl, static_cast<uint32_t>(MsgToken::MSG_CTRL_READY));
 
-            dbg.logWithType("IPC", COLOR_BLUE,
-                "TX->M33: grip=%.0f%% | m0(dir%d r%d a%d p%lu)\n",
-                _latestEE.grip_percent,
-                _latestPlan.motors[0].dir, _latestPlan.motors[0].rpm,
-                _latestPlan.motors[0].acc, (unsigned long)_latestPlan.motors[0].pulse);
+            // dbg.logWithType("IPC", COLOR_BLUE,
+            //     "TX->M33: grip=%.0f%% | m0(dir%d r%d a%d p%lu)\n",
+            //     _latestEE.grip_percent,
+            //     _latestPlan.motors[0].dir, _latestPlan.motors[0].rpm,
+            //     _latestPlan.motors[0].acc, (unsigned long)_latestPlan.motors[0].pulse);
         }
 
         // ---- Feedback handling (always check) ----
