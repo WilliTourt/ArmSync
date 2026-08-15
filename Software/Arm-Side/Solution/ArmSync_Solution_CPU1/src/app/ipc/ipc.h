@@ -24,6 +24,8 @@ struct IPCCtrlPacket {
     MotionPlanPacket motion_pkt;
     float grip_percent;    // 0.0 ~ 100.0
     uint32_t timestamp;    // CPU0 FreeRTOS tick when written
+    bool estop;            // emergency stop (level: stays true until BTZ clears)
+    bool btz;              // home/zero (pulse: CPU0 clears after triggering)
 };
 
 // M33 feedback
@@ -49,8 +51,8 @@ class IPC {
         void tick();                 // called from AGT ISR, 1ms
         uint32_t getTick() const { return _tick; }  // millisecond counter
 
-        // reads control from CPU0 (motion plan + grip)
-        bool getCtrlPacket(MotionPlanPacket &plan, float &grip_percent);
+        // reads control from CPU0 (motion plan + grip + estop/btz flags)
+        bool getCtrlPacket(MotionPlanPacket &plan, float &grip_percent, bool &estop, bool &btz);
         void sendFeedback(const float angles_deg[6], float gripAngle, const bool locked[6], bool stuck);
 
         // Communication watchdog: true if no new ctrl packet from CPU0 within timeoutMs

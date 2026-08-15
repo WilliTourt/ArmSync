@@ -1,6 +1,7 @@
 #include "UITask.h"
 #include "ElegantDebug.h"
 #include "hal_data.h"
+#include "CPUCommTask/CPUCommTask.h"
 #include <cstdio>
 #include <cstdarg>
 #include <cstring>
@@ -62,9 +63,18 @@ void UITask::_parseScreenInput() {
                 //  - while PLAY: REC/HOME ignored (ESTOP valid)
                 //  - while REC : PLAY/HOME ignored (ESTOP valid)
                 switch (i) {
-                    case 0:  // BTZ (home / zero) : future
+                    case 0:  // BTZ (home / zero) : valid in any state
+                        CPUCommTask::setBtz(true);              // one-shot home pulse
+                        if (CPUCommTask::getEstop()) {
+                            CPUCommTask::setEstop(false);       // BTZ also releases estop
+                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ -> release estop + home\n");
+                        } else {
+                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ -> home\n");
+                        }
                         break;
-                    case 1:  // ESTOP : future (valid in any state)
+                    case 1:  // ESTOP : valid in any state, only released by BTZ
+                        CPUCommTask::setEstop(true);
+                        dbg.logWithType("TJC BTN", COLOR_RED, "ESTOP -> arm stop\n");
                         break;
                     case 2:  // REC : start/stop recording
                         if (_isPlaying) break;               // ignore while playing

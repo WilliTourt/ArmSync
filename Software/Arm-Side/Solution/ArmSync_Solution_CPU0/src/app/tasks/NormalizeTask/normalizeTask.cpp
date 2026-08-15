@@ -70,7 +70,7 @@ void NormalizeTask::taskFunction() {
 
         // Float-free but precision-kept (one decimal): avoids %%f malloc chain.
         dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
-            "Elbow(%d,%d,%d), Wrist(%d,%d,%d), no-use-data:(J5=%d.%d Gripper=%d j6Pitch=%d)\n",
+            "Elbow(%d,%d,%d), Wrist(%d,%d,%d), (J5=%d.%d Gripper=%d j6Pitch=%d)\n",
             (int)el[0], (int)el[1], (int)el[2],
             (int)wr[0], (int)wr[1], (int)wr[2],
             (int)hd.j5deg,

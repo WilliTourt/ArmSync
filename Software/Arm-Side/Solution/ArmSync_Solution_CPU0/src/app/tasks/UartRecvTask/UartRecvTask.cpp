@@ -126,7 +126,6 @@ void UartRecvTask::_emitFrame() {
     if (_newJetsonFlag) {
         _newJetsonFlag = false;
         _send(now);
-        dbg.log("sent jetson @ %dms\n", now);
         return;
     }
 

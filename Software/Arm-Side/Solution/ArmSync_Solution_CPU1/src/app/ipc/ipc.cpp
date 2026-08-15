@@ -25,7 +25,7 @@ void IPC::tick() {
     _tick++;   // 1ms system clock (kept lightweight; watchdog handled in main loop)
 }
 
-bool IPC::getCtrlPacket(MotionPlanPacket &plan, float &grip_percent) {
+bool IPC::getCtrlPacket(MotionPlanPacket &plan, float &grip_percent, bool &estop, bool &btz) {
     if (!_ctrlPacketRdy) return false;
     _ctrlPacketRdy = false;
 
@@ -38,8 +38,10 @@ bool IPC::getCtrlPacket(MotionPlanPacket &plan, float &grip_percent) {
     _lastRx = _rx->timestamp;
     _wdgTick = _tick;   // rearm watchdog on every fresh ctrl packet
 
-    plan = _rx->motion_pkt;
-    grip_percent = _rx->grip_percent;
+    plan          = _rx->motion_pkt;
+    grip_percent  = _rx->grip_percent;
+    estop         = _rx->estop;
+    btz           = _rx->btz;
 
     R_BSP_IpcSemaphoreGive(&_lock);
     return true;

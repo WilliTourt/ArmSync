@@ -75,6 +75,25 @@ static void armEmergencyStop() {
     Emm_V5_Synchronous_motion(0);
 }
 
+// Home/zero all 6 motors: Emm treats the power-on position as absolute zero,
+// so as long as the arm is manually placed at the mechanical zero before
+// power-on, sending pos=0 returns it there. Low speed/accel for safety.
+static void armHomeAll() {
+    const uint16_t HOME_VEL = 120;   // low rpm (tune)
+    const uint8_t  HOME_ACC = 20;    // low accel (tune)
+    for (int i = 0; i < 6; i++) {
+        Emm_V5_En_Control(kJointAddr[i], true, false);   // make sure enabled
+        Emm_V5_Pos_Control(kJointAddr[i],
+                           0,          // dir (abs mode)
+                           HOME_VEL,
+                           HOME_ACC,
+                           0,          // target pulse = 0 -> power-on zero
+                           true,       // absolute position
+                           true);      // cache, trigger together
+    }
+    Emm_V5_Synchronous_motion(0);
+}
+
 void cpp_main() {
 
     R_SCI_B_UART_Open(&g_uart1_ctrl, &g_uart1_cfg);
@@ -99,6 +118,7 @@ void cpp_main() {
     uint32_t lastMotorFbMs = 0;
     uint32_t lastGripFbMs = 0;
     bool dogBark = false;
+    bool estopActive = false;   // latched estop: released only by BTZ from CPU0
 
     while (1) {
         // Watchdog: if CPU0 stops sending ctrl, emergency-stop the arm
@@ -113,27 +133,50 @@ void cpp_main() {
         }
 
         // Receive motion plan from CPU0, drive motors directly
+        // ESTOP/BTZ are handled with priority over normal motion.
         MotionPlanPacket plan;
         float gripPercent;
-        if (!dogBark && ipc.getCtrlPacket(plan, gripPercent)) {
-            for (int i = 0; i < 6; i++) {
-                Emm_V5_Pos_Control(kJointAddr[i],
-                                   plan.motors[i].dir,
-                                   plan.motors[i].rpm,
-                                   plan.motors[i].acc,
-                                   plan.motors[i].pulse,
-                                   true,   // absolute position
-                                   true);  // cache, trigger together
+        bool estop = false, btz = false;
+        if (!dogBark && ipc.getCtrlPacket(plan, gripPercent, estop, btz)) {
+
+            if (estop) {
+                // Emergency stop: lock the arm (only BTZ from CPU0 releases it)
+                if (!estopActive) {
+                    estopActive = true;
+                    armEmergencyStop();
+                    dbg.logWithType("M33", COLOR_RED, "ESTOP from CPU0\n");
+                }
+            } else {
+                if (estopActive) {
+                    estopActive = false;   // releasable via BTZ only
+                }
+                if (btz) {
+                    // Home/zero, or recover-from-estop + home.
+                    armHomeAll();
+                    dbg.logWithType("M33", COLOR_YELLOW, "BTZ -> home all\n");
+                }
             }
-            Emm_V5_Synchronous_motion(0);   // move all together
 
-            gripper.setRatio(gripPercent);
+            if (!estop && !btz && !estopActive) {
+                for (int i = 0; i < 6; i++) {
+                    Emm_V5_Pos_Control(kJointAddr[i],
+                                       plan.motors[i].dir,
+                                       plan.motors[i].rpm,
+                                       plan.motors[i].acc,
+                                       plan.motors[i].pulse,
+                                       true,   // absolute position
+                                       true);  // cache, trigger together
+                }
+                Emm_V5_Synchronous_motion(0);   // move all together
 
-            dbg.logWithType("M33", COLOR_GREEN,
-                "RX: grip=%.0f%% | m0(dir%d r%d a%d p%lu)\n",
-                gripPercent,
-                plan.motors[0].dir, plan.motors[0].rpm, plan.motors[0].acc,
-                plan.motors[0].pulse);
+                gripper.setRatio(gripPercent);
+
+                dbg.logWithType("M33", COLOR_GREEN,
+                    "RX: grip=%.0f%% | m0(dir%d r%d a%d p%lu)\n",
+                    gripPercent,
+                    plan.motors[0].dir, plan.motors[0].rpm, plan.motors[0].acc,
+                    plan.motors[0].pulse);
+            }
         }
 
         // Send feedback to CPU0

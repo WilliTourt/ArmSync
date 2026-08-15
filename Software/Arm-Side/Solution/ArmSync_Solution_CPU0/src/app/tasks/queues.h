@@ -58,6 +58,8 @@ struct IPCCtrlPacket {
     MotionPlanPacket motion_pkt;
     float grip_percent;    // 0.0 ~ 100.0
     uint32_t timestamp;    // FreeRTOS tick when written
+    bool estop;            // emergency stop (level: stays true until BTZ clears)
+    bool btz;              // home/zero (pulse: CPU0 clears after triggering)
 };
 
 // M33 feedback (CPUCommTask)

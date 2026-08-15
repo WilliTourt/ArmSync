@@ -8,6 +8,8 @@ static sharedDatatype::IPCFeedback   fbData   BSP_PLACE_IN_SECTION(".shared_ram"
 
 
 volatile bool CPUCommTask::_fbReady = false;
+bool CPUCommTask::_estopActive = false;
+bool CPUCommTask::_btzPending  = false;
 
 extern ElegantDebug dbg;
 
@@ -51,6 +53,9 @@ void CPUCommTask::taskFunction() {
             _tx->motion_pkt = _latestPlan;
             _tx->grip_percent = _latestEE.grip_percent;
             _tx->timestamp = now;
+            _tx->estop = _estopActive;   // level: persists until BTZ clears
+            _tx->btz   = _btzPending;    // pulse: clear after sending
+            _btzPending = false;         // one-shot, latch consumed
             R_BSP_IpcSemaphoreGive(&_lock);
 
             R_IPC_MessageSend(&g_ipc0_ctrl, static_cast<uint32_t>(MsgToken::MSG_CTRL_READY));
