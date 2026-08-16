@@ -67,7 +67,7 @@ void FusionTask::taskFunction() {
         // UITask pushes UICommand::REC to start, UICommand::NONE to stop.
         uint32_t uiVal = static_cast<uint32_t>(sharedDatatype::UICommand::NONE);
         if (_uiHandle != nullptr) {
-            xTaskNotifyWaitIndexed(0, 0, UINT32_MAX, &uiVal, 0);
+            xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &uiVal, 0);
         }
         const auto uiCmd = static_cast<sharedDatatype::UICommand>(uiVal);
 

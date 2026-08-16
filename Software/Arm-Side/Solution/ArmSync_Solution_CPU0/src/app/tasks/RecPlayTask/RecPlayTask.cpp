@@ -23,7 +23,7 @@ void RecPlayTask::taskFunction() {
         // 1. Consume the latest command notification (index 0, non-blocking).
         // ------------------------------------------------------------------
         uint32_t notif = 0;
-        if (xTaskNotifyWaitIndexed(0, 0, UINT32_MAX, &notif, 0) == pdTRUE) {
+        if (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &notif, 0) == pdTRUE) {
             switch (static_cast<RecCmd>(notif)) {
                 case RecCmd::REC_DONE:
                     // Drain any still-queued frames so the last part of the take

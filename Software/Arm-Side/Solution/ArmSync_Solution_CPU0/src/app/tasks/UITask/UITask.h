@@ -67,9 +67,10 @@ class UITask : public FreeRTOS::Task {
         // Tasks suspended while PLAY is active (everything upstream of Motion).
         TaskHandle_t _suspendHandles[4] = {nullptr, nullptr, nullptr, nullptr};
 
-        // UI state with mutual-exclusion rules:
-        //  - while PLAY: REC and HOME are ignored (ESTOP valid)
-        //  - while REC : PLAY is ignored; HOME (homing) remains valid (ESTOP valid)
+        // UI button state rules:
+        //  - ESTOP always valid
+        //  - while PLAY: REC and HOME are ignored
+        //  - while REC : PLAY is ignored; HOME remains valid
         bool _isRecording = false;
         bool _isPlaying   = false;
 

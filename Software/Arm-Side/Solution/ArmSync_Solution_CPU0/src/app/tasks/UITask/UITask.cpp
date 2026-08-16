@@ -56,25 +56,28 @@ void UITask::_parseScreenInput() {
             uint8_t buf[16] = {};
             _rxRing.peek(buf, knownLen[i]);
             if (memcmp(buf, known[i], knownLen[i]) == 0) {
-                for (size_t j = 0; j < knownLen[i]; j++) _rxRing.get();
+                for (size_t j = 0; j < knownLen[i]; j++) {
+                    _rxRing.get();
+                }
                 dbg.logWithType("TJC BTN", COLOR_YELLOW, "%s\n", known[i]);
 
                 // Map button presses following the mutual-exclusion rules:
                 //  - while PLAY: REC/HOME ignored (ESTOP valid)
-                //  - while REC : PLAY/HOME ignored (ESTOP valid)
+                //  - while REC : PLAY ignored (ESTOP and BTZ/HOME both valid)
                 switch (i) {
-                    case 0:  // BTZ (home / zero) : valid in any state
+                    case 0:  // BTZ (home / zero) : valid in any state except playing (REC 时可用)
+                        if (_isPlaying) break;            // ignore while playing
                         CPUCommTask::setBtz(true);              // one-shot home pulse
                         if (CPUCommTask::getEstop()) {
                             CPUCommTask::setEstop(false);       // BTZ also releases estop
-                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ -> release estop + home\n");
+                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ, ESTOP RELEASED\n");
                         } else {
-                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ -> home\n");
+                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ\n");
                         }
                         break;
                     case 1:  // ESTOP : valid in any state, only released by BTZ
                         CPUCommTask::setEstop(true);
-                        dbg.logWithType("TJC BTN", COLOR_RED, "ESTOP -> arm stop\n");
+                        dbg.logWithType("TJC BTN", COLOR_RED, "ESTOP!\n");
                         break;
                     case 2:  // REC : start/stop recording
                         if (_isPlaying) break;               // ignore while playing
@@ -96,8 +99,7 @@ void UITask::_parseScreenInput() {
                             _resumeUpstream();
                         }
                         break;
-                    default:
-                        break;
+                    default: break;
                 }
             }
         }
@@ -208,7 +210,7 @@ void UITask::taskFunction() {
         // Respawn upstream tasks and clear the playback state so the UI returns
         // to manual control (see mutual-exclusion note).
         uint32_t uiNotif = 0;
-        if (xTaskNotifyWaitIndexed(0, 0, UINT32_MAX, &uiNotif, 0) == pdTRUE) {
+        if (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &uiNotif, 0) == pdTRUE) {
             if (static_cast<RecPlayTask::RecCmd>(uiNotif) == RecPlayTask::RecCmd::PLAY_DONE) {
                 if (_isPlaying) {
                     _isPlaying = false;
@@ -233,9 +235,6 @@ void UITask::taskFunction() {
 
         auto ee = _eeUIQueue.receive(0);
         if (ee) {
-            dbg.log("UI: grip=%d.%d%%\n",
-                    (int)ee->grip_percent,
-                    (int)(fabsf(ee->grip_percent - (int)ee->grip_percent) * 10.0f));
             _updateGrip(ee->grip_percent, false);
         }
 

@@ -14,7 +14,7 @@ bool FlashStorage::init() {
 void FlashStorage::waitUntilWip() const {
     spi_flash_status_t status;
     status.write_in_progress = true;
-    uint32_t timeout = UINT32_MAX;
+    uint32_t timeout = 0xFFFFFFFF;
     while ((status.write_in_progress) && (--timeout > 0)) {
         (void)R_OSPI_B_StatusGet(g_ospi0.p_ctrl, &status);
     }
