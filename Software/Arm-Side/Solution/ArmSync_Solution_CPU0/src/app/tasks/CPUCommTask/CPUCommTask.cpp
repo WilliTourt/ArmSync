@@ -10,6 +10,7 @@ static sharedDatatype::IPCFeedback   fbData   BSP_PLACE_IN_SECTION(".shared_ram"
 volatile bool CPUCommTask::_fbReady = false;
 bool CPUCommTask::_estopActive = true;   // Default true to prevent powerup accidents
 bool CPUCommTask::_btzPending  = false;
+TaskHandle_t CPUCommTask::_uiHandle = nullptr;   // UITask (freq notification)
 
 extern ElegantDebug dbg;
 
@@ -63,6 +64,19 @@ void CPUCommTask::taskFunction() {
             R_BSP_IpcSemaphoreGive(&_lock);
 
             R_IPC_MessageSend(&g_ipc0_ctrl, static_cast<uint32_t>(MsgToken::MSG_CTRL_READY));
+
+            // Control frequency estimate
+            _lastSendTicks[_sendIdx] = now;
+            _sendIdx = (_sendIdx + 1) % FREQ_WINDOW;
+            if (_sendIdx == 0) _sendFilled = true;
+
+            if (_sendFilled && _uiHandle) {
+                uint32_t oldest = _lastSendTicks[_sendIdx];  // index now points at oldest
+                uint32_t span   = now - oldest;              // 5 sends = 4 periods
+                uint32_t avgPer = span / (FREQ_WINDOW - 1);  // avg period (ms)
+                uint32_t freqHz = (avgPer > 0) ? (1000u / avgPer) : 0u;
+                xTaskNotifyIndexed(_uiHandle, 1, freqHz, eSetValueWithOverwrite);
+            }
 
             // dbg.logWithType("IPC", COLOR_BLUE,
             //     "TX->M33: grip=%.0f%% | m0(dir%d r%d a%d p%lu)\n",

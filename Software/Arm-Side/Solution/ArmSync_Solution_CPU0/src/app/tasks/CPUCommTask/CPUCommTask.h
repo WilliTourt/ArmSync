@@ -23,15 +23,22 @@ class CPUCommTask : public FreeRTOS::Task {
             _fbReady = true;
         }
 
-        // UI-driven emergency-stop / home-zero flags, packed into the next ctrl
-        // packet to M33. estop is a level (cleared by BTZ); btz is a one-shot.
+        // UI-driven estop / btz flags, packed into the next ctrl packet to M33
         static void setEstop(bool estop) { _estopActive = estop; }
         static bool getEstop()            { return _estopActive; }
         static void setBtz(bool btz)      { _btzPending = btz; }
         static bool getBtz()              { return _btzPending; }
 
+        static void setUIHandle(TaskHandle_t h) { _uiHandle = h; }
+
     private:
         void taskFunction() override;
+
+        // Sliding window of the last N send ticks for control-frequency estimate
+        static constexpr uint8_t FREQ_WINDOW = 5;
+        uint32_t _lastSendTicks[FREQ_WINDOW] = {};
+        uint8_t  _sendIdx  = 0;
+        bool     _sendFilled = false;
 
         FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &_planQueue;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData>  &_eeQueue;
@@ -47,6 +54,7 @@ class CPUCommTask : public FreeRTOS::Task {
         uint32_t _lastRx = 0;
 
         static volatile bool _fbReady;
-        static bool _estopActive;   // UI estop level state
-        static bool _btzPending;    // UI one-shot home-zero request
+        static bool _estopActive;        // UI estop level state
+        static bool _btzPending;         // UI one-shot home-zero request
+        static TaskHandle_t _uiHandle;   // UITask, for freq notification
 };

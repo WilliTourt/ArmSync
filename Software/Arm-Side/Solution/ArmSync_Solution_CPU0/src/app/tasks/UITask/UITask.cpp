@@ -207,6 +207,12 @@ void UITask::taskFunction() {
             }
         }
 
+        // Receive live control frequency from CPUCommTask (index 1).
+        uint32_t freqNotif = 0;
+        if (xTaskNotifyWaitIndexed(1, 0, 0xFFFFFFFF, &freqNotif, 0) == pdTRUE) {
+            updateFreq((int)freqNotif);
+        }
+
         _parseScreenInput();
 
         auto feedback = _fdbk.receive(0);

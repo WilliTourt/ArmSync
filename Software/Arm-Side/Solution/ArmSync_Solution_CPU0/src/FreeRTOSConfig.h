@@ -16,6 +16,7 @@ FSP_HEADER
 #define configMAX_TASK_NAME_LEN                  (32)
 #define configUSE_16_BIT_TICKS                   0
 #define configUSE_TASK_NOTIFICATIONS             1
+#define configTASK_NOTIFICATION_ARRAY_ENTRIES     2   // index0 rec/play, index1 CPUComm->UI freq
 #define INCLUDE_xTaskGetHandle                   1
 
 /* --- Memory --- */

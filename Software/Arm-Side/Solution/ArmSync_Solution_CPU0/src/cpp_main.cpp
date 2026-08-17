@@ -108,6 +108,7 @@ void cpp_main() {
                           FreeRTOS::Task::getHandle("IK"));
     fusionTask.setRecHandle(FreeRTOS::Task::getHandle("RecPlay"));
     recPlayTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));
+    cpuCommTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // freq -> UI
 
     FreeRTOS::Kernel::startScheduler();
 
