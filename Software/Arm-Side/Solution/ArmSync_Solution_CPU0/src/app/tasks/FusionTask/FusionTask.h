@@ -31,6 +31,7 @@ class FusionTask : public FreeRTOS::Task {
 
         void setUIHandle(TaskHandle_t handle);
         void setRecHandle(TaskHandle_t handle);   // RecPlayTask (for REC_DONE notify)
+        void setNormalizeHandle(TaskHandle_t handle);   // NormalizeTask (J2 -> alpha)
 
     private:
         void taskFunction() override;
@@ -44,6 +45,7 @@ class FusionTask : public FreeRTOS::Task {
 
         TaskHandle_t _uiHandle = nullptr;
         TaskHandle_t _recHandle = nullptr;
+        TaskHandle_t _normalizeHandle = nullptr;   // receives J2 (-> NormalizeTask alpha)
         bool         _recording = false;   // true while UI says REC
 
         float _mapPitchToJ6(float pitch_percent) const;

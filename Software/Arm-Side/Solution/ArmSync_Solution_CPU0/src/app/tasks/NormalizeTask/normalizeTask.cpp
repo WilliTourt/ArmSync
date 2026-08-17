@@ -2,7 +2,21 @@
 #include "ElegantDebug.h"
 #include <cmath>
 
+#include "UITask.h"
+
 extern ElegantDebug dbg;
+
+void NormalizeTask::_updateAlphaFromJ2(float j2deg) {
+    if (j2deg <= 0.0f) {
+        _alpha = ALPHA_J2_LOW;                     // 0.78
+    } else if (j2deg >= ALPHA_J2_HIGH_DEG) {
+        _alpha = ALPHA_J2_HIGH;                    // 0.06
+    } else {
+        // linear decay 0.78 -> 0.06 across [0, 75]
+        _alpha = ALPHA_J2_LOW
+               - (ALPHA_J2_LOW - ALPHA_J2_HIGH) * (j2deg / ALPHA_J2_HIGH_DEG);
+    }
+}
 
 // ====== NormalizeTask ======
 
@@ -12,6 +26,19 @@ void NormalizeTask::taskFunction() {
     for (;;) {
         auto rx = _inQueue.receive(portMAX_DELAY);
         if (!rx) continue;
+
+        // Pull the latest fused J2 from FusionTask (index 0, non-blocking).
+        // One-frame delayed: this J2 decides the alpha for THIS frame.
+        uint32_t j2Notif = 0;
+        if (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &j2Notif, 0) == pdTRUE) {
+            float j2deg = (float)((int32_t)j2Notif) / 100.0f;   // signed fixed-point
+            _updateAlphaFromJ2(j2deg);
+            dbg.logWithType("ALPHA", COLOR_MAGENTA, "%.2f\n", _alpha);
+
+            // char buf[22];
+            // snprintf(buf, sizeof(buf), "Normalize ALPHA %2.2f", _alpha);
+            // UITask::updateHMS(buf);
+        }
 
         sharedDatatype::ArmKPCoords kp = {};
         sharedDatatype::HandJointData hd = {};
@@ -39,8 +66,8 @@ void NormalizeTask::taskFunction() {
             for (int i = 0; i < 3; i++) {
                 float je = (float)rx->jetsonData.points[0][i];
                 float jw = (float)rx->jetsonData.points[1][i];
-                el[i] = FUSION_ALPHA * je + (1.0f - FUSION_ALPHA) * el[i];
-                wr[i] = FUSION_ALPHA * jw + (1.0f - FUSION_ALPHA) * wr[i];
+                el[i] = _alpha * je + (1.0f - _alpha) * el[i];
+                wr[i] = _alpha * jw + (1.0f - _alpha) * wr[i];
             }
         }
 

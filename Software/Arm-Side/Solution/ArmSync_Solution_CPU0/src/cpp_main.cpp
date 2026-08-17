@@ -3,6 +3,28 @@
 #include "queues.h"
 #include "ElegantDebug.h"
 
+// Hooks for diagnostics (configUSE_MALLOC_FAILED_HOOK / configCHECK_FOR_STACK_OVERFLOW).
+// These trap allocation failure / stack overflow so we can locate the culprit
+// instead of silently failing to create a task.
+extern ElegantDebug dbg;
+
+// Called when a call to pvPortMalloc() fails (e.g. xTaskCreate ran out of heap).
+void vApplicationMallocFailedHook(void) {
+    taskDISABLE_INTERRUPTS();
+    dbg.error("MALLOC FAILED: heap exhausted.\n");
+    for (;;) {}
+}
+
+// Called by FreeRTOS when a task detects its stack has overflowed.
+// pcTaskName is the name of the offending task.
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName) {
+    (void)xTask;
+    taskDISABLE_INTERRUPTS();
+    dbg.info("STACK OVERFLOW in task '%s'!\n",
+              pcTaskName ? pcTaskName : "?");
+    for (;;) {}
+}
+
 FSP_HEADER
 
 /* Static allocation stubs — required when configSUPPORT_STATIC_ALLOCATION = 1 */
@@ -90,6 +112,8 @@ void cpp_main() {
     R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
     R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_LOW);
 
+    dbg.log("Test from cpp_main\n");
+
     uiTask.booting(UITask::BootingPhase::COMM_INIT);
     R_BSP_SoftwareDelay(400, BSP_DELAY_UNITS_MILLISECONDS);
     uiTask.booting(UITask::BootingPhase::MEMORY_INIT);
@@ -107,6 +131,7 @@ void cpp_main() {
                           FreeRTOS::Task::getHandle("Normalize"),
                           FreeRTOS::Task::getHandle("IK"));
     fusionTask.setRecHandle(FreeRTOS::Task::getHandle("RecPlay"));
+    fusionTask.setNormalizeHandle(FreeRTOS::Task::getHandle("Normalize"));   // J2 -> alpha
     recPlayTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));
     cpuCommTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // freq -> UI
 

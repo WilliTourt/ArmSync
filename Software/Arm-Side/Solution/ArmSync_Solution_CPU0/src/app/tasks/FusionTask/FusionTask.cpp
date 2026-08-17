@@ -20,6 +20,10 @@ void FusionTask::setRecHandle(TaskHandle_t handle) {
     _recHandle = handle;
 }
 
+void FusionTask::setNormalizeHandle(TaskHandle_t handle) {
+    _normalizeHandle = handle;
+}
+
 void FusionTask::taskFunction() {
     dbg.ok("FusionTask started.\n");
 
@@ -64,6 +68,9 @@ void FusionTask::taskFunction() {
         // J6: mapped from pitch (not blended)
         out.angles[5] = handValid ? _mapPitchToJ6(latestPitch) : 0.0f;
 
+
+
+
         // Poll the latest UI command (index 0, non-blocking, overwrite).
         // UITask pushes UICommand::REC to start, UICommand::NONE to stop.
         uint32_t uiVal = static_cast<uint32_t>(sharedDatatype::UICommand::NONE);
@@ -89,6 +96,17 @@ void FusionTask::taskFunction() {
                                    eSetValueWithOverwrite);
             }
             dbg.info("FusionTask: recording done -> RecPlayTask save\n");
+        }
+
+
+
+        
+        // Notify NormalizeTask with fused J2 (deg, x100 fixed-point) so it can
+        // pick this frame's hand/Jetson blend alpha for the next frame.
+        if (_normalizeHandle != nullptr) {
+            int32_t j2x100 = (int32_t)(out.angles[1] * 100.0f);
+            xTaskNotifyIndexed(_normalizeHandle, 0,
+                               (uint32_t)j2x100, eSetValueWithOverwrite);
         }
 
         // Live output to MotionPlanningTask. (During playback FusionTask is

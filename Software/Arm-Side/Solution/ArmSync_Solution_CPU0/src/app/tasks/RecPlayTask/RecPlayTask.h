@@ -48,6 +48,12 @@ class RecPlayTask : public FreeRTOS::Task {
         // Give RecPlayTask the UITask handle so it can report PLAY_DONE back.
         void setUIHandle(TaskHandle_t h) { _uiHandle = h; }
 
+        // Loop mode: when true, replay wraps back to frame 0 instead of
+        // finishing (until PLAY_END). When false, single-shot playback.
+        // Static so UITask can set it without holding a RecPlayTask instance.
+        static void setLoop(bool loop) { _loop = loop; }
+        static bool getLoop()          { return _loop; }
+
         // True while a replay is feeding replayQueue. Exposed for diagnostics.
         bool isReplaying() const { return _replaying; }
 
@@ -77,6 +83,7 @@ class RecPlayTask : public FreeRTOS::Task {
         uint16_t _playCount  = 0;   // frames loaded from flash for playback
         uint16_t _playIdx    = 0;   // next frame index to send during playback
         bool     _replaying  = false;
+        static bool _loop;          // loop playback (wrap instead of done)
         TaskHandle_t _uiHandle = nullptr;   // UITask, for PLAY_DONE report
 
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_recQueue;    // from FusionTask (record)

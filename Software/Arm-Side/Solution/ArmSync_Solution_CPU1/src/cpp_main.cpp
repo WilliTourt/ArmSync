@@ -93,7 +93,7 @@ static void armHomeAll() {
     }
     Emm_V5_Synchronous_motion(0);
 
-    R_BSP_SoftwareDelay(5000, BSP_DELAY_UNITS_MILLISECONDS);
+    R_BSP_SoftwareDelay(3000, BSP_DELAY_UNITS_MILLISECONDS);
 }
 
 void cpp_main() {

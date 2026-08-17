@@ -5,6 +5,9 @@ BlinkTask blinkTask;
 // Task 1: UART receive (controller + Jetson)
 UartRecvTask uartRecvTask(originalDataQueue);
 
+// UI: TJC serial screen
+UITask uiTask(IPCFeedbackQueue, eeUIQueue);
+
 // Task 2: normalize + hand->coord + J5/pitch
 NormalizeTask normalizeTask(originalDataQueue, armKPCoordsQueue,
                             handJointQueue, eeDataQueue, eeUIQueue);
@@ -24,6 +27,3 @@ MotionPlanningTask motionPlanningTask(fusedJointQueue, replayQueue, motionPlanQu
 
 // Task 7: IPC to CPU1 (motion plan -> M33)
 CPUCommTask cpuCommTask(motionPlanQueue, eeDataQueue, IPCFeedbackQueue);
-
-// UI: TJC serial screen
-UITask uiTask(IPCFeedbackQueue, eeUIQueue);

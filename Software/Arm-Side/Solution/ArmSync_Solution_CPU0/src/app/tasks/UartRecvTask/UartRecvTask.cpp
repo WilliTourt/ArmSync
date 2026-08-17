@@ -65,6 +65,9 @@ void UartRecvTask::_parseCtrller() {
                 // Cache newest handset frame only
                 _latestCtrllerData = ctrl_data;
                 _handsetValid = true;
+
+                // dbg.info("Controller wrist: %f, %f, %f\n",
+                    // ctrl_data.wristVec[0], ctrl_data.wristVec[1], ctrl_data.wristVec[2]);
             }
         }
     }

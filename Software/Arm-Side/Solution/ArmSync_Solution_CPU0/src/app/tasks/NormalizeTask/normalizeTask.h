@@ -26,11 +26,20 @@ class NormalizeTask : public FreeRTOS::Task {
 
     private:
         void taskFunction() override;
+        // Update hand/Jetson blend alpha from fused J2 (deg) pushed by FusionTask.
+        void _updateAlphaFromJ2(float j2deg);
 
         static constexpr float HUMAN_UPPER_M   = 0.35f;   // shoulder -> elbow
         static constexpr float HUMAN_FOREARM_M = 0.26f;   // elbow -> wrist
 
-        static constexpr float FUSION_ALPHA = 0.07f;    // trust Jetson two-thirds
+        // J2-dependent hand/Jetson blend weight. ALPHA_x = trust Jetson x100.
+        //   J2 <= 0  -> 0.78   (arm hangs / low -> trust Jetson more)
+        //   J2 >= 75 -> 0.06   (arm raised  -> trust hand more)
+        //   linear in between.
+        static constexpr float ALPHA_J2_LOW   = 0.78f;   // J2 <=  0
+        static constexpr float ALPHA_J2_HIGH  = 0.06f;   // J2 >= 75
+        static constexpr float ALPHA_J2_HIGH_DEG = 75.0f;
+        float _alpha = 0.76f;   // hand/Jetson blend alpha (starts at old default)
 
         FreeRTOS::Queue<UartRecvTask::TransmitData>      &_inQueue;
         FreeRTOS::Queue<sharedDatatype::ArmKPCoords>     &_kpQueue;

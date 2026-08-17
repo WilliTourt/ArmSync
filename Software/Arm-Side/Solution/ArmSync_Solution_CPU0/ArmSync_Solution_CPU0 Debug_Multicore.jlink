@@ -1,19 +1,22 @@
 [BREAKPOINTS]
-ForceImpTypeAny = 0
+FForceImpTypeAny = 0
 ShowInfoWin = 1
 EnableFlashBP = 1
 BPDuringExecution = 0
+orceImpTypeAny = 0
 [CFI]
-CFISize = 0x00
+CCFISize = 0x00
 CFIAddr = 0x00
+FISize = 0x00
 [CPU]
-MaxNumAPs = 0
+MMaxNumAPs = 0
 LowPowerHandlingMode = 0
 OverrideMemMap = 0
 AllowSimulation = 0
 ScriptFile=""
+axNumAPs = 0
 [FLASH]
-RMWThreshold = 0x200
+RRMWThreshold = 0x200
 Loaders=""
 EraseType = 0x00
 CacheExcludeSize = 0x00
@@ -25,22 +28,27 @@ AllowCaching = 1
 EnableFlashDL = 2
 Override = 0
 Device="ARM7"
+MWThreshold = 0x200
 [GENERAL]
-MaxNumTransfers = 0x00
+MMaxNumTransfers = 0x00
 WorkRAMSize = 0x10000
 WorkRAMAddr = 0x22060000
 RAMUsageLimit = 0x00
+axNumTransfers = 0x00
 [SWO]
-SWOLogFile=""
+SSWOLogFile=""
+WOLogFile=""
 [MEM]
-RdOverrideOrMask = 0x00
+RRdOverrideOrMask = 0x00
 RdOverrideAndMask = 0xFFFFFFFF
 RdOverrideAddr = 0xFFFFFFFF
 WrOverrideOrMask = 0x00
 WrOverrideAndMask = 0xFFFFFFFF
 WrOverrideAddr = 0xFFFFFFFF
+dOverrideOrMask = 0x00
 [RAM]
-VerifyDownload = 0x00
+VVerifyDownload = 0x00
+erifyDownload = 0x00
 [MEM_MAP]
 [DYN_MEM_MAP]
 NumUserRegion = 0x00

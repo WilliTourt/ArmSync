@@ -1,9 +1,11 @@
 #include "RecPlayTask.h"
+#include "UITask.h"      // static updateHMS()
 #include "ElegantDebug.h"
 
 extern ElegantDebug dbg;
 
 volatile bool RecPlayTask::_playActive = false;
+bool RecPlayTask::_loop = false;
 
 namespace {
 // ms between frames at the configured rate
@@ -42,11 +44,14 @@ void RecPlayTask::taskFunction() {
                     if (_frameCount > 0) {
                         if (saveToFlash()) {
                             dbg.info("RecPlayTask: saved %u frames\n", (unsigned)_frameCount);
+                            // UITask::updateHMS("REC save OK");
                         } else {
                             dbg.error("RecPlayTask: flash save FAILED\n");
+                            // UITask::updateHMS("REC save FAIL");
                         }
                     } else {
                         dbg.warning("RecPlayTask: nothing recorded\n");
+                        // UITask::updateHMS("REC empty");
                     }
                     _frameCount = 0;
                     break;
@@ -60,8 +65,10 @@ void RecPlayTask::taskFunction() {
                         _playActive = true;
                         _playIdx    = 0;   // start a fresh take
                         dbg.info("RecPlayTask: PLAY %u frames\n", (unsigned)_playCount);
+                        // UITask::updateHMS("Replay start");
                     } else {
                         dbg.warning("RecPlayTask: no take stored, PLAY ignored\n");
+                        // UITask::updateHMS("No take stored");
                     }
                     break;
 
@@ -96,14 +103,27 @@ void RecPlayTask::taskFunction() {
                 _playIdx++;
 
                 if (_playIdx >= _playCount) {
-                    dbg.info("RecPlayTask: playback done (%u frames)\n",
-                             (unsigned)_playCount);
-                    _replaying  = false;
-                    _playActive = false;
-                    _playIdx    = 0;
-                    _notifyUI(RecCmd::PLAY_DONE);
-                } else {
-                    // Wait the recorded interval to the NEXT frame.
+                    if (_loop) {
+                        // Infinite replay: wrap back to frame 0 and keep going
+                        // (until a PLAY_END stops it).
+                        _playIdx = 0;
+                        dbg.logWithType("REPLAY", COLOR_CYAN, "loop wrap\n");
+                        // Pace the wrap like a normal frame gap so the arm does
+                        // not hard-jump; fall through to the else-delay below.
+                    } else {
+                        dbg.info("RecPlayTask: playback done (%u frames)\n",
+                                 (unsigned)_playCount);
+                        _replaying  = false;
+                        _playActive = false;
+                        _playIdx    = 0;
+                        // UITask::updateHMS("Replay done");
+                        _notifyUI(RecCmd::PLAY_DONE);
+                        continue;
+                    }
+                }
+
+                // Wait the recorded interval to the NEXT frame.
+                {
                     sharedDatatype::JointAngleData next;
                     __builtin_memcpy(&next, &_recBuf[_playIdx * sizeof(frame)], sizeof(frame));
                     uint32_t dt = next.timestamp - frame.timestamp;
