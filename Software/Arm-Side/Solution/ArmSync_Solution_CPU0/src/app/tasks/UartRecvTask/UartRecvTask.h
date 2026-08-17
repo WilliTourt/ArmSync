@@ -11,14 +11,15 @@
 class UartRecvTask : public FreeRTOS::Task {
     public:
     
-        /* From controller (9 floats, comma/newline separated):
-             elbow_x/y/z (unit vec) | wrist_x/y/z (unit vec) | forearm_pitch | grip | pitch
-        int len = sprintf(tx_buf, "%.4f, %.4f, %.4f, %.4f, %.4f, %.4f, %.4f, %.2f, %.2f\n",
-            elx,ely,elz, wrx,wry,wrz, forearm_pitch, sliderGripPercent, sliderPitchPercent);
+        /* From controller (10 floats, comma/newline separated):
+             elbow_x/y/z (unit vec) | wrist_x/y/z (unit vec) | upperarm_pitch | forearm_pitch | grip | pitch
+        int len = sprintf(tx_buf, "%.4f, %.4f, %.4f, %.4f, %.4f, %.4f, %.2f, %.2f, %.2f, %.2f\n",
+            elx,ely,elz, wrx,wry,wrz, upperarm_pitch, forearm_pitch, sliderGripPercent, sliderPitchPercent);
         */
         struct CtrllerData {
             float elbowVec[3];      // 上臂单位向量 (x,y,z)
             float wristVec[3];      // 小臂单位向量 (x,y,z)
+            float upperarmPitch;    // J3 滚转角度 (deg, 手柄直接计算)
             float forearmPitch;     // 前臂绕轴旋转角度 (deg, 手柄直接计算)
             float gripPercent;      // sliderGripPercent (0~100)
             float pitchPercent;     // sliderPitchPercent (0~100)

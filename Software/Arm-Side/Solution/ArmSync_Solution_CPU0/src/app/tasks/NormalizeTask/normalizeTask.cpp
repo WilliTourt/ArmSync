@@ -33,7 +33,7 @@ void NormalizeTask::taskFunction() {
         if (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &j2Notif, 0) == pdTRUE) {
             float j2deg = (float)((int32_t)j2Notif) / 100.0f;   // signed fixed-point
             _updateAlphaFromJ2(j2deg);
-            dbg.logWithType("ALPHA", COLOR_MAGENTA, "%.2f\n", _alpha);
+            // dbg.logWithType("ALPHA", COLOR_MAGENTA, "%.2f\n", _alpha);
 
             // char buf[22];
             // snprintf(buf, sizeof(buf), "Normalize ALPHA %2.2f", _alpha);
@@ -80,6 +80,7 @@ void NormalizeTask::taskFunction() {
         kp.timestamp = rx->timestamp;
 
         // ---- 3. J5 forearm rotation from controller (forearm_pitch, computed on the handset) ----
+        hd.j3deg         = rx->ctrllerData.upperarmPitch;
         hd.j5deg         = rx->ctrllerData.forearmPitch;
         hd.pitch_percent = rx->ctrllerData.pitchPercent;
         hd.timestamp     = rx->timestamp;

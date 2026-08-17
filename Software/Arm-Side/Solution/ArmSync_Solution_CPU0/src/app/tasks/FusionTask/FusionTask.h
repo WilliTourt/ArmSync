@@ -15,7 +15,9 @@
  * Output:
  *   - fusedJointQueue : JointAngleData -> MotionPlanningTask
  *
- * J1~J5 are blended per-joint: angle = alpha*IK + (1-alpha)*NPU.
+ * J1/J2/J4 are blended per-joint: angle = alpha*IK + (1-alpha)*NPU.
+ * J3 gets its own J3_ALPHA, weighting the handset's J3 roll (more reliable).
+ * J5 is not blended; it comes from the handset's forearm roll.
  * J6 is not blended; it is mapped directly from pitch_percent.
  */
 class FusionTask : public FreeRTOS::Task {
@@ -39,6 +41,11 @@ class FusionTask : public FreeRTOS::Task {
         // Blend weight: 1.0 = trust IK fully (no NPU model yet)
         static constexpr float FUSION_ALPHA = 1.0f;
 
+        // J3 dedicated weight: weights the handset J3 roll vs the IK/NPU source.
+        // Higher = trust the handset more (hand J3 is the more reliable one, like J5).
+        // TODO: tune after real-world validation (e.g. 0.7 - 0.9).
+        static constexpr float J3_ALPHA = 0.8f;
+
         // pitch_percent (0~100) -> J6 angle in deg
         static constexpr float J6_MIN_DEG = -90.0f;
         static constexpr float J6_MAX_DEG =  90.0f;
@@ -52,7 +59,7 @@ class FusionTask : public FreeRTOS::Task {
 
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_ikQueue;
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_npuQueue;
-        FreeRTOS::Queue<sharedDatatype::HandJointData>   &_handQueue;  // J5 roll + pitch
+        FreeRTOS::Queue<sharedDatatype::HandJointData>   &_handQueue;  // J3/J5 roll + pitch
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_outQueue;
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_recQueue;  // record tap
 };

@@ -27,15 +27,17 @@ void FusionTask::setNormalizeHandle(TaskHandle_t handle) {
 void FusionTask::taskFunction() {
     dbg.ok("FusionTask started.\n");
 
-    float latestJ5  = 0.0f;    // forearm roll (deg), from hand quaternion
+    float latestJ5    = 0.0f;  // forearm roll (deg), from hand quaternion
+    float latestJ3    = 0.0f;
     float latestPitch = 50.0f; // default: J6 center
-    bool  handValid = false;
+    bool  handValid   = false;
 
     for (;;) {
 
         // Always drain hand data (J5 roll + pitch), non-blocking.
         auto hand = _handQueue.receive(0);
         if (hand) {
+            latestJ3    = hand->j3deg;
             latestJ5    = hand->j5deg;
             latestPitch = hand->pitch_percent;
             handValid   = true;
@@ -51,8 +53,11 @@ void FusionTask::taskFunction() {
         sharedDatatype::JointAngleData out = {};
         out.timestamp = ik->timestamp;
 
-        // J1~J4: complementary blend of IK and NPU (J5/J6 come from hand).
-        for (int i = 0; i < 4; i++) {
+        // J1/J2/J4: complementary blend of IK and NPU (J3 handled separately).
+        // J5/J6 come from hand.
+        const int blendIdx[3] = {0, 1, 3};   // J1, J2, J4
+        for (int n = 0; n < 3; n++) {
+            int i = blendIdx[n];
             if (npu) {
                 out.angles[i] = FUSION_ALPHA * ik->angles[i] +
                                (1.0f - FUSION_ALPHA) * npu->angles[i];
@@ -60,6 +65,15 @@ void FusionTask::taskFunction() {
                 // no NPU data yet -> pure IK
                 out.angles[i] = ik->angles[i];
             }
+        }
+
+        // J3: dedicated blend. The handset's J3 roll is more reliable, so give
+        // it its own alpha (J3_ALPHA weights the hand signal).
+        {
+            float src = (npu) ? npu->angles[2] : ik->angles[2];
+            out.angles[2] = (handValid)
+                ? J3_ALPHA * latestJ3 + (1.0f - J3_ALPHA) * src
+                : src;
         }
 
         // J5: forearm roll from hand quaternion only (IK cannot sense it).

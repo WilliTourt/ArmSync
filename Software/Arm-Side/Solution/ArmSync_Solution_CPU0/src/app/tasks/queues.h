@@ -27,6 +27,7 @@ struct PitchData {
 
 // From NormalizeTask to FusionTask: hand-only joint angles (J5 roll + pitch).
 struct HandJointData {
+    float j3deg;
     float j5deg;           // forearm roll (from quaternion, degrees)
     float pitch_percent;   // gripper pitch slider 0~100 (maps to J6)
     uint32_t timestamp;

@@ -235,6 +235,9 @@ void UITask::booting(BootingPhase phase) {
 
 void UITask::taskFunction() {
     dbg.ok("UITask started.\n");
+    
+    this->delay(pdMS_TO_TICKS(200));
+    updateStatusText(StatusText::MANUAL);
 
     for (;;) {
         // Receive PLAY_DONE from RecPlayTask: take exhausted naturally.

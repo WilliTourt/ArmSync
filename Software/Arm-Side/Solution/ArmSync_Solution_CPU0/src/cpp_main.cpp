@@ -90,7 +90,7 @@ FSP_FOOTER
 
 
 
-ElegantDebug dbg(&g_uart9, true, true);
+ElegantDebug dbg(&g_uart9, false, true);
 
 
 

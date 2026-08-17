@@ -33,8 +33,8 @@ void UartRecvTask::_parseCtrller() {
             int   count = 0;
             char *tok = (char*)line;
 
-            // Protocol: elbow[3] + wrist[3] + forearm_pitch + grip + pitch = 9 floats
-            for (int i = 0; i < 9; i++) {
+            // Protocol: elbow[3] + wrist[3] + upperarm_pitch + forearm_pitch + grip + pitch = 10 floats
+            for (int i = 0; i < 10; i++) {
                 char *end = tok;
                 while (*end && *end != ',' && *end != '\n' && *end != '\r') {
                     end++;
@@ -50,9 +50,10 @@ void UartRecvTask::_parseCtrller() {
                     case 3: ctrl_data.wristVec[0] = val; break;
                     case 4: ctrl_data.wristVec[1] = val; break;
                     case 5: ctrl_data.wristVec[2] = val; break;
-                    case 6: ctrl_data.forearmPitch = val; break;
-                    case 7: ctrl_data.gripPercent = val; break;
-                    case 8: ctrl_data.pitchPercent = val; break;
+                    case 6: ctrl_data.upperarmPitch = val; break;
+                    case 7: ctrl_data.forearmPitch = val; break;
+                    case 8: ctrl_data.gripPercent = val; break;
+                    case 9: ctrl_data.pitchPercent = val; break;
                 }
                 count++;
 
@@ -61,12 +62,13 @@ void UartRecvTask::_parseCtrller() {
                 tok = end + 1;
             }
 
-            if (count >= 9) {
+            if (count >= 10) {
                 // Cache newest handset frame only
                 _latestCtrllerData = ctrl_data;
                 _handsetValid = true;
 
-                // dbg.info("Controller wrist: %f, %f, %f\n",
+                // dbg.info("Controller: E(%f, %f, %f) W(%f, %f, %f)\n",
+                    // ctrl_data.elbowVec[0], ctrl_data.elbowVec[1], ctrl_data.elbowVec[2],
                     // ctrl_data.wristVec[0], ctrl_data.wristVec[1], ctrl_data.wristVec[2]);
             }
         }
@@ -104,6 +106,11 @@ void UartRecvTask::_parseJetson() {
         }
         jd.valid = true;
         _latestJetsonData = jd;
+
+        // dbg.info("Jetson: E(%d, %d, %d) W(%d, %d, %d)\n",
+            // jd.points[0][0], jd.points[0][1], jd.points[0][2],
+            // jd.points[1][0], jd.points[1][1], jd.points[1][2]);
+
         _newJetsonFlag    = true; // mark: a fresh Jetson frame
         _lastJetsonTick   = FreeRTOS::Kernel::getTickCount();
     }
