@@ -101,7 +101,7 @@ void IKTask::solveIK(float ex, float ey, float ez,
 }
 
 void IKTask::taskFunction() {
-    dbg.info("IKTask started.\n");
+    dbg.ok("IKTask started.\n");
 
     for (;;) {
         auto target = _inQueue.receive(portMAX_DELAY);

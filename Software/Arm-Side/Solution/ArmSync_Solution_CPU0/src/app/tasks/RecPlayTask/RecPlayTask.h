@@ -42,7 +42,7 @@ class RecPlayTask : public FreeRTOS::Task {
         RecPlayTask(FreeRTOS::Queue<sharedDatatype::JointAngleData> &inRecQueue,
                     FreeRTOS::Queue<sharedDatatype::JointAngleData> &outReplayQueue,
                     FreeRTOS::Queue<sharedDatatype::JointAngleData> &liveQueue)
-            : Task(tskIDLE_PRIORITY + 3, 4096, "RecPlay"),
+            : Task(tskIDLE_PRIORITY + 2, 2048, "RecPlay"),
               _recQueue(inRecQueue), _replayQueue(outReplayQueue), _liveQueue(liveQueue) {}
 
         // Give RecPlayTask the UITask handle so it can report PLAY_DONE back.

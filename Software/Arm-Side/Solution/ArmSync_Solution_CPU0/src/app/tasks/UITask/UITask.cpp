@@ -1,4 +1,4 @@
-#include "UITask.h"
+﻿#include "UITask.h"
 #include "ElegantDebug.h"
 #include "hal_data.h"
 #include "CPUCommTask/CPUCommTask.h"
@@ -41,67 +41,56 @@ void UITask::_send(const char* fmt, ...) {
 
     // Wait for previous TX to complete
     while (!_txDone) {
-        R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MILLISECONDS);
+        if (FreeRTOS::Kernel::getSchedulerState() != FreeRTOS::Kernel::SchedulerState::Running) {
+            R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MILLISECONDS);        
+        } else {
+            this->delay(pdMS_TO_TICKS(1));
+        }
     }
     _txDone = false;
     R_SCI_B_UART_Write(&g_uart3_ctrl, (uint8_t*)_tjcBuf, (uint32_t)len);
 }
 
 void UITask::_parseScreenInput() {
-    static const char* known[] = {"BTZ_PRESSED", "ESTOP_PRESSED", "REC_PRESSED", "PLAY_PRESSED"};
-    static const size_t knownLen[] = {11, 13, 11, 12};
-
-    for (int i = 0; i < 4; i++) {
-        if (_rxRing.available() >= knownLen[i]) {
-            uint8_t buf[16] = {};
-            _rxRing.peek(buf, knownLen[i]);
-            if (memcmp(buf, known[i], knownLen[i]) == 0) {
-                for (size_t j = 0; j < knownLen[i]; j++) {
-                    _rxRing.get();
+    // Single-char protocol from TJC buttons: E=ESTOP, B=BTZ, R=REC, P=PLAY.
+    // Screen sends exactly one ASCII char per press (no frame tail).
+    int ch;
+    while ((ch = _rxRing.get()) >= 0) {
+        // Map button presses following the mutual-exclusion rules:
+        //  - while PLAY: REC/HOME ignored (ESTOP valid)
+        //  - while REC : PLAY ignored (ESTOP and BTZ/HOME both valid)
+        switch (ch) {
+            case 'E':  // ESTOP : valid in any state, only released by BTZ
+                CPUCommTask::setEstop(true);
+                dbg.logWithType("TJC BTN", COLOR_RED, "ESTOP!\n");
+                break;
+            case 'B':  // BTZ (home/zero) : valid except while playing (REC ok)
+                if (_isPlaying) break;   // ignore while playing
+                CPUCommTask::setBtz(true);   // one-shot home pulse
+                if (CPUCommTask::getEstop()) {
+                    CPUCommTask::setEstop(false);   // BTZ also releases estop
+                    dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ, ESTOP RELEASED\n");
+                } else {
+                    dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ\n");
                 }
-                dbg.logWithType("TJC BTN", COLOR_YELLOW, "%s\n", known[i]);
-
-                // Map button presses following the mutual-exclusion rules:
-                //  - while PLAY: REC/HOME ignored (ESTOP valid)
-                //  - while REC : PLAY ignored (ESTOP and BTZ/HOME both valid)
-                switch (i) {
-                    case 0:  // BTZ (home / zero) : valid in any state except playing (REC 时可用)
-                        if (_isPlaying) break;            // ignore while playing
-                        CPUCommTask::setBtz(true);              // one-shot home pulse
-                        if (CPUCommTask::getEstop()) {
-                            CPUCommTask::setEstop(false);       // BTZ also releases estop
-                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ, ESTOP RELEASED\n");
-                        } else {
-                            dbg.logWithType("TJC BTN", COLOR_YELLOW, "BTZ\n");
-                        }
-                        break;
-                    case 1:  // ESTOP : valid in any state, only released by BTZ
-                        CPUCommTask::setEstop(true);
-                        dbg.logWithType("TJC BTN", COLOR_RED, "ESTOP!\n");
-                        break;
-                    case 2:  // REC : start/stop recording
-                        if (_isPlaying) break;               // ignore while playing
-                        _isRecording = !_isRecording;
-                        if (_isRecording) {
-                            _notifyFusion();                 // REC start -> push to Fusion
-                        } else {
-                            _notifyFusion();                 // REC end -> Fusion saves + tells RecPlay
-                        }
-                        break;
-                    case 3:  // PLAY : start/stop playback
-                        if (_isRecording) break;             // ignore while recording
-                        _isPlaying = !_isPlaying;
-                        if (_isPlaying) {
-                            _suspendUpstream();              // pause IK/Normalize/UartRecv/Fusion
-                            _notifyRecPlay(RecPlayTask::RecCmd::PLAY_START);
-                        } else {
-                            _notifyRecPlay(RecPlayTask::RecCmd::PLAY_END);
-                            _resumeUpstream();
-                        }
-                        break;
-                    default: break;
+                break;
+            case 'R':  // REC : start/stop recording
+                if (_isPlaying) break;   // ignore while playing
+                _isRecording = !_isRecording;
+                _notifyFusion();   // REC start -> Fusion records; end -> Fusion saves + tells RecPlay
+                break;
+            case 'P':  // PLAY : start/stop playback
+                if (_isRecording) break;   // ignore while recording
+                _isPlaying = !_isPlaying;
+                if (_isPlaying) {
+                    _suspendUpstream();   // pause IK/Normalize/UartRecv/Fusion
+                    _notifyRecPlay(RecPlayTask::RecCmd::PLAY_START);
+                } else {
+                    _notifyRecPlay(RecPlayTask::RecCmd::PLAY_END);
+                    _resumeUpstream();
                 }
-            }
+                break;
+            default: break;
         }
     }
 }
@@ -117,8 +106,6 @@ void UITask::_updateJointAngle(int idx, float angle_deg) {
 
 void UITask::_updateJointStatus(int idx, bool ok) {
     // J1Status ~ J6Status: text "●", color green/red
-    _send("J%dStatus.txt=\"●\"", idx + 1);
-    vTaskDelay(pdMS_TO_TICKS(3));
     _send("J%dStatus.pco=%d", idx + 1, (ok ? tjcCOLOR_GREEN : tjcCOLOR_RED));
     vTaskDelay(pdMS_TO_TICKS(3));
 }
@@ -127,8 +114,7 @@ void UITask::_updateGrip(float percent, bool stuck) {
     // GRIPPercent: 0=69mm open, 100=0mm closed
     _send("GRIPPercent.val=%d", (int)percent);
     vTaskDelay(pdMS_TO_TICKS(3));
-    _send("GRIPStatus.txt=\"●\"");
-    vTaskDelay(pdMS_TO_TICKS(3));
+    // static glyph on screen; only color changes.
     _send("GRIPStatus.pco=%d", (stuck ? tjcCOLOR_RED : tjcCOLOR_GREEN));
     vTaskDelay(pdMS_TO_TICKS(3));
 }
@@ -203,7 +189,7 @@ void UITask::booting(BootingPhase phase) {
 }
 
 void UITask::taskFunction() {
-    dbg.info("UITask started.\n");
+    dbg.ok("UITask started.\n");
 
     for (;;) {
         // Receive PLAY_DONE from RecPlayTask: take exhausted naturally.
@@ -225,6 +211,14 @@ void UITask::taskFunction() {
 
         auto feedback = _fdbk.receive(0);
         if (feedback) {
+
+            // Divided by motor reduction ratio
+            feedback->jointAngle[0] /= 20.0f;
+            feedback->jointAngle[1] /= 30.0f;
+            feedback->jointAngle[2] /= 10.0f;
+            feedback->jointAngle[3] /= 10.0f;
+            feedback->jointAngle[5] /= 10.0f;
+
             for (int i = 0; i < 6; i++) {
                 _updateJointAngle(i, feedback->jointAngle[i]);
             }
@@ -238,6 +232,6 @@ void UITask::taskFunction() {
             _updateGrip(ee->grip_percent, false);
         }
 
-        this->delay(pdMS_TO_TICKS(50));
+        this->delay(pdMS_TO_TICKS(40));
     }
-}
+}   

@@ -45,9 +45,12 @@ private:
 
     static constexpr float PWM_MIN = 500.0f;
     static constexpr float PWM_MAX = 2500.0f;
-    static constexpr float DEG_MIN = -135.0f;
-    static constexpr float DEG_MAX = 135.0f;
+    static constexpr float DEG_MIN = -90.0f;
+    static constexpr float DEG_MAX = 90.0f;
     static constexpr float PWM_TO_DEG = (DEG_MAX - DEG_MIN) / (PWM_MAX - PWM_MIN);
+
+    static constexpr float OPEN_PWM  = 800.0f;
+    static constexpr float CLOSE_PWM = 1500.0f;
 
     static constexpr float STUCK_THRESH_DEG = 10.0f;
 

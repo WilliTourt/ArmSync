@@ -30,7 +30,7 @@ class NormalizeTask : public FreeRTOS::Task {
         static constexpr float HUMAN_UPPER_M   = 0.35f;   // shoulder -> elbow
         static constexpr float HUMAN_FOREARM_M = 0.26f;   // elbow -> wrist
 
-        static constexpr float FUSION_ALPHA = 0.67f;    // trust Jetson two-thirds
+        static constexpr float FUSION_ALPHA = 0.07f;    // trust Jetson two-thirds
 
         FreeRTOS::Queue<UartRecvTask::TransmitData>      &_inQueue;
         FreeRTOS::Queue<sharedDatatype::ArmKPCoords>     &_kpQueue;

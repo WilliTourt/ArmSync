@@ -7,7 +7,7 @@ extern ElegantDebug dbg;
 // ====== NormalizeTask ======
 
 void NormalizeTask::taskFunction() {
-    dbg.info("NormalizeTask started.\n");
+    dbg.ok("NormalizeTask started.\n");
 
     for (;;) {
         auto rx = _inQueue.receive(portMAX_DELAY);
@@ -69,12 +69,12 @@ void NormalizeTask::taskFunction() {
         _eeUIQueue.sendToBack(ee, 0);
 
         // Float-free but precision-kept (one decimal): avoids %%f malloc chain.
-        dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
-            "Elbow(%d,%d,%d), Wrist(%d,%d,%d), (J5=%d.%d Gripper=%d j6Pitch=%d)\n",
-            (int)el[0], (int)el[1], (int)el[2],
-            (int)wr[0], (int)wr[1], (int)wr[2],
-            (int)hd.j5deg,
-            (int)(fabsf(hd.j5deg - (int)hd.j5deg) * 10.0f),
-            (int)ee.grip_percent, (int)hd.pitch_percent);
+        // dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
+        //     "Elbow(%d,%d,%d), Wrist(%d,%d,%d), (J5=%d.%d Gripper=%d j6Pitch=%d)\n",
+        //     (int)el[0], (int)el[1], (int)el[2],
+        //     (int)wr[0], (int)wr[1], (int)wr[2],
+        //     (int)hd.j5deg,
+        //     (int)(fabsf(hd.j5deg - (int)hd.j5deg) * 10.0f),
+        //     (int)ee.grip_percent, (int)hd.pitch_percent);
     }
 }

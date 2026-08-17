@@ -92,6 +92,8 @@ static void armHomeAll() {
                            true);      // cache, trigger together
     }
     Emm_V5_Synchronous_motion(0);
+
+    R_BSP_SoftwareDelay(5000, BSP_DELAY_UNITS_MILLISECONDS);
 }
 
 void cpp_main() {
@@ -137,7 +139,8 @@ void cpp_main() {
         MotionPlanPacket plan;
         float gripPercent;
         bool estop = false, btz = false;
-        if (!dogBark && ipc.getCtrlPacket(plan, gripPercent, estop, btz)) {
+        bool isPacketRecved = ipc.getCtrlPacket(plan, gripPercent, estop, btz);
+        if (!dogBark && isPacketRecved) {
 
             if (estop) {
                 // Emergency stop: lock the arm (only BTZ from CPU0 releases it)
@@ -146,15 +149,16 @@ void cpp_main() {
                     armEmergencyStop();
                     dbg.logWithType("M33", COLOR_RED, "ESTOP from CPU0\n");
                 }
-            } else {
+            }
+
+            // BTZ has highest priority: it both releases the estop latch and homes all.
+            if (btz) {
                 if (estopActive) {
-                    estopActive = false;   // releasable via BTZ only
+                    estopActive = false;   // only BTZ releases estop
                 }
-                if (btz) {
-                    // Home/zero, or recover-from-estop + home.
-                    armHomeAll();
-                    dbg.logWithType("M33", COLOR_YELLOW, "BTZ -> home all\n");
-                }
+                // Home/zero, or recover-from-estop + home.
+                armHomeAll();
+                dbg.logWithType("M33", COLOR_YELLOW, "BTZ\n");
             }
 
             if (!estop && !btz && !estopActive) {
@@ -171,11 +175,14 @@ void cpp_main() {
 
                 gripper.setRatio(gripPercent);
 
-                dbg.logWithType("M33", COLOR_GREEN,
-                    "RX: grip=%.0f%% | m0(dir%d r%d a%d p%lu)\n",
-                    gripPercent,
-                    plan.motors[0].dir, plan.motors[0].rpm, plan.motors[0].acc,
-                    plan.motors[0].pulse);
+            dbg.logWithType("M33", COLOR_GREEN,
+                "m0(dir%d r%d a%d p%lu) m1(dir%d r%d a%d p%lu) m2(dir%d, r%d a%d p%lu) m3(dir%d r%d a%d p%lu) m4(dir%d r%d a%d p%lu) m5(dir%d r%d a%d p%lu)\n",
+                plan.motors[0].dir, plan.motors[0].rpm, plan.motors[0].acc, (unsigned long)plan.motors[0].pulse,
+                plan.motors[1].dir, plan.motors[1].rpm, plan.motors[1].acc, (unsigned long)plan.motors[1].pulse,
+                plan.motors[2].dir, plan.motors[2].rpm, plan.motors[2].acc, (unsigned long)plan.motors[2].pulse,
+                plan.motors[3].dir, plan.motors[3].rpm, plan.motors[3].acc, (unsigned long)plan.motors[3].pulse,
+                plan.motors[4].dir, plan.motors[4].rpm, plan.motors[4].acc, (unsigned long)plan.motors[4].pulse,
+                plan.motors[5].dir, plan.motors[5].rpm, plan.motors[5].acc, (unsigned long)plan.motors[5].pulse);
             }
         }
 

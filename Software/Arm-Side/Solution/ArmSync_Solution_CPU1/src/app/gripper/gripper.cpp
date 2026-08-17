@@ -43,8 +43,6 @@ void Gripper::setRatio(float ratio) {
     if (ratio > 100.0f) ratio = 100.0f;
 
     // Map 0~100% -> PWM range (open=800, closed=2200)
-    static constexpr float OPEN_PWM  = 800.0f;
-    static constexpr float CLOSE_PWM = 2200.0f;
     float pwm = OPEN_PWM + (CLOSE_PWM - OPEN_PWM) * ratio / 100.0f;
     _targetPWM = pwm;
 

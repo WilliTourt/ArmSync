@@ -21,13 +21,14 @@ void FusionTask::setRecHandle(TaskHandle_t handle) {
 }
 
 void FusionTask::taskFunction() {
-    dbg.info("FusionTask started.\n");
+    dbg.ok("FusionTask started.\n");
 
     float latestJ5  = 0.0f;    // forearm roll (deg), from hand quaternion
     float latestPitch = 50.0f; // default: J6 center
     bool  handValid = false;
 
     for (;;) {
+
         // Always drain hand data (J5 roll + pitch), non-blocking.
         auto hand = _handQueue.receive(0);
         if (hand) {
@@ -94,14 +95,13 @@ void FusionTask::taskFunction() {
         // suspended by UITask, so this path is naturally inactive then.)
         _outQueue.sendToBack(out, 0);
 
-        // Float-free but precision-kept: print as int.frac (one decimal) to
-        // avoid %%f -> _printf_float -> Balloc(malloc) which HardFaults in tasks.
-        #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
-        // NOTICE: NO NPU data now, so this log is just IK data with J5 deg
-        dbg.logWithType("OUTPUT", COLOR_BLUE,
-            "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",
-            _D1(out.angles[0]), _D1(out.angles[1]), _D1(out.angles[2]),
-            _D1(out.angles[3]), _D1(out.angles[4]));
-        #undef _D1
+        // // Float-free but precision-kept: print as int.frac (one decimal
+        // #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
+        // // NOTICE: NO NPU data now, so this log is just IK data with J5 deg
+        // dbg.logWithType("FUSION OUTPUT", COLOR_DARK_GREEN,
+        //     "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",
+        //     _D1(out.angles[0]), _D1(out.angles[1]), _D1(out.angles[2]),
+        //     _D1(out.angles[3]), _D1(out.angles[4]));
+        // #undef _D1
     }
 }

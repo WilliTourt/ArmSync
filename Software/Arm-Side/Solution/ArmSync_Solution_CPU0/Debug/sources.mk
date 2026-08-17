@@ -99,6 +99,7 @@ src/app/tasks/CPUCommTask \
 src/app/tasks/FusionTask \
 src/app/tasks/IKTask \
 src/app/tasks/MotionPlanningTask \
+src/app/tasks/NPUTask \
 src/app/tasks/NormalizeTask \
 src/app/tasks/RecPlayTask \
 src/app/tasks/UITask \

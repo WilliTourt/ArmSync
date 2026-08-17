@@ -57,6 +57,7 @@ class IPC {
 
         // Communication watchdog: true if no new ctrl packet from CPU0 within timeoutMs
         inline bool isWatchDogHungry(uint32_t timeoutMs) const {
+            if (_tick < _wdgTick) return false;    // avoid 4294967295
             return (_tick - _wdgTick) > timeoutMs;
         }
 
@@ -67,9 +68,9 @@ class IPC {
         IPCFeedback                *_tx = nullptr;   // sent to CPU0
         bsp_ipc_semaphore_handle_t _lock = { .semaphore_num = 0 };
 
-        uint32_t _lastRx = 0;   // last received control timestamp (from CPU0)
-        uint32_t _tick   = 0;   // millisecond counter, incremented by tick()
-        uint32_t _wdgTick = 0;  // tick value when last new ctrl packet armed the watchdog
+        uint32_t _lastRx = 0;      // last received control timestamp (from CPU0)
+        uint32_t _tick   = 0;      // millisecond counter, incremented by tick()
+        uint32_t _wdgTick = 2000;  // tick value when last new ctrl packet armed the watchdog
 
         static volatile bool _ctrlPacketRdy;
 };

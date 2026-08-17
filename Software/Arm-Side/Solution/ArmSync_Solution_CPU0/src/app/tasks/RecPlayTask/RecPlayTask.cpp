@@ -11,7 +11,7 @@ constexpr TickType_t FRAME_PERIOD_MS = pdMS_TO_TICKS(1000U / RecPlayTask::RECORD
 } // namespace
 
 void RecPlayTask::taskFunction() {
-    dbg.info("RecPlayTask started.\n");
+    dbg.ok("RecPlayTask started.\n");
 
     FlashStorage flash;
     if (!flash.init()) {

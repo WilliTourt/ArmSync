@@ -25,7 +25,7 @@ class UITask : public FreeRTOS::Task {
 
         UITask(FreeRTOS::Queue<sharedDatatype::IPCFeedback>  &feedbackInQueue,
             FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeUIQueue)
-            : Task(tskIDLE_PRIORITY + 2, 768, "UI"),
+            : Task(tskIDLE_PRIORITY + 3, 1536, "UI"),
             _fdbk(feedbackInQueue), _eeUIQueue(eeUIQueue) {}
 
         static void uart3Callback(uart_callback_args_t *p_args);

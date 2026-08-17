@@ -13,6 +13,7 @@ class BlinkTask : public FreeRTOS::Task {
 
     private:
         void taskFunction() override {
+            dbg.ok("BlinkTask started.\n");
             for (;;) {
                 R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_HIGH);
                 this->delay(100);

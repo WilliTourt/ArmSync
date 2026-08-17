@@ -141,7 +141,7 @@ void UartRecvTask::_emitFrame() {
 }
 
 void UartRecvTask::taskFunction() {
-    dbg.info("UartRecvTask started.\n");
+    dbg.ok("UartRecvTask started.\n");
 
     for (;;) {
         _parseJetson();
