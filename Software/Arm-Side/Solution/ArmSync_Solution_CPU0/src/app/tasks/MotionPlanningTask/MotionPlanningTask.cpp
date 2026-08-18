@@ -31,7 +31,7 @@ void MotionPlanningTask::taskFunction() {
         // Otherwise block for live fused joint data.
         auto joint = _inQueue.receive(portMAX_DELAY);
         if (!joint) continue;
-
+d
         sharedDatatype::MotionPlanPacket pkt = _arm.setAngles(joint->angles);
         pkt.timestamp = joint->timestamp;
 

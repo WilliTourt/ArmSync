@@ -127,13 +127,13 @@ void FusionTask::taskFunction() {
         // suspended by UITask, so this path is naturally inactive then.)
         _outQueue.sendToBack(out, 0);
 
-        // // Float-free but precision-kept: print as int.frac (one decimal
-        // #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
-        // // NOTICE: NO NPU data now, so this log is just IK data with J5 deg
-        // dbg.logWithType("FUSION OUTPUT", COLOR_DARK_GREEN,
-        //     "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",
-        //     _D1(out.angles[0]), _D1(out.angles[1]), _D1(out.angles[2]),
-        //     _D1(out.angles[3]), _D1(out.angles[4]));
-        // #undef _D1
+        // Float-free but precision-kept: print as int.frac (one decimal
+        #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
+        // NOTICE: NO NPU data now, so this log is just IK data with J5 deg
+        dbg.logWithType("FUSION OUTPUT", COLOR_DARK_GREEN,
+            "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",
+            _D1(out.angles[0]), _D1(out.angles[1]), _D1(out.angles[2]),
+            _D1(out.angles[3]), _D1(out.angles[4]));
+        #undef _D1
     }
 }

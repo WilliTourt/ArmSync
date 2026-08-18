@@ -42,7 +42,7 @@ class UITask : public FreeRTOS::Task {
         // the shared UI status / message line.
         static void updateStatusText(StatusText text);
         static void updateFreq(int hz);
-        static void updateHMS(const char* msg);   // circular HMS_Msg0~4 slot, usages: any task
+        static void updateHMS(const char* msg);        // circular HMS_Msg0~4 slot, usages: any task
         static void updateNPUStatus(NpuState state);   // NPUStatus dot + NPUText
 
         void setTaskHandles(TaskHandle_t fusion, TaskHandle_t recplay,

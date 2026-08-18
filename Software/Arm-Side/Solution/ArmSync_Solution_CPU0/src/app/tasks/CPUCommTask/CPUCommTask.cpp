@@ -35,7 +35,7 @@ void CPUCommTask::taskFunction() {
     TickType_t lastSendTick = 0;
     for (;;) {
 
-        this->delay(pdMS_TO_TICKS(3));
+        this->delay(pdMS_TO_TICKS(100));
 
         // ---- Poll motion plan with short timeout (keep latest) ----
         auto plan = _planQueue.receive(pdMS_TO_TICKS(10));
@@ -49,9 +49,9 @@ void CPUCommTask::taskFunction() {
             _latestEE = *eeData;
         }
 
-        // ---- Send IPC periodically (~20ms), even without plan data ----
+        // Send IPC periodically
         TickType_t now = xTaskGetTickCount();
-        if ((now - lastSendTick) >= pdMS_TO_TICKS(20)) {
+        if ((now - lastSendTick) >= pdMS_TO_TICKS(100)) {
             lastSendTick = now;
 
             while (FSP_ERR_IN_USE == R_BSP_IpcSemaphoreTake(&_lock));

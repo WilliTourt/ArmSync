@@ -36,7 +36,7 @@ class NormalizeTask : public FreeRTOS::Task {
         //   J2 <= 0  -> 0.78   (arm hangs / low -> trust Jetson more)
         //   J2 >= 75 -> 0.06   (arm raised  -> trust hand more)
         //   linear in between.
-        static constexpr float ALPHA_J2_LOW   = 0.78f;   // J2 <=  0
+        static constexpr float ALPHA_J2_LOW   = 0.40f;   // J2 <=  0
         static constexpr float ALPHA_J2_HIGH  = 0.06f;   // J2 >= 75
         static constexpr float ALPHA_J2_HIGH_DEG = 75.0f;
         float _alpha = 0.76f;   // hand/Jetson blend alpha (starts at old default)
