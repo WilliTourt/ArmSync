@@ -127,6 +127,7 @@ src/FreeRTOS/FreeRTOS-Kernel/portable/MemMang \
 src/FreeRTOS/FreeRTOS-Kernel/portable/RM_FSP_PORT \
 src/app/arm \
 src/app/flash \
+src/app/npu_model \
 src/app/tasks/CPUCommTask \
 src/app/tasks/FusionTask \
 src/app/tasks/IKTask \

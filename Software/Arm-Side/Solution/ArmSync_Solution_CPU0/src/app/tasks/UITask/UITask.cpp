@@ -141,13 +141,14 @@ void UITask::_updateGrip(float percent, bool stuck) {
 
 void UITask::setTaskHandles(TaskHandle_t fusion, TaskHandle_t recplay,
                             TaskHandle_t uartRecv, TaskHandle_t normalize,
-                            TaskHandle_t ik) {
+                            TaskHandle_t ik, TaskHandle_t npu) {
     _fusionHandle  = fusion;
     _recPlayHandle = recplay;
     _suspendHandles[0] = uartRecv;
     _suspendHandles[1] = normalize;
     _suspendHandles[2] = ik;
     _suspendHandles[3] = fusion;
+    _suspendHandles[4] = npu;
 }
 
 void UITask::_notifyFusion() {
@@ -191,7 +192,7 @@ void UITask::updateStatusText(StatusText text) {
     vTaskDelay(pdMS_TO_TICKS(3));
 }
 
-void UITask::updateFreq(int hz) {
+void UITask::updateCtrlFreq(int hz) {
     _send("Freq.txt=\"%dHz\"", hz);
     vTaskDelay(pdMS_TO_TICKS(3));
 }
@@ -222,6 +223,11 @@ void UITask::updateNPUStatus(NpuState state) {
     _send("NPUStatus.pco=%d", color);
     vTaskDelay(pdMS_TO_TICKS(3));
     _send("NPUText.pco=%d", color);
+    vTaskDelay(pdMS_TO_TICKS(3));
+}
+
+void UITask::updateNPUFreq(int hz) {
+    _send("NPUText.txt=\"%2dHz   \"", hz);
     vTaskDelay(pdMS_TO_TICKS(3));
 }
 
@@ -257,9 +263,15 @@ void UITask::taskFunction() {
         }
 
         // Receive live control frequency from CPUCommTask (index 1).
-        uint32_t freqNotif = 0;
-        if (xTaskNotifyWaitIndexed(1, 0, 0xFFFFFFFF, &freqNotif, 0) == pdTRUE) {
-            updateFreq((int)freqNotif);
+        uint32_t freqCtrl = 0;
+        if (xTaskNotifyWaitIndexed(1, 0, 0xFFFFFFFF, &freqCtrl, 0) == pdTRUE) {
+            updateCtrlFreq((int)freqCtrl);
+        }
+
+        // Receive live NPU inference freq from NPUTask (index 2).
+        uint32_t freqInference = 0;
+        if (xTaskNotifyWaitIndexed(2, 0, 0xFFFFFFFF, &freqInference, 0) == pdTRUE) {
+            updateNPUFreq((int)freqInference);
         }
 
         _parseScreenInput();
@@ -280,7 +292,6 @@ void UITask::taskFunction() {
 
             // ---- Over-limit / stall alarm (rising edge, fire once) ----
             bool anyAlarm = false;
-            const uint32_t mask = 0u;
             for (int i = 0; i < 6; i++) {
                 const float deg = feedback->jointAngle[i];
                 bool overLimit = (deg <= JOINT_LIMIT_MIN[i]) || (deg >= JOINT_LIMIT_MAX[i]);

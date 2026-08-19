@@ -21,6 +21,7 @@ RM := rm -rf
 -include src/app/tasks/FusionTask/subdir.mk
 -include src/app/tasks/CPUCommTask/subdir.mk
 -include src/app/tasks/subdir.mk
+-include src/app/npu_model/subdir.mk
 -include src/app/flash/subdir.mk
 -include src/app/arm/subdir.mk
 -include src/FreeRTOS/FreeRTOS-Kernel/portable/RM_FSP_PORT/subdir.mk

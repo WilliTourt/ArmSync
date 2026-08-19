@@ -41,13 +41,14 @@ class UITask : public FreeRTOS::Task {
         // Static so any CPU0 task (RecPlay/Normalize/Fusion/...) can report
         // the shared UI status / message line.
         static void updateStatusText(StatusText text);
-        static void updateFreq(int hz);
+        static void updateCtrlFreq(int hz);
+        static void updateNPUFreq(int hz);
         static void updateHMS(const char* msg);        // circular HMS_Msg0~4 slot, usages: any task
         static void updateNPUStatus(NpuState state);   // NPUStatus dot + NPUText
 
         void setTaskHandles(TaskHandle_t fusion, TaskHandle_t recplay,
                             TaskHandle_t uartRecv, TaskHandle_t normalize,
-                            TaskHandle_t ik);
+                            TaskHandle_t ik, TaskHandle_t npu);
 
     private:
         void taskFunction() override;
@@ -82,7 +83,7 @@ class UITask : public FreeRTOS::Task {
         TaskHandle_t _recPlayHandle = nullptr;  // receives RecCmd (PLAY start/end)
 
         // Tasks suspended while PLAY is active (everything upstream of Motion).
-        TaskHandle_t _suspendHandles[4] = {nullptr, nullptr, nullptr, nullptr};
+        TaskHandle_t _suspendHandles[5] = {nullptr, nullptr, nullptr, nullptr, nullptr};
 
         // UI button state rules:
         //  - ESTOP always valid

@@ -25,11 +25,44 @@ class CPUCommTask : public FreeRTOS::Task {
             _fbReady = true;
         }
 
-        // UI-driven estop / btz flags, packed into the next ctrl packet to M33
-        static void setEstop(bool estop) { _estopActive = estop; }
-        static bool getEstop()            { return _estopActive; }
-        static void setBtz(bool btz)      { _btzPending = btz; }
-        static bool getBtz()              { return _btzPending; }
+        // UI-driven estop / btz flags, packed into the next ctrl packet to M33.
+        // These are read by CPUCommTask (send loop) and written by UITask from
+        // another task, so guard the crossing with a critical section.
+        static void setEstop(bool estop) {
+            taskENTER_CRITICAL();
+            _estopActive = estop;
+            taskEXIT_CRITICAL();
+        }
+        static bool getEstop() {
+            bool v;
+            taskENTER_CRITICAL();
+            v = _estopActive;
+            taskEXIT_CRITICAL();
+            return v;
+        }
+        static void setBtz(bool btz) {
+            taskENTER_CRITICAL();
+            _btzPending = btz;
+            taskEXIT_CRITICAL();
+        }
+        static bool getBtz() {
+            bool v;
+            taskENTER_CRITICAL();
+            v = _btzPending;
+            taskEXIT_CRITICAL();
+            return v;
+        }
+
+        // Atomically latch the current estop level + one-shot btz pulse into
+        // out variables, clearing the btz latch in the same critical section so
+        // a UI write between the read and clear can't get lost.
+        static void snapshotCtrl(bool &estopOut, bool &btzOut) {
+            taskENTER_CRITICAL();
+            estopOut = _estopActive;
+            btzOut   = _btzPending;
+            _btzPending = false;   // one-shot, consumed
+            taskEXIT_CRITICAL();
+        }
 
         static void setUIHandle(TaskHandle_t h) { _uiHandle = h; }
 

@@ -3,98 +3,159 @@
 #include <cmath>
 #include <cstring>
 
+#include "model.h"
+#include "pmu_ethosu.h"
+
+#include "UITask.h"
+
+
 extern ElegantDebug dbg;
 
-// ============================================================================
-// Ethos-U model integration hook
-// ----------------------------------------------------------------------------
-// The generated model files (model.h/c, compute_sub_0000/0002, sub_0001_*,
-// kernel_library_*, model_io_data.*, model_test_data.*) are NOT in this
-// project yet, and the FSP NPU peripheral (rm_ethosu0) is not configured.
-//
-// To enable the real inference:
-//   1. In e2studio/RASC add the Ethos-U NPU (rm_ethosu0) to the CPU0 project
-//      and regenerate.
-//   2. Copy the model .c/.h files into this project's source tree and add
-//      the folder as a source folder.
-//   3. Define ARMSYNC_NPU_READY (a compile define) and call
-//      NPUTask::initNPU() once from cpp_main before the scheduler starts.
-// The code below is ready to use those accessors once the macro is defined.
-// ============================================================================
 
-// Model input: [1,1,32,6] flattened = 192 floats. 6 channels per frame are a
-// PLACEHOLDER (elbow[3] + wrist[3]). The real keypoint->channel mapping is
-// still TBD with the classmate who trained the model — swap the fill below
-// once it's agreed.
-static constexpr int NPU_WINDOW = 32;   // frames of history
-static constexpr int NPU_CHANNELS = 6;  // elbow[3]+wrist[3] placeholder
-static constexpr int NPU_INPUT_SIZE = NPU_WINDOW * NPU_CHANNELS;  // 192
 
-#ifdef ARMSYNC_NPU_READY
-#include "model.h"
-static bool s_npuInitialized = false;
 // Called once before scheduler start to open the Ethos-U peripheral.
-void NPUTask::initNPU() {
-    // e.g. status = RM_ETHOSU_Open(&g_rm_ethosu0_ctrl, &g_rm_ethosu0_cfg);
-    // plus any PMU setup from the classmate's hal_entry.c
+fsp_err_t NPUTask::_initNPU() {
+    fsp_err_t status = FSP_SUCCESS;
+    status = RM_ETHOSU_Open(&g_rm_ethosu0_ctrl, &g_rm_ethosu0_cfg);
+    if (status != FSP_SUCCESS) {
+        return status;
+    }
+
+    ETHOSU_PMU_Enable(&g_ethosu0);
+    ETHOSU_PMU_CNTR_Enable(&g_ethosu0, ETHOSU_PMU_CCNT_Msk);
+    ethosu_pmu_event_type events[] = {
+        ETHOSU_PMU_NPU_IDLE,
+        ETHOSU_PMU_NPU_ACTIVE,
+        ETHOSU_PMU_AXI0_ENABLED_CYCLES,
+        ETHOSU_PMU_AXI1_ENABLED_CYCLES
+    };
+    for (uint32_t i = 0; i < sizeof(events) / sizeof(events[0]); i += 1) {
+      ETHOSU_PMU_Set_EVTYPER(&g_ethosu0, i, events[i]);
+      ETHOSU_PMU_CNTR_Enable(&g_ethosu0, 1u << i);
+    }
+    ETHOSU_PMU_CYCCNT_Reset(&g_ethosu0);
+    ETHOSU_PMU_EVCNTR_ALL_Reset(&g_ethosu0);
+
+    return status;
 }
-#endif
+
+// ============================================================================
+// Model pre-processing (agreed with the model author)
+// ----------------------------------------------------------------------------
+// Per frame:  elbow(mm) /500  -> x1,y1,z1
+//             wrist(mm) /700  -> x2,y2,z2
+//   elbow point:  mu_e   = (x1+y1+z1)/3,  sigma_e = std(x1,y1,z1)  (/3)
+//                 norm   = (x1-mu_e)/sigma_e ... (population std, /3)
+//   wrist point:  mu_w   = (x2+y2+z2)/3,  sigma_w = std(x2,y2,z2)  (/3)
+//                 norm   = (x2-mu_w)/sigma_w ...
+// 6 normalized values fill one 6-channel frame; 32 frames -> features[192].
+// ============================================================================
+
+// Normalize a 3-component point (in-place) using its own mean / population std.
+// scale: per-point divisor applied to the raw mm values first.
+void _normalizePoint(float out[3], const float raw[3], float scale) {
+    const float x = raw[0] / scale;
+    const float y = raw[1] / scale;
+    const float z = raw[2] / scale;
+
+    const float avg = (x + y + z) / 3.0f;
+    const float x1 = x - avg, y1 = y - avg, z1 = z - avg;
+    const float sigma = std::sqrt((x1 * x1 + y1 * y1 + z1 * z1) / 3.0f);
+
+    out[0] = x1 / sigma;
+    out[1] = y1 / sigma;
+    out[2] = z1 / sigma;
+}
 
 void NPUTask::taskFunction() {
     dbg.ok("NPUTask started.\n");
 
+    _initialized = (_initNPU() == FSP_SUCCESS) ? true : false;
+
+    if (_initialized) {
+        dbg.ok("NPU Opened successfully.\n");
+        UITask::updateNPUStatus(UITask::NpuState::IDLE);
+    } else {
+        dbg.error("NPU INIT FAILED!\n");
+    }
+
     // Sliding window of the last 32 frames, flattened in [frame, channel] order.
-    float window[NPU_INPUT_SIZE] = {0.0f};
-    int   frameCount = 0;
+    float window[NPU_INPUT_SIZE] = { 0.0f };
+    int   recvedFramesCnt = 0;
+
+    char _errBuf[64];
+
+    // Inference frequency estimation (sliding window over last N infer ticks).
+    // configTICK_RATE_HZ = 1000 -> xTaskGetTickCount() is in ms already.
+    uint32_t _inferTicks[NPU_FREQ_WINDOW] = {0};
+    int      _inferIdx = 0;
+    bool     _inferFilled = false;
 
     for (;;) {
         auto kp = _inQueue.receive(portMAX_DELAY);
         if (!kp) continue;
 
         // Shift the window left by one frame, drop the oldest.
-        if (frameCount >= NPU_WINDOW) {
-            memmove(window, window + NPU_CHANNELS,
-                    (NPU_WINDOW - 1) * NPU_CHANNELS * sizeof(float));
+        if (recvedFramesCnt >= NPU_INPUT_WINDOW) {
+            memmove(window, window + NPU_INPUT_CHNS,
+                    (NPU_INPUT_WINDOW - 1) * NPU_INPUT_CHNS * sizeof(float));
         }
 
-        // Append the newest frame. PLACEHOLDER: elbow[3]+wrist[3] as channels.
-        // TODO: replace with the agreed keypoint mapping once known.
-        int base = (frameCount < NPU_WINDOW)
-                   ? frameCount * NPU_CHANNELS
-                   : (NPU_WINDOW - 1) * NPU_CHANNELS;
-        window[base + 0] = kp->elbowCoord[0];
-        window[base + 1] = kp->elbowCoord[1];
-        window[base + 2] = kp->elbowCoord[2];
-        window[base + 3] = kp->wristCoord[0];
-        window[base + 4] = kp->wristCoord[1];
-        window[base + 5] = kp->wristCoord[2];
+        int base = (recvedFramesCnt < NPU_INPUT_WINDOW)
+                   ? recvedFramesCnt * NPU_INPUT_CHNS
+                   : (NPU_INPUT_WINDOW - 1) * NPU_INPUT_CHNS;
+        _normalizePoint(&window[base + 0], kp->elbowCoord, 500.0f);  // elbow, mm -> /500
+        _normalizePoint(&window[base + 3], kp->wristCoord, 700.0f);  // wrist, mm -> /700
 
-        if (frameCount < NPU_WINDOW) {
-            frameCount++;
+        if (recvedFramesCnt < NPU_INPUT_WINDOW) {
+            recvedFramesCnt++;
             continue;   // not enough history yet
         }
 
-        // ==================== Inference ====================
-        sharedDatatype::JointAngleData out = {};
-        out.timestamp = kp->timestamp;
 
-#ifdef ARMSYNC_NPU_READY
-        memcpy(GetModelInputPtr_features(), window, NPU_INPUT_SIZE * sizeof(float));
-        int status = RunModel(false);
-        if (status == 0) {
-            out.angles[2] = GetModelOutputPtr_j3_deg_70055()[0];   // J3
-            out.angles[4] = GetModelOutputPtr_j5_deg_70056()[0];   // J5
-        } else {
-            dbg.error("NPU RunModel failed (status=%d)\n", status);
+        if (_initialized) {
+            // INFERENCE
+            sharedDatatype::JointAngleData out = {};
+            out.timestamp = kp->timestamp;
+
+            memcpy(GetModelInputPtr_features(), window, NPU_INPUT_SIZE * sizeof(float));
+            int status = RunModel(false);
+            if (status == 0) {
+                // UITask::updateNPUStatus(UITask::NpuState::RUNNING);
+
+                out.angles[2] = GetModelOutputPtr_j3_deg_70055()[0];   // J3
+                out.angles[4] = GetModelOutputPtr_j5_deg_70056()[0];   // J5
+
+                out.angles[0] = 0.0f;
+                out.angles[1] = 0.0f;
+                out.angles[3] = 0.0f;
+                out.angles[5] = 0.0f;
+            } else {
+                snprintf(_errBuf, sizeof(_errBuf), "NPU RunModel failed, status=%d\n", status);
+                dbg.error(_errBuf);
+            }
+
+            _outQueue.overwrite(out);   // npuJointQueue is length-1: latest J3/J5 wins
+
+            // ---- Inference frequency -> UI (index 2) ----
+            uint32_t now = xTaskGetTickCount();
+            _inferTicks[_inferIdx] = now;
+            _inferIdx = (_inferIdx + 1) % NPU_FREQ_WINDOW;
+            if (_inferIdx == 0) _inferFilled = true;
+
+            if (_inferFilled && _uiHandle) {
+                uint32_t oldest = _inferTicks[_inferIdx];   // index now points at oldest
+                uint32_t span   = now - oldest;             // NPU_FREQ_WINDOW infers = window-1 periods
+                if (span > 0) {
+                    uint32_t avgPer = span / (NPU_FREQ_WINDOW - 1);   // avg period (ms)
+                    // Guard against avgPer==0 (inference faster than 1ms/frame):
+                    // skip this sample rather than divide by zero.
+                    if (avgPer > 0) {
+                        uint32_t hz = 1000u / avgPer;   // inference rate (Hz)
+                        xTaskNotifyIndexed(_uiHandle, 2, hz, eSetValueWithOverwrite);
+                    }
+                }
+            }
         }
-#else
-        // Skeleton mode: publish zeros for J3/J5 until the model is wired in.
-        // This keeps the pipeline (window -> output -> Fusion) testable.
-        out.angles[2] = 0.0f;   // J3
-        out.angles[4] = 0.0f;   // J5
-#endif
-        // J1/J2/J4/J6 stay 0: Fusion blends those from IK, not the NPU.
-
-        _outQueue.sendToBack(out, 0);
     }
 }

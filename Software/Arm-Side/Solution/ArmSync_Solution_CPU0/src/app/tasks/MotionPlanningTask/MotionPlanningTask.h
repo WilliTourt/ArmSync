@@ -29,6 +29,12 @@ class MotionPlanningTask : public FreeRTOS::Task {
     private:
         void taskFunction() override;
 
+        // Apply the P velocity loop to pkt.motors from target angles vs the
+        // last-known feedback. Shared by live and playback paths so both
+        // smooth to target identically.
+        void _applyPid(sharedDatatype::MotionPlanPacket &pkt,
+                       const float targetAngles[6]);
+
         // Joint motors: minDeg, maxDeg, reductionRatio, inverted, velocity
         static Motor _j1;   // J1 upper swing
         static Motor _j2;   // J2 upper abduction
@@ -43,4 +49,8 @@ class MotionPlanningTask : public FreeRTOS::Task {
         FreeRTOS::Queue<sharedDatatype::JointAngleData>  &_replayQueue;  // playback feed
         FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &_outQueue;
         FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &_fbQueue;     // latest motor feedback (PID)
+
+        // Last known-good motor feedback, retained across loops so a missing
+        // feedback frame doesn't get treated as "all joints at 0 deg".
+        float _lastFeedback[6] = {0.0f};
 };

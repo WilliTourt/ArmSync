@@ -67,34 +67,34 @@ void FusionTask::taskFunction() {
         sharedDatatype::JointAngleData out = {};
         out.timestamp = ik->timestamp;
 
-        // J1/J2/J4: complementary blend of IK and NPU (J3 handled separately).
-        // J5/J6 come from hand.
-        const int blendIdx[3] = {0, 1, 3};   // J1, J2, J4
-        for (int n = 0; n < 3; n++) {
-            int i = blendIdx[n];
-            if (npu) {
-                out.angles[i] = FUSION_ALPHA * ik->angles[i] +
-                               (1.0f - FUSION_ALPHA) * npu->angles[i];
+        // J1/J2/J4: IK only
+        out.angles[0] = ik->angles[0];
+        out.angles[1] = ik->angles[1];
+        out.angles[3] = ik->angles[3];
+
+        // J3: fusion of IK + hand + NPU
+        if (handValid) {
+            // All three sources available.
+            out.angles[2] = J3_IK_ALPHA   * ik->angles[2]
+                          + J3_HAND_ALPHA * latestJ3
+                          + J3_NPU_ALPHA  * (npu ? npu->angles[2] : ik->angles[2]);
+        } else {
+            // No hand data: fall back to NPU first, else IK.
+            out.angles[2] = (npu) ? npu->angles[2] : ik->angles[2];
+        }
+
+        // J5: fusion of hand + NPU
+        {
+            float npuJ5 = (npu) ? npu->angles[4] : latestJ5;   // NPU fallback = hand
+            if (handValid) {
+                out.angles[4] = J5_HAND_ALPHA * latestJ5 + J5_NPU_ALPHA * npuJ5;
             } else {
-                // no NPU data yet -> pure IK
-                out.angles[i] = ik->angles[i];
+                out.angles[4] = (npu) ? npu->angles[4] : 0.0f;
             }
         }
-
-        // J3: dedicated blend. The handset's J3 roll is more reliable, so give
-        // it its own alpha (J3_ALPHA weights the hand signal).
-        {
-            float src = (npu) ? npu->angles[2] : ik->angles[2];
-            out.angles[2] = (handValid)
-                ? J3_ALPHA * latestJ3 + (1.0f - J3_ALPHA) * src
-                : src;
-        }
-
-        // J5: forearm roll from hand quaternion only (IK cannot sense it).
-        out.angles[4] = handValid ? latestJ5 : 0.0f;
         out.angles[4] -= 60.0f;
 
-        // J6: mapped from pitch (not blended)
+        // J6: hand only
         out.angles[5] = handValid ? _mapPitchToJ6(latestPitch) : 0.0f;
 
         // Smooth the fused output before it reaches the record tap / live queue.
@@ -140,11 +140,12 @@ void FusionTask::taskFunction() {
 
         // Live output to MotionPlanningTask. (During playback FusionTask is
         // suspended by UITask, so this path is naturally inactive then.)
-        _outQueue.sendToBack(out, 0);
+        // fusedJointQueue is length-1: overwrite so the latest fusion always
+        // wins instead of silently dropping frames.
+        _outQueue.overwrite(out);
 
         // Float-free but precision-kept: print as int.frac (one decimal
         #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
-        // NOTICE: NO NPU data now, so this log is just IK data with J5 deg
         dbg.logWithType("FUSION OUTPUT", COLOR_DARK_GREEN,
             "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",
             _D1(out.angles[0]), _D1(out.angles[1]), _D1(out.angles[2]),

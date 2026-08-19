@@ -5,20 +5,21 @@
 #include "queues.h"
 
 /**
- * @brief Complementary fusion of IK and NPU joint angles.
+ * @brief Complementary fusion of IK, hand and NPU joint angles.
  *
  * Inputs:
- *   - ikJointQueue  : JointAngleData from IKTask (J1~J6)
- *   - npuJointQueue : JointAngleData from NPUTask (J1~J6, no model yet)
- *   - pitchDataQueue: pitch_percent from NormalizeTask (maps to J6)
+ *   - ikJointQueue  : JointAngleData from IKTask       (J1~J4)
+ *   - npuJointQueue : JointAngleData from NPUTask      (J3, J5)
+ *   - handJointQueue: HandJointData from NormalizeTask (J3, J5, pitch->J6)
  *
  * Output:
  *   - fusedJointQueue : JointAngleData -> MotionPlanningTask
  *
- * J1/J2/J4 are blended per-joint: angle = alpha*IK + (1-alpha)*NPU.
- * J3 gets its own J3_ALPHA, weighting the handset's J3 roll (more reliable).
- * J5 is not blended; it comes from the handset's forearm roll.
- * J6 is not blended; it is mapped directly from pitch_percent.
+ * Per-joint source:
+ *   J1/J2/J4 : IK only
+ *   J3       : 3-way  = J3_IK_ALPHA*IK + J3_HAND_ALPHA*hand + J3_NPU_ALPHA*NPU
+ *   J5       : 2-way  = J5_HAND_ALPHA*hand + J5_NPU_ALPHA*NPU  (IK can't sense roll)
+ *   J6       : hand only (pitch_percent -> angle)
  */
 class FusionTask : public FreeRTOS::Task {
     public:
@@ -38,21 +39,20 @@ class FusionTask : public FreeRTOS::Task {
     private:
         void taskFunction() override;
 
-        // Blend weight: 1.0 = trust IK fully (no NPU model yet)
-        static constexpr float FUSION_ALPHA = 1.0f;
+        static constexpr float J3_IK_ALPHA   = 0.37;
+        static constexpr float J3_HAND_ALPHA = 0.42;
+        static constexpr float J3_NPU_ALPHA  = 0.21;
 
-        // J3 dedicated weight: weights the handset J3 roll vs the IK/NPU source.
-        // Higher = trust the handset more (hand J3 is the more reliable one, like J5).
-        // TODO: tune after real-world validation (e.g. 0.7 - 0.9).
-        static constexpr float J3_ALPHA = 0.8f;
-
-        // pitch_percent (0~100) -> J6 angle in deg
-        static constexpr float J6_MIN_DEG = -90.0f;
-        static constexpr float J6_MAX_DEG =  90.0f;
+        static constexpr float J5_HAND_ALPHA = 0.33;
+        static constexpr float J5_NPU_ALPHA  = 0.67;
 
         // One-pole low-pass on the fused output, ~5 Hz cutoff at ~33 Hz
         // sample rate: alpha = 1 - exp(-2*pi*fc/fs) = 1 - exp(-2*pi*5/33) ~ 0.61.
         static constexpr float LP_FILTER_ALPHA = 0.61f;
+
+        // pitch_percent (0~100) -> J6 angle in deg
+        static constexpr float J6_MIN_DEG = -90.0f;
+        static constexpr float J6_MAX_DEG =  90.0f;
 
         void _applyLowPass(sharedDatatype::JointAngleData &out);
 

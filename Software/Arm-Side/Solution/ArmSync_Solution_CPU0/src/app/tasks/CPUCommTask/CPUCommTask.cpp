@@ -51,16 +51,17 @@ void CPUCommTask::taskFunction() {
 
         // Send IPC periodically
         TickType_t now = xTaskGetTickCount();
-        bool needSend = (plan.has_value() || _btzPending || _estopActive);
+        bool estopLvl = false, btzPulse = false;
+        CPUCommTask::snapshotCtrl(estopLvl, btzPulse);   // atomic read+clear btz
+        bool needSend = (plan.has_value() || estopLvl || btzPulse);
         if (needSend) {
 
             while (FSP_ERR_IN_USE == R_BSP_IpcSemaphoreTake(&_lock));
             _tx->motion_pkt = _latestPlan;
             _tx->grip_percent = _latestEE.grip_percent;
             _tx->timestamp = now;
-            _tx->estop = _estopActive;   // level: persists until BTZ clears
-            _tx->btz   = _btzPending;    // pulse: clear after sending
-            _btzPending = false;         // one-shot, latch consumed
+            _tx->estop = estopLvl;   // level: persists until BTZ clears
+            _tx->btz   = btzPulse;   // pulse latched in the same atomic snapshot
             R_BSP_IpcSemaphoreGive(&_lock);
 
             R_IPC_MessageSend(&g_ipc0_ctrl, static_cast<uint32_t>(MsgToken::MSG_CTRL_READY));
@@ -73,9 +74,9 @@ void CPUCommTask::taskFunction() {
             if (_sendFilled && _uiHandle) {
                 uint32_t oldest = _lastSendTicks[_sendIdx];  // index now points at oldest
                 uint32_t span   = now - oldest;              // 5 sends = 4 periods
-                uint32_t avgPer = span / (FREQ_WINDOW - 1);  // avg period (ms)
-                uint32_t freqHz = (avgPer > 0) ? (1000u / avgPer) : 0u;
-                xTaskNotifyIndexed(_uiHandle, 1, freqHz, eSetValueWithOverwrite);
+                uint32_t avgPeriod = span / (FREQ_WINDOW - 1);
+                uint32_t hz = (avgPeriod > 0) ? (1000u / avgPeriod) : 0u;
+                xTaskNotifyIndexed(_uiHandle, 1, hz, eSetValueWithOverwrite);
             }
 
             // dbg.logWithType("IPC", COLOR_BLUE,
@@ -100,7 +101,9 @@ void CPUCommTask::taskFunction() {
             // Mirror one copy to the UI and one to the PID loop so the
             // two consumers never steal each other's frames.
             _fbQueue.sendToBack(_fb, 0);     // UITask (display)
-            _pidFbQueue.sendToBack(_fb, 0);  // MotionPlanningTask (PID)
+            // pidFbQueue is length-1: overwrite so the PID always sees the
+            // newest feedback instead of dropping into a stale backlog.
+            _pidFbQueue.overwrite(_fb);      // MotionPlanningTask (PID)
         }
     }
 }

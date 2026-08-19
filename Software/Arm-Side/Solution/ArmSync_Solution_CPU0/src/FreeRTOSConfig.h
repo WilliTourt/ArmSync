@@ -16,13 +16,13 @@ FSP_HEADER
 #define configMAX_TASK_NAME_LEN                  (32)
 #define configUSE_16_BIT_TICKS                   0
 #define configUSE_TASK_NOTIFICATIONS             1
-#define configTASK_NOTIFICATION_ARRAY_ENTRIES     2   // index0 rec/play, index1 CPUComm->UI freq
+#define configTASK_NOTIFICATION_ARRAY_ENTRIES    3
 #define INCLUDE_xTaskGetHandle                   1
 
 /* --- Memory --- */
 #define configSUPPORT_STATIC_ALLOCATION          1
 #define configSUPPORT_DYNAMIC_ALLOCATION         1
-#define configTOTAL_HEAP_SIZE                    ((size_t)61440)
+#define configTOTAL_HEAP_SIZE                    ((size_t)122880)
 #define configAPPLICATION_ALLOCATED_HEAP         0
 
 /* --- Hooks --- */
@@ -65,7 +65,7 @@ FSP_HEADER
 #define INCLUDE_uxTaskGetStackHighWaterMark  1
 #define INCLUDE_xTaskGetCurrentTaskHandle    1
 #define INCLUDE_eTaskGetState                1
-#define configQUEUE_REGISTRY_SIZE             8
+#define configQUEUE_REGISTRY_SIZE            8
 
 /* --- NVIC priorities (RA8P1: 4-bit, 0-15) --- */
 #define configPRIO_BITS                         __NVIC_PRIO_BITS

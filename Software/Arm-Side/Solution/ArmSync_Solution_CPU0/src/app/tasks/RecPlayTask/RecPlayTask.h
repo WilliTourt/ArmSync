@@ -74,11 +74,13 @@ class RecPlayTask : public FreeRTOS::Task {
         // Flash header/frame constants.
         static constexpr uint32_t MAGIC           = 0x524350B0UL; // "RCP0"
 
-        bool saveToFlash();
-        bool loadFromFlash();
+        bool saveToFlash(FlashStorage &flash);
+        bool loadFromFlash(FlashStorage &flash);
         void _notifyUI(RecCmd cmd);   // push a RecCmd back to UITask
 
-        uint8_t  _recBuf[MAX_FRAMES * sizeof(sharedDatatype::JointAngleData)] = {};
+        // Record buffer. +8 bytes so an odd frame count (28B/frame) padded up
+        // to the OSPI 8-byte access width never reads/writes past the end.
+        uint8_t  _recBuf[MAX_FRAMES * sizeof(sharedDatatype::JointAngleData) + 8] = {};
         uint16_t _frameCount = 0;   // frames accumulated in the current take
         uint16_t _playCount  = 0;   // frames loaded from flash for playback
         uint16_t _playIdx    = 0;   // next frame index to send during playback

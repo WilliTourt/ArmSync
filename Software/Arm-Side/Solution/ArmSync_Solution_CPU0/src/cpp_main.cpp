@@ -129,11 +129,14 @@ void cpp_main() {
                           FreeRTOS::Task::getHandle("RecPlay"),
                           FreeRTOS::Task::getHandle("UartRecv"),
                           FreeRTOS::Task::getHandle("Normalize"),
-                          FreeRTOS::Task::getHandle("IK"));
+                          FreeRTOS::Task::getHandle("IK"),
+                          FreeRTOS::Task::getHandle("NPU"));
     fusionTask.setRecHandle(FreeRTOS::Task::getHandle("RecPlay"));
     fusionTask.setNormalizeHandle(FreeRTOS::Task::getHandle("Normalize"));   // J2 -> alpha
+    fusionTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // REC command from UI
     recPlayTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));
     cpuCommTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // freq -> UI
+    npuTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));        // npu freq -> UI (index 2)
 
     FreeRTOS::Kernel::startScheduler();
 
