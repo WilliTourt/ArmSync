@@ -50,10 +50,20 @@ class FusionTask : public FreeRTOS::Task {
         static constexpr float J6_MIN_DEG = -90.0f;
         static constexpr float J6_MAX_DEG =  90.0f;
 
+        // One-pole low-pass on the fused output, ~5 Hz cutoff at ~33 Hz
+        // sample rate: alpha = 1 - exp(-2*pi*fc/fs) = 1 - exp(-2*pi*5/33) ~ 0.61.
+        static constexpr float LP_FILTER_ALPHA = 0.61f;
+
+        void _applyLowPass(sharedDatatype::JointAngleData &out);
+
         TaskHandle_t _uiHandle = nullptr;
         TaskHandle_t _recHandle = nullptr;
         TaskHandle_t _normalizeHandle = nullptr;   // receives J2 (-> NormalizeTask alpha)
         bool         _recording = false;   // true while UI says REC
+
+        // Low-pass filter state (one value per joint, last filtered frame).
+        float _filtered[6] = {0.0f};
+        bool  _filterInit   = false;   // first frame seeds the filter
 
         float _mapPitchToJ6(float pitch_percent) const;
 

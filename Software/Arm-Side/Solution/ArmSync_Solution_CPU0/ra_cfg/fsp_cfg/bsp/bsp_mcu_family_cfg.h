@@ -178,7 +178,7 @@
             (1U << 1) /* SRAM1 */ | \
             (1U << 2) /* SRAM2 */ | \
             (1U << 3) /* SRAM3 */ | \
-            (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 16) /* NPU */ | \
+            (((1 > 0) ? 0U : 1U) << 16) /* NPU */ | \
             (1U << 22) /* DTC0_DMAC0 */ | \
             (1U << 23) /* DTC1_DMAC1 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31) /* ELC */)
@@ -414,7 +414,7 @@
 
 #ifndef BSP_CFG_DCACHE_ENABLED
 #if (0U == BSP_CFG_CPU_CORE)
-#define BSP_CFG_DCACHE_ENABLED (0)
+#define BSP_CFG_DCACHE_ENABLED (1)
 #else
     #define BSP_CFG_DCACHE_ENABLED (0)
  #endif
@@ -422,7 +422,7 @@
 
 #ifndef BSP_CFG_DCACHE_FORCE_WRITETHROUGH
 #if (0U == BSP_CFG_CPU_CORE)
-#define BSP_CFG_DCACHE_FORCE_WRITETHROUGH (0)
+#define BSP_CFG_DCACHE_FORCE_WRITETHROUGH (1)
 #else
     #define BSP_CFG_DCACHE_FORCE_WRITETHROUGH (0)
  #endif

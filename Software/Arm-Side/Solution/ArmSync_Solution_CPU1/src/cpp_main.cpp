@@ -15,7 +15,7 @@ static const uint8_t kJointAddr[6] = {6, 1, 2, 3, 4, 5};
 static uint8_t pollIndex = 0;
 static bool    pollStatus = false;
 
-#define IPC_MS 40 
+#define IPC_MS 30
 #define MOTOR_FEEDBACK_MS 5
 #define GRIPPER_FEEDBACK_MS 25
 
@@ -79,8 +79,8 @@ static void armEmergencyStop() {
 // so as long as the arm is manually placed at the mechanical zero before
 // power-on, sending pos=0 returns it there. Low speed/accel for safety.
 static void armHomeAll() {
-    const uint16_t HOME_VEL = 120;   // low rpm (tune)
-    const uint8_t  HOME_ACC = 20;    // low accel (tune)
+    const uint16_t HOME_VEL = 200;   // low rpm (tune)
+    const uint8_t  HOME_ACC = 40;    // low accel (tune)
     for (int i = 0; i < 6; i++) {
         Emm_V5_En_Control(kJointAddr[i], true, false);   // make sure enabled
         Emm_V5_Pos_Control(kJointAddr[i],
@@ -198,6 +198,7 @@ void cpp_main() {
                 if (Emm_V5_GetPositionDegrees(kJointAddr[i], &motorDeg)) {
                     angles_deg[i] = motorDeg;
                 }
+
                 Emm_V5_Feedback_t fb;
                 if (Emm_V5_GetFeedback(kJointAddr[i], &fb) && fb.status_valid) {
                     if (fb.status_flags & (EMM_V5_STATUS_STALLED | EMM_V5_STATUS_STALL_PROTECTION)) {

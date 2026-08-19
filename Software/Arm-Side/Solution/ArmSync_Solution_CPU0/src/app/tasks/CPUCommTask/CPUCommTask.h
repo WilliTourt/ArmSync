@@ -15,9 +15,11 @@ class CPUCommTask : public FreeRTOS::Task {
 
         CPUCommTask(FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &planQueue,
                     FreeRTOS::Queue<sharedDatatype::EndEffectorData>  &eeQueue,
-                    FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &fbQueue)
+                    FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &fbQueue,
+                    FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &pidFbQueue)
             : Task(tskIDLE_PRIORITY + 3, 1536, "CPUComm"),
-            _planQueue(planQueue), _eeQueue(eeQueue), _fbQueue(fbQueue) {}
+            _planQueue(planQueue), _eeQueue(eeQueue), _fbQueue(fbQueue),
+            _pidFbQueue(pidFbQueue) {}
 
         static inline void onFbReady() {
             _fbReady = true;
@@ -42,7 +44,8 @@ class CPUCommTask : public FreeRTOS::Task {
 
         FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> &_planQueue;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData>  &_eeQueue;
-        FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &_fbQueue;
+        FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &_fbQueue;      // -> UITask (display)
+        FreeRTOS::Queue<sharedDatatype::IPCFeedback>      &_pidFbQueue;   // -> MotionPlanningTask (PID)
 
         sharedDatatype::IPCCtrlPacket *_tx = nullptr;
         sharedDatatype::IPCFeedback   *_rx = nullptr;

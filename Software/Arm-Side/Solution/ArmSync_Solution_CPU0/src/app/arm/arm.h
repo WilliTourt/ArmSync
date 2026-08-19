@@ -4,11 +4,11 @@
 #include "queues.h"
 
 /**
- * @brief Coordinates 6 motors so they move together.
+ * @brief Coordinates 6 motors: converts fused joint angles (deg) directly
+ *        into absolute pulse commands and packs them into a MotionPlanPacket.
  *
- * setAngles() sets each motor's target, finds the slowest motor's duration,
- * plans every motor against that common duration, and aggregates the 6
- * resulting commands into a MotionPlanPacket for M33.
+ * No timing/sync logic — each motor is planned independently with a fixed
+ * speed/accel (see Motor::planMove).
  */
 class Arm {
     public:
@@ -19,7 +19,4 @@ class Arm {
 
     private:
         Motor *_motors[6];
-
-        float _lastTargets[6] = {0.0f};
-        bool  _hasTargets = false;
 };

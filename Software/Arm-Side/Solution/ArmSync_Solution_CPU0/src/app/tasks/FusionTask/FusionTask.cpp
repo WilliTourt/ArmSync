@@ -12,6 +12,20 @@ float FusionTask::_mapPitchToJ6(float pitch_percent) const {
     return J6_MIN_DEG + (pitch_percent / 100.0f) * (J6_MAX_DEG - J6_MIN_DEG);
 }
 
+void FusionTask::_applyLowPass(sharedDatatype::JointAngleData &out) {
+    for (int i = 0; i < 6; i++) {
+        float const raw = out.angles[i];
+        if (!_filterInit) {
+            _filtered[i] = raw;          // seed with the first frame
+            continue;
+        }
+        _filtered[i] = LP_FILTER_ALPHA * raw
+                     + (1.0f - LP_FILTER_ALPHA) * _filtered[i];
+        out.angles[i] = _filtered[i];
+    }
+    _filterInit = true;
+}
+
 void FusionTask::setUIHandle(TaskHandle_t handle) {
     _uiHandle = handle;
 }
@@ -78,13 +92,14 @@ void FusionTask::taskFunction() {
 
         // J5: forearm roll from hand quaternion only (IK cannot sense it).
         out.angles[4] = handValid ? latestJ5 : 0.0f;
+        out.angles[4] -= 60.0f;
 
         // J6: mapped from pitch (not blended)
         out.angles[5] = handValid ? _mapPitchToJ6(latestPitch) : 0.0f;
 
-
-
-
+        // Smooth the fused output before it reaches the record tap / live queue.
+        _applyLowPass(out);
+        
         // Poll the latest UI command (index 0, non-blocking, overwrite).
         // UITask pushes UICommand::REC to start, UICommand::NONE to stop.
         uint32_t uiVal = static_cast<uint32_t>(sharedDatatype::UICommand::NONE);

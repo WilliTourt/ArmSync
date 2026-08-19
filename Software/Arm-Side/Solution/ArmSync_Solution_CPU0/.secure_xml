@@ -150,12 +150,12 @@
   </raClockConfiguration>
   <raPinConfiguration>
     <pincfg active="true" name="" symbol="">
-      <configSetting altId="ospi0.om_0_cs0.p107" configurationId="ospi0.om_0_cs0" peripheral="OSPI0"/>
-      <configSetting altId="ospi0.om_0_sclk.p808" configurationId="ospi0.om_0_sclk" peripheral="OSPI0"/>
-      <configSetting altId="ospi0.om_0_sio0.p100" configurationId="ospi0.om_0_sio0" peripheral="OSPI0"/>
-      <configSetting altId="ospi0.om_0_sio1.p803" configurationId="ospi0.om_0_sio1" peripheral="OSPI0"/>
-      <configSetting altId="ospi0.om_0_sio2.p103" configurationId="ospi0.om_0_sio2" peripheral="OSPI0"/>
-      <configSetting altId="ospi0.om_0_sio3.p101" configurationId="ospi0.om_0_sio3" peripheral="OSPI0"/>
+      <configSetting altId="ospi0.om_0_cs0.p107" configurationId="ospi0.om_0_cs0" isUsedByDriver="true" peripheral="OSPI0"/>
+      <configSetting altId="ospi0.om_0_sclk.p808" configurationId="ospi0.om_0_sclk" isUsedByDriver="true" peripheral="OSPI0"/>
+      <configSetting altId="ospi0.om_0_sio0.p100" configurationId="ospi0.om_0_sio0" isUsedByDriver="true" peripheral="OSPI0"/>
+      <configSetting altId="ospi0.om_0_sio1.p803" configurationId="ospi0.om_0_sio1" isUsedByDriver="true" peripheral="OSPI0"/>
+      <configSetting altId="ospi0.om_0_sio2.p103" configurationId="ospi0.om_0_sio2" isUsedByDriver="true" peripheral="OSPI0"/>
+      <configSetting altId="ospi0.om_0_sio3.p101" configurationId="ospi0.om_0_sio3" isUsedByDriver="true" peripheral="OSPI0"/>
       <configSetting altId="p100.gpio_mode.gpio_mode_peripheral" configurationId="p100.gpio_mode"/>
       <configSetting altId="p101.gpio_mode.gpio_mode_peripheral" configurationId="p101.gpio_mode"/>
       <configSetting altId="p103.gpio_mode.gpio_mode_peripheral" configurationId="p103.gpio_mode"/>

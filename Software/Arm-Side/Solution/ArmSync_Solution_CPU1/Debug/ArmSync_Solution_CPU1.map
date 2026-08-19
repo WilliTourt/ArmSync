@@ -3866,35 +3866,35 @@ LOAD linker stubs
  .comment       0x00000044       0x45 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
  .comment       0x00000044       0x45 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
-.debug_info     0x00000000    0x54f30
+.debug_info     0x00000000    0x54f31
  .debug_info    0x00000000     0x18af ./src/app/ipc/ipc.o
  .debug_info    0x000018af     0x3b58 ./src/app/gripper/gripper.o
  .debug_info    0x00005407     0x2846 ./src/app/drivers/Emm_V5.o
  .debug_info    0x00007c4d     0x335c ./src/app/ElegantDebug.o
- .debug_info    0x0000afa9     0x560e ./src/cpp_main.o
- .debug_info    0x000105b7      0x106 ./src/hal_entry.o
- .debug_info    0x000106bd      0xfff ./src/hal_warmstart.o
- .debug_info    0x000116bc     0x125c ./ra_gen/common_data.o
- .debug_info    0x00012918     0x4380 ./ra_gen/hal_data.o
- .debug_info    0x00016c98       0xb1 ./ra_gen/main.o
- .debug_info    0x00016d49      0xa3d ./ra_gen/pin_data.o
- .debug_info    0x00017786      0xe43 ./ra_gen/vector_data.o
- .debug_info    0x000185c9     0xcbe2 ./ra/fsp/src/r_sci_b_uart/r_sci_b_uart.o
- .debug_info    0x000251ab     0x28fa ./ra/fsp/src/r_ipc/r_ipc.o
- .debug_info    0x00027aa5     0xa0d2 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_info    0x00031b77     0xacc6 ./ra/fsp/src/r_agt/r_agt.o
- .debug_info    0x0003c83d      0x741 ./ra/fsp/src/bsp/mcu/ra8p1/bsp_linker.o
- .debug_info    0x0003cf7e     0xab82 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_info    0x00047b00      0x96f ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_info    0x0004846f      0x204 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_info    0x00048673     0x182f ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_info    0x00049ea2       0xb2 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_info    0x00049f54     0x1dc2 ./ra/fsp/src/bsp/mcu/all/bsp_ipc.o
- .debug_info    0x0004bd16     0x1e26 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_info    0x0004db3c     0x6360 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_info    0x00053e9c      0x14b ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_info    0x00053fe7      0x177 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_info    0x0005415e      0xdd2 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_info    0x0000afa9     0x560f ./src/cpp_main.o
+ .debug_info    0x000105b8      0x106 ./src/hal_entry.o
+ .debug_info    0x000106be      0xfff ./src/hal_warmstart.o
+ .debug_info    0x000116bd     0x125c ./ra_gen/common_data.o
+ .debug_info    0x00012919     0x4380 ./ra_gen/hal_data.o
+ .debug_info    0x00016c99       0xb1 ./ra_gen/main.o
+ .debug_info    0x00016d4a      0xa3d ./ra_gen/pin_data.o
+ .debug_info    0x00017787      0xe43 ./ra_gen/vector_data.o
+ .debug_info    0x000185ca     0xcbe2 ./ra/fsp/src/r_sci_b_uart/r_sci_b_uart.o
+ .debug_info    0x000251ac     0x28fa ./ra/fsp/src/r_ipc/r_ipc.o
+ .debug_info    0x00027aa6     0xa0d2 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_info    0x00031b78     0xacc6 ./ra/fsp/src/r_agt/r_agt.o
+ .debug_info    0x0003c83e      0x741 ./ra/fsp/src/bsp/mcu/ra8p1/bsp_linker.o
+ .debug_info    0x0003cf7f     0xab82 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_info    0x00047b01      0x96f ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_info    0x00048470      0x204 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_info    0x00048674     0x182f ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_info    0x00049ea3       0xb2 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_info    0x00049f55     0x1dc2 ./ra/fsp/src/bsp/mcu/all/bsp_ipc.o
+ .debug_info    0x0004bd17     0x1e26 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_info    0x0004db3d     0x6360 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_info    0x00053e9d      0x14b ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_info    0x00053fe8      0x177 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_info    0x0005415f      0xdd2 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
 .debug_abbrev   0x00000000     0x518f
  .debug_abbrev  0x00000000      0x3ac ./src/app/ipc/ipc.o

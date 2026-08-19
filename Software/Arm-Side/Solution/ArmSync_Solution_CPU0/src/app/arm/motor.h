@@ -5,21 +5,24 @@
 #include "queues.h"
 
 /**
- * @brief Pure motion planning for a single motor (no hardware access).
+ * @brief Simplest possible single-motor planner (no accel curve / no sync).
  *
- * Motor computes the dir/rpm/acc/pulse command needed to move from the
- * last target to the new target within a given duration. The resulting
- * command is returned as sharedDatatype::MotorCommand so the CPU0 side
- * can aggregate and send it to M33 via IPC. M33 (the driver side) owns
- * the actual Emm_V5 hardware and knows each motor's UART address.
+ * Converts an absolute target joint angle (deg) directly into an absolute
+ * pulse count for the Emm_V5 closed-loop servo, plus a fixed speed and
+ * direction. M33 just forwards these to the motor.
+ *
+ *   pulses = |angle| * microsteps * reductionRatio / stepAngleDeg
+ *
+ * Direction: positive -> CW (dir 0), negative -> CCW (dir 1); inverted
+ * (belt-drive reversal) flips the sign fed to dir.
  */
 class Motor {
     public:
         struct Config {
             float reductionRatio;
-            bool inverted;      // true = belt drive reverses the output direction
-            uint16_t velocity;
-            uint8_t accel;
+            bool inverted;      // true = belt drive reverses output direction
+            uint16_t velocity;  // fixed speed in RPM (Emm_V5 "vel")
+            uint8_t accel;      // fixed accel reg (0~255, Emm_V5 "acc")
             uint16_t microsteps;
             float stepAngleDeg;
         };
@@ -29,37 +32,25 @@ class Motor {
               float reductionRatio,
               bool inverted = false,
               uint16_t velocity = 100U,
-              uint8_t accel = 210U,
+              uint8_t accel = 150U,
               uint16_t microsteps = 16U,
               float stepAngleDeg = 1.8f);
 
-        // 1. Set target angle (clamped to limits)
+        // Set the target angle (clamped to [minDeg, maxDeg]).
         void setTgtAngle(float deg);
 
-        // 2. Minimum move duration for the pending target
-        float getMoveDuration() const;
-
-        // 3. Plan the move to finish within commonDuration; returns the command
-        sharedDatatype::MotorCommand planMove(float commonDuration);
+        // Turn the pending target into a MotorCommand (dir/rpm/acc/pulse).
+        sharedDatatype::MotorCommand planMove();
 
         float getLastTarget() const { return _lastTarget; }
 
     private:
         float _clampAngle(float degrees) const;
-
         uint32_t _deg2Pulse(float jointDegrees) const;
-        float _accel2Rpm(uint8_t accel) const;
-        float _calcMoveDuration(float motorDegrees, float maxRpm, uint8_t accel) const;
-
-        static constexpr float SECONDS_PER_MINUTE = 60.0f;
-        static constexpr float ACCEL_TIME_STEP_US = 50.0f;
-        static constexpr float MAX_MOTOR_RPM = 5000.0f;
-        static constexpr uint8_t MIN_CURVE_ACCEL = 1U;
-        static constexpr float PLAN_EPSILON_DEGREES = 0.0001f;
 
         float _minDeg, _maxDeg;
 
-        float _lastTarget = 0.0f;   // start angle
+        float _lastTarget = 0.0f;   // last angle fed to the motor
         float _nextTarget = NAN;    // target angle (NAN = not set)
 
         Config _cfg;

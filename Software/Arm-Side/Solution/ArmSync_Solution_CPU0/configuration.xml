@@ -102,8 +102,8 @@
       <property id="config.bsp.fsp.mcu.adc_dmac.samples_per_channel" value="32767"/>
       <property id="config.bsp.fsp.mcu.sci_b_lin.max_baud" value="7812500"/>
       <property id="config.bsp.fsp.mcu.ospi_b.spi_dspi_qspi_mode_max_freq_hz" value="120000000"/>
-      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.disabled"/>
-      <property id="config.bsp.fsp.mscr.forcewt" value="config.bsp.fsp.mscr.forcewt.disabled"/>
+      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.enabled"/>
+      <property id="config.bsp.fsp.mscr.forcewt" value="config.bsp.fsp.mscr.forcewt.enabled"/>
       <property id="config.bsp.fsp.mcu.rtc.err_adjustment_value.max_value" value="63"/>
       <property id="config.bsp.fsp.ioport.voltage_mode.vcc" value="config.bsp.fsp.ioport.voltage_mode.vcc.high"/>
       <property id="config.bsp.fsp.ioport.voltage_mode.vcc2" value="config.bsp.fsp.ioport.voltage_mode.vcc2.high"/>
@@ -356,6 +356,46 @@
       <description>Octa Serial Peripheral Interface Flash</description>
       <originalPack>Renesas.RA.6.5.0.pack</originalPack>
     </component>
+    <component apiversion="" class="Ethos-U" condition="" group="Core" subgroup="Driver" variant="" vendor="Arm" version="25.2.0+renesas.0.fsp.6.5.0">
+      <description>Ethos-U core driver</description>
+      <originalPack>Arm.Ethos-U-Core-Driver.25.2.0+renesas.0.fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="Main" subgroup="NN" variant="" vendor="Arm" version="7.0.0+fsp.6.5.0">
+      <description>Arm NN Library Source</description>
+      <originalPack>Arm.CMSIS-NN.7.0.0+fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Arm" condition="" group="Ethos-U" subgroup="Profiler" variant="" vendor="Arm" version="25.2.0+fsp.6.5.0">
+      <description>ARM Ethos-U Profiler</description>
+      <originalPack>Arm.Ethos-U-Profiler.25.2.0+fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="Main" subgroup="View" variant="" vendor="Arm" version="1.2.0+renesas.0.fsp.6.5.0">
+      <description>Arm CMSIS View Library Source</description>
+      <originalPack>Arm.CMSIS-View.1.2.0+renesas.0.fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="TFLM" condition="" group="Kernel" subgroup="Ethos-U" variant="" vendor="Google" version="25.2.0+renesas.0.fsp.6.5.0">
+      <description>TFLM Ethos-U kernel</description>
+      <originalPack>Google.TFLM-Ethos-U-Kernel.25.2.0+renesas.0.fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="TFLM" condition="" group="Core" subgroup="Lib" variant="" vendor="Google" version="25.2.0+renesas.0.fsp.6.5.0">
+      <description>TFLM Core Lib</description>
+      <originalPack>Google.TFLM-Core-Lib.25.2.0+renesas.0.fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_ethosu" variant="" vendor="Renesas" version="6.5.0">
+      <description>Ethos-U Driver Wrapper</description>
+      <originalPack>Renesas.RA.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="TFLM" condition="" group="Kernel" subgroup="CMSIS-NN" variant="" vendor="Google" version="25.2.0+renesas.0.fsp.6.5.0">
+      <description>TFLM cmsis-nn kernel</description>
+      <originalPack>Google.TFLM-CMSIS-NN-Kernel.25.2.0+renesas.0.fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="Main" subgroup="DSP" variant="" vendor="Arm" version="1.16.2+fsp.6.5.0">
+      <description>Arm DSP Library Source</description>
+      <originalPack>Arm.CMSIS-DSP.1.16.2+fsp.6.5.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Flatbuffers" condition="" group="Serialization" subgroup="Lib" variant="" vendor="Google" version="23.5.26+renesas.0.fsp.6.5.0">
+      <description>Flatbuffers</description>
+      <originalPack>Google.Flatbuffers.23.5.26+renesas.0.fsp.6.5.0.pack</originalPack>
+    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -578,6 +618,24 @@
       <property id="module.driver.ospi_b.dotf.end_address" value="0x80001FFF"/>
       <property id="module.driver.ospi_b.row_addressing.row_index_bytes" value="module.driver.ospi_b.address_bytes.none"/>
     </module>
+    <module id="module.google.tflm.core.lib.1678464617"/>
+    <module id="module.google.flatbuffers.lib.241475482"/>
+    <module id="module.google.tflm.kernel.ethosu.1894855848"/>
+    <module id="module.middleware.rm_ethosu.1318931126">
+      <property id="module.middleware.rm_ethosu.name" value="g_rm_ethosu0"/>
+      <property id="module.middleware.rm_ethosu.p_callback" value="NULL"/>
+      <property id="module.middleware.rm_ethosu.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.middleware.rm_ethosu.secure_mode" value="module.middleware.rm_ethosu.secure_mode.enabled"/>
+      <property id="module.middleware.rm_ethosu.privilege_mode" value="module.middleware.rm_ethosu.privilege_mode.enabled"/>
+    </module>
+    <module id="module.arm.ethosu.core.driver.1109313557">
+      <property id="module.arm.ethosu.core.driver.name" value="g_ethosu0"/>
+    </module>
+    <module id="module.arm.ethosu.profiler.1307701952"/>
+    <module id="module.arm.cmsis.view.1903797897"/>
+    <module id="module.google.tflm.kernel.cmsis.nn.1199201033"/>
+    <module id="module.arm.cmsis.nn.2006546262"/>
+    <module id="module.arm.cmsis.dsp.1650402720"/>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.timer_on_agt.301805898"/>
@@ -587,6 +645,22 @@
       <stack module="module.driver.uart_on_sci_b_uart.1049533245"/>
       <stack module="module.driver.ipc_on_ipc.1396334849"/>
       <stack module="module.driver.ospi_on_ospi_b.1836116459"/>
+      <stack module="module.google.tflm.core.lib.1678464617">
+        <stack module="module.google.flatbuffers.lib.241475482" requires="module.google.tflm.core.lib.requires.flatbuffers"/>
+        <stack module="module.google.tflm.kernel.cmsis.nn.1199201033" requires="module.google.tflm.core.lib.requires.kernel.cmsis.nn">
+          <stack module="module.arm.cmsis.nn.2006546262" requires="module.google.tflm.kernel.cmsis.nn.requires.cmsis.nn">
+            <stack module="module.arm.cmsis.dsp.1650402720" requires="module.arm.cmsis.nn.requires.dsp"/>
+          </stack>
+        </stack>
+        <stack module="module.google.tflm.kernel.ethosu.1894855848" requires="module.google.tflm.core.lib.requires.kernel.ethosu">
+          <stack module="module.middleware.rm_ethosu.1318931126" requires="module.google.tflm.kernel.ethosu.requires.driver">
+            <stack module="module.arm.ethosu.core.driver.1109313557" requires="module.middleware.rm_ethosu.requires.driver"/>
+          </stack>
+          <stack module="module.arm.ethosu.profiler.1307701952" requires="module.google.tflm.kernel.ethosu.requires.profiler">
+            <stack module="module.arm.cmsis.view.1903797897" requires="module.arm.ethosu.profiler.requires.view"/>
+          </stack>
+        </stack>
+      </stack>
     </context>
     <config id="config.driver.ospi_b">
       <property id="config.driver.ospi_b.param_checking_enable" value="config.driver.ospi_b.param_checking_enable.bsp"/>
@@ -606,6 +680,10 @@
     </config>
     <config id="config.driver.ipc">
       <property id="config.driver.ipc.param_checking_enable" value="config.driver.ipc.param_checking_enable.bsp"/>
+    </config>
+    <config id="config.middleware.rm_ethosu">
+      <property id="config.middleware.rm_ethosu.param_checking_enable" value="config.middleware.rm_ethosu.param_checking_enable.bsp"/>
+      <property id="config.middleware.rm_ethosu.log_level" value="config.middleware.rm_ethosu.log_level.off"/>
     </config>
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>

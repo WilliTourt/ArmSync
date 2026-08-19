@@ -32,13 +32,13 @@ void CPUCommTask::taskFunction() {
     R_IPC_Open(&g_ipc0_ctrl, &g_ipc0_cfg);
     dbg.ok("CPUCommTask: IPC0 opened, task started.\n");
 
-    TickType_t lastSendTick = 0;
+    // TickType_t lastSendTick = 0;
     for (;;) {
 
-        this->delay(pdMS_TO_TICKS(100));
+        // this->delay(pdMS_TO_TICKS(50));
 
-        // ---- Poll motion plan with short timeout (keep latest) ----
-        auto plan = _planQueue.receive(pdMS_TO_TICKS(10));
+        // Poll motion plan
+        auto plan = _planQueue.receive(pdMS_TO_TICKS(33));
         if (plan) {
             _latestPlan = *plan;
         }
@@ -51,8 +51,8 @@ void CPUCommTask::taskFunction() {
 
         // Send IPC periodically
         TickType_t now = xTaskGetTickCount();
-        if ((now - lastSendTick) >= pdMS_TO_TICKS(100)) {
-            lastSendTick = now;
+        bool needSend = (plan.has_value() || _btzPending || _estopActive);
+        if (needSend) {
 
             while (FSP_ERR_IN_USE == R_BSP_IpcSemaphoreTake(&_lock));
             _tx->motion_pkt = _latestPlan;
@@ -83,6 +83,7 @@ void CPUCommTask::taskFunction() {
             //     _latestEE.grip_percent,
             //     _latestPlan.motors[0].dir, _latestPlan.motors[0].rpm,
             //     _latestPlan.motors[0].acc, (unsigned long)_latestPlan.motors[0].pulse);
+            // }
         }
 
         // ---- Feedback handling (always check) ----
@@ -96,7 +97,10 @@ void CPUCommTask::taskFunction() {
             }
             R_BSP_IpcSemaphoreGive(&_lock);
 
-            _fbQueue.sendToBack(_fb, 0);
+            // Mirror one copy to the UI and one to the PID loop so the
+            // two consumers never steal each other's frames.
+            _fbQueue.sendToBack(_fb, 0);     // UITask (display)
+            _pidFbQueue.sendToBack(_fb, 0);  // MotionPlanningTask (PID)
         }
     }
 }

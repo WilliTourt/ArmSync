@@ -81,6 +81,36 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+ra/arm/CMSIS-DSP/Source/BasicMathFunctions \
+ra/arm/CMSIS-DSP/Source/BayesFunctions \
+ra/arm/CMSIS-DSP/Source/CommonTables \
+ra/arm/CMSIS-DSP/Source/ComplexMathFunctions \
+ra/arm/CMSIS-DSP/Source/ControllerFunctions \
+ra/arm/CMSIS-DSP/Source/DistanceFunctions \
+ra/arm/CMSIS-DSP/Source/FastMathFunctions \
+ra/arm/CMSIS-DSP/Source/FilteringFunctions \
+ra/arm/CMSIS-DSP/Source/InterpolationFunctions \
+ra/arm/CMSIS-DSP/Source/MatrixFunctions \
+ra/arm/CMSIS-DSP/Source/QuaternionMathFunctions \
+ra/arm/CMSIS-DSP/Source/SVMFunctions \
+ra/arm/CMSIS-DSP/Source/StatisticsFunctions \
+ra/arm/CMSIS-DSP/Source/SupportFunctions \
+ra/arm/CMSIS-DSP/Source/TransformFunctions \
+ra/arm/CMSIS-DSP/Source/WindowFunctions \
+ra/arm/CMSIS-NN/Source/ActivationFunctions \
+ra/arm/CMSIS-NN/Source/BasicMathFunctions \
+ra/arm/CMSIS-NN/Source/ConcatenationFunctions \
+ra/arm/CMSIS-NN/Source/ConvolutionFunctions \
+ra/arm/CMSIS-NN/Source/FullyConnectedFunctions \
+ra/arm/CMSIS-NN/Source/LSTMFunctions \
+ra/arm/CMSIS-NN/Source/NNSupportFunctions \
+ra/arm/CMSIS-NN/Source/PadFunctions \
+ra/arm/CMSIS-NN/Source/PoolingFunctions \
+ra/arm/CMSIS-NN/Source/ReshapeFunctions \
+ra/arm/CMSIS-NN/Source/SVDFunctions \
+ra/arm/CMSIS-NN/Source/SoftmaxFunctions \
+ra/arm/CMSIS-NN/Source/TransposeFunctions \
+ra/arm/CMSIS-View/EventRecorder/Source \
 ra/fsp/src/bsp/cmsis/Device/RENESAS/Source \
 ra/fsp/src/bsp/mcu/all \
 ra/fsp/src/bsp/mcu/ra8p1 \
@@ -89,6 +119,8 @@ ra/fsp/src/r_ioport \
 ra/fsp/src/r_ipc \
 ra/fsp/src/r_ospi_b \
 ra/fsp/src/r_sci_b_uart \
+ra/fsp/src/rm_ethosu \
+ra/npu/ethos-u-core-driver/src \
 ra_gen \
 src/FreeRTOS/FreeRTOS-Kernel \
 src/FreeRTOS/FreeRTOS-Kernel/portable/MemMang \

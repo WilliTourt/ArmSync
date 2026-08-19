@@ -87,6 +87,7 @@ void NormalizeTask::taskFunction() {
 
         // ---- 4. Outputs ----
         _kpQueue.sendToBack(kp, 0);
+        _npuKpQueue.sendToBack(kp, 0);   // mirror to NPUTask
 
         _handQueue.sendToBack(hd, 0);
 

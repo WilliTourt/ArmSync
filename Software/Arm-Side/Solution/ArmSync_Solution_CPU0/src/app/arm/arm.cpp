@@ -12,38 +12,15 @@ sharedDatatype::MotionPlanPacket Arm::setAngles(const float angles_deg[6]) {
         return pkt;
     }
 
-    // -- 1. Set each motor's target, detect change, compute min duration --
-    float commonDuration = 0.0f;
-    bool  targetChanged = !_hasTargets;
-
     for (uint32_t i = 0U; i < 6U; ++i) {
-        float target = angles_deg[i];
+        float const target = angles_deg[i];
         if (!std::isfinite(target)) {
-            continue;   // invalid angle, skip this joint
+            continue;   // invalid angle, leave this motor idle
         }
-
         _motors[i]->setTgtAngle(target);
-
-        if (std::fabs(target - _lastTargets[i]) >= 0.01f) {
-            targetChanged = true;
-        }
-
-        float const duration = _motors[i]->getMoveDuration();
-        if (duration > commonDuration) {
-            commonDuration = duration;
-        }
+        pkt.motors[i] = _motors[i]->planMove();
     }
 
-    if (!targetChanged) {
-        return pkt;   // no motion needed
-    }
-
-    // -- 2. Plan all joints against the slowest one so they arrive together --
-    for (uint32_t i = 0U; i < 6U; ++i) {
-        pkt.motors[i] = _motors[i]->planMove(commonDuration);
-        _lastTargets[i] = _motors[i]->getLastTarget();
-    }
-    _hasTargets = true;
     pkt.timestamp = 0;   // filled by MotionPlanningTask
 
     return pkt;

@@ -19,10 +19,11 @@ class NormalizeTask : public FreeRTOS::Task {
                       FreeRTOS::Queue<sharedDatatype::ArmKPCoords>     &kpQueue,
                       FreeRTOS::Queue<sharedDatatype::HandJointData>   &handQueue,
                       FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeQueue,
-                      FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeUIQueue)
+                      FreeRTOS::Queue<sharedDatatype::EndEffectorData> &eeUIQueue,
+                      FreeRTOS::Queue<sharedDatatype::ArmKPCoords>     &npuKpQueue)
             : Task(tskIDLE_PRIORITY + 3, 2048, "Normalize"),
             _inQueue(inQueue), _kpQueue(kpQueue), _handQueue(handQueue),
-            _eeQueue(eeQueue), _eeUIQueue(eeUIQueue) {}
+            _eeQueue(eeQueue), _eeUIQueue(eeUIQueue), _npuKpQueue(npuKpQueue) {}
 
     private:
         void taskFunction() override;
@@ -46,4 +47,5 @@ class NormalizeTask : public FreeRTOS::Task {
         FreeRTOS::Queue<sharedDatatype::HandJointData>   &_handQueue;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeQueue;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeUIQueue;
+        FreeRTOS::Queue<sharedDatatype::ArmKPCoords>     &_npuKpQueue;   // mirror to NPUTask
 };

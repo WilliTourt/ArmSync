@@ -160,6 +160,7 @@
             <slot name="IRQ15.CPU0" secure="true"/>
             <slot name="IRQ16.CPU0" secure="true"/>
             <slot name="IRQ17.CPU0" secure="true"/>
+            <slot name="IRQ18.CPU0" secure="true"/>
         </peripheral>
     </partition>
 </azone>

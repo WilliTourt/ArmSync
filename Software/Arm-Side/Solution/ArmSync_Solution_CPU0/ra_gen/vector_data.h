@@ -6,7 +6,7 @@
         #endif
 /* Number of interrupts allocated */
 #ifndef VECTOR_DATA_IRQ_COUNT
-#define VECTOR_DATA_IRQ_COUNT    (18)
+#define VECTOR_DATA_IRQ_COUNT    (19)
 #endif
 /* ISR prototypes */
 void agt_int_isr(void);
@@ -15,6 +15,7 @@ void sci_b_uart_txi_isr(void);
 void sci_b_uart_tei_isr(void);
 void sci_b_uart_eri_isr(void);
 void ipc_isr(void);
+void rm_ethosu_isr(void);
 
 /* Vector table allocations */
 #define VECTOR_NUMBER_AGT0_INT ((IRQn_Type) 0) /* AGT0 INT (AGT interrupt) */
@@ -53,8 +54,10 @@ void ipc_isr(void);
 #define SCI3_ERI_IRQn          ((IRQn_Type) 16) /* SCI3 ERI (Receive error) */
 #define VECTOR_NUMBER_IPC_IRQ0 ((IRQn_Type) 17) /* IPC IRQ0 (CPU Mutual Interrupt 0) */
 #define IPC_IRQ0_IRQn          ((IRQn_Type) 17) /* IPC IRQ0 (CPU Mutual Interrupt 0) */
+#define VECTOR_NUMBER_NPU_IRQ ((IRQn_Type) 18) /* NPU IRQ (NPU IRQ) */
+#define NPU_IRQ_IRQn          ((IRQn_Type) 18) /* NPU IRQ (NPU IRQ) */
 /* The number of entries required for the ICU vector table. */
-#define BSP_ICU_VECTOR_NUM_ENTRIES (18)
+#define BSP_ICU_VECTOR_NUM_ENTRIES (19)
 
 #ifdef __cplusplus
         }
