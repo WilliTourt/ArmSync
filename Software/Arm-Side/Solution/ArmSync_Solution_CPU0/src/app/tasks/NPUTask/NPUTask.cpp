@@ -39,32 +39,30 @@ fsp_err_t NPUTask::_initNPU() {
     return status;
 }
 
-// ============================================================================
-// Model pre-processing (agreed with the model author)
-// ----------------------------------------------------------------------------
-// Per frame:  elbow(mm) /500  -> x1,y1,z1
-//             wrist(mm) /700  -> x2,y2,z2
-//   elbow point:  mu_e   = (x1+y1+z1)/3,  sigma_e = std(x1,y1,z1)  (/3)
-//                 norm   = (x1-mu_e)/sigma_e ... (population std, /3)
-//   wrist point:  mu_w   = (x2+y2+z2)/3,  sigma_w = std(x2,y2,z2)  (/3)
-//                 norm   = (x2-mu_w)/sigma_w ...
-// 6 normalized values fill one 6-channel frame; 32 frames -> features[192].
-// ============================================================================
-
+// Model pre-processing (many magic numbers...)
 // Normalize a 3-component point (in-place) using its own mean / population std.
 // scale: per-point divisor applied to the raw mm values first.
-void _normalizePoint(float out[3], const float raw[3], float scale) {
+void _normalizePoint(float out[3], const float raw[3], bool dotIsElbow) {
+    float scale = 500.0f;
+    dotIsElbow ? scale = 500.0f : scale = 700.0f;
+
     const float x = raw[0] / scale;
     const float y = raw[1] / scale;
     const float z = raw[2] / scale;
 
-    const float avg = (x + y + z) / 3.0f;
-    const float x1 = x - avg, y1 = y - avg, z1 = z - avg;
-    const float sigma = std::sqrt((x1 * x1 + y1 * y1 + z1 * z1) / 3.0f);
+    const float avg[6]   = {0.041949, 0.118567, -0.529775, 0.188770, 0.038480, -0.493504};
+    const float sigma[6] = {0.154188, 0.171552,  0.084818, 0.147490, 0.255945,  0.130837};
 
-    out[0] = x1 / sigma;
-    out[1] = y1 / sigma;
-    out[2] = z1 / sigma;
+    uint8_t i = 0;
+    dotIsElbow ? i = 0 : i = 3;
+
+    const float x1 = x - avg[0 + i];
+    const float y1 = y - avg[1 + i];
+    const float z1 = z - avg[2 + i];
+
+    out[0] = x1 / sigma[0 + i];
+    out[1] = y1 / sigma[1 + i];
+    out[2] = z1 / sigma[2 + i];
 }
 
 void NPUTask::taskFunction() {
@@ -104,8 +102,8 @@ void NPUTask::taskFunction() {
         int base = (recvedFramesCnt < NPU_INPUT_WINDOW)
                    ? recvedFramesCnt * NPU_INPUT_CHNS
                    : (NPU_INPUT_WINDOW - 1) * NPU_INPUT_CHNS;
-        _normalizePoint(&window[base + 0], kp->elbowCoord, 500.0f);  // elbow, mm -> /500
-        _normalizePoint(&window[base + 3], kp->wristCoord, 700.0f);  // wrist, mm -> /700
+        _normalizePoint(&window[base + 0], kp->elbowCoord, true);   // elbow, mm -> /500
+        _normalizePoint(&window[base + 3], kp->wristCoord, false);  // wrist, mm -> /700
 
         if (recvedFramesCnt < NPU_INPUT_WINDOW) {
             recvedFramesCnt++;

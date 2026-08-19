@@ -123,9 +123,9 @@ void UITask::_updateJointAngle(int idx, float angle_deg) {
     vTaskDelay(pdMS_TO_TICKS(3));
 }
 
-void UITask::_updateJointStatus(int idx, bool ok) {
-    // J1Status ~ J6Status: text "●", color green/red
-    _send("J%dStatus.pco=%d", idx + 1, (ok ? tjcCOLOR_GREEN : tjcCOLOR_RED));
+void UITask::_updateJointStatus(int idx, uint16_t color) {
+    // J1Status ~ J6Status: text "●", color green (ok) / orange (over-limit) / red (stall)
+    _send("J%dStatus.pco=%d", idx + 1, color);
     vTaskDelay(pdMS_TO_TICKS(3));
 }
 
@@ -187,7 +187,7 @@ void UITask::updateStatusText(StatusText text) {
     }
 
     _send("StatusText.txt=\"%s\"", txt);
-    vTaskDelay(pdMS_TO_TICKS(3));
+    vTaskDelay(pdMS_TO_TICKS(5));
     _send("Status.pco=%d", ((text == StatusText::STOP) ? tjcCOLOR_RED : tjcCOLOR_GREEN));
     vTaskDelay(pdMS_TO_TICKS(3));
 }
@@ -228,6 +228,8 @@ void UITask::updateNPUStatus(NpuState state) {
 
 void UITask::updateNPUFreq(int hz) {
     _send("NPUText.txt=\"%2dHz   \"", hz);
+    vTaskDelay(pdMS_TO_TICKS(3));
+    _send("NPUStatus.pco=%d", tjcCOLOR_GREEN);
     vTaskDelay(pdMS_TO_TICKS(3));
 }
 
@@ -290,17 +292,22 @@ void UITask::taskFunction() {
                 _updateJointAngle(i, feedback->jointAngle[i]);
             }
 
-            // ---- Over-limit / stall alarm (rising edge, fire once) ----
-            bool anyAlarm = false;
+            // ---- Stall / over-limit alarm (rising edge per joint) ----
+            //  - Stall (isLockedRotor): emergency stop -> red STOP, latched.
+            //  - Over-limit (angle): orange warning color ONLY — never changes
+            //    status text/state, never blocks control; arm keeps responding.
+            bool anyOverLimit = false;
+            bool anyStall     = false;
             for (int i = 0; i < 6; i++) {
                 const float deg = feedback->jointAngle[i];
                 bool overLimit = (deg <= JOINT_LIMIT_MIN[i]) || (deg >= JOINT_LIMIT_MAX[i]);
                 bool stalled   = feedback->isLockedRotor[i];
                 bool alarm     = overLimit || stalled;
-                if (alarm) anyAlarm = true;
+                if (overLimit) anyOverLimit = true;
+                if (stalled)   anyStall     = true;
 
                 if (alarm && !(_alarmPrev & (1u << i))) {
-                    const char* why = stalled ? "STALL" : "LIMIT";
+                    const char* why = stalled ? "STALL ERROR!!!" : "angle limit reached!";
                     char msg[32];
                     snprintf(msg, sizeof(msg), "J%d %s", i + 1, why);
                     UITask::updateHMS(msg);
@@ -310,13 +317,15 @@ void UITask::taskFunction() {
                 if (alarm) _alarmPrev |= (1u << i);
                 else       _alarmPrev &= ~(1u << i);
             }
-            if (anyAlarm && !_alarmActive) {
+
+            // Stall -> emergency stop (latched red STOP). Only stall blocks control.
+            if (anyStall && !_alarmActive) {
                 _alarmActive = true;
-                updateStatusText(StatusText::STOP);   // "STOP"
-            } else if (!anyAlarm && _alarmActive) {
+                updateStatusText(StatusText::STOP);
+            } else if (!anyStall && _alarmActive) {
                 _alarmActive = false;
                 // Don't override a latched ESTOP: only return to REC/PLAY/MANUAL
-                // once the emergency stop is actually released (BTZ) and no alarm.
+                // once the emergency stop is actually released (BTZ) and no stall.
                 if (!CPUCommTask::getEstop()) {
                     updateStatusText(_isRecording ? StatusText::RECORD
                                                   : (_isPlaying ? StatusText::PLAYING
@@ -324,8 +333,27 @@ void UITask::taskFunction() {
                 }
             }
 
+            // Over-limit -> orange warning, color only. Non-blocking. Red stall wins.
+            // Runs after stall handling so a latched red STOP is never yellowed.
+            if (anyOverLimit && !_alarmActive) {
+                _send("Status.pco=%d", tjcCOLOR_ORANGE);
+                _overLimitPrev = true;
+            } else if (_overLimitPrev && !_alarmActive) {
+                // Over-limit cleared (and no stall): restore the normal green
+                // color of the current status, without touching text/state.
+                _overLimitPrev = false;
+                _send("Status.pco=%d", tjcCOLOR_GREEN);
+            }
+
             for (int i = 0; i < 6; i++) {
-                _updateJointStatus(i, !feedback->isLockedRotor[i]);
+                // Per-joint lamp: green ok / orange over-limit / red stall.
+                const float deg = feedback->jointAngle[i];
+                bool jOverLimit  = (deg <= JOINT_LIMIT_MIN[i]) || (deg >= JOINT_LIMIT_MAX[i]);
+                bool jStalled    = feedback->isLockedRotor[i];
+                uint16_t lamp = tjcCOLOR_GREEN;
+                if (jStalled)          lamp = tjcCOLOR_RED;    // stall wins
+                else if (jOverLimit)   lamp = tjcCOLOR_ORANGE; // over-limit warning
+                _updateJointStatus(i, lamp);
             }
         }
 

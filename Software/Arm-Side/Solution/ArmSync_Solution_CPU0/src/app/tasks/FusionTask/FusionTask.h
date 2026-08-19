@@ -39,12 +39,12 @@ class FusionTask : public FreeRTOS::Task {
     private:
         void taskFunction() override;
 
-        static constexpr float J3_IK_ALPHA   = 0.37;
-        static constexpr float J3_HAND_ALPHA = 0.42;
-        static constexpr float J3_NPU_ALPHA  = 0.21;
+        static constexpr float J3_IK_ALPHA   = 1;
+        static constexpr float J3_HAND_ALPHA = 0.0;
+        static constexpr float J3_NPU_ALPHA  = 0.0;
 
-        static constexpr float J5_HAND_ALPHA = 0.33;
-        static constexpr float J5_NPU_ALPHA  = 0.67;
+        static constexpr float J5_HAND_ALPHA = 1;
+        static constexpr float J5_NPU_ALPHA  = 0;
 
         // One-pole low-pass on the fused output, ~5 Hz cutoff at ~33 Hz
         // sample rate: alpha = 1 - exp(-2*pi*fc/fs) = 1 - exp(-2*pi*5/33) ~ 0.61.

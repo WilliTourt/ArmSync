@@ -22,8 +22,8 @@ class MotionPlanningTask : public FreeRTOS::Task {
 
         // P-gain for the velocity PID: vel[rpm] = Kp * |deg error|.
         // Set so a full-swing error (~MAX_SPAN_DEG) reaches max velocity.
-        static constexpr float PID_KP = 10.0f;            // rpm per degree (tune)
-        static constexpr float PID_DEADBAND_DEG = 0.5f;   // stop within this error
+        static constexpr float PID_KP = 0.10f;            // rpm per degree (tune)
+        static constexpr float PID_DEADBAND_DEG = 3.0f;   // stop within this error
         static constexpr float PID_VEL_MIN_PCT = 0.05f;   // min vel = 5% of max
 
     private:

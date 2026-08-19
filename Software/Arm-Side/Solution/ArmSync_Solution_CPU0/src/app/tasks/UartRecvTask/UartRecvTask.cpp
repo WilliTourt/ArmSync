@@ -67,9 +67,9 @@ void UartRecvTask::_parseCtrller() {
                 _latestCtrllerData = ctrl_data;
                 _handsetValid = true;
 
-                dbg.info("Controller: E(%f, %f, %f) W(%f, %f, %f)\n",
-                    ctrl_data.elbowVec[0], ctrl_data.elbowVec[1], ctrl_data.elbowVec[2],
-                    ctrl_data.wristVec[0], ctrl_data.wristVec[1], ctrl_data.wristVec[2]);
+                // dbg.info("Controller: E(%f, %f, %f) W(%f, %f, %f)\n",
+                    // ctrl_data.elbowVec[0], ctrl_data.elbowVec[1], ctrl_data.elbowVec[2],
+                    // ctrl_data.wristVec[0], ctrl_data.wristVec[1], ctrl_data.wristVec[2]);
             }
         }
     }
@@ -107,9 +107,9 @@ void UartRecvTask::_parseJetson() {
         jd.valid = true;
         _latestJetsonData = jd;
 
-        dbg.info("Jetson: E(%d, %d, %d) W(%d, %d, %d)\n",
-            jd.points[0][0], jd.points[0][1], jd.points[0][2],
-            jd.points[1][0], jd.points[1][1], jd.points[1][2]);
+        // dbg.info("Jetson: E(%d, %d, %d) W(%d, %d, %d)\n",
+            // jd.points[0][0], jd.points[0][1], jd.points[0][2],
+            // jd.points[1][0], jd.points[1][1], jd.points[1][2]);
 
         _newJetsonFlag    = true; // mark: a fresh Jetson frame
         _lastJetsonTick   = FreeRTOS::Kernel::getTickCount();

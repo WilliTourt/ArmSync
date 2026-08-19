@@ -59,10 +59,12 @@ void FusionTask::taskFunction() {
 
         // Block on IK data (main fusion trigger)
         auto ik = _ikQueue.receive(portMAX_DELAY);
-        if (!ik) continue;
-
+        
         // Try to grab latest NPU data (non-blocking)
         auto npu = _npuQueue.receive(0);
+        if (npu) {
+            dbg.logWithType("NPU Data", COLOR_CUSTOM(150, 169, 250), "J3 %.2f J5 %.2f\n", npu->angles[2], npu->angles[4]);
+        }
 
         sharedDatatype::JointAngleData out = {};
         out.timestamp = ik->timestamp;
@@ -92,7 +94,7 @@ void FusionTask::taskFunction() {
                 out.angles[4] = (npu) ? npu->angles[4] : 0.0f;
             }
         }
-        out.angles[4] -= 60.0f;
+        // out.angles[4] -= 60.0f;
 
         // J6: hand only
         out.angles[5] = handValid ? _mapPitchToJ6(latestPitch) : 0.0f;
@@ -128,7 +130,6 @@ void FusionTask::taskFunction() {
         }
 
 
-
         
         // Notify NormalizeTask with fused J2 (deg, x100 fixed-point) so it can
         // pick this frame's hand/Jetson blend alpha for the next frame.
@@ -145,11 +146,11 @@ void FusionTask::taskFunction() {
         _outQueue.overwrite(out);
 
         // Float-free but precision-kept: print as int.frac (one decimal
-        #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
-        dbg.logWithType("FUSION OUTPUT", COLOR_DARK_GREEN,
-            "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",
-            _D1(out.angles[0]), _D1(out.angles[1]), _D1(out.angles[2]),
-            _D1(out.angles[3]), _D1(out.angles[4]));
-        #undef _D1
+        // #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
+        // dbg.logWithType("FUSION OUTPUT", COLOR_DARK_GREEN,
+        //     "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",
+        //     _D1(out.angles[0]), _D1(out.angles[1]), _D1(out.angles[2]),
+        //     _D1(out.angles[3]), _D1(out.angles[4]));
+        // #undef _D1
     }
 }

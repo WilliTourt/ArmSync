@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <FreeRTOS/Task.hpp>
 #include <FreeRTOS/Queue.hpp>
 #include "queues.h"
@@ -61,7 +62,7 @@ class UITask : public FreeRTOS::Task {
         void _resumeUpstream();
 
         void _updateJointAngle(int idx, float angle_deg);
-        void _updateJointStatus(int idx, bool ok);
+        void _updateJointStatus(int idx, uint16_t color);   // green/Orange/red lamp
         void _updateGrip(float percent, bool stuck);
 
 
@@ -96,7 +97,9 @@ class UITask : public FreeRTOS::Task {
         // Per-joint alarm latch (bit i = joint i was alarmed last frame),
         // used to fire the HMS/STOP message only on the rising edge.
         uint32_t _alarmPrev  = 0;
-        bool     _alarmActive = false;   // any joint currently alarmed (STOP shown)
+        bool     _alarmActive = false;   // any stall currently active (red STOP shown)
+        bool     _overLimitPrev = false; // any angle over-limit was shown last frame
+                                         // (orange warning, non-blocking)
 
         FreeRTOS::Queue<sharedDatatype::IPCFeedback>     &_fdbk;
         FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_eeUIQueue;

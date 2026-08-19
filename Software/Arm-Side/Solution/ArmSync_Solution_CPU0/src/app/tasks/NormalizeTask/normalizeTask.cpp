@@ -7,6 +7,10 @@
 extern ElegantDebug dbg;
 
 void NormalizeTask::_updateAlphaFromJ2(float j2deg) {
+    // TEST jetson 100%
+    _alpha = 1.0f;
+    return;
+
     if (j2deg <= 0.0f) {
         _alpha = ALPHA_J2_LOW;                     // 0.78
     } else if (j2deg >= ALPHA_J2_HIGH_DEG) {
@@ -98,12 +102,9 @@ void NormalizeTask::taskFunction() {
         _eeUIQueue.sendToBack(ee, 0);
 
         // Float-free but precision-kept (one decimal): avoids %%f malloc chain.
-        // dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
-        //     "Elbow(%d,%d,%d), Wrist(%d,%d,%d), (J5=%d.%d Gripper=%d j6Pitch=%d)\n",
-        //     (int)el[0], (int)el[1], (int)el[2],
-        //     (int)wr[0], (int)wr[1], (int)wr[2],
-        //     (int)hd.j5deg,
-        //     (int)(fabsf(hd.j5deg - (int)hd.j5deg) * 10.0f),
-        //     (int)ee.grip_percent, (int)hd.pitch_percent);
+        dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
+            "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
+            (int)el[0], (int)el[1], (int)el[2],
+            (int)wr[0], (int)wr[1], (int)wr[2]);
     }
 }

@@ -5,7 +5,7 @@
 extern ElegantDebug dbg;
 
 // Max velocities per joint
-static const uint16_t kMaxVel[6] = {3000, 4500, 1500, 1500, 150, 1500};
+static const uint16_t kMaxVel[6] = {2000, 3000, 1000, 1000, 100, 1000};
 
 // Joint motors: minDeg, maxDeg, reductionRatio, inverted, velocity(RPM)
 Motor MotionPlanningTask::_j1(-90.0f , 90.0f , 20.0f, false, kMaxVel[0]);
