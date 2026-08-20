@@ -48,7 +48,7 @@ class FusionTask : public FreeRTOS::Task {
 
         // One-pole low-pass on the fused output, ~5 Hz cutoff at ~33 Hz
         // sample rate: alpha = 1 - exp(-2*pi*fc/fs) = 1 - exp(-2*pi*5/33) ~ 0.61.
-        static constexpr float LP_FILTER_ALPHA = 0.61f;
+        static constexpr float LP_FILTER_ALPHA = 0.25f;   // strong smoothing: Jetson input jitters
 
         // pitch_percent (0~100) -> J6 angle in deg
         static constexpr float J6_MIN_DEG = -90.0f;

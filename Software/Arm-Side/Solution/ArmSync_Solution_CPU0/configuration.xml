@@ -396,6 +396,10 @@
       <description>Flatbuffers</description>
       <originalPack>Google.Flatbuffers.23.5.26+renesas.0.fsp.6.5.0.pack</originalPack>
     </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dmac" variant="" vendor="Renesas" version="6.5.0">
+      <description>Direct Memory Access Controller</description>
+      <originalPack>Renesas.RA.6.5.0.pack</originalPack>
+    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -636,6 +640,23 @@
     <module id="module.google.tflm.kernel.cmsis.nn.1199201033"/>
     <module id="module.arm.cmsis.nn.2006546262"/>
     <module id="module.arm.cmsis.dsp.1650402720"/>
+    <module id="module.driver.transfer_on_dmac.455419799">
+      <property id="module.driver.transfer.name" value="g_transfer0"/>
+      <property id="module.driver.transfer.channel" value="0"/>
+      <property id="module.driver.transfer.mode" value="module.driver.transfer.mode.mode_normal"/>
+      <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_2_byte"/>
+      <property id="module.driver.transfer.dest_addr_mode" value="module.driver.transfer.dest_addr_mode.addr_mode_fixed"/>
+      <property id="module.driver.transfer.src_addr_mode" value="module.driver.transfer.src_addr_mode.addr_mode_fixed"/>
+      <property id="module.driver.transfer.repeat_area" value="module.driver.transfer.repeat_area.repeat_area_source"/>
+      <property id="module.driver.transfer.length" value="1"/>
+      <property id="module.driver.transfer.num_blocks" value="0"/>
+      <property id="module.driver.transfer.activation_event" value="enum.elc_none.none"/>
+      <property id="module.driver.transfer.p_callback" value="DMA0_Callback"/>
+      <property id="module.driver.transfer.ipl" value="board.icu.common.irq.priority7"/>
+      <property id="module.driver.transfer.interrupt" value="module.driver.transfer.interrupt.interrupt_end"/>
+      <property id="module.driver.transfer.offset" value="1"/>
+      <property id="module.driver.transfer.src.buffer" value="1"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.timer_on_agt.301805898"/>
@@ -644,7 +665,9 @@
       <stack module="module.driver.uart_on_sci_b_uart.1290106310"/>
       <stack module="module.driver.uart_on_sci_b_uart.1049533245"/>
       <stack module="module.driver.ipc_on_ipc.1396334849"/>
-      <stack module="module.driver.ospi_on_ospi_b.1836116459"/>
+      <stack module="module.driver.ospi_on_ospi_b.1836116459">
+        <stack module="module.driver.transfer_on_dmac.455419799" requires="module.driver.ospi_on_ospi_b.requires.transfer"/>
+      </stack>
       <stack module="module.google.tflm.core.lib.1678464617">
         <stack module="module.google.flatbuffers.lib.241475482" requires="module.google.tflm.core.lib.requires.flatbuffers"/>
         <stack module="module.google.tflm.kernel.cmsis.nn.1199201033" requires="module.google.tflm.core.lib.requires.kernel.cmsis.nn">
@@ -664,7 +687,7 @@
     </context>
     <config id="config.driver.ospi_b">
       <property id="config.driver.ospi_b.param_checking_enable" value="config.driver.ospi_b.param_checking_enable.bsp"/>
-      <property id="config.driver.ospi_b.dmac_support" value="config.driver.ospi_b.dmac_support.disabled"/>
+      <property id="config.driver.ospi_b.dmac_support" value="config.driver.ospi_b.dmac_support.enabled"/>
       <property id="config.driver.ospi_b.autocalibration_support" value="config.driver.ospi_b.autocalibration_support.disabled"/>
       <property id="config.driver.ospi_b.prefetch_function" value="config.driver.ospi_b.prefetch_function.enabled"/>
       <property id="config.driver.ospi_b.combination_function" value="config.driver.ospi_b.combination_function.64_BYTE"/>
@@ -680,6 +703,9 @@
     </config>
     <config id="config.driver.ipc">
       <property id="config.driver.ipc.param_checking_enable" value="config.driver.ipc.param_checking_enable.bsp"/>
+    </config>
+    <config id="config.driver.dmac">
+      <property id="config.driver.dmac.param_checking_enable" value="config.driver.dmac.param_checking_enable.bsp"/>
     </config>
     <config id="config.middleware.rm_ethosu">
       <property id="config.middleware.rm_ethosu.param_checking_enable" value="config.middleware.rm_ethosu.param_checking_enable.bsp"/>

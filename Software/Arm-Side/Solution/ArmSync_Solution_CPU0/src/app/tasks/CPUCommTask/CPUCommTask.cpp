@@ -95,6 +95,13 @@ void CPUCommTask::taskFunction() {
             if (_rx->timestamp != _lastRx) {
                 _lastRx = _rx->timestamp;
                 _fb = *_rx;
+                // Inverted motors (J2, J4, J6) report angle with reversed sign.
+                // Fix it here at the single source so UI display and PID both
+                // see physically-correct values (this also clears spurious
+                // over-limit on J4 whose zero sits at its upper bound 0).
+                _fb.jointAngle[1] = -_fb.jointAngle[1];   // J2 inverted
+                _fb.jointAngle[3] = -_fb.jointAngle[3];   // J4 inverted
+                _fb.jointAngle[5] = -_fb.jointAngle[5];   // J6 inverted
             }
             R_BSP_IpcSemaphoreGive(&_lock);
 

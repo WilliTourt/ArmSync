@@ -141,6 +141,7 @@
             <slot name="P905.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="AGT0.CPU0" group="AGT" security="s"/>
+        <peripheral name="DMA_DMAC0.CPU0" group="DMA_DMAC" security="s"/>
         <peripheral name="ICU.CPU0">
             <slot name="IRQ0.CPU0" secure="true"/>
             <slot name="IRQ1.CPU0" secure="true"/>
@@ -161,6 +162,7 @@
             <slot name="IRQ16.CPU0" secure="true"/>
             <slot name="IRQ17.CPU0" secure="true"/>
             <slot name="IRQ18.CPU0" secure="true"/>
+            <slot name="IRQ19.CPU0" secure="true"/>
         </peripheral>
     </partition>
 </azone>

@@ -1,6 +1,31 @@
 /* generated HAL source file - do not edit */
 #include "hal_data.h"
 
+dmac_instance_ctrl_t g_transfer0_ctrl;
+transfer_info_t g_transfer0_info = { .transfer_settings_word_b.dest_addr_mode =
+		TRANSFER_ADDR_MODE_INCREMENTED, .transfer_settings_word_b.repeat_area =
+		TRANSFER_REPEAT_AREA_SOURCE, .transfer_settings_word_b.irq =
+		TRANSFER_IRQ_END, .transfer_settings_word_b.chain_mode =
+		TRANSFER_CHAIN_MODE_DISABLED, .transfer_settings_word_b.src_addr_mode =
+		TRANSFER_ADDR_MODE_INCREMENTED, .transfer_settings_word_b.size =
+		TRANSFER_SIZE_1_BYTE, .transfer_settings_word_b.mode =
+		TRANSFER_MODE_BLOCK, .p_dest = (void*) NULL,
+		.p_src = (void const*) NULL, .num_blocks = 1, .length = 64, };
+const dmac_extended_cfg_t g_transfer0_extend = { .offset = 0, .src_buffer_size =
+		0,
+#if defined(VECTOR_NUMBER_DMAC0_INT)
+    .irq                 = VECTOR_NUMBER_DMAC0_INT,
+#else
+		.irq = FSP_INVALID_VECTOR,
+#endif
+		.ipl = (7), .channel = 0, .p_callback = DMA0_Callback,
+		.p_context = NULL, .activation_source = ELC_EVENT_NONE, };
+const transfer_cfg_t g_transfer0_cfg = { .p_info = &g_transfer0_info,
+		.p_extend = &g_transfer0_extend, };
+/* Instance structure to use this module. */
+const transfer_instance_t g_transfer0 = { .p_ctrl = &g_transfer0_ctrl, .p_cfg =
+		&g_transfer0_cfg, .p_api = &g_transfer_on_dmac };
+
 ospi_b_instance_ctrl_t g_ospi0_ctrl;
 
 static ospi_b_timing_setting_t g_ospi0_timing_settings = {
@@ -82,7 +107,7 @@ static const ospi_b_extended_cfg_t g_ospi0_extended_cfg = { .ospi_b_unit = 0,
 				OSPI_B_DS_TIMING_DELAY_NONE,
 		.p_autocalibration_preamble_pattern_addr = (uint8_t*) 0x00,
 #if OSPI_B_CFG_DMAC_SUPPORT_ENABLE
-    .p_lower_lvl_transfer                    = &RA_NOT_DEFINED,
+    .p_lower_lvl_transfer                    = &g_transfer0,
 #endif
 #if OSPI_B_CFG_DOTF_SUPPORT_ENABLE
     .p_dotf_cfg                              = &g_ospi_dotf_cfg,

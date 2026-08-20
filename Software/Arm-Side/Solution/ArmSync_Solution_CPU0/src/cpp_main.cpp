@@ -86,11 +86,15 @@ void UART9_Callback(uart_callback_args_t *p_args) {
     ElegantDebug::onTxComplete(p_args);
 }
 
+void DMA0_Callback(transfer_callback_args_t *p_args) {
+    (void)p_args;
+}
+
 FSP_FOOTER
 
 
 
-ElegantDebug dbg(&g_uart9, false, true);
+ElegantDebug dbg(&g_uart9, true, true);
 
 
 

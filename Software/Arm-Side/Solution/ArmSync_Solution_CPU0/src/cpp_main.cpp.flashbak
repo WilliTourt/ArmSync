@@ -1,0 +1,148 @@
+#include "cpp_main.h"
+#include "tasks.h"
+#include "queues.h"
+#include "ElegantDebug.h"
+
+// Hooks for diagnostics (configUSE_MALLOC_FAILED_HOOK / configCHECK_FOR_STACK_OVERFLOW).
+// These trap allocation failure / stack overflow so we can locate the culprit
+// instead of silently failing to create a task.
+extern ElegantDebug dbg;
+
+// Called when a call to pvPortMalloc() fails (e.g. xTaskCreate ran out of heap).
+void vApplicationMallocFailedHook(void) {
+    taskDISABLE_INTERRUPTS();
+    dbg.error("MALLOC FAILED: heap exhausted.\n");
+    for (;;) {}
+}
+
+// Called by FreeRTOS when a task detects its stack has overflowed.
+// pcTaskName is the name of the offending task.
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName) {
+    (void)xTask;
+    taskDISABLE_INTERRUPTS();
+    dbg.info("STACK OVERFLOW in task '%s'!\n",
+              pcTaskName ? pcTaskName : "?");
+    for (;;) {}
+}
+
+FSP_HEADER
+
+/* Static allocation stubs — required when configSUPPORT_STATIC_ALLOCATION = 1 */
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
+                                   StackType_t **ppxIdleTaskStackBuffer,
+                                   uint32_t *pulIdleTaskStackSize);
+void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer,
+                                    StackType_t **ppxTimerTaskStackBuffer,
+                                    uint32_t *pulTimerTaskStackSize);
+
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
+                                   StackType_t **ppxIdleTaskStackBuffer,
+                                   uint32_t *pulIdleTaskStackSize) {
+    static StaticTask_t xIdleTaskTCB;
+    static StackType_t uxIdleTaskStack[configMINIMAL_STACK_SIZE];
+    *ppxIdleTaskTCBBuffer = &xIdleTaskTCB;
+    *ppxIdleTaskStackBuffer = uxIdleTaskStack;
+    *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+}
+
+void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer,
+                                    StackType_t **ppxTimerTaskStackBuffer,
+                                    uint32_t *pulTimerTaskStackSize) {
+    static StaticTask_t xTimerTaskTCB;
+    static StackType_t uxTimerTaskStack[configTIMER_TASK_STACK_DEPTH];
+    *ppxTimerTaskTCBBuffer = &xTimerTaskTCB;
+    *ppxTimerTaskStackBuffer = uxTimerTaskStack;
+    *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
+}
+
+
+
+// void SysTick_Handler(void);
+
+void vSysTick(timer_callback_args_t *p_args) {
+    (void)p_args;
+    // SysTick_Handler();
+
+    ElegantDebug::tick();   // ElegantDebug tick
+}
+
+/* UART0 Receive Callback for controller */
+void UART0_Callback(uart_callback_args_t *p_args) {
+    UartRecvTask::uart0Callback(p_args);
+}
+
+/* UART3 Receive Callback for TJC Screen */
+void UART3_Callback(uart_callback_args_t *p_args) {
+    UITask::uart3Callback(p_args);
+}
+
+/* UART4 Receive Callback for jetson nano */
+void UART4_Callback(uart_callback_args_t *p_args) {
+    UartRecvTask::uart4Callback(p_args);
+}
+
+/* JLink OB */
+void UART9_Callback(uart_callback_args_t *p_args) {
+    ElegantDebug::onTxComplete(p_args);
+}
+
+FSP_FOOTER
+
+
+
+ElegantDebug dbg(&g_uart9, false, true);
+
+
+
+void cpp_main() {
+
+    R_SCI_B_UART_Open(&g_uart3_ctrl, &g_uart3_cfg);
+    uiTask.booting(UITask::BootingPhase::MCU_PERIPH);
+
+    R_AGT_Open(&agt_SysTick_ctrl, &agt_SysTick_cfg);
+
+    R_AGT_Start(&agt_SysTick_ctrl);
+    R_AGT_Enable(&agt_SysTick_ctrl);
+
+    R_SCI_B_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
+    R_SCI_B_UART_Open(&g_uart4_ctrl, &g_uart4_cfg);
+    R_SCI_B_UART_Open(&g_uart9_ctrl, &g_uart9_cfg);
+
+    R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_HIGH);
+    R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
+    R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_LOW);
+
+    dbg.log("Test from cpp_main\n");
+
+    while (1) {
+        
+    }
+
+    uiTask.booting(UITask::BootingPhase::COMM_INIT);
+    R_BSP_SoftwareDelay(400, BSP_DELAY_UNITS_MILLISECONDS);
+    uiTask.booting(UITask::BootingPhase::MEMORY_INIT);
+    R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
+    uiTask.booting(UITask::BootingPhase::ARM_SELFCHK);
+    R_BSP_SoftwareDelay(600, BSP_DELAY_UNITS_MILLISECONDS);
+    uiTask.booting(UITask::BootingPhase::DONE);
+
+    // Wire up UI -> Fusion / RecPlay notifications and the handles UITask
+    // needs to suspend the upstream task chain during playback.
+    // (Handles resolved by name; INCLUDE_xTaskGetHandle is enabled.)
+    uiTask.setTaskHandles(FreeRTOS::Task::getHandle("Fusion"),
+                          FreeRTOS::Task::getHandle("RecPlay"),
+                          FreeRTOS::Task::getHandle("UartRecv"),
+                          FreeRTOS::Task::getHandle("Normalize"),
+                          FreeRTOS::Task::getHandle("IK"),
+                          FreeRTOS::Task::getHandle("NPU"));
+    fusionTask.setRecHandle(FreeRTOS::Task::getHandle("RecPlay"));
+    fusionTask.setNormalizeHandle(FreeRTOS::Task::getHandle("Normalize"));   // J2 -> alpha
+    fusionTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // REC command from UI
+    recPlayTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));
+    cpuCommTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // freq -> UI
+    npuTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));        // npu freq -> UI (index 2)
+
+    FreeRTOS::Kernel::startScheduler();
+
+    while (1);
+}

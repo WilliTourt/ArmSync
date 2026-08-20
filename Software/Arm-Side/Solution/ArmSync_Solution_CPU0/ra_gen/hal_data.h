@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
+#include "r_dmac.h"
+#include "r_transfer_api.h"
 #include "r_ospi_b.h"
 #include "r_spi_flash_api.h"
 #include "r_ipc.h"
@@ -12,11 +14,21 @@
 #include "r_agt.h"
 #include "r_timer_api.h"
 FSP_HEADER
+/* Transfer on DMAC Instance. */
+extern const transfer_instance_t g_transfer0;
+
+/** Access the DMAC instance using these structures when calling API functions directly (::p_api is not used). */
+extern dmac_instance_ctrl_t g_transfer0_ctrl;
+extern const transfer_cfg_t g_transfer0_cfg;
+
+#ifndef DMA0_Callback
+void DMA0_Callback(transfer_callback_args_t *p_args);
+#endif
 #if OSPI_B_CFG_DMAC_SUPPORT_ENABLE
-#include "r_dmac.h"
+    #include "r_dmac.h"
 #endif
 #if OSPI_CFG_DOTF_SUPPORT_ENABLE
-#include "r_sce_if.h"
+    #include "r_sce_if.h"
 #endif
 
 extern const spi_flash_instance_t g_ospi0;

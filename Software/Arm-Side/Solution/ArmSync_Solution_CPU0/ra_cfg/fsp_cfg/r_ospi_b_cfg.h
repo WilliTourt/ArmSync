@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 #define OSPI_B_CFG_PARAM_CHECKING_ENABLE          (BSP_CFG_PARAM_CHECKING_ENABLE)
-#define OSPI_B_CFG_DMAC_SUPPORT_ENABLE            (0)
+#define OSPI_B_CFG_DMAC_SUPPORT_ENABLE            (1)
 #define OSPI_B_CFG_XIP_SUPPORT_ENABLE             (0)
 #define OSPI_B_CFG_AUTOCALIBRATION_SUPPORT_ENABLE (0)
 #define OSPI_B_CFG_PREFETCH_FUNCTION              (1)

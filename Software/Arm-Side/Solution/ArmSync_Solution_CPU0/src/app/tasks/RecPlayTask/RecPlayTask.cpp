@@ -69,14 +69,10 @@ void RecPlayTask::taskFunction() {
                         _replaying  = true;
                         _playActive = true;
                         _playIdx    = 0;   // start a fresh take
-                        // Anchor pacing on frame 0's recorded ts so the first
-                        // frame plays immediately (dt = 0). Note we must pull
-                        // the timestamp field of a JointAngleData, not treat
-                        // &_recBuf[0] (which aliases angles[0]) as a timestamp.
-                        sharedDatatype::JointAngleData first;
-                        __builtin_memcpy(&first, &_recBuf[0], sizeof(first));
-                        recFrameTs     = first.timestamp;
-                        recordedLastTs = recFrameTs;
+                        // Relative timestamps (frame 0 = 0): anchor the whole
+                        // replay on the current tick. Frame 0 sends immediately;
+                        // frame N sends at replayStartTick + relTs[N].
+                        _replayStartTick = static_cast<uint32_t>(xTaskGetTickCount());
                         dbg.info("RecPlayTask: PLAY %u frames\n", (unsigned)_playCount);
                         // UITask::updateHMS("Replay start");
                     } else {
@@ -106,15 +102,22 @@ void RecPlayTask::taskFunction() {
         // 2. Data plane.
         // ------------------------------------------------------------------
         if (_replaying) {
-            // Playback paced by the RECORDED timestamp deltas, so the motion
-            // rhythm (including pauses and speed variations) is reproduced 1:1.
+            // Playback with ABSOLUTE time alignment. _recBuf timestamps are
+            // relative offsets from frame 0 (frame 0 = 0). Frame 0 sends
+            // immediately; frame N sends when the tick reaches
+            // replayStartTick + relTs[N]. This is immune to per-frame
+            // processing/send overhead (unlike subtracting deltas each loop,
+            // which accumulated to ~2x slow).
             if (_playIdx < _playCount) {
+                // Wait until this frame's absolute due tick (relTs is the
+                // offset; frame 0 has relTs = 0, so it sends right away).
                 sharedDatatype::JointAngleData frame;
                 uint32_t off = _playIdx * sizeof(frame);
                 __builtin_memcpy(&frame, &_recBuf[off], sizeof(frame));
-
-                // Save the RECORDED timestamp for pacing before we overwrite it.
-                recFrameTs = frame.timestamp;
+                uint32_t dueTick = _replayStartTick + frame.timestamp;
+                while (static_cast<int32_t>(dueTick - static_cast<uint32_t>(xTaskGetTickCount())) > 0) {
+                    vTaskDelay(1);   // busy-wait in 1ms steps until due
+                }
 
                 // Stamp with the send-time tick and push to the replay queue.
                 frame.timestamp = static_cast<uint32_t>(xTaskGetTickCount());
@@ -124,18 +127,21 @@ void RecPlayTask::taskFunction() {
                     continue;
                 }
                 _playIdx++;
+                if ((_playIdx & 127u) == 0u) {
+                    dbg.logWithType("REPLAY", COLOR_CYAN,
+                                    "sent idx=%lu/%lu\n",
+                                    (unsigned long)_playIdx, (unsigned long)_playCount);
+                }
 
                 if (_playIdx >= _playCount) {
                     if (_loop) {
-                        // Infinite replay: wrap back to frame 0 and keep going
-                        // (until a PLAY_END stops it). Skip the cross-boundary
-                        // delay entirely: frame 0's recorded ts is a fresh take
-                        // start, so subtracting the pre-wrap ts would underflow
-                        // and get clamped to ~1000ms of stall.
+                        // Infinite replay: wrap back to frame 0. relTs is
+                        // frame-relative, so just re-anchor the start tick and
+                        // reset the index (frame 0 plays again immediately).
                         _playIdx = 0;
-                        recordedLastTs = recFrameTs;   // frame 0 anchor = current
+                        _replayStartTick = static_cast<uint32_t>(xTaskGetTickCount());
                         dbg.logWithType("REPLAY", COLOR_CYAN, "loop wrap\n");
-                        vTaskDelay(PLAY_MIN_DELAY_MS);   // small pause, no long stall
+                        vTaskDelay(1);
                         continue;
                     } else {
                         dbg.info("RecPlayTask: playback done (%u frames)\n",
@@ -148,21 +154,6 @@ void RecPlayTask::taskFunction() {
                         continue;
                     }
                 }
-
-                // Wait the recorded interval to the NEXT frame.
-                {
-                    // NOTE: use the RECORDED timestamps for pacing, not the
-                    // send-time stamp. Overwriting frame.timestamp with the
-                    // current tick and then subtracting it would mix two time
-                    // bases (record vs now) and underflow to ~1s per frame.
-                    sharedDatatype::JointAngleData next;
-                    __builtin_memcpy(&next, &_recBuf[_playIdx * sizeof(frame)], sizeof(frame));
-                    uint32_t dt = next.timestamp - recordedLastTs;
-                    if (dt < PLAY_MIN_DELAY_MS) dt = PLAY_MIN_DELAY_MS;
-                    if (dt > PLAY_MAX_DELAY_MS) dt = PLAY_MAX_DELAY_MS;
-                    vTaskDelay(pdMS_TO_TICKS(dt));
-                }
-                recordedLastTs = recFrameTs;
             } else {
                 _replaying  = false;
                 _playActive = false;
@@ -196,48 +187,33 @@ void RecPlayTask::_notifyUI(RecCmd cmd) {
 }
 
 bool RecPlayTask::saveToFlash(FlashStorage &flash) {
-    // Header: magic | frameCount | rateHz | reserved (zero-padded to 16, 8-aligned)
-    uint8_t hdr[HEADER_SIZE] = {};
-    uint32_t magic = MAGIC;
-    uint32_t count = _frameCount;
-    uint16_t rate  = RECORD_RATE_HZ;
-    __builtin_memcpy(&hdr[0], &magic, 4);
-    __builtin_memcpy(&hdr[4], &count, 4);
-    __builtin_memcpy(&hdr[8], &rate,  2);
-
-    // Erase the whole recording region (multi-sector) before writing a new take.
-    for (uint32_t s = 0; s < RECORD_SECTORS; s++) {
-        if (!flash.eraseSector(FLASH_OFFSET + s * FlashStorage::SECTOR_SIZE)) {
-            return false;
+    // RAM take (no OSPI write): the frames already live in _recBuf. Convert
+    // the per-frame timestamps to RELATIVE offsets from frame 0 (frame 0 -> 0)
+    // so playback can align each frame to an absolute due tick. Power-loss
+    // persistence is intentionally not provided by this path.
+    (void)flash;
+    if (_frameCount > 0) {
+        sharedDatatype::JointAngleData tmp;
+        __builtin_memcpy(&tmp, &_recBuf[0], sizeof(tmp));
+        uint32_t base = tmp.timestamp;
+        for (uint32_t i = 0; i < _frameCount; i++) {
+            uint32_t off = i * sizeof(sharedDatatype::JointAngleData);
+            __builtin_memcpy(&tmp, &_recBuf[off], sizeof(tmp));
+            tmp.timestamp = tmp.timestamp - base;   // relative ms from frame 0
+            __builtin_memcpy(&_recBuf[off], &tmp, sizeof(tmp));
         }
     }
-    if (!flash.write(FLASH_OFFSET, hdr, HEADER_SIZE)) return false;
-
-    // JointAngleData is 28 bytes; an odd frame count leaves a 4-byte tail that
-    // the OSPI driver (8-byte access) cannot write. Pad the byte count up to a
-    // multiple of 8 (flash is already erased, so the pad bytes read as 0xFF and
-    // are ignored by the header's frame count).
-    uint32_t dataLen = _frameCount * sizeof(sharedDatatype::JointAngleData);
-    dataLen = (dataLen + 7U) & ~7U;
-    if (!flash.write(DATA_OFFSET, _recBuf, dataLen)) {
-        return false;
-    }
+    _playCount = _frameCount;
+    _haveTake  = (_playCount > 0);
     return true;
 }
 
 bool RecPlayTask::loadFromFlash(FlashStorage &flash) {
-    uint8_t hdr[HEADER_SIZE];
-    flash.read(FLASH_OFFSET, hdr, HEADER_SIZE);
-
-    uint32_t magic = 0, count32 = 0;
-    __builtin_memcpy(&magic,  &hdr[0], 4);
-    __builtin_memcpy(&count32, &hdr[4], 4);
-    if (magic != MAGIC) return false;                 // no take / erased
-    if (count32 == 0 || count32 > MAX_FRAMES) return false;
-
-    _playCount = static_cast<uint16_t>(count32);
-    uint32_t dataLen = _playCount * sizeof(sharedDatatype::JointAngleData);
-    dataLen = (dataLen + 7U) & ~7U;   // read back the same padded footprint
-    flash.read(DATA_OFFSET, _recBuf, dataLen);
+    // RAM take: nothing to load from flash. If a take was recorded this boot,
+    // _playCount already holds the frame count and _recBuf the data.
+    (void)flash;
+    if (!_haveTake) {
+        return false;
+    }
     return true;
 }

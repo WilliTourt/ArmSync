@@ -62,9 +62,9 @@ void FusionTask::taskFunction() {
         
         // Try to grab latest NPU data (non-blocking)
         auto npu = _npuQueue.receive(0);
-        if (npu) {
-            dbg.logWithType("NPU Data", COLOR_CUSTOM(150, 169, 250), "J3 %.2f J5 %.2f\n", npu->angles[2], npu->angles[4]);
-        }
+        // if (npu) {
+        //     dbg.logWithType("NPU Data", COLOR_CUSTOM(150, 169, 250), "J3 %.2f J5 %.2f\n", npu->angles[2], npu->angles[4]);
+        // }
 
         sharedDatatype::JointAngleData out = {};
         out.timestamp = ik->timestamp;
@@ -104,15 +104,25 @@ void FusionTask::taskFunction() {
         
         // Poll the latest UI command (index 0, non-blocking, overwrite).
         // UITask pushes UICommand::REC to start, UICommand::NONE to stop.
-        uint32_t uiVal = static_cast<uint32_t>(sharedDatatype::UICommand::NONE);
+        // NOTE (lock latch): UITask's REC button sends a ONE-SHOT notification
+        // (REC or NONE), consumed once. If we reassign _recording from it every
+        // frame, the notification is gone on the next frame -> _recording flips
+        // back to false -> an immediate spurious "recording done" + saveToFlash.
+        // So we only update _recording when a notification actually arrives
+        // (pdTRUE); otherwise we KEEP the current recording state (latched).
+        uint32_t uiVal = 0;
+        bool haveUiCmd = false;
         if (_uiHandle != nullptr) {
-            xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &uiVal, 0);
+            haveUiCmd = (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &uiVal, 0) == pdTRUE);
         }
         const auto uiCmd = static_cast<sharedDatatype::UICommand>(uiVal);
 
         // Detect state transition for REC start / REC end.
         const bool wasRecording = _recording;
-        _recording = (uiCmd == sharedDatatype::UICommand::REC);
+        if (haveUiCmd) {
+            _recording = (uiCmd == sharedDatatype::UICommand::REC);
+        }
+        // else: keep _recording unchanged (latched) until the next real command.
 
         // Record tap: mirror this fused frame to RecPlayTask while recording.
         // On the REC->END transition we still push this (the last) frame, then

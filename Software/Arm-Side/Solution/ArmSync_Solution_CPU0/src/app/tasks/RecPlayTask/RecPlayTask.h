@@ -62,8 +62,13 @@ class RecPlayTask : public FreeRTOS::Task {
 
         // --- Flash layout --------------------------------------------------
         static constexpr uint32_t FLASH_OFFSET    = 0x10000UL;  // recording region
-        static constexpr uint32_t HEADER_SIZE     = 16U;        // magic+count+rate+reserved (8-aligned)
-        static constexpr uint32_t DATA_OFFSET     = FLASH_OFFSET + HEADER_SIZE;
+        // 64-byte header so DATA_OFFSET lands on a 64-byte-aligned boundary
+        // (0x10040). R_OSPI_B_Write's direct-store crashes when the destination
+        // starts on a non-64-aligned address; 16-byte header put data at
+        // 0x10010 which is NOT 64-aligned -> HardFault. Only the first 16 bytes
+        // are used; the rest are zero padding.
+        static constexpr uint32_t HEADER_SIZE     = 64U;
+        static constexpr uint32_t DATA_OFFSET     = FLASH_OFFSET + HEADER_SIZE;  // 0x10040, 64-aligned
 
         // 60 s @ 30 Hz = 1800 frames; 28 B/frame -> ~49 KB, needs 13 x 4 KB sectors.
         static constexpr uint32_t MAX_FRAMES = 1800U;
@@ -85,6 +90,8 @@ class RecPlayTask : public FreeRTOS::Task {
         uint16_t _playCount  = 0;   // frames loaded from flash for playback
         uint16_t _playIdx    = 0;   // next frame index to send during playback
         bool     _replaying  = false;
+        bool     _haveTake   = false;  // a take is available this boot (RAM replay)
+        uint32_t _replayStartTick = 0; // tick anchor at PLAY start (absolute pacing)
         static bool _loop;          // loop playback (wrap instead of done)
         TaskHandle_t _uiHandle = nullptr;   // UITask, for PLAY_DONE report
 

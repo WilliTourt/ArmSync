@@ -141,6 +141,7 @@
             <slot name="P905.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="AGT0.CPU0" group="AGT" security="s"/>
+        <peripheral name="DMA_DMAC0.CPU0" group="DMA_DMAC" security="s"/>
         <peripheral name="ICU.CPU0">
             <slot name="IRQ0.CPU0" secure="true"/>
             <slot name="IRQ1.CPU0" secure="true"/>
@@ -161,6 +162,7 @@
             <slot name="IRQ16.CPU0" secure="true"/>
             <slot name="IRQ17.CPU0" secure="true"/>
             <slot name="IRQ18.CPU0" secure="true"/>
+            <slot name="IRQ19.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="PORT4.CPU1" group="PORT">
             <slot name="P400.CPU1" secure="true"/>
@@ -253,6 +255,7 @@
             <assign group="PORT" peripheral="PORT8.P808"/>
             <assign group="PORT" peripheral="PORT9.P905"/>
             <assign group="AGT" peripheral="AGT0"/>
+            <assign group="DMA_DMAC" peripheral="DMA_DMAC0"/>
             <assign peripheral="ICU.IRQ0"/>
             <assign peripheral="ICU.IRQ1"/>
             <assign peripheral="ICU.IRQ2"/>
@@ -272,6 +275,7 @@
             <assign peripheral="ICU.IRQ16"/>
             <assign peripheral="ICU.IRQ17"/>
             <assign peripheral="ICU.IRQ18"/>
+            <assign peripheral="ICU.IRQ19"/>
         </zone>
     </zones>
 </azone>

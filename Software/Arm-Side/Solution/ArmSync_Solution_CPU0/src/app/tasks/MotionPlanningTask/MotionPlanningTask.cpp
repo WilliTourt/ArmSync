@@ -20,6 +20,21 @@ static const float kKp = MotionPlanningTask::PID_KP;
 
 void MotionPlanningTask::_applyPid(sharedDatatype::MotionPlanPacket &pkt,
                                    const float targetAngles[6]) {
+    // First-order low-pass on the TARGET angles. Smooths jitter coming from
+    // the fusion/IK chain (which magnifies Jetson keypoint noise into joint
+    // angle swings). A small delay is acceptable here. Shared by live and
+    // playback so both smooth identically.
+    float tgt[6];
+    if (!_tgtFilterInit) {
+        for (int i = 0; i < 6; i++) { _tgtFiltered[i] = targetAngles[i]; }
+        _tgtFilterInit = true;
+    }
+    for (int i = 0; i < 6; i++) {
+        _tgtFiltered[i] = PID_TGT_ALPHA * targetAngles[i]
+                        + (1.0f - PID_TGT_ALPHA) * _tgtFiltered[i];
+        tgt[i] = _tgtFiltered[i];
+    }
+
     // vel = clamp(Kp * |target - feedback|, vel_min, max). Stop in deadband.
     // acc is always 0: Emm_V5 starts directly and the P loop owns the speed.
     for (int i = 0; i < 6; i++) {
@@ -31,7 +46,7 @@ void MotionPlanningTask::_applyPid(sharedDatatype::MotionPlanPacket &pkt,
             continue;
         }
 
-        float const err = targetAngles[i] - _lastFeedback[i];
+        float const err = tgt[i] - _lastFeedback[i];
         if (std::fabs(err) < PID_DEADBAND_DEG) {
             cmd.rpm = 0u;   // at target -> stop
             cmd.acc = 0u;
@@ -74,19 +89,21 @@ void MotionPlanningTask::taskFunction() {
             _applyPid(pkt, rp->angles);
             _outQueue.sendToBack(pkt, 0);
             continue;
+        } else {
+            auto joint = _inQueue.receive(pdMS_TO_TICKS(10));
+            if (!joint) continue;
+
+            // Build the base plan from the fused target angles.
+            sharedDatatype::MotionPlanPacket pkt = _arm.setAngles(joint->angles);
+            pkt.timestamp = joint->timestamp;
+
+            // PID: drive each motor's velocity from the angle error.
+            _applyPid(pkt, joint->angles);
+
+            dbg.info("MotionPlan out: J1 %.2f, J2 %.2f, J3 %.2f, J4 %.2f, J5 %.2f, J6 %.2f\n",
+            joint->angles[0], joint->angles[1], joint->angles[2], joint->angles[3], joint->angles[4], joint->angles[5]);
+
+            _outQueue.sendToBack(pkt, 0);
         }
-
-        // Otherwise block for live fused joint data.
-        auto joint = _inQueue.receive(portMAX_DELAY);
-        if (!joint) continue;
-
-        // Build the base plan from the fused target angles.
-        sharedDatatype::MotionPlanPacket pkt = _arm.setAngles(joint->angles);
-        pkt.timestamp = joint->timestamp;
-
-        // PID: drive each motor's velocity from the angle error.
-        _applyPid(pkt, joint->angles);
-
-        _outQueue.sendToBack(pkt, 0);
     }
 }

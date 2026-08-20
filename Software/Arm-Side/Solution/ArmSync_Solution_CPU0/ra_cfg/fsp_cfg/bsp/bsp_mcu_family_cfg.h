@@ -301,7 +301,7 @@
 /* Security attribution for registers for DMAC channels */
 #ifndef BSP_TZ_CFG_DMACCHSAR
 #define BSP_TZ_CFG_DMACCHSAR (\
-            (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 0U) /* DMACx Channel 0 */ | \
+            (((1 > 0) ? 0U : 1U) << 0U) /* DMACx Channel 0 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 1U) /* DMACx Channel 1 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 2U) /* DMACx Channel 2 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 3U) /* DMACx Channel 3 */ | \

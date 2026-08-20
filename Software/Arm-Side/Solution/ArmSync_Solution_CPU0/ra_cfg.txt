@@ -647,7 +647,7 @@ FSP Configuration
     
   Module "OSPI (r_ospi_b)"
     Parameter Checking: Default (BSP)
-    DMAC Support: Disable
+    DMAC Support: Enable
     Autocalibration Support: Disable
     Memory-mapping Support: Prefetch Function: Enable
     Memory-mapping Support: Combination Function: 64 Bytes
@@ -668,6 +668,9 @@ FSP Configuration
   Module "Google TFLM CMSIS-NN Kernel"
   Module "Arm CMSIS NN Library Source"
   Module "Arm CMSIS DSP Library Source"
+  Module "Transfer (r_dmac)"
+    Parameter Checking: Default (BSP)
+    
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
       Name: g_ioport
@@ -886,6 +889,23 @@ FSP Configuration
       DOTF: Decryption End Address: 0x80001FFF
       Row Addressing: Row Address Length: No address
       
+      Instance "g_transfer0 Transfer (r_dmac) No ELC Trigger"
+        Name: g_transfer0
+        Channel: 0
+        Mode: Block
+        Transfer Size: 1 Byte
+        Destination Address Mode: Incremented
+        Source Address Mode: Incremented
+        Repeat Area (Unused in Normal Mode): Source
+        Number of Transfers: 64
+        Number of Blocks (Valid only in Repeat,Block or Repeat-Block Mode): 1
+        Activation Source: No ELC Trigger
+        Callback: DMA0_Callback
+        Transfer End Interrupt Priority: Priority 7
+        Interrupt Frequency: Interrupt after all transfers have completed
+        Offset value (Valid only when address mode is Offset addition): 0
+        Source Buffer Size: 0
+        
     Instance "Google TFLM Core Lib"
       Instance "Google Flatbuffers"
       Instance "Google TFLM CMSIS-NN Kernel"

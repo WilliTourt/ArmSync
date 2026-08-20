@@ -10,7 +10,7 @@ FreeRTOS::Queue<sharedDatatype::JointAngleData> npuJointQueue(1);       // NPUTa
 FreeRTOS::Queue<sharedDatatype::ArmKPCoords>   npuKpQueue(8);          // NormalizeTask -> NPUTask (input)
 FreeRTOS::Queue<sharedDatatype::JointAngleData> fusedJointQueue(1);     // Fusion -> Motion (live, latest-only)
 FreeRTOS::Queue<sharedDatatype::JointAngleData> recQueue(8);   // record tap (30Hz, give margin)
-FreeRTOS::Queue<sharedDatatype::JointAngleData> replayQueue(8); // playback to MotionPlanningTask
+FreeRTOS::Queue<sharedDatatype::JointAngleData> replayQueue(32); // playback -> MotionPlanningTask
 FreeRTOS::Queue<sharedDatatype::MotionPlanPacket> motionPlanQueue(4);
 FreeRTOS::Queue<sharedDatatype::IPCFeedback> IPCFeedbackQueue(4);   // UI feedback display
 FreeRTOS::Queue<sharedDatatype::IPCFeedback> pidFbQueue(1);         // PID feedback (Motion, latest-only)

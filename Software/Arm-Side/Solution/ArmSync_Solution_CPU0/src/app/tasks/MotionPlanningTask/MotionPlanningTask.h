@@ -22,9 +22,14 @@ class MotionPlanningTask : public FreeRTOS::Task {
 
         // P-gain for the velocity PID: vel[rpm] = Kp * |deg error|.
         // Set so a full-swing error (~MAX_SPAN_DEG) reaches max velocity.
-        static constexpr float PID_KP = 0.10f;            // rpm per degree (tune)
-        static constexpr float PID_DEADBAND_DEG = 3.0f;   // stop within this error
+        static constexpr float PID_KP = 0.18f;            // rpm per degree (tune)
+        static constexpr float PID_DEADBAND_DEG = 4.0f;   // stop within this error
         static constexpr float PID_VEL_MIN_PCT = 0.05f;   // min vel = 5% of max
+
+        // First-order low-pass applied to the PID target angles (extra
+        // smoothing on top of Fusion's LP; small delay acceptable). Smaller
+        // alpha = smoother but more lag.
+        static constexpr float PID_TGT_ALPHA = 0.22f;
 
     private:
         void taskFunction() override;
@@ -53,4 +58,8 @@ class MotionPlanningTask : public FreeRTOS::Task {
         // Last known-good motor feedback, retained across loops so a missing
         // feedback frame doesn't get treated as "all joints at 0 deg".
         float _lastFeedback[6] = {0.0f};
+
+        // Low-pass filter state for the PID target angles (one per joint).
+        float _tgtFiltered[6] = {0.0f};
+        bool  _tgtFilterInit  = false;
 };

@@ -4,6 +4,21 @@
 /* RA critical-section helpers (provided by BSP) */
 #include "fsp_common_api.h"
 
+namespace {
+// Send the WINBOND WRITE ENABLE (0x06) command. The R_OSPI_B_Write non-DMA
+// path does NOT issue write-enable itself; the W25Q256JV requires WEL set
+// before every program/erase operation (and erase clears it). The CPKHMI
+// qspi example sends 0x06 before each write burst, so we mirror that here.
+bool flashWriteEnable() {
+    spi_flash_direct_transfer_t dt = {};
+    dt.command        = 0x06U;
+    dt.command_length = 0x1U;
+    fsp_err_t err = R_OSPI_B_DirectTransfer(
+        g_ospi0.p_ctrl, &dt, SPI_FLASH_DIRECT_TRANSFER_DIR_WRITE);
+    return (err == FSP_SUCCESS);
+}
+}
+
 bool FlashStorage::init() {
     if (_opened) return true;
     fsp_err_t err = R_OSPI_B_Open(g_ospi0.p_ctrl, g_ospi0.p_cfg);
@@ -48,6 +63,13 @@ bool FlashStorage::write(uint32_t addr, const uint8_t *data, uint32_t len) {
 
         if (chunk == 0) return false;          // unaligned tail we cannot express
 
+        // W25Q256JV needs WRITE ENABLE (WEL) set before each program operation;
+        // the R_OSPI_B_Write non-DMA path does not do this itself, and erase
+        // clears WEL. Issue 0x06 so the direct-store doesn't fault.
+        if (!flashWriteEnable()) {
+            return false;
+        }
+
         FSP_CRITICAL_SECTION_DEFINE;
         FSP_CRITICAL_SECTION_ENTER;
         fsp_err_t err = R_OSPI_B_Write(g_ospi0.p_ctrl, &data[off], dest + off, chunk);
@@ -55,6 +77,12 @@ bool FlashStorage::write(uint32_t addr, const uint8_t *data, uint32_t len) {
         if (err != FSP_SUCCESS) return false;
 
         waitUntilWip();
+
+        // Give the OSPI part a short settle time between consecutive program
+        // operations. Continuous back-to-back writes were observed to fault;
+        // a small delay after WIP lets the state machine fully reset.
+        R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MILLISECONDS);
+
         off += chunk;
     }
 

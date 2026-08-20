@@ -187,7 +187,9 @@ void UITask::updateStatusText(StatusText text) {
     }
 
     _send("StatusText.txt=\"%s\"", txt);
-    vTaskDelay(pdMS_TO_TICKS(5));
+    vTaskDelay(pdMS_TO_TICKS(3));
+    _send("StatusText.pco=%d", ((text == StatusText::STOP) ? tjcCOLOR_RED : tjcCOLOR_GREEN));
+    vTaskDelay(pdMS_TO_TICKS(3));
     _send("Status.pco=%d", ((text == StatusText::STOP) ? tjcCOLOR_RED : tjcCOLOR_GREEN));
     vTaskDelay(pdMS_TO_TICKS(3));
 }
@@ -206,7 +208,6 @@ void UITask::updateHMS(const char* msg) {
     _hmsSlot++;
     if (_hmsSlot > 4) _hmsSlot = 0;
 }
-
 
 // NPUStatus dot color + NPUText (txt is always 7 chars; spaces pad for alignment).
 void UITask::updateNPUStatus(NpuState state) {

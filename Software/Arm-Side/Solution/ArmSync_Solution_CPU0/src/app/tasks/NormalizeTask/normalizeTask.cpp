@@ -102,9 +102,9 @@ void NormalizeTask::taskFunction() {
         _eeUIQueue.sendToBack(ee, 0);
 
         // Float-free but precision-kept (one decimal): avoids %%f malloc chain.
-        dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
-            "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
-            (int)el[0], (int)el[1], (int)el[2],
-            (int)wr[0], (int)wr[1], (int)wr[2]);
+        // dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
+            // "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
+            // (int)el[0], (int)el[1], (int)el[2],
+            // (int)wr[0], (int)wr[1], (int)wr[2]);
     }
 }
