@@ -15,7 +15,6 @@ RM := rm -rf
 -include src/app/tasks/UITask/subdir.mk
 -include src/app/tasks/RecPlayTask/subdir.mk
 -include src/app/tasks/NormalizeTask/subdir.mk
--include src/app/tasks/NPUTask/subdir.mk
 -include src/app/tasks/MotionPlanningTask/subdir.mk
 -include src/app/tasks/IKTask/subdir.mk
 -include src/app/tasks/FusionTask/subdir.mk

@@ -81,15 +81,11 @@ void compute_sub_0002(
 
   // inputs
   
-  const int8_t j3_norm_70056_10112[1], // 1,1
-  
-  const int8_t j5_norm_70055_10117[1], // 1,1
+  const int8_t delta_deg_70003_10016[5], // 1,5
   
 
   // outputs
   
-  float j3_norm_70056[1] , // 1,1
-  
-  float j5_norm_70055[1]  // 1,1
+  float delta_deg_70003[5]  // 1,5
   
 );

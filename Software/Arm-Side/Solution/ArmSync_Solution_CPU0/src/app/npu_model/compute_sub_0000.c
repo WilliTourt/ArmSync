@@ -61,22 +61,22 @@
 
 void compute_sub_0000(
   // buffer for intermediate results
-  uint8_t* main_storage, // should provide at least 197 bytes of storage
+  uint8_t* main_storage, // should provide at least 53 bytes of storage
 
   // inputs
   
-  const float features[192], // 1,1,32,6
+  const float window_deg[45], // 1,1,9,5
   
 
   // outputs
   
-  int8_t features_70085_10146_70034[192]  // 1,192
+  int8_t window_deg_70007_10024_70010[45]  // 1,45
   
 ) {
   // Buffers allocated on the main storage (note: depends on the execution order)
     
   
-  int8_t* features_10144 = (int8_t *) &main_storage[0]; // 1,1,32,6 == 192
+  int8_t* window_deg_10022 = (int8_t *) &main_storage[0]; // 1,1,9,5 == 45
   
   
 
@@ -92,23 +92,23 @@ void compute_sub_0000(
 //
 // Quantize
 //
-// Input  : float - 1,1,32,6
-// Output : int8_t - 1,1,32,6
+// Input  : float - 1,1,9,5
+// Output : int8_t - 1,1,9,5
 AffineQuantizeFloatToInt8(
-  features,   // input data
-  features_10144,   // output data
-  192,   // size
+  window_deg,   // input data
+  window_deg_10022,   // output data
+  45,   // size
   0,   // output zeropoint
-  0.05250204727053642);   // output scale
+  7.298823356628418);   // output scale
 
 //
-// Identity - bypassing features_70085_10146_70034 operation
+// Identity - bypassing window_deg_70007_10024_70010 operation
 //
-// Input features_10144: int8_t - 1,1,32,6
-// Output features_70085_10146_70034: int8_t - 1,192
+// Input window_deg_10022: int8_t - 1,1,9,5
+// Output window_deg_70007_10024_70010: int8_t - 1,45
 
 
-memcpy(features_70085_10146_70034, features_10144, 192 * sizeof(int8_t));
+memcpy(window_deg_70007_10024_70010, window_deg_10022, 45 * sizeof(int8_t));
 
 
 

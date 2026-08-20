@@ -3,7 +3,7 @@
 #include <FreeRTOS/Task.hpp>
 #include <FreeRTOS/Queue.hpp>
 #include "queues.h"
-#include "app/flash/FlashStorage.h"
+#include "FlashStorage.h"
 
 /**
  * @brief Record / playback of the arm's fused joint angles.

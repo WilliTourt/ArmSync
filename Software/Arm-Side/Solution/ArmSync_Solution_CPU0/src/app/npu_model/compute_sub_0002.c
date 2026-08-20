@@ -65,16 +65,12 @@ void compute_sub_0002(
 
   // inputs
   
-  const int8_t j3_norm_70056_10112[1], // 1,1
-  
-  const int8_t j5_norm_70055_10117[1], // 1,1
+  const int8_t delta_deg_70003_10016[5], // 1,5
   
 
   // outputs
   
-  float j3_norm_70056[1] , // 1,1
-  
-  float j5_norm_70055[1]  // 1,1
+  float delta_deg_70003[5]  // 1,5
   
 ) {
   // Buffers allocated on the main storage (note: depends on the execution order)
@@ -92,17 +88,9 @@ void compute_sub_0002(
 //
 // Dequantize
 //
-// Input  j5_norm_70055_10117: int8_t - 1,1
-// Output j5_norm_70055: float - 1,1
-AffineDequantizeInt8ToFloat(j5_norm_70055_10117, j5_norm_70055, 1, 0, 0.011301374062895775);
-
-
-//
-// Dequantize
-//
-// Input  j3_norm_70056_10112: int8_t - 1,1
-// Output j3_norm_70056: float - 1,1
-AffineDequantizeInt8ToFloat(j3_norm_70056_10112, j3_norm_70056, 1, 0, 0.011301374062895775);
+// Input  delta_deg_70003_10016: int8_t - 1,5
+// Output delta_deg_70003: float - 1,5
+AffineDequantizeInt8ToFloat(delta_deg_70003_10016, delta_deg_70003, 5, 0, 0.42799654603004456);
 
 
 }

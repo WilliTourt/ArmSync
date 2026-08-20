@@ -1,7 +1,15 @@
 #include "FusionTask.h"
 #include "RecPlayTask/RecPlayTask.h"
+#include "UITask.h"
 #include "ElegantDebug.h"
 #include <cmath>
+#include <cstring>
+
+extern "C" {
+#include "../src/app/npu_model/model.h"
+}
+
+#include "pmu_ethosu.h"
 
 extern ElegantDebug dbg;
 
@@ -26,6 +34,83 @@ void FusionTask::_applyLowPass(sharedDatatype::JointAngleData &out) {
     _filterInit = true;
 }
 
+// Open the Ethos-U peripheral once (before the scheduler loop). Mirrors the
+// old NPUTask init: RM_ETHOSU_Open + PMU cycle/event counters.
+fsp_err_t FusionTask::_initNPU() {
+    fsp_err_t status = RM_ETHOSU_Open(&g_rm_ethosu0_ctrl, &g_rm_ethosu0_cfg);
+    if (status != FSP_SUCCESS) {
+        return status;
+    }
+
+    ETHOSU_PMU_Enable(&g_ethosu0);
+    ETHOSU_PMU_CNTR_Enable(&g_ethosu0, ETHOSU_PMU_CCNT_Msk);
+    ethosu_pmu_event_type events[] = {
+        ETHOSU_PMU_NPU_IDLE,
+        ETHOSU_PMU_NPU_ACTIVE,
+        ETHOSU_PMU_AXI0_ENABLED_CYCLES,
+        ETHOSU_PMU_AXI1_ENABLED_CYCLES
+    };
+    for (uint32_t i = 0; i < sizeof(events) / sizeof(events[0]); i += 1) {
+        ETHOSU_PMU_Set_EVTYPER(&g_ethosu0, i, events[i]);
+        ETHOSU_PMU_CNTR_Enable(&g_ethosu0, 1u << i);
+    }
+    ETHOSU_PMU_CYCCNT_Reset(&g_ethosu0);
+    ETHOSU_PMU_EVCNTR_ALL_Reset(&g_ethosu0);
+
+    return status;
+}
+
+// Run the NPU filter on the fused J1..J5: push the current J1..J5 into the
+// 9-frame sliding window, invoke the model, and add the returned deltas to
+// J1..J5 (in place). Returns true once the window is full and inference ran.
+bool FusionTask::_applyNpuFilter(sharedDatatype::JointAngleData &out) {
+    if (!_npuReady) return false;
+
+    // Shift the window left by one frame (drop oldest), then append the
+    // current J1..J5 as the newest frame.
+    const int jointLen = NPU_WIN_JOINTS;
+    const int winLen   = NPU_WIN_FRAMES * jointLen;
+    if (_npuFrames >= NPU_WIN_FRAMES) {
+        std::memmove(_npuWin, _npuWin + jointLen,
+                     (NPU_WIN_FRAMES - 1) * jointLen * sizeof(float));
+    }
+    int base = (_npuFrames < NPU_WIN_FRAMES)
+               ? _npuFrames * jointLen
+               : (NPU_WIN_FRAMES - 1) * jointLen;
+    for (int j = 0; j < jointLen; j++) {
+        _npuWin[base + j] = out.angles[j];   // J1..J5 (angles[0..4])
+    }
+    if (_npuFrames < NPU_WIN_FRAMES) {
+        _npuFrames++;
+        return false;   // not enough history yet
+    }
+
+    // Feed the 45-float window, run, then apply the 5 deltas to J1..J5.
+    std::memcpy(GetModelInputPtr_window_deg(), _npuWin, winLen * sizeof(float));
+    RunModel(false);   // new model's RunModel returns void
+    float const * delta = GetModelOutputPtr_delta_deg_70003();
+    for (int j = 0; j < 5; j++) {
+        out.angles[j] += delta[j];
+    }
+
+    // Inference frequency -> UI (sliding window of ticks), like the old NPUTask.
+    uint32_t now = static_cast<uint32_t>(xTaskGetTickCount());
+    _npuTicks[_npuTickIdx] = now;
+    _npuTickIdx = (_npuTickIdx + 1) % NPU_FREQ_WINDOW;
+    if (_npuTickIdx == 0) _npuTickFull = true;
+    if (_npuTickFull) {
+        uint32_t oldest = _npuTicks[_npuTickIdx];   // index now points at oldest
+        uint32_t span   = now - oldest;
+        if (span > 0) {
+            uint32_t avgPer = span / (NPU_FREQ_WINDOW - 1);
+            if (avgPer > 0) {
+                UITask::updateNPUFreq(static_cast<int>(1000u / avgPer));
+            }
+        }
+    }
+    return true;
+}
+
 void FusionTask::setUIHandle(TaskHandle_t handle) {
     _uiHandle = handle;
 }
@@ -41,30 +126,33 @@ void FusionTask::setNormalizeHandle(TaskHandle_t handle) {
 void FusionTask::taskFunction() {
     dbg.ok("FusionTask started.\n");
 
-    float latestJ5    = 0.0f;  // forearm roll (deg), from hand quaternion
-    float latestJ3    = 0.0f;
-    float latestPitch = 50.0f; // default: J6 center
-    bool  handValid   = false;
+    // Open the Ethos-U once (NPU filter model) before the control loop.
+    _npuReady = (_initNPU() == FSP_SUCCESS);
+    if (_npuReady) {
+        dbg.ok("Fusion NPU filter ready.\n");
+        UITask::updateNPUStatus(UITask::NpuState::RUNNING);
+    } else {
+        dbg.error("Fusion NPU init failed; NPU filter disabled.\n");
+        UITask::updateNPUStatus(UITask::NpuState::OFF);
+    }
+
+    float handJ3       = 0.0f; // forearm / upperarm roll (deg), from hand quaternion
+    float handJ5       = 0.0f; // forearm roll (deg), from hand quaternion
+    float latestPitch  = 50.0f; // default: J6 center
 
     for (;;) {
 
-        // Always drain hand data (J5 roll + pitch), non-blocking.
+        // Always drain hand data, non-blocking. The last valid values are
+        // kept (sticky) so a missing hand frame never snaps J3/J5/J6 to 0.
         auto hand = _handQueue.receive(0);
         if (hand) {
-            latestJ3    = hand->j3deg;
-            latestJ5    = hand->j5deg;
-            latestPitch = hand->pitch_percent;
-            handValid   = true;
+            handJ3       = hand->j3deg;
+            handJ5       = hand->j5deg;
+            latestPitch  = hand->pitch_percent;
         }
 
         // Block on IK data (main fusion trigger)
         auto ik = _ikQueue.receive(portMAX_DELAY);
-        
-        // Try to grab latest NPU data (non-blocking)
-        auto npu = _npuQueue.receive(0);
-        // if (npu) {
-        //     dbg.logWithType("NPU Data", COLOR_CUSTOM(150, 169, 250), "J3 %.2f J5 %.2f\n", npu->angles[2], npu->angles[4]);
-        // }
 
         sharedDatatype::JointAngleData out = {};
         out.timestamp = ik->timestamp;
@@ -74,32 +162,20 @@ void FusionTask::taskFunction() {
         out.angles[1] = ik->angles[1];
         out.angles[3] = ik->angles[3];
 
-        // J3: fusion of IK + hand + NPU
-        if (handValid) {
-            // All three sources available.
-            out.angles[2] = J3_IK_ALPHA   * ik->angles[2]
-                          + J3_HAND_ALPHA * latestJ3
-                          + J3_NPU_ALPHA  * (npu ? npu->angles[2] : ik->angles[2]);
-        } else {
-            // No hand data: fall back to NPU first, else IK.
-            out.angles[2] = (npu) ? npu->angles[2] : ik->angles[2];
-        }
+        // J3: IK blended with the (sticky) hand roll. No separate NPU J3 source
+        // anymore; the new NPU filter model smooths J1..J5 below instead.
+        out.angles[2] = J3_IK_ALPHA * ik->angles[2] + J3_HAND_ALPHA * handJ3;
 
-        // J5: fusion of hand + NPU
-        {
-            float npuJ5 = (npu) ? npu->angles[4] : latestJ5;   // NPU fallback = hand
-            if (handValid) {
-                out.angles[4] = J5_HAND_ALPHA * latestJ5 + J5_NPU_ALPHA * npuJ5;
-            } else {
-                out.angles[4] = (npu) ? npu->angles[4] : 0.0f;
-            }
-        }
-        // out.angles[4] -= 60.0f;
+        // J5: hand roll only (sticky last valid; IK can't sense roll)
+        out.angles[4] = handJ5;
 
-        // J6: hand only
-        out.angles[5] = handValid ? _mapPitchToJ6(latestPitch) : 0.0f;
+        // J6: hand pitch only (sticky last valid)
+        out.angles[5] = _mapPitchToJ6(latestPitch);
 
-        // Smooth the fused output before it reaches the record tap / live queue.
+        // Filter 1: NPU filter on J1..J5 (adds the model deltas).
+        _applyNpuFilter(out);
+
+        // Filter 2: one-pole low-pass on all six
         _applyLowPass(out);
         
         // Poll the latest UI command (index 0, non-blocking, overwrite).
@@ -155,7 +231,7 @@ void FusionTask::taskFunction() {
         // wins instead of silently dropping frames.
         _outQueue.overwrite(out);
 
-        // Float-free but precision-kept: print as int.frac (one decimal
+        // DEBUG:
         // #define _D1(x) ((int)(x)), ((int)(fabsf((x) - (int)(x)) * 10.0f))
         // dbg.logWithType("FUSION OUTPUT", COLOR_DARK_GREEN,
         //     "J1=%d.%d J2=%d.%d J3=%d.%d J4=%d.%d J5=%d.%d\n",

@@ -10,17 +10,13 @@ UITask uiTask(IPCFeedbackQueue, eeUIQueue);
 
 // Task 2: normalize + hand->coord + J5/pitch
 NormalizeTask normalizeTask(originalDataQueue, armKPCoordsQueue,
-                            handJointQueue, eeDataQueue, eeUIQueue, npuKpQueue);
+                            handJointQueue, eeDataQueue, eeUIQueue);
 
 // Task 4: Inverse Kinematics (analytic)
 IKTask ikTask(armKPCoordsQueue, ikJointQueue);
 
-// Task 5: Joint fusion (J1~J4 IK/NPU + J5 hand + J6 pitch)
-FusionTask fusionTask(ikJointQueue, npuJointQueue, handJointQueue, fusedJointQueue, recQueue);
-
-// Task 4.5: Ethos-U NPU inference (J3+J5 from keypoints) -> Fusion
-//   input: npuKpQueue (ArmKPCoords from NormalizeTask, mirrored)
-NPUTask npuTask(npuKpQueue, npuJointQueue);
+// Task 5: Joint fusion (J1~J4 IK + J5 hand + J6 pitch), NPU filter folded in
+FusionTask fusionTask(ikJointQueue, handJointQueue, fusedJointQueue, recQueue);
 
 // Task 5.5: Record / playback of fused joint angles
 RecPlayTask recPlayTask(recQueue, replayQueue, fusedJointQueue);

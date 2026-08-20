@@ -61,72 +61,38 @@
 #include "compute_sub_0002.h"
 
 // Buffers for CPU units
-float buf_features[192];
-int8_t buf_features_70085_10146_70034[192];
-float buf_j3_norm_70055[1];
-float buf_j5_norm_70056[1];
-float buf_j3_deg_70055[1];
-float buf_j5_deg_70056[1];
+float buf_window_deg[45];
+int8_t buf_window_deg_70007_10024_70010[45];
+float buf_delta_deg_70003[5];
 
 // Arenas for CPU units
 uint8_t compute_arena_sub_0000[kBufferSize_sub_0000];
 uint8_t compute_arena_sub_0002[kBufferSize_sub_0002];
 
   // Model input pointers
-float* GetModelInputPtr_features() {
-  return buf_features;
+float* GetModelInputPtr_window_deg() {
+  return buf_window_deg;
 }
 
 
   // Model output pointers
-float* GetModelOutputPtr_j3_norm_70055() {
-  return buf_j3_norm_70055;
-}
-
-float* GetModelOutputPtr_j5_norm_70056() {
-  return buf_j5_norm_70056;
-}
-
-int8_t* GetModelRawOutputPtr_j3_norm_70055() {
-  /* The generated candidate names its J3 head j3_norm_70056.  Keep the
-   * application-facing accessor stable while mapping to the new tensor. */
-  return (int8_t*) (sub_0001_arena + sub_0001_address_j3_norm_70056_10112);
-}
-
-int8_t* GetModelRawOutputPtr_j5_norm_70056() {
-  return (int8_t*) (sub_0001_arena + sub_0001_address_j5_norm_70055_10117);
-}
-
-float* GetModelOutputPtr_j3_deg_70055() {
-  return buf_j3_deg_70055;
-}
-
-float* GetModelOutputPtr_j5_deg_70056() {
-  return buf_j5_deg_70056;
+float* GetModelOutputPtr_delta_deg_70003() {
+  return buf_delta_deg_70003;
 }
 
 
-int RunModel(bool clean_outputs) {
+void RunModel(bool clean_outputs) {
   // Buffers for NPU units
-  int8_t* buf_j3_norm_70056_10112 = (int8_t*) (sub_0001_arena + sub_0001_address_j3_norm_70056_10112);
-  int8_t* buf_j5_norm_70055_10117 = (int8_t*) (sub_0001_arena + sub_0001_address_j5_norm_70055_10117);
+  int8_t* buf_delta_deg_70003_10016 = (int8_t*) (sub_0001_arena + sub_0001_address_delta_deg_70003_10016);
 
   // CPU Unit
-  compute_sub_0000(compute_arena_sub_0000, buf_features, buf_features_70085_10146_70034  );
+  compute_sub_0000(compute_arena_sub_0000, buf_window_deg, buf_window_deg_70007_10024_70010  );
 
-  memcpy((sub_0001_arena + sub_0001_address_features_70085_10146_70034), buf_features_70085_10146_70034, 192);
+  memcpy((sub_0001_arena + sub_0001_address_window_deg_70007_10024_70010), buf_window_deg_70007_10024_70010, 45);
   // NPU Unit
-  int invoke_status = sub_0001_invoke(clean_outputs);
+  sub_0001_invoke(clean_outputs);
 
   // CPU Unit
-  compute_sub_0002(compute_arena_sub_0002, buf_j3_norm_70056_10112, buf_j5_norm_70055_10117, buf_j3_norm_70055, buf_j5_norm_70056  );
-
-  // The normalized ONNX heads represent degrees / 180.  Keep the generated
-  // normalized buffers intact and expose degree-valued outputs to the rest of
-  // the application.
-  buf_j3_deg_70055[0] = buf_j3_norm_70055[0] * 180.0f;
-  buf_j5_deg_70056[0] = buf_j5_norm_70056[0] * 180.0f;
-
-  return invoke_status;
+  compute_sub_0002(compute_arena_sub_0002, buf_delta_deg_70003_10016, buf_delta_deg_70003  );
 
 }

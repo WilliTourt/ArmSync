@@ -92,8 +92,6 @@ extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeUIQueue;
 extern FreeRTOS::Queue<sharedDatatype::HandJointData> handJointQueue;   // NormalizeTask -> FusionTask (J5+pitch)
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> ikJointQueue;
-extern FreeRTOS::Queue<sharedDatatype::JointAngleData> npuJointQueue;   // NPUTask -> Fusion (J3+J5)
-extern FreeRTOS::Queue<sharedDatatype::ArmKPCoords>   npuKpQueue;      // NormalizeTask -> NPUTask (input)
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> fusedJointQueue;
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> recQueue;      // FusionTask -> RecPlayTask (record tap)
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> replayQueue;   // RecPlayTask -> MotionPlanningTask (playback)

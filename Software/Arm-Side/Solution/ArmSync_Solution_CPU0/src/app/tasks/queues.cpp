@@ -6,8 +6,6 @@ FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue(2);
 FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeUIQueue(2);
 FreeRTOS::Queue<sharedDatatype::HandJointData> handJointQueue(4);
 FreeRTOS::Queue<sharedDatatype::JointAngleData> ikJointQueue(4);
-FreeRTOS::Queue<sharedDatatype::JointAngleData> npuJointQueue(1);       // NPUTask -> Fusion (J3+J5), latest-only
-FreeRTOS::Queue<sharedDatatype::ArmKPCoords>   npuKpQueue(8);          // NormalizeTask -> NPUTask (input)
 FreeRTOS::Queue<sharedDatatype::JointAngleData> fusedJointQueue(1);     // Fusion -> Motion (live, latest-only)
 FreeRTOS::Queue<sharedDatatype::JointAngleData> recQueue(8);   // record tap (30Hz, give margin)
 FreeRTOS::Queue<sharedDatatype::JointAngleData> replayQueue(32); // playback -> MotionPlanningTask

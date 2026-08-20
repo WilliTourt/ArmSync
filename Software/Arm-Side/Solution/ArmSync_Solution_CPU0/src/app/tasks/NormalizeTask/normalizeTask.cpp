@@ -7,16 +7,12 @@
 extern ElegantDebug dbg;
 
 void NormalizeTask::_updateAlphaFromJ2(float j2deg) {
-    // TEST jetson 100%
-    _alpha = 1.0f;
-    return;
 
     if (j2deg <= 0.0f) {
-        _alpha = ALPHA_J2_LOW;                     // 0.78
+        _alpha = ALPHA_J2_LOW;
     } else if (j2deg >= ALPHA_J2_HIGH_DEG) {
-        _alpha = ALPHA_J2_HIGH;                    // 0.06
+        _alpha = ALPHA_J2_HIGH;
     } else {
-        // linear decay 0.78 -> 0.06 across [0, 75]
         _alpha = ALPHA_J2_LOW
                - (ALPHA_J2_LOW - ALPHA_J2_HIGH) * (j2deg / ALPHA_J2_HIGH_DEG);
     }
@@ -31,24 +27,11 @@ void NormalizeTask::taskFunction() {
         auto rx = _inQueue.receive(portMAX_DELAY);
         if (!rx) continue;
 
-        // Pull the latest fused J2 from FusionTask (index 0, non-blocking).
-        // One-frame delayed: this J2 decides the alpha for THIS frame.
-        uint32_t j2Notif = 0;
-        if (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &j2Notif, 0) == pdTRUE) {
-            float j2deg = (float)((int32_t)j2Notif) / 100.0f;   // signed fixed-point
-            _updateAlphaFromJ2(j2deg);
-            // dbg.logWithType("ALPHA", COLOR_MAGENTA, "%.2f\n", _alpha);
-
-            // char buf[22];
-            // snprintf(buf, sizeof(buf), "Normalize ALPHA %2.2f", _alpha);
-            // UITask::updateHMS(buf);
-        }
-
         sharedDatatype::ArmKPCoords kp = {};
         sharedDatatype::HandJointData hd = {};
         sharedDatatype::EndEffectorData ee = {};
 
-        // ---- 1. Hand unit-vectors -> elbow/wrist coordinates (mm) ----
+        // 1. Hand unit-vectors -> elbow/wrist coords (mm)
         // elbow = ev * UPPER_LEN ; wrist = elbow + wv * FORE_LEN
         const float *ev = rx->ctrllerData.elbowVec;   // upper-arm unit vec
         const float *wv = rx->ctrllerData.wristVec;   // forearm unit vec
@@ -65,7 +48,17 @@ void NormalizeTask::taskFunction() {
 
         // No shoulder offset, IKTask applies the J1->J2 121mm shift
 
-        // ---- 2. Fuse with Jetson keypoints (J1~J4 alpha blend) ----
+        // 2. Fuse with Jetson keypoints (J1~J4 alpha blend)
+
+        // Pull the latest fused J2 from FusionTask (index 0, non-blocking).
+        // One-frame delayed: last J2 decides the alpha for this frame.
+        uint32_t j2Notif = 0;
+        if (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &j2Notif, 0) == pdTRUE) {
+            float j2deg = (float)((int32_t)j2Notif) / 100.0f;   // signed fixed-point
+            _updateAlphaFromJ2(j2deg);
+            dbg.logWithType("NORM ALPHA", COLOR_MAGENTA, "Trust jetson %.2f%\n", _alpha);
+        }
+
         if (rx->jetsonData.valid) {
             for (int i = 0; i < 3; i++) {
                 float je = (float)rx->jetsonData.points[0][i];
@@ -83,16 +76,14 @@ void NormalizeTask::taskFunction() {
         kp.wristCoord[2] = wr[2];
         kp.timestamp = rx->timestamp;
 
-        // ---- 3. J5 forearm rotation from controller (forearm_pitch, computed on the handset) ----
+        // 3. J3 & J5 arm rotation from controller, directly send to FusionTask
         hd.j3deg         = rx->ctrllerData.upperarmPitch;
         hd.j5deg         = rx->ctrllerData.forearmPitch;
         hd.pitch_percent = rx->ctrllerData.pitchPercent;
         hd.timestamp     = rx->timestamp;
 
-        // ---- 4. Outputs ----
+        // 4. Outputs
         _kpQueue.sendToBack(kp, 0);
-        _npuKpQueue.sendToBack(kp, 0);   // mirror to NPUTask
-
         _handQueue.sendToBack(hd, 0);
 
         // Grip (UI + control)
@@ -101,7 +92,7 @@ void NormalizeTask::taskFunction() {
         _eeQueue.sendToBack(ee, 0);
         _eeUIQueue.sendToBack(ee, 0);
 
-        // Float-free but precision-kept (one decimal): avoids %%f malloc chain.
+        // DEBUG:
         // dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
             // "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
             // (int)el[0], (int)el[1], (int)el[2],

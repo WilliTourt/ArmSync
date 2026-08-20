@@ -9,8 +9,6 @@ C_SRCS += \
 ../src/app/npu_model/kernel_library_int.c \
 ../src/app/npu_model/kernel_library_utils.c \
 ../src/app/npu_model/model.c \
-../src/app/npu_model/model_io_data.c \
-../src/app/npu_model/model_test_data.c \
 ../src/app/npu_model/sub_0001_command_stream.c \
 ../src/app/npu_model/sub_0001_invoke.c \
 ../src/app/npu_model/sub_0001_model_data.c \
@@ -25,8 +23,6 @@ C_DEPS += \
 ./src/app/npu_model/kernel_library_int.d \
 ./src/app/npu_model/kernel_library_utils.d \
 ./src/app/npu_model/model.d \
-./src/app/npu_model/model_io_data.d \
-./src/app/npu_model/model_test_data.d \
 ./src/app/npu_model/sub_0001_command_stream.d \
 ./src/app/npu_model/sub_0001_invoke.d \
 ./src/app/npu_model/sub_0001_model_data.d \
@@ -38,8 +34,6 @@ OBJS += \
 ./src/app/npu_model/kernel_library_int.o \
 ./src/app/npu_model/kernel_library_utils.o \
 ./src/app/npu_model/model.o \
-./src/app/npu_model/model_io_data.o \
-./src/app/npu_model/model_test_data.o \
 ./src/app/npu_model/sub_0001_command_stream.o \
 ./src/app/npu_model/sub_0001_invoke.o \
 ./src/app/npu_model/sub_0001_model_data.o \

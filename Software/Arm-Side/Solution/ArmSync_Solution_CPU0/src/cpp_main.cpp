@@ -140,7 +140,6 @@ void cpp_main() {
     fusionTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // REC command from UI
     recPlayTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));
     cpuCommTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // freq -> UI
-    npuTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));        // npu freq -> UI (index 2)
 
     FreeRTOS::Kernel::startScheduler();
 

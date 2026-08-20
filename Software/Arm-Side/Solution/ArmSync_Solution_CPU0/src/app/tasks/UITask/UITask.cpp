@@ -271,11 +271,8 @@ void UITask::taskFunction() {
             updateCtrlFreq((int)freqCtrl);
         }
 
-        // Receive live NPU inference freq from NPUTask (index 2).
-        uint32_t freqInference = 0;
-        if (xTaskNotifyWaitIndexed(2, 0, 0xFFFFFFFF, &freqInference, 0) == pdTRUE) {
-            updateNPUFreq((int)freqInference);
-        }
+        // (NPU inference freq notify removed: no standalone NPUTask anymore;
+        //  the filter model now runs folded into FusionTask.)
 
         _parseScreenInput();
 

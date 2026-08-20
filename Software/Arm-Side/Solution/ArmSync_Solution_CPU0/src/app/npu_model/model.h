@@ -51,10 +51,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 // NPU unit addresses
 #include "sub_0001_tensors.h"
 
@@ -62,29 +58,16 @@ extern "C" {
 extern uint8_t sub_0001_arena[kArenaSize_sub_0001];
 
 // Buffers
-extern float buf_features[192];
-extern int8_t buf_j3_norm_70056_10112[1];
-extern int8_t buf_j5_norm_70055_10117[1];
-extern float buf_j3_norm_70055[1];
-extern float buf_j5_norm_70056[1];
+extern float buf_window_deg[45];
+extern int8_t buf_delta_deg_70003_10016[5];
+extern float buf_delta_deg_70003[5];
 
 
-int RunModel(bool clean_outputs);
+void RunModel(bool clean_outputs);
 
   // Model input pointers
-float* GetModelInputPtr_features();
+float* GetModelInputPtr_window_deg();
 
   // Model output pointers
-float* GetModelOutputPtr_j3_norm_70055();
-float* GetModelOutputPtr_j5_norm_70056();
-int8_t* GetModelRawOutputPtr_j3_norm_70055();
-int8_t* GetModelRawOutputPtr_j5_norm_70056();
-
-/* Degree-valued postprocessed outputs for the application. */
-float* GetModelOutputPtr_j3_deg_70055();
-float* GetModelOutputPtr_j5_deg_70056();
-
-#ifdef __cplusplus
-}
-#endif
+float* GetModelOutputPtr_delta_deg_70003();
 

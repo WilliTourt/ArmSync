@@ -3,7 +3,10 @@
 #include <cmath>
 #include <cstring>
 
-#include "model.h"
+extern "C" {
+#include "src\app\npu_model_deprecated\model.h"
+}
+
 #include "pmu_ethosu.h"
 
 #include "UITask.h"
