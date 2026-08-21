@@ -36,13 +36,12 @@ class FusionTask : public FreeRTOS::Task {
 
         void setUIHandle(TaskHandle_t handle);
         void setRecHandle(TaskHandle_t handle);   // RecPlayTask (for REC_DONE notify)
-        void setNormalizeHandle(TaskHandle_t handle);   // NormalizeTask (J2 -> alpha)
 
     private:
         void taskFunction() override;
 
-        static constexpr float J3_IK_ALPHA   = 0.22;
-        static constexpr float J3_HAND_ALPHA = 0.78;
+        static constexpr float J3_IK_ALPHA   = 0.99;
+        static constexpr float J3_HAND_ALPHA = 1.0 - J3_IK_ALPHA;
 
         // One-pole low-pass on the fused output, ~5 Hz cutoff at ~33 Hz
         // sample rate: alpha = 1 - exp(-2*pi*fc/fs) = 1 - exp(-2*pi*5/33) ~ 0.61.
@@ -61,7 +60,6 @@ class FusionTask : public FreeRTOS::Task {
 
         TaskHandle_t _uiHandle = nullptr;
         TaskHandle_t _recHandle = nullptr;
-        TaskHandle_t _normalizeHandle = nullptr;   // receives J2 (-> NormalizeTask alpha)
         bool         _recording = false;   // true while UI says REC
 
         // Low-pass filter state (one value per joint, last filtered frame).

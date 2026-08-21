@@ -4,6 +4,7 @@ FreeRTOS::Queue<UartRecvTask::TransmitData> originalDataQueue(4);
 FreeRTOS::Queue<sharedDatatype::ArmKPCoords> armKPCoordsQueue(4);
 FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue(2);
 FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeUIQueue(2);
+FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeGripQueue(2); // NormalizeTask -> RecPlayTask (grip recorded for playback)
 FreeRTOS::Queue<sharedDatatype::HandJointData> handJointQueue(4);
 FreeRTOS::Queue<sharedDatatype::JointAngleData> ikJointQueue(4);
 FreeRTOS::Queue<sharedDatatype::JointAngleData> fusedJointQueue(1);     // Fusion -> Motion (live, latest-only)

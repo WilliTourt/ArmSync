@@ -41,9 +41,12 @@ class RecPlayTask : public FreeRTOS::Task {
 
         RecPlayTask(FreeRTOS::Queue<sharedDatatype::JointAngleData> &inRecQueue,
                     FreeRTOS::Queue<sharedDatatype::JointAngleData> &outReplayQueue,
-                    FreeRTOS::Queue<sharedDatatype::JointAngleData> &liveQueue)
+                    FreeRTOS::Queue<sharedDatatype::JointAngleData> &liveQueue,
+                    FreeRTOS::Queue<sharedDatatype::EndEffectorData> &gripInQueue,
+                    FreeRTOS::Queue<sharedDatatype::EndEffectorData> &gripOutQueue)
             : Task(tskIDLE_PRIORITY + 2, 2048, "RecPlay"),
-              _recQueue(inRecQueue), _replayQueue(outReplayQueue), _liveQueue(liveQueue) {}
+              _recQueue(inRecQueue), _replayQueue(outReplayQueue), _liveQueue(liveQueue),
+              _gripInQueue(gripInQueue), _gripOutQueue(gripOutQueue) {}
 
         // Give RecPlayTask the UITask handle so it can report PLAY_DONE back.
         void setUIHandle(TaskHandle_t h) { _uiHandle = h; }
@@ -98,6 +101,11 @@ class RecPlayTask : public FreeRTOS::Task {
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_recQueue;    // from FusionTask (record)
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_replayQueue; // -> MotionPlanningTask (playback)
         FreeRTOS::Queue<sharedDatatype::JointAngleData> &_liveQueue;   // fusedJointQueue (drain on PLAY_START)
+        FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_gripInQueue;  // eeGripQueue (grip recorded)
+        FreeRTOS::Queue<sharedDatatype::EndEffectorData> &_gripOutQueue; // eeDataQueue (grip -> CPUCommTask on playback)
+
+        float _recGrip[MAX_FRAMES] = {};  // recorded grip per frame (aligned with _recBuf by index)
+        float _lastGrip = 0.0f;           // sticky last grip for frames w/o a new grip
 
         static volatile bool _playActive;
 };
