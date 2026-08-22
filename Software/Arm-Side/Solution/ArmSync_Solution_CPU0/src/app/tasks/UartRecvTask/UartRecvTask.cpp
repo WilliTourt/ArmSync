@@ -68,8 +68,8 @@ void UartRecvTask::_parseCtrller() {
                 _handsetValid = true;
 
                 // dbg.info("Controller: E(%f, %f, %f) W(%f, %f, %f)\n",
-                //     ctrl_data.elbowVec[0], ctrl_data.elbowVec[1], ctrl_data.elbowVec[2],
-                //     ctrl_data.wristVec[0], ctrl_data.wristVec[1], ctrl_data.wristVec[2]);
+                    // ctrl_data.elbowVec[0], ctrl_data.elbowVec[1], ctrl_data.elbowVec[2],
+                    // ctrl_data.wristVec[0], ctrl_data.wristVec[1], ctrl_data.wristVec[2]);
             }
         }
     }

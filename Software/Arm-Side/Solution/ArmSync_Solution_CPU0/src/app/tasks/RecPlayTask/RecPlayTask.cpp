@@ -37,19 +37,14 @@ void RecPlayTask::taskFunction() {
                     // isn't lost before we save.
                     {
                         auto f = _recQueue.receive(0);
-                        float grip = _lastGrip;
                         while (f.has_value()) {
                             if (_frameCount < MAX_FRAMES) {
                                 uint32_t off = _frameCount * sizeof(sharedDatatype::JointAngleData);
                                 __builtin_memcpy(&_recBuf[off], &(*f), sizeof(sharedDatatype::JointAngleData));
-                                // keep last grip if no new grip frame arrived this tick
-                                if (auto g = _gripInQueue.receive(0)) { grip = g->grip_percent; }
-                                _recGrip[_frameCount] = grip;
                                 _frameCount++;
                             }
                             f = _recQueue.receive(0);
                         }
-                        _lastGrip = grip;
                     }
                     if (_frameCount > 0) {
                         if (saveToFlash(flash)) {
@@ -131,16 +126,6 @@ void RecPlayTask::taskFunction() {
                     vTaskDelay(1);
                     continue;
                 }
-                // Push this frame's recorded grip to CPUCommTask (eeDataQueue)
-                // so the gripper servo follows the recording during playback.
-                // Caveat: eeDataQueue is length-2 and OVERWRITE blocks when full
-                // (xQueueOverwrite is only safe on length-1 queues). So drain one
-                // old grip first (non-blocking) then send with 0 timeout never blocks.
-                sharedDatatype::EndEffectorData grip;
-                grip.grip_percent = _recGrip[_playIdx];
-                grip.timestamp    = frame.timestamp;
-                _gripOutQueue.receive(0);
-                _gripOutQueue.sendToBack(grip, 0);
                 _playIdx++;
                 if ((_playIdx & 127u) == 0u) {
                     dbg.logWithType("REPLAY", COLOR_CYAN,
@@ -183,9 +168,6 @@ void RecPlayTask::taskFunction() {
                 if (_frameCount < MAX_FRAMES) {
                     uint32_t off = _frameCount * sizeof(sharedDatatype::JointAngleData);
                     __builtin_memcpy(&_recBuf[off], &(*f), sizeof(sharedDatatype::JointAngleData));
-                    // Record the matching grip for this frame (keep last if none).
-                    if (auto g = _gripInQueue.receive(0)) { _lastGrip = g->grip_percent; }
-                    _recGrip[_frameCount] = _lastGrip;
                     _frameCount++;
                 } else {
                     // Buffer full: drop further frames until REC_DONE is sent.

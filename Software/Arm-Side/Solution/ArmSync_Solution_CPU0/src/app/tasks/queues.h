@@ -90,7 +90,6 @@ extern FreeRTOS::Queue<UartRecvTask::TransmitData> originalDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::ArmKPCoords> armKPCoordsQueue;
 extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeDataQueue;
 extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeUIQueue;
-extern FreeRTOS::Queue<sharedDatatype::EndEffectorData> eeGripQueue;  // NormalizeTask -> RecPlayTask (grip recorded for playback)
 extern FreeRTOS::Queue<sharedDatatype::HandJointData> handJointQueue;   // NormalizeTask -> FusionTask (J5+pitch)
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> ikJointQueue;
 extern FreeRTOS::Queue<sharedDatatype::JointAngleData> fusedJointQueue;

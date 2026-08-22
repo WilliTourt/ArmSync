@@ -94,7 +94,7 @@ FSP_FOOTER
 
 
 
-ElegantDebug dbg(&g_uart9, false, true);
+ElegantDebug dbg(&g_uart9, true, true);
 
 
 
@@ -136,6 +136,7 @@ void cpp_main() {
                           FreeRTOS::Task::getHandle("IK"),
                           FreeRTOS::Task::getHandle("NPU"));
     fusionTask.setRecHandle(FreeRTOS::Task::getHandle("RecPlay"));
+    fusionTask.setNormalizeHandle(FreeRTOS::Task::getHandle("Normalize"));   // J2 -> alpha
     fusionTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // REC command from UI
     recPlayTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));
     cpuCommTask.setUIHandle(FreeRTOS::Task::getHandle("UI"));   // freq -> UI

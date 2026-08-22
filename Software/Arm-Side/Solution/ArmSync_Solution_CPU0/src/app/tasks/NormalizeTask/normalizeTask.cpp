@@ -6,18 +6,15 @@
 
 extern ElegantDebug dbg;
 
-void NormalizeTask::_updateAlphaFromWz(float wz) {
-    // wz is the (scaled) wrist Z in mm. Wrist low (very negative) => trust
-    // Jetson more; wrist raised toward ALPHA_WZ_RAISED => trust hand more.
-    if (wz <= ALPHA_WZ_LOWEST) {
-        _alpha = ALPHA_WZ_TRUST_HIGH;            // wrist at its lowest: max Jetson
-    } else if (wz >= ALPHA_WZ_RAISED) {
-        _alpha = ALPHA_WZ_TRUST_LOW;             // wrist raised: trust hand
+void NormalizeTask::_updateAlphaFromJ2(float j2deg) {
+
+    if (j2deg <= 0.0f) {
+        _alpha = ALPHA_J2_LOW;
+    } else if (j2deg >= ALPHA_J2_HIGH_DEG) {
+        _alpha = ALPHA_J2_HIGH;
     } else {
-        // linear blend between the two Z thresholds
-        float t = (wz - ALPHA_WZ_LOWEST) / (ALPHA_WZ_RAISED - ALPHA_WZ_LOWEST);
-        _alpha = ALPHA_WZ_TRUST_HIGH
-               - (ALPHA_WZ_TRUST_HIGH - ALPHA_WZ_TRUST_LOW) * t;
+        _alpha = ALPHA_J2_LOW
+               - (ALPHA_J2_LOW - ALPHA_J2_HIGH) * (j2deg / ALPHA_J2_HIGH_DEG);
     }
 }
 
@@ -51,10 +48,16 @@ void NormalizeTask::taskFunction() {
 
         // No shoulder offset, IKTask applies the J1->J2 121mm shift
 
-        // 2. Fuse with Jetson keypoints (J1~J4 alpha blend).
-        // Decide this frame's blend alpha from the (scaled) hand wrist Z:
-        // wrist low (very negative Z) => trust Jetson more; raised => trust hand.
-        _updateAlphaFromWz(wr[2]);
+        // 2. Fuse with Jetson keypoints (J1~J4 alpha blend)
+
+        // Pull the latest fused J2 from FusionTask (index 0, non-blocking).
+        // One-frame delayed: last J2 decides the alpha for this frame.
+        uint32_t j2Notif = 0;
+        if (xTaskNotifyWaitIndexed(0, 0, 0xFFFFFFFF, &j2Notif, 0) == pdTRUE) {
+            float j2deg = (float)((int32_t)j2Notif) / 100.0f;   // signed fixed-point
+            _updateAlphaFromJ2(j2deg);
+            dbg.logWithType("NORM ALPHA", COLOR_MAGENTA, "Trust jetson %.2f%\n", _alpha);
+        }
 
         if (rx->jetsonData.valid) {
             for (int i = 0; i < 3; i++) {
@@ -64,18 +67,6 @@ void NormalizeTask::taskFunction() {
                 wr[i] = _alpha * jw + (1.0f - _alpha) * wr[i];
             }
         }
-
-        // X-axis low-pass on elbow/wrist (Jetson lateral jitter). Y/Z stay raw.
-        if (!_lpXInit) {
-            _lpElX = el[0];
-            _lpWrX = wr[0];
-            _lpXInit = true;
-        } else {
-            _lpElX = LP_X_ALPHA * el[0] + (1.0f - LP_X_ALPHA) * _lpElX;
-            _lpWrX = LP_X_ALPHA * wr[0] + (1.0f - LP_X_ALPHA) * _lpWrX;
-        }
-        el[0] = _lpElX;   // write filtered X back
-        wr[0] = _lpWrX;
 
         kp.elbowCoord[0] = el[0];
         kp.elbowCoord[1] = el[1];
@@ -95,17 +86,16 @@ void NormalizeTask::taskFunction() {
         _kpQueue.sendToBack(kp, 0);
         _handQueue.sendToBack(hd, 0);
 
-        // Grip (UI + control + record)
+        // Grip (UI + control)
         ee.grip_percent = rx->ctrllerData.gripPercent;
         ee.timestamp    = rx->timestamp;
-        _eeQueue.sendToBack(ee, 0);        // -> CPUCommTask (live grip to M33)
-        _eeUIQueue.sendToBack(ee, 0);      // -> UITask (display)
-        _gripQueue.sendToBack(ee, 0);      // -> RecPlayTask (record grip for playback)
+        _eeQueue.sendToBack(ee, 0);
+        _eeUIQueue.sendToBack(ee, 0);
 
         // DEBUG:
-        dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
-            "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
-            (int)el[0], (int)el[1], (int)el[2],
-            (int)wr[0], (int)wr[1], (int)wr[2]);
+        // dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
+            // "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
+            // (int)el[0], (int)el[1], (int)el[2],
+            // (int)wr[0], (int)wr[1], (int)wr[2]);
     }
 }

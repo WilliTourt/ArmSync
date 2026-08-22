@@ -119,6 +119,10 @@ void FusionTask::setRecHandle(TaskHandle_t handle) {
     _recHandle = handle;
 }
 
+void FusionTask::setNormalizeHandle(TaskHandle_t handle) {
+    _normalizeHandle = handle;
+}
+
 void FusionTask::taskFunction() {
     dbg.ok("FusionTask started.\n");
 
@@ -163,12 +167,13 @@ void FusionTask::taskFunction() {
         out.angles[2] = J3_IK_ALPHA * ik->angles[2] + J3_HAND_ALPHA * handJ3;
 
         // J5: hand roll only (sticky last valid; IK can't sense roll)
-        out.angles[4] = -handJ5;
+        out.angles[4] = handJ5;
 
         // J6: hand pitch only (sticky last valid)
         out.angles[5] = _mapPitchToJ6(latestPitch);
+
         // Filter 1: NPU filter on J1..J5 (adds the model deltas).
-        // _applyNpuFilter(out);
+        _applyNpuFilter(out);
 
         // Filter 2: one-pole low-pass on all six
         _applyLowPass(out);
@@ -211,8 +216,14 @@ void FusionTask::taskFunction() {
         }
 
 
-        // (hand/Jetson blend alpha is now decided inside NormalizeTask from
-        // the scaled wrist Z, so no fused-J2 notify is needed here anymore.)
+        
+        // Notify NormalizeTask with fused J2 (deg, x100 fixed-point) so it can
+        // pick this frame's hand/Jetson blend alpha for the next frame.
+        if (_normalizeHandle != nullptr) {
+            int32_t j2x100 = (int32_t)(out.angles[1] * 100.0f);
+            xTaskNotifyIndexed(_normalizeHandle, 0,
+                               (uint32_t)j2x100, eSetValueWithOverwrite);
+        }
 
         // Live output to MotionPlanningTask. (During playback FusionTask is
         // suspended by UITask, so this path is naturally inactive then.)
