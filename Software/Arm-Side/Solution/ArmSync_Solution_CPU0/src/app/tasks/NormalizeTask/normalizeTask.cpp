@@ -102,10 +102,12 @@ void NormalizeTask::taskFunction() {
         _eeUIQueue.sendToBack(ee, 0);      // -> UITask (display)
         _gripQueue.sendToBack(ee, 0);      // -> RecPlayTask (record grip for playback)
 
+
+        // dbg.info("J6 %.2f, grip %.2f", hd.pitch_percent, ee.grip_percent);
         // DEBUG:
-        dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
-            "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
-            (int)el[0], (int)el[1], (int)el[2],
-            (int)wr[0], (int)wr[1], (int)wr[2]);
+        // dbg.logWithType("NORMALIZED INPUT", COLOR_MAGENTA,
+        //     "Elbow(%d,%d,%d), Wrist(%d,%d,%d)\n",
+        //     (int)el[0], (int)el[1], (int)el[2],
+        //     (int)wr[0], (int)wr[1], (int)wr[2]);
     }
 }

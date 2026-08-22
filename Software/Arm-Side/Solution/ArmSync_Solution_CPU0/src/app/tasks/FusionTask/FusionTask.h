@@ -40,7 +40,7 @@ class FusionTask : public FreeRTOS::Task {
     private:
         void taskFunction() override;
 
-        static constexpr float J3_IK_ALPHA   = 0.99;
+        static constexpr float J3_IK_ALPHA   = 0.8;
         static constexpr float J3_HAND_ALPHA = 1.0 - J3_IK_ALPHA;
 
         // One-pole low-pass on the fused output, ~5 Hz cutoff at ~33 Hz

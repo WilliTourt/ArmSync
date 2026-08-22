@@ -116,12 +116,10 @@ void cpp_main() {
     R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
     R_IOPORT_PinWrite(&g_ioport_ctrl, LED_USER, BSP_IO_LEVEL_LOW);
 
-    dbg.log("Test from cpp_main\n");
-
     uiTask.booting(UITask::BootingPhase::COMM_INIT);
-    R_BSP_SoftwareDelay(400, BSP_DELAY_UNITS_MILLISECONDS);
+    R_BSP_SoftwareDelay(40, BSP_DELAY_UNITS_MILLISECONDS);
     uiTask.booting(UITask::BootingPhase::MEMORY_INIT);
-    R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
+    R_BSP_SoftwareDelay(50, BSP_DELAY_UNITS_MILLISECONDS);
     uiTask.booting(UITask::BootingPhase::ARM_SELFCHK);
     R_BSP_SoftwareDelay(600, BSP_DELAY_UNITS_MILLISECONDS);
     uiTask.booting(UITask::BootingPhase::DONE);

@@ -80,10 +80,10 @@ void CPUCommTask::taskFunction() {
             }
 
             // dbg.logWithType("IPC", COLOR_BLUE,
-            //     "TX->M33: grip=%.0f%% | m4(dir%d r%d a%d p%lu)\n",
-            //     _latestEE.grip_percent,
-            //     _latestPlan.motors[4].dir, _latestPlan.motors[4].rpm,
-            //     _latestPlan.motors[4].acc, (unsigned long)_latestPlan.motors[4].pulse);
+                // "TX->M33: grip=%.0f%% | m2(dir%d r%d a%d p%lu)\n",
+                // _latestEE.grip_percent,
+                // _latestPlan.motors[2].dir, _latestPlan.motors[2].rpm,
+                // _latestPlan.motors[2].acc, (unsigned long)_latestPlan.motors[2].pulse);
         }
 
         // ---- Feedback handling (always check) ----

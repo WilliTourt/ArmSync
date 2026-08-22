@@ -29,7 +29,7 @@ class MotionPlanningTask : public FreeRTOS::Task {
         // First-order low-pass applied to the PID target angles (extra
         // smoothing on top of Fusion's LP; small delay acceptable). Smaller
         // alpha = smoother but more lag.
-        static constexpr float PID_TGT_ALPHA = 0.22f;
+        static constexpr float PID_TGT_ALPHA = 0.15f;
 
     private:
         void taskFunction() override;
