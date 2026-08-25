@@ -1,4 +1,4 @@
-# 组装指南 - ArmSync 7DOF 机械臂
+# 组装指南 - ArmSync 6-DOF 机械臂
 
 [English Document](/Hardware/Assembly%20Guide.md)
 
@@ -120,9 +120,11 @@
 
 ---
 
-### J7 夹爪
+### 末端执行器夹爪
 
-此夹爪来源于MakerWorld模型[用于标准Open SO-101机械臂的平行夹爪](https://makerworld.com/zh/models/1549112-parallel-gripper-for-standard-open-source-so-101-r)的夹爪分开版本，请参考此页面
+此夹爪来源于MakerWorld模型[用于标准Open SO-101机械臂的平行夹爪](https://makerworld.com/zh/models/1549112-parallel-gripper-for-standard-open-source-so-101-r)的夹爪分开版本，请参考此页面。
+
+你也可以打印 [Gripper Adapter](3D%20Files/STEP%20and%20STL/Gripper/Gripper%20Adapter.STEP) 模型，以转接其他自定义的末端执行器，并支持末端执行器相机的安装。
 
 ---
 
@@ -156,18 +158,18 @@
 所有电机通过 CAN 总线串联连接：
 
 ```
-主控器 CAN_H → J1 CAN_H → J2 CAN_H → ... → J7 CAN_H
-主控器 CAN_L → J1 CAN_L → J2 CAN_L → ... → J7 CAN_L
+主控 CAN_H → J1 CAN_H → J2 CAN_H → ... → J6 CAN_H
+主控 CAN_L → J1 CAN_L → J2 CAN_L → ... → J6 CAN_L
 ```
 
 **注意：**
 - CAN 总线两端需加 120Ω 终端电阻
-- 建议使用双绞线，减少干扰
+- 建议使用双绞线
 - 每个节点地址需单独配置（J1=1, J2=2, ...）
 
 ### 电源接线
 
 - 主电源：24VDC（根据电机额定电压）
-- 舵机电源：5VDC（MG90S）
+- 舵机电源：5VDC（末端执行器）
 - 确保电源功率足够驱动所有电机同时工作
 - 使用14AWG硅胶线并联所有步进电机即可，注意焊接时焊点质量和绝缘处理

@@ -1,11 +1,10 @@
 # ArmSync
 
-一款 7 自由度无线遥操作人形机械臂，采用双 IMU 主从控制方案，为瑞萨电子设计竞赛而设计。
-如果你同样要做一个机械臂项目，欢迎参考我们的硬件设计和代码，但请注意它们的局限性。所有文件都按原样提供。
+ArmSync 是一款采用双 IMU 主从无线遥操作方案的六自由度机械臂项目，最初为瑞萨电子设计竞赛开发。
 
----
-当前，项目正在迭代，最终版本预计在八月底整理完毕
----
+本仓库包含机械结构、PCB、嵌入式固件、运动学工具和 UI 资源。欢迎参考其中的设计与代码
+
+**⚠ 警告：本仓库软件资源仅供参考**
 
 [English Document](README.md)
 
@@ -13,85 +12,84 @@
 
 ## 项目简介
 
-ArmSync 是一款 3D 打印机械臂，具有以下特点：
+ArmSync 是一款以 PLA 3D 打印件为主体的六自由度机械臂，包含 J1～J6 六个机械关节，可配置独立的末端执行器。
 
-- **7 自由度**：肩部（3DOF）+ 肘部（1DOF）+ 腕部（2DOF）+ 夹爪（1DOF）
-- **双 IMU 控制**：使用基于 IMU 的运动追踪进行无线主从操作
-- **CAN 总线步进电机**：配备高扭矩减速箱的精确控制
-- **设计负载**：约500g，适合轻量级抓取任务
+![ARM](./IMG_20260712_131320.jpg)
 
-## 技术参数
+![ARM](./IMG_20260726_022927.jpg)
+
+主要特点：
+
+- **六自由度**：J1 基座旋转、J2 肩部俯仰、J3 肩部偏航、J4 肘部、J5 腕部俯仰、J6 腕部旋转
+- **双 IMU 主从控制**：通过用户端 IMU 模块获取上臂和前臂姿态，并进行无线/串口主从控制
+- **步进电机执行器**：J1～J6 使用带减速器的步进电机和控制器
+- **可配置末端执行器**：3D资源中提供夹爪，也可以安装其他自定义末端执行器
+
+## 主要参数
 
 | 参数 | 数值 |
 |------|------|
-| 总自由度 | 7 |
-| 臂展 | ~50cm（前臂 30cm + 上臂 20cm）|
-| 负载能力 | 500g |
-| 控制方式 | 无线 IMU 遥操作 |
-| 执行器 | CAN 总线步进电机 + 减速箱 |
-| 材料 | PLA（3D 打印）|
+| 机械臂自由度 | 6（J1～J6） |
+| 臂展（含夹爪） | 约 610mm |
+| 末端目标负载 | 350g |
+| 控制接口 | CAN 总线 / 舵机信号 |
+| 电源 | 24VDC（步进电机）/ 5VDC（舵机） |
+| 结构材料 | PLA 3D 打印件 |
 
 ## 仓库结构
 
 ```
 ArmSync/
-├── Hardware/                   # 机械设计文件
-│   ├── 3D Files/               # CAD 文件
-│   │   ├── 3MF for printing/   # 可直接打印的 3MF 文件
-│   │   ├── SolidWorks 2026/    # 原始 CAD 文件
-│   │   └── STEP and STL/       # 导出格式
-│   ├── example_imgs/           # 组装示例图片 (J1-J7)
-│   ├── PCBs for Reference/     # 参考 PCB 文件
-│   │   ├── EasyEDA_LCEDA/      # 立创 EDA 工程文件
-│   │   └── Imgs/               # PCB 图片和原理图
-│   ├── Assembly Guide-zh-CN.md # 中文组装指南
-│   ├── Assembly Guide.md       # 英文组装指南
-│   ├── Parts BOM-zh-CN.md      # 中文零件清单
-│   ├── Parts BOM.md            # 英文零件清单
-│   ├── readme-zh-CN.md         # 硬件说明（中文）
-│   └── readme.md               # 硬件说明（英文）
-├── Software/                   # 固件和控制软件
-│   ├── Arm_vscode/             # 机械臂主控程序（RA6M5）
-│   ├── Ctrller_keil/           # 手部控制器程序（RA4M1）
-│   ├── IMU_keil/               # IMU 模块程序（RA4M1）
-│   ├── readme-zh-CN.md         # 软件说明（中文）
-│   └── readme.md               # 软件说明（英文）
-├── LICENSE                     # MIT 许可证
-├── README-zh-CN.md             # 本文档（中文）
-└── README.md                   # 本文档（英文）
+├── Hardware/                         # 机械结构、电气和装配资料
+│   ├── 3D Files/                     # 机械臂、夹爪和控制器 3D 模型
+│   │   ├── 3MF for printing/         # 可直接用于切片的 3MF 文件
+│   │   ├── SolidWorks 2026/          # SolidWorks 源文件
+│   │   ├── STEP and STL/             # STEP/STL 通用格式
+│   │   └── URDF/                     # ROS/Gazebo 模型
+│   ├── PCBs/                         # PCB 工程和图片
+│   ├── example_imgs/                 # J1～J6、EE 装配示意图
+│   ├── Parts BOM-zh-CN.md            # 中文物料清单
+│   ├── Assembly Guide-zh-CN.md       # 中文装配指南
+│   └── readme-zh-CN.md               # 硬件文档
+├── Software/                         # 固件、运动学工具和 UI 资源
+│   ├── Arm-Side/                     # RA8P1 机械臂端主控工程
+│   │   ├── Solution/                 # e² studio Solution、CPU0、CPU1 工程
+│   │   ├── arm_ik_test.py            # Jetson 输入的 IK 可视化工具
+│   │   ├── arm_angle_view.py         # 关节角度和空间向量可视化工具
+│   │   └── Scripts README-zh-CN.md   # Python 工具使用说明
+│   ├── User-Side/                    # RA4M1 用户端控制器和 IMU 工程
+│   ├── Deprecated Project Folders/   # 已废弃的旧工程
+│   ├── UI/                           # HMI、界面布局和字体资源
+│   └── readme-zh-CN.md               # 软件文档
+├── Helpful Docs/                     # 芯片、NPU、HMI 和双核开发参考资料
+├── LICENSE                           
+├── README-zh-CN.md                   
+└── README.md                         
 ```
 
 ## 快速开始
 
-### 硬件文档
+### 硬件
 
-- [零件清单](Hardware/Parts%20BOM-zh-CN.md) - 所有需要的零件和一些供应商信息
-- [组装指南](Hardware/Assembly%20Guide-zh-CN.md) - 对组装步骤的简要说明
-- [硬件说明](Hardware/readme-zh-CN.md) - 机械结构设计说明
+- [硬件文档](Hardware/readme-zh-CN.md)：硬件规格、目录结构和资源说明
+- [物料清单](Hardware/Parts%20BOM-zh-CN.md)：电机、减速器、紧固件和开发工具
+- [装配指南](Hardware/Assembly%20Guide-zh-CN.md)：机械臂装配、夹爪、同步带和接线
+- [3D 文件](Hardware/3D%20Files/)：SolidWorks、STEP/STL、3MF 和 URDF 文件
+- [PCB 资料](Hardware/PCBs/)：控制器、IMU 和 RA8P1 扩展板相关资料
 
-### 打印零件
+打印机械结构时，可以使用：
 
-1. 下载 `Hardware/3D Files/3MF for printing/Renesas ArmSync.3mf`
-2. 导入 Bambu Studio 或其他支持 3MF 的切片软件
-3. 检查打印设置并根据你的打印机进行调整
-4. 打印所有零件
+`Hardware/3D Files/3MF for printing/Renesas ArmSync.3mf`
 
-对于其他 CAD 软件，请使用 `STEP and STL/` 文件夹中的文件。
-
-### PCB
-
-参考 `Hardware/PCBs for Reference/` 中的立创 EDA 工程文件和图片。仅供参考。
+也可以根据需要使用 `STEP and STL/` 中的通用模型，或在 `SolidWorks 2026/` 中修改源文件。
 
 ### 软件
 
-参考 `Software/readme-zh-CN.md` 了解三个部分的工程。
+阅读 [软件文档](Software/readme-zh-CN.md)，确认当前工程结构和工具链：
 
-⚠️ **注意**：软件代码仅为记录目的，由于比赛期间时间紧迫，代码写得较为仓促，参考价值有限。
+- RA8P1 主控使用 e² studio，并由 Solution、CPU0 和 CPU1 三个工程共同组成
+- RA4M1 控制器和 IMU 使用 CMake、Ninja 和 VS Code
+- 机械臂端 Python 工具使用说明见 [Scripts README-zh-CN.md](Software/Arm-Side/Scripts%20README-zh-CN.md)
+- 机械臂坐标系和运动学参数见 [Armsync_IK_Model.md](Software/Arm-Side/Armsync_IK_Model.md)
 
-## 许可证
-
-MIT License - 详见 [LICENSE](LICENSE) 文件
-
-## 致谢
-
-感谢瑞萨电子提供的技术支持和竞赛平台。
+请确认 FSP、Arm GCC 工具链、串口配置和实际硬件版本相匹配。
