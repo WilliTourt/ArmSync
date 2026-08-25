@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="ArmSync URDF">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="0.029997 0.48059 0.0081821"
+        rpy="0 0 0" />
+      <mass
+        value="4" />
+      <inertia
+        ixx="0.018154"
+        ixy="2.5231E-08"
+        ixz="1.8082E-07"
+        iyy="0.0012264"
+        iyz="4.0237E-05"
+        izz="0.017859" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89412 0.89412 0.89412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Shoulder">
+    <inertial>
+      <origin
+        xyz="-0.067387 0.0007846 -0.00046848"
+        rpy="0 0 0" />
+      <mass
+        value="1.139" />
+      <inertia
+        ixx="0.0004569"
+        ixy="1.7072E-06"
+        ixz="-3.1308E-06"
+        iyy="0.00042211"
+        iyz="9.4418E-06"
+        izz="0.0006882" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/Shoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/Shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Shoulder"
+    type="continuous">
+    <origin
+      xyz="0.03 -0.0817 0.6345"
+      rpy="3.1416 0 1.5708" />
+    <parent
+      link="base" />
+    <child
+      link="Shoulder" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UpperArm_Up">
+    <inertial>
+      <origin
+        xyz="-0.038351 -0.080037 0.00036"
+        rpy="0 0 0" />
+      <mass
+        value="0.726" />
+      <inertia
+        ixx="0.00021816"
+        ixy="3.182E-05"
+        ixz="-3.9569E-06"
+        iyy="8.2751E-05"
+        iyz="7.2168E-06"
+        izz="0.00022442" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/UpperArm_Up.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/UpperArm_Up.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UpperArm_Up"
+    type="continuous">
+    <origin
+      xyz="-0.1093 -0.0024984 0"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="Shoulder" />
+    <child
+      link="UpperArm_Up" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.5236"
+      upper="0.5236"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UpperArm_Down">
+    <inertial>
+      <origin
+        xyz="-0.010417 -0.063997 0.005895"
+        rpy="0 0 0" />
+      <mass
+        value="0.81" />
+      <inertia
+        ixx="0.00019894"
+        ixy="1.1973E-06"
+        ixz="3.9696E-05"
+        iyy="0.00018245"
+        iyz="-1.3679E-06"
+        izz="0.00025006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/UpperArm_Down.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.67059 0.63922 0.61961 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/UpperArm_Down.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UpperArm_Down"
+    type="continuous">
+    <origin
+      xyz="-0.026302 -0.16841 0"
+      rpy="-3.1416 -1.0387 3.1416" />
+    <parent
+      link="UpperArm_Up" />
+    <child
+      link="UpperArm_Down" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="ForeArm_Up">
+    <inertial>
+      <origin
+        xyz="-0.019407 -0.018604 -0.053696"
+        rpy="0 0 0" />
+      <mass
+        value="0.372" />
+      <inertia
+        ixx="0.00010102"
+        ixy="6.3774E-06"
+        ixz="-1.9645E-05"
+        iyy="0.00010426"
+        iyz="1.7652E-05"
+        izz="5.3752E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/ForeArm_Up.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.67059 0.63922 0.61961 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/ForeArm_Up.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ForeArm_Up"
+    type="continuous">
+    <origin
+      xyz="0 -0.096088 0"
+      rpy="1.1144 0.90407 2.5831" />
+    <parent
+      link="UpperArm_Down" />
+    <child
+      link="ForeArm_Up" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.047"
+      upper="1.047"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="ForeArm_Down">
+    <inertial>
+      <origin
+        xyz="0.018432 0.065395 0.0029778"
+        rpy="0 0 0" />
+      <mass
+        value="0.6" />
+      <inertia
+        ixx="9.2915E-05"
+        ixy="-1.4642E-05"
+        ixz="-2.9637E-06"
+        iyy="7.1014E-05"
+        iyz="-2.3594E-06"
+        izz="0.00011072" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/ForeArm_Down.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.67059 0.63922 0.61961 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/ForeArm_Down.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ForeArm_Down"
+    type="continuous">
+    <origin
+      xyz="-0.031609 -0.00425 -0.087577"
+      rpy="-1.9073 -0.083931 -1.806" />
+    <parent
+      link="ForeArm_Up" />
+    <child
+      link="ForeArm_Down" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Wrist">
+    <inertial>
+      <origin
+        xyz="0.029441 -0.0051358 -0.050997"
+        rpy="0 0 0" />
+      <mass
+        value="0.11493" />
+      <inertia
+        ixx="3.6098E-05"
+        ixy="-1.5617E-06"
+        ixz="-9.489E-07"
+        iyy="1.8954E-05"
+        iyz="3.9916E-06"
+        izz="3.7196E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/Wrist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.94902 0.9098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://ArmSync URDF/meshes/Wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wrist"
+    type="continuous">
+    <origin
+      xyz="0 0.092393 0"
+      rpy="2.8738 0.92369 1.3553" />
+    <parent
+      link="ForeArm_Down" />
+    <child
+      link="Wrist" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.047"
+      upper="1.047"
+      effort="100"
+      velocity="1" />
+  </joint>
+</robot>
