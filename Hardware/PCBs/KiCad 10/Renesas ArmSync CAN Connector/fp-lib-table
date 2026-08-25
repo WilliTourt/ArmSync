@@ -1,0 +1,5 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Renesas ArmSync CAN Connector") (type "KiCad") (uri "E:/Folders/Documents/Dev/PCBs & Circuits/KiCad Projects/Renesas ArmSync CAN Connector/Renesas ArmSync CAN Connector.pretty") (options "") (descr ""))
+	(lib (name "Renesas Icon") (type "KiCad") (uri "E:/Folders/Documents/Dev/PCBs & Circuits/KiCad Projects/Renesas ArmSync CAN Connector/Renesas ArmSync CAN Connector") (options "") (descr ""))
+)
