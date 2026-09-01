@@ -4,6 +4,8 @@ ArmSync is a six-degree-of-freedom robotic arm project using a dual-IMU master-s
 
 This repository contains mechanical design files, PCBs, embedded firmware, kinematics tools, and UI resources. You are welcome to reference the designs and code, but please note that the project is still being organized and iterated.
 
+> **The design report PDF file is here：[Design Report](./Helpful%20Docs/设计报告%20Design%20Report.pdf)**
+
 **⚠ WARNING: The software resources in this repository are provided for reference only.**
 
 [中文文档](README-zh-CN.md)

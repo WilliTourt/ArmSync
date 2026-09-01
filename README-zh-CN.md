@@ -4,6 +4,8 @@ ArmSync 是一款采用双 IMU 主从无线遥操作方案的六自由度机械�
 
 本仓库包含机械结构、PCB、嵌入式固件、运动学工具和 UI 资源。欢迎参考其中的设计与代码
 
+> **设计报告pdf文档在此：[设计报告](./Helpful%20Docs/设计报告%20Design%20Report.pdf)**
+
 **⚠ 警告：本仓库软件资源仅供参考**
 
 [English Document](README.md)
